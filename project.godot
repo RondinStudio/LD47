@@ -30,6 +30,8 @@ Events="*res://src/globals/Events.gd"
 
 [display]
 
+window/size/width=1920
+window/size/height=1080
 window/stretch/mode="viewport"
 window/stretch/aspect="keep"
 

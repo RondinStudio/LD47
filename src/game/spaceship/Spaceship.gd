@@ -8,10 +8,12 @@ var positionToFollow
 const MOVE_SPEED = 400
 var velocity = Vector2()
 var applied_forces = Vector2()
-const ACCELERATION = 0.1
-var acceleration_remainder = 0
+const ACCELERATION = 0.03
 onready var planete = get_parent().get_node("Planet")
 #const MINIMUM_SPEED = 150
+const MICRO_ACCELERATION = 0.0000000000000001
+var speed = 0
+const MAX_SPEED = 1.4
 
 var raycast_to_planete = RayCast2D.new()
 var raycast_angledroit = RayCast2D.new()
@@ -29,10 +31,9 @@ func _physics_process(delta):
 		var movedir = Vector2(1,0).rotated(rotation)
 		print("movedir =", movedir)
 		if Input.is_action_pressed("ui_up"):
-			velocity = velocity.linear_interpolate(movedir , ACCELERATION)
-			acceleration_remainder += ACCELERATION
-		else:
-			velocity = movedir * acceleration_remainder
+			speed += ACCELERATION
+			speed = clamp(speed, 0, MAX_SPEED)
+		velocity = speed * movedir
 		var movement = ((velocity * MOVE_SPEED)+ applied_forces) * delta 
 		look_at(position + movement)
 #		print("movement = ", movement)
@@ -40,7 +41,7 @@ func _physics_process(delta):
 		applied_forces = Vector2(0,0)
 #		print("movement =", movement)
 	if orbited == true:
-		acceleration_remainder = 0
+		speed = 0
 		self.position = positionToFollow.global_position
 		var vect = position.direction_to(planete.position)
 		var tangent = vect.tangent() * 50
@@ -56,7 +57,7 @@ func _physics_process(delta):
 			positionToFollow = null
 			var movement = ((tangent.normalized() * MOVE_SPEED/2)+ applied_forces) * delta 
 			move_and_collide(movement)
-			velocity = tangent.normalized()/2
+			speed = 0.5
 			
 #	print("rotation = ", rotation_degrees)
 	
