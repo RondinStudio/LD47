@@ -4,20 +4,26 @@ export var rotation_speed = PI
 var orbiting = false
 var speed = 0.3  # rotation speed (in radians)
 var radius = 20  # desired orbit radius
+var gaucheDroite = true
 
 
 func _ready():
 	pass
 	
 func _physics_process(delta):
-	print($Pivot/OrbitPosition.global_position)
-	$Pivot.rotation += speed * delta
-	print($Pivot.rotation)
+	if gaucheDroite == true:
+		$Pivot.rotation += speed * delta
+	else:
+		$Pivot.rotation -= speed * delta
 
 func _on_Gravity_body_entered(body):
 	if (body.is_in_group("joueur")):
-		print("c'est un joueur")
-		$Pivot/OrbitPosition.global_position = body.global_position 
+		$Pivot/OrbitPosition.global_position = body.global_position
+#		var VectorEntreDeux = global_position-body.global_position
+#		print(VectorEntreDeux)
+#		var movedir = Vector2(1,0).rotated(body.rotation)
+#		print(movedir)
+#		print(VectorEntreDeux.angle_to(movedir))
 		body.orbit($Pivot/OrbitPosition)
 
 

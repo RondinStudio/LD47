@@ -11,8 +11,8 @@ func _ready():
 	set_process(true)
 
 func _physics_process(delta):
+	var velocity = Vector2()  # The player's movement vector.
 	if orbited == false:
-		var velocity = Vector2()  # The player's movement vector.
 		if Input.is_action_pressed("ui_right"):
 			velocity.x += 1
 		if Input.is_action_pressed("ui_left"):
@@ -29,6 +29,7 @@ func _physics_process(delta):
 		if Input.is_action_pressed("space"):
 			orbited = false
 			positionToFollow = null
+
 
 func orbit(toFollow):
 	positionToFollow = toFollow
