@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Robot patrouilleur.png-979ecc326d79b615b4cb4879e466b697.stex"
+path="res://.import/Asteroide 3.png-f6a31f12ac34ec0de0a8998b0e4e8159.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/graphisme/Robot patrouilleur.png"
-dest_files=[ "res://.import/Robot patrouilleur.png-979ecc326d79b615b4cb4879e466b697.stex" ]
+source_file="res://assets/graphisme/Asteroide 3.png"
+dest_files=[ "res://.import/Asteroide 3.png-f6a31f12ac34ec0de0a8998b0e4e8159.stex" ]
 
 [params]
 

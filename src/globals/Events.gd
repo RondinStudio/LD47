@@ -14,3 +14,5 @@ extends Node
 #Comment envoyer un signal (nom du signal, attribut1, attribut2, ...)
 #Events.emit_signal("new_food_needed_per_tick", food_needed_per_tick)
 ###
+
+signal wait_for_espace()

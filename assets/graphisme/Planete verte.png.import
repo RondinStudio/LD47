@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Robot patrouilleur.png-979ecc326d79b615b4cb4879e466b697.stex"
+path="res://.import/Planete verte.png-14e6fbcdac2dadee0dc49224ca35ee5e.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/graphisme/Robot patrouilleur.png"
-dest_files=[ "res://.import/Robot patrouilleur.png-979ecc326d79b615b4cb4879e466b697.stex" ]
+source_file="res://assets/graphisme/Planete verte.png"
+dest_files=[ "res://.import/Planete verte.png-14e6fbcdac2dadee0dc49224ca35ee5e.stex" ]
 
 [params]
 

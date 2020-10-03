@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Robot patrouilleur.png-979ecc326d79b615b4cb4879e466b697.stex"
+path="res://.import/Trou noir 2.png-e2ee1ee818d3200c8b11a5ff3e0662d8.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/graphisme/Robot patrouilleur.png"
-dest_files=[ "res://.import/Robot patrouilleur.png-979ecc326d79b615b4cb4879e466b697.stex" ]
+source_file="res://assets/graphisme/Trou noir 2.png"
+dest_files=[ "res://.import/Trou noir 2.png-e2ee1ee818d3200c8b11a5ff3e0662d8.stex" ]
 
 [params]
 

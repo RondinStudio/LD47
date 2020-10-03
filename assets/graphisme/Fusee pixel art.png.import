@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Robot patrouilleur.png-979ecc326d79b615b4cb4879e466b697.stex"
+path="res://.import/Fusee pixel art.png-4317fab811527acdbb623bdf71f1fb3c.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/graphisme/Robot patrouilleur.png"
-dest_files=[ "res://.import/Robot patrouilleur.png-979ecc326d79b615b4cb4879e466b697.stex" ]
+source_file="res://assets/graphisme/Fusee pixel art.png"
+dest_files=[ "res://.import/Fusee pixel art.png-4317fab811527acdbb623bdf71f1fb3c.stex" ]
 
 [params]
 
