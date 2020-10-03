@@ -11,7 +11,6 @@ colors = PoolColorArray( 0.187012, 0.185551, 0.185551, 1, 0.256836, 0.255833, 0.
 [node name="smoke" type="Node2D"]
 
 [node name="CPUParticles2D" type="CPUParticles2D" parent="."]
-position = Vector2( 191.724, 73.9989 )
 amount = 250
 speed_scale = 0.25
 randomness = 0.14
