@@ -11,4 +11,3 @@ rotation = 1.3631
 
 [node name="Lune1" parent="PivotLune" index="0" instance=ExtResource( 2 )]
 position = Vector2( -139.895, 109.774 )
-scale = Vector2( 1, 1 )
