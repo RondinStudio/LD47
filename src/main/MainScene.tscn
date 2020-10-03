@@ -15,12 +15,16 @@
 [node name="MainScene" type="Node2D"]
 script = ExtResource( 3 )
 etoile = ExtResource( 11 )
+nb_etoile = 40
 
 [node name="Background" type="ColorRect" parent="."]
 margin_left = -6.0
 margin_right = 3583.0
 margin_bottom = 2129.0
 color = Color( 0, 0, 0, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="Planet" parent="." instance=ExtResource( 2 )]
 position = Vector2( 766.715, 280.177 )
@@ -66,3 +70,8 @@ position = Vector2( 292.632, 455.766 )
 
 [node name="Asteroids5" parent="." instance=ExtResource( 10 )]
 position = Vector2( 270.769, 517.992 )
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.02
+autostart = true
+[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
