@@ -1,0 +1,29 @@
+[gd_scene load_steps=3 format=2]
+
+[sub_resource type="Curve" id=1]
+max_value = 3.0
+_data = [ Vector2( 0, 3 ), 0.0, 0.0, 0, 0, Vector2( 0.856322, 1.24432 ), 0.0, 0.0, 0, 0 ]
+
+[sub_resource type="Gradient" id=2]
+offsets = PoolRealArray( 0, 0.794702, 1 )
+colors = PoolColorArray( 0.187012, 0.185551, 0.185551, 1, 0.256836, 0.255833, 0.255833, 1, 0.414063, 0.414063, 0.414063, 1 )
+
+[node name="smoke" type="Node2D"]
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="."]
+amount = 250
+speed_scale = 0.25
+randomness = 0.14
+lifetime_randomness = 0.14
+emission_shape = 3
+emission_points = PoolVector2Array( 0, 0, 1, 0, 2, 0, 3, 0, 4, 0, 5, 0, 7, 0, 8, 0, 10, 0, 12, 0, 14, 0, 15, 0, 18, 0 )
+emission_colors = PoolColorArray(  )
+direction = Vector2( 0, 0 )
+spread = 90.0
+gravity = Vector2( 0, -30 )
+initial_velocity = 20.0
+linear_accel = -65.62
+linear_accel_random = 0.5
+scale_amount_random = 0.2
+scale_amount_curve = SubResource( 1 )
+color_ramp = SubResource( 2 )
