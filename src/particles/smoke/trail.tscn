@@ -1,0 +1,33 @@
+[gd_scene load_steps=3 format=2]
+
+[sub_resource type="Curve" id=1]
+min_value = -200.0
+max_value = 200.0
+_data = [ Vector2( 0, 1 ), 0.0, 0.0, 0, 0, Vector2( 0.798851, 6.81818 ), 355.909, 355.909, 0, 0, Vector2( 1, 97.7273 ), 0.0, 0.0, 0, 0 ]
+
+[sub_resource type="Gradient" id=2]
+offsets = PoolRealArray( 0, 0.192053, 1 )
+colors = PoolColorArray( 0, 0, 0, 1, 0.188477, 0.18774, 0.18774, 1, 1, 1, 1, 1 )
+
+[node name="trail" type="Node2D"]
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="."]
+rotation = -0.270526
+amount = 50
+lifetime = 25.0
+speed_scale = 1.6
+explosiveness = 0.35
+randomness = 0.02
+lifetime_randomness = 0.22
+direction = Vector2( 0, 0 )
+spread = 66.29
+gravity = Vector2( 20, -98 )
+initial_velocity_random = 0.5
+linear_accel = 10.0
+linear_accel_random = 0.12
+tangential_accel = -100.0
+tangential_accel_random = 0.18
+tangential_accel_curve = SubResource( 1 )
+damping = 31.35
+damping_random = 0.08
+color_ramp = SubResource( 2 )
