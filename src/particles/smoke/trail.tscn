@@ -6,8 +6,13 @@ max_value = 200.0
 _data = [ Vector2( 0, 1 ), 0.0, 0.0, 0, 0, Vector2( 0.798851, 6.81818 ), 355.909, 355.909, 0, 0, Vector2( 1, 97.7273 ), 0.0, 0.0, 0, 0 ]
 
 [sub_resource type="Gradient" id=2]
+<<<<<<< Updated upstream
 offsets = PoolRealArray( 0, 0.192053, 1 )
 colors = PoolColorArray( 0, 0, 0, 1, 0.188477, 0.18774, 0.18774, 1, 1, 1, 1, 1 )
+=======
+offsets = PoolRealArray( 0, 0.768212, 1 )
+colors = PoolColorArray( 1, 0, 0, 1, 0.761719, 0.62057, 0.351105, 1, 1, 1, 1, 1 )
+>>>>>>> Stashed changes
 
 [node name="trail" type="Node2D"]
 
