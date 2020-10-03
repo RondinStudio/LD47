@@ -12,6 +12,7 @@ func _ready():
 func _physics_process(delta):
 	$Pivot.rotation += speed * delta
 
+
 func _on_Gravity_body_entered(body):
 	if (body.is_in_group("joueur")):
 		$Pivot/OrbitPosition.global_position = body.global_position 
