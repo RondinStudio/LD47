@@ -1,3 +1,4 @@
+
 [gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://assets/graphisme/Fusee pixel art.png" type="Texture" id=1]
@@ -74,3 +75,4 @@ anims/Moving = SubResource( 3 )
 [node name="trail" parent="." instance=ExtResource( 5 )]
 position = Vector2( -46.2494, 1.6818 )
 rotation = -0.523599
+
