@@ -30,8 +30,10 @@ func _physics_process(delta):
 		print("movedir =", movedir)
 		if Input.is_action_pressed("ui_up"):
 			velocity = velocity.linear_interpolate(movedir , ACCELERATION)
+			$AnimationPlayer.play("Moving")
 		else:
 			velocity = velocity.rotated(rotation)
+			$AnimationPlayer.play("Idle")
 		var movement = ((velocity * MOVE_SPEED)+ applied_forces) * delta 
 		look_at(position + movement)
 #		print("movement = ", movement)
@@ -39,6 +41,7 @@ func _physics_process(delta):
 		applied_forces = Vector2(0,0)
 #		print("movement =", movement)
 	if orbited == true:
+		$AnimationPlayer.play("Idle")
 		self.position = positionToFollow.global_position
 		var vect = position.direction_to(planete.position)
 		var tangent = vect.tangent() * 50
