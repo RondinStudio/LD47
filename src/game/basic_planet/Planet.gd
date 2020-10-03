@@ -10,9 +10,10 @@ func _ready():
 	pass
 	
 func _physics_process(delta):
-	print($Pivot/OrbitPosition.global_position)
 	$Pivot.rotation += speed * delta
+	$PivotLune.rotation += speed * delta
 	print($Pivot.rotation)
+
 
 func _on_Gravity_body_entered(body):
 	if (body.is_in_group("joueur")):

@@ -21,11 +21,9 @@ _global_script_class_icons={
 [application]
 
 config/name="LD47"
-<<<<<<< Updated upstream
+
 run/main_scene="res://src/main/MainScene.tscn"
-=======
-run/main_scene="res://src/game/Lunes/1lune.tscn"
->>>>>>> Stashed changes
+
 config/icon="res://icon.png"
 
 [display]
