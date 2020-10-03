@@ -1,17 +1,19 @@
 extends Node2D
 
+onready var path_follow = get_parent()
+
 export (int) var RADIUS = 200
-export (int) var FORCE = 10
+export (int) var FORCE = 5
 var player
 var apply_forces = false
-
+export var speed = 100
 
 func _ready():
 	$Aura/attraction.shape.radius = RADIUS
-	$AnimationPlayer.play("Rotate")
 
 
 func _physics_process(delta):
+	MovementLoop(delta)
 	# Si le vaisseau est dans la zone d'attraction du trou noir, il subit de nouvelles forces.
 	if apply_forces:
 		# La force d'attraction dépend de la distance vaisseau - trou noir.
@@ -23,6 +25,10 @@ func _physics_process(delta):
 		var added_velocity = attraction_direction * (pull_force * FORCE)
 		player.applied_forces += added_velocity
 
+func MovementLoop(delta):
+	var prepos = path_follow.get_global_position()
+	path_follow.set_offset(path_follow.get_offset() + speed*delta)
+	
 func _on_Aura_body_entered(body):
 	if body.name == "Spaceship":
 		player = body
