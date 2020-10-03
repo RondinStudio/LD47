@@ -1,17 +1,12 @@
 extends KinematicBody2D
 
 var orbited = false
-var radius = 30
-var _centre
-var _angle = 0
 var positionToFollow
-const MOVE_SPEED = 1000
+const MOVE_SPEED = 400
 var velocity = Vector2()
 var applied_forces = Vector2()
 const ACCELERATION = 0.03
 onready var planete = get_parent().get_node("Planet")
-#const MINIMUM_SPEED = 150
-const MICRO_ACCELERATION = 0.0000000000000001
 var speed = 0
 const MAX_SPEED = 1.4
 
@@ -31,7 +26,7 @@ func _physics_process(delta):
 #		print("rotation =", rotation)
 		var movedir = Vector2(1,0).rotated(rotation)
 		print("movedir =", movedir)
-		if Input.is_action_pressed("ui_up"):
+		if Input.is_action_pressed("space"):
 			$AnimationPlayer.play("Moving")
 			speed += ACCELERATION
 			speed = clamp(speed, 0, MAX_SPEED)

@@ -11,7 +11,7 @@ radius = 37.7478
 
 [node name="PlanetGreen" type="Node2D"]
 script = ExtResource( 2 )
-speed = 100000.0
+speed = 1.0
 
 [node name="Sprite" type="Sprite" parent="."]
 texture = ExtResource( 1 )
