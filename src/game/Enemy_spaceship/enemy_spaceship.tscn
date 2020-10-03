@@ -2,7 +2,9 @@
 
 [ext_resource path="res://icon.png" type="Texture" id=2]
 
+
 [sub_resource type="GDScript" id=1]
+
 script/source = "extends KinematicBody2D
 
 onready var path_follow = get_parent()
@@ -38,6 +40,7 @@ func _process(delta):
 radius = 25.0
 
 [node name="Enemy_vaisseau" type="KinematicBody2D"]
+
 script = SubResource( 1 )
 
 [node name="Sprite" type="Sprite" parent="."]
