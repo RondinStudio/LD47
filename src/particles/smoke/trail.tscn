@@ -6,15 +6,17 @@ max_value = 200.0
 _data = [ Vector2( 0, 1 ), 0.0, 0.0, 0, 0, Vector2( 0.798851, 6.81818 ), 355.909, 355.909, 0, 0, Vector2( 1, 97.7273 ), 0.0, 0.0, 0, 0 ]
 
 [sub_resource type="Gradient" id=2]
-offsets = PoolRealArray( 0, 0.233333, 0.486667, 1 )
-colors = PoolColorArray( 1, 0, 0, 1, 0.0666667, 0.0666667, 0.0666667, 1, 0.486667, 0.486667, 0.486667, 1, 1, 1, 1, 1 )
+
+offsets = PoolRealArray( 0, 0.423841, 1 )
+colors = PoolColorArray( 1, 0, 0, 1, 0.761719, 0.62057, 0.351105, 1, 1, 1, 1, 1 )
+
 
 [node name="trail" type="Node2D"]
 
 [node name="CPUParticles2D" type="CPUParticles2D" parent="."]
 rotation = -0.270526
-amount = 50
-lifetime = 25.0
+amount = 200
+lifetime = 4.0
 speed_scale = 1.6
 explosiveness = 0.35
 randomness = 0.02
