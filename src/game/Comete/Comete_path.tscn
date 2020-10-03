@@ -1,7 +1,6 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=3 format=2]
 
-[ext_resource path="res://src/game/Blackhole/blackhole.tscn" type="PackedScene" id=1]
-[ext_resource path="res://src/game/Comete/Comet.gd" type="Script" id=2]
+[ext_resource path="res://src/game/Comete/Comete.tscn" type="PackedScene" id=1]
 
 [sub_resource type="Curve2D" id=1]
 _data = {
@@ -13,7 +12,6 @@ curve = SubResource( 1 )
 
 [node name="PathFollow2D" type="PathFollow2D" parent="."]
 position = Vector2( 17.3044, 93.7309 )
-rotation = -0.026848
+rotation = -0.0268421
 
-[node name="Comète" parent="PathFollow2D" instance=ExtResource( 1 )]
-script = ExtResource( 2 )
+[node name="Comete" parent="PathFollow2D" instance=ExtResource( 1 )]
