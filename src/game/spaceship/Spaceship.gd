@@ -10,22 +10,17 @@ onready var planete = get_parent().get_node("Planet")
 var speed = 0
 const MAX_SPEED = 1.4
 
-var raycast_to_planete = RayCast2D.new()
-var raycast_angledroit = RayCast2D.new()
-
+var movement = Vector2(0, 0)
+var direction_tangent = 1
 
 func _ready():
-	set_process(true)
-	add_child(raycast_to_planete)
-	add_child(raycast_angledroit)
+	pass
 	
 	
 func _physics_process(delta):
 	var velocity = Vector2()  # The player's movement vector.
 	if orbited == false:
-#		print("rotation =", rotation)
 		var movedir = Vector2(1,0).rotated(rotation)
-		print("movedir =", movedir)
 		if Input.is_action_pressed("space"):
 			$AnimationPlayer.play("Moving")
 			speed += ACCELERATION
@@ -33,12 +28,10 @@ func _physics_process(delta):
 		else:
 			$AnimationPlayer.play("Idle")
 		velocity = speed * movedir
-		var movement = ((velocity * MOVE_SPEED)+ applied_forces) * delta 
+		movement = ((velocity * MOVE_SPEED)+ applied_forces) * delta 
 		look_at(position + movement)
-#		print("movement = ", movement)
 		move_and_collide(movement)
 		applied_forces = Vector2(0,0)
-#		print("movement =", movement)
 	if orbited == true:
 		$AnimationPlayer.play("Idle")
 		speed = 0
@@ -46,25 +39,19 @@ func _physics_process(delta):
 		var vect = position.direction_to(planete.position)
 		var tangent = vect.tangent() * 50
 		
-		raycast_to_planete.cast_to = vect*50
-		raycast_angledroit.cast_to = tangent
-		
-		var position_to_look_at = position + tangent 
+		var position_to_look_at = position + tangent * direction_tangent
 		look_at(position_to_look_at)
 		
 		if Input.is_action_pressed("space"):
 			orbited = false
 			positionToFollow = null
-			var movement = ((tangent.normalized() * MOVE_SPEED/2)+ applied_forces) * delta 
+			movement = ((tangent.normalized() * MOVE_SPEED/2)+ applied_forces) * delta 
 			move_and_collide(movement)
 			speed = 0.5
-			
-#	print("rotation = ", rotation_degrees)
-	
 
-
-func orbit(toFollow):
+func orbit(toFollow , direction):
 	positionToFollow = toFollow
+	direction_tangent = direction
 	orbited = true
 
 func desorbit():
