@@ -1,14 +1,18 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://src/game/spaceship/Spaceship.tscn" type="PackedScene" id=1]
 [ext_resource path="res://src/game/basic_planet/Planet.tscn" type="PackedScene" id=2]
 [ext_resource path="res://src/main/MainScene.gd" type="Script" id=3]
+[ext_resource path="res://src/game/Blackhole/blackhole.tscn" type="PackedScene" id=4]
 
 [node name="MainScene" type="Node2D"]
 script = ExtResource( 3 )
 
 [node name="Planet" parent="." instance=ExtResource( 2 )]
-position = Vector2( 366.69, 194.457 )
+position = Vector2( 354.573, 380.379 )
 
 [node name="Spaceship" parent="." instance=ExtResource( 1 )]
-position = Vector2( 94.4504, 180.964 )
+position = Vector2( 112.988, 250.742 )
+
+[node name="Trou noir" parent="." instance=ExtResource( 4 )]
+position = Vector2( 793.87, 255.647 )

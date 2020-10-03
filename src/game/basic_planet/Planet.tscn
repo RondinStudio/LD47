@@ -30,6 +30,8 @@ shape = SubResource( 2 )
 [node name="Pivot" type="Node2D" parent="."]
 rotation = 1.3631
 
-[node name="OrbitPosition" type="Position2D" parent="Pivot"]
-position = Vector2( -139.895, 109.774 )
+[node name="OrbitPosition" type="Sprite" parent="Pivot"]
+position = Vector2( -125.043, 124.935 )
+scale = Vector2( 0.381177, 0.368295 )
+texture = ExtResource( 1 )
 [connection signal="body_entered" from="Gravity" to="." method="_on_Gravity_body_entered"]
