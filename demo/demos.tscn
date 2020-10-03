@@ -30,6 +30,9 @@ margin_top = -150.0
 margin_right = 256.0
 margin_bottom = 150.0
 rect_min_size = Vector2( 512, 300 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="text_interface_engine" type="ReferenceRect" parent="panel"]
 anchor_right = 1.0
