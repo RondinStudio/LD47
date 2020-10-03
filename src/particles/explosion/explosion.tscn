@@ -6,7 +6,7 @@ colors = PoolColorArray( 1, 1, 1, 1, 1, 0, 0, 1, 1, 0.585938, 0, 1, 0.957031, 0.
 
 [node name="Explode" type="Node2D"]
 
-[node name="Particles2D" type="CPUParticles2D" parent="."]
+[node name="explosion" type="CPUParticles2D" parent="."]
 position = Vector2( 164.746, 85.2868 )
 amount = 130
 lifetime = 0.5
