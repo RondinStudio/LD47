@@ -6,7 +6,7 @@ var radius = 30
 var _centre
 var _angle = 0
 var positionToFollow
-const MOVE_SPEED = 150
+const MOVE_SPEED = 400
 var velocity = Vector2()
 var applied_forces = Vector2()
 const ACCELERATION = 0.1
@@ -31,7 +31,7 @@ func _physics_process(delta):
 		if Input.is_action_pressed("ui_up"):
 			velocity = velocity.linear_interpolate(movedir , ACCELERATION)
 		var movement = ((velocity * MOVE_SPEED)+ applied_forces) * delta 
-#		look_at(position + movement)
+		look_at(position + movement)
 #		print("movement = ", movement)
 		move_and_collide(movement)
 		applied_forces = Vector2(0,0)

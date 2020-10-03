@@ -1,7 +1,7 @@
 extends Node2D
 
 export (int) var RADIUS = 200
-export (int) var FORCE = 300
+export (int) var FORCE = 200
 var player
 var apply_forces = false
 

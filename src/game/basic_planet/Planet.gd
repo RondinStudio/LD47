@@ -2,7 +2,7 @@ extends Node2D
 
 export var rotation_speed = PI
 var orbiting = false
-var speed = 0.3  # rotation speed (in radians)
+var speed = 1  # rotation speed (in radians)
 var radius = 20  # desired orbit radius
 
 
