@@ -21,7 +21,9 @@ _global_script_class_icons={
 [application]
 
 config/name="LD47"
+
 run/main_scene="res://src/main/MainScene.tscn"
+
 config/icon="res://icon.png"
 
 [autoload]
