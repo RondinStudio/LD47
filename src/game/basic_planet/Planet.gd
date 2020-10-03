@@ -8,18 +8,15 @@ var rng = RandomNumberGenerator.new()
 
 func _ready():
 	rng.randomize()
-	speed = rng.randfn(0, 0.05)
+	rotate_speed = rng.randfn(0, 0.05)
 	set_process(true)
-
-func _process(delta):
-	self.rotation += speed * delta
 	
 func _physics_process(delta):
 	if gaucheDroite == true:
 		$Pivot.rotation += speed * delta
 	else:
 		$Pivot.rotation -= speed * delta
-	$Sprite.rotation += speed * delta
+	$Sprite.rotation += rotate_speed * delta
 
 func _on_Gravity_body_entered(body):
 	if (body.is_in_group("joueur")):
