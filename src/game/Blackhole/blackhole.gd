@@ -1,7 +1,7 @@
 extends Node2D
 
 export (int) var RADIUS = 200
-export (int) var FORCE = 200
+export (int) var FORCE = 5
 var player
 var apply_forces = false
 
@@ -15,7 +15,10 @@ func _physics_process(delta):
 	if apply_forces:
 		# La force d'attraction dépend de la distance vaisseau - trou noir.
 		var pull_force = inverse_lerp($Aura/attraction.shape.radius, 0, $Sprite.global_position.distance_to(player.position))
-		var attraction_direction = ($Aura.global_position - player.global_position).normalized()
+		if pull_force <= 0:
+			pull_force = 0
+		print(pull_force)
+		var attraction_direction = (($Aura.global_position) - (player.global_position)).normalized()
 		var added_velocity = attraction_direction * (pull_force * FORCE)
 		player.applied_forces += added_velocity
 

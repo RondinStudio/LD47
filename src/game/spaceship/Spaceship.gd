@@ -1,7 +1,6 @@
 extends KinematicBody2D
 
 var orbited = false
-var speed = 0.3
 var radius = 30
 var _centre
 var _angle = 0
@@ -10,6 +9,7 @@ const MOVE_SPEED = 400
 var velocity = Vector2()
 var applied_forces = Vector2()
 const ACCELERATION = 0.1
+var acceleration_remainder = 0
 onready var planete = get_parent().get_node("Planet")
 #const MINIMUM_SPEED = 150
 
@@ -30,6 +30,9 @@ func _physics_process(delta):
 		print("movedir =", movedir)
 		if Input.is_action_pressed("ui_up"):
 			velocity = velocity.linear_interpolate(movedir , ACCELERATION)
+			acceleration_remainder += ACCELERATION
+		else:
+			velocity = movedir * acceleration_remainder
 		var movement = ((velocity * MOVE_SPEED)+ applied_forces) * delta 
 		look_at(position + movement)
 #		print("movement = ", movement)
@@ -37,6 +40,7 @@ func _physics_process(delta):
 		applied_forces = Vector2(0,0)
 #		print("movement =", movement)
 	if orbited == true:
+		acceleration_remainder = 0
 		self.position = positionToFollow.global_position
 		var vect = position.direction_to(planete.position)
 		var tangent = vect.tangent() * 50

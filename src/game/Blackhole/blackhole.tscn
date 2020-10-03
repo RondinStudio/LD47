@@ -10,13 +10,16 @@ radius = 200.0
 radius = 35.0
 
 [node name="Trou noir" type="Node2D"]
+position = Vector2( 0.944946, -0.629959 )
 script = ExtResource( 2 )
+__meta__ = {
+"_edit_group_": true
+}
 
 [node name="Sprite" type="Sprite" parent="."]
 texture = ExtResource( 1 )
 
 [node name="Aura" type="Area2D" parent="."]
-position = Vector2( 0, -2 )
 
 [node name="attraction" type="CollisionShape2D" parent="Aura"]
 shape = SubResource( 1 )
