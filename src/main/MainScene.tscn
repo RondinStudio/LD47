@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://src/game/spaceship/Spaceship.tscn" type="PackedScene" id=1]
 [ext_resource path="res://src/game/basic_planet/PlanetYellow.tscn" type="PackedScene" id=2]
@@ -11,6 +11,7 @@
 [ext_resource path="res://src/game/asteroids/Asteroid2.tscn" type="PackedScene" id=9]
 [ext_resource path="res://src/game/asteroids/Asteroid3.tscn" type="PackedScene" id=10]
 [ext_resource path="res://assets/Star.tscn" type="PackedScene" id=11]
+[ext_resource path="res://src/UI/pause_popup.tscn" type="PackedScene" id=12]
 
 [node name="MainScene" type="Node2D"]
 script = ExtResource( 3 )
@@ -74,4 +75,7 @@ position = Vector2( 270.769, 517.992 )
 [node name="Timer" type="Timer" parent="."]
 wait_time = 0.02
 autostart = true
+
+[node name="pause_popup" parent="." instance=ExtResource( 12 )]
+visible = false
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
