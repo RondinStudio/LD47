@@ -1,0 +1,42 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://demo/Cave-Story.ttf" type="DynamicFontData" id=1]
+[ext_resource path="res://addons/GodotTIE/text_interface_engine.gd" type="Script" id=2]
+
+[sub_resource type="DynamicFont" id=1]
+size = 70
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 70
+font_data = ExtResource( 1 )
+
+[node name="Panel" type="Panel"]
+self_modulate = Color( 1, 1, 1, 0.631373 )
+margin_left = 26.0
+margin_top = 742.0
+margin_right = 1886.0
+margin_bottom = 1058.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="text_interface_engine" type="ReferenceRect" parent="."]
+margin_left = 17.0
+margin_top = 20.0
+margin_right = 1841.0
+margin_bottom = 301.0
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+FONT = SubResource( 1 )
+
+[node name="Label" type="Label" parent="."]
+margin_left = 1255.24
+margin_top = 225.657
+margin_right = 1837.24
+margin_bottom = 300.657
+custom_fonts/font = SubResource( 2 )
+align = 1
+valign = 1

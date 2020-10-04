@@ -1,9 +1,10 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://assets/graphisme/Pitchoune buste.png" type="Texture" id=1]
 [ext_resource path="res://addons/GodotTIE/text_interface_engine.gd" type="Script" id=2]
 [ext_resource path="res://src/UI/BasicDialogText.gd" type="Script" id=3]
 [ext_resource path="res://demo/Cave-Story.ttf" type="DynamicFontData" id=4]
+[ext_resource path="res://assets/graphisme/histoire/Fond vaisseau.png" type="Texture" id=5]
 
 [sub_resource type="DynamicFont" id=1]
 size = 70
@@ -26,17 +27,14 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="ColorRect" type="ColorRect" parent="."]
+[node name="ColorRect" type="TextureRect" parent="."]
 margin_top = -1.7818
 margin_right = 1917.0
 margin_bottom = 1082.22
-color = Color( 0, 0, 0, 1 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
+texture = ExtResource( 5 )
 
 [node name="Sprite" type="Sprite" parent="."]
-position = Vector2( 280, 470 )
+position = Vector2( 473, 470 )
 scale = Vector2( 1.5, 1.5 )
 texture = ExtResource( 1 )
 
