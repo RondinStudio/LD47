@@ -18,3 +18,5 @@ extends Node
 signal new_checkpoint(planete)
 
 signal player_death()
+
+signal end_of_level_reached()
