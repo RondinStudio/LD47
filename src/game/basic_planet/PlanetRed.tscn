@@ -19,6 +19,16 @@ lune_speed = 1.0
 [node name="Sprite" type="Sprite" parent="."]
 texture = ExtResource( 1 )
 
+[node name="SpriteDrapeau" type="Sprite" parent="Sprite"]
+visible = false
+position = Vector2( -0.749161, -133.349 )
+texture = ExtResource( 3 )
+
+[node name="SpriteBaseDrapeau" type="Sprite" parent="Sprite"]
+visible = false
+position = Vector2( -0.764341, -125.276 )
+texture = ExtResource( 4 )
+
 [node name="Gravity" type="Area2D" parent="."]
 collision_layer = 2
 
@@ -38,14 +48,4 @@ rotation = 1.3631
 position = Vector2( -161.837, 141.963 )
 
 [node name="PivotLune" type="Node2D" parent="."]
-
-[node name="SpriteDrapeau" type="Sprite" parent="."]
-visible = false
-position = Vector2( -0.749161, -133.349 )
-texture = ExtResource( 3 )
-
-[node name="SpriteBaseDrapeau" type="Sprite" parent="."]
-visible = false
-position = Vector2( -0.764341, -125.276 )
-texture = ExtResource( 4 )
 [connection signal="body_entered" from="Gravity" to="." method="_on_Gravity_body_entered"]

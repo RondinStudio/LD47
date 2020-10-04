@@ -31,14 +31,18 @@ func _physics_process(delta):
 		velocity = speed * movedir
 		movement = ((velocity * MOVE_SPEED)+ applied_forces) * delta 
 		look_at(position + movement)
-		move_and_collide(movement)
+		var collision = move_and_collide(movement)
+		print(collision)
+		if collision != null:
+			set_physics_process(false)
+			$AnimationPlayer.play("Death")
 		applied_forces = Vector2(0,0)
 	
 	if orbited == true:
 		if planete.already_checked == false :
 			if planete.is_checkpoint == true :
 				planete.already_checked = true
-				planete.get_node("SpriteDrapeau").show()
+				planete.get_node("Sprite/SpriteDrapeau").show()
 				Events.emit_signal("new_checkpoint", planete)
 			else :
 				planete.already_checked = true
@@ -58,6 +62,12 @@ func _physics_process(delta):
 			movement = ((tangent.normalized() * MOVE_SPEED/2)+ applied_forces) * delta 
 			move_and_collide(movement)
 			speed = 0.5
+
+func death():
+	Events.emit_signal("player_death")
+	print("death")
+	
+	# Lancer l'animation et arrêter le vaisseau pour éviter les collisions bizarres
 
 func orbit(planete_param, toFollow , direction):
 	planete = planete_param

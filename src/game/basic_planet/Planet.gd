@@ -15,7 +15,7 @@ func _ready():
 	rotate_speed = rng.randfn(0, 0.05)
 	set_process(true)
 	if is_checkpoint == true:
-		$SpriteBaseDrapeau.show()
+		$Sprite/SpriteBaseDrapeau.show()
 	
 func _physics_process(delta):
 	if gaucheDroite == true:

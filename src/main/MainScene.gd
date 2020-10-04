@@ -41,3 +41,4 @@ func on_new_checkpoint(planete):
 
 func on_player_death():
 	player.position = $spawn_position.position
+	player.set_physics_process(true)
