@@ -9,11 +9,15 @@ var pitchoune_tel = preload("res://assets/graphisme/histoire/FLYNN/Pitchoune bus
 var pitchoune_enerve = preload("res://assets/graphisme/histoire/FLYNN/Pitchoune enerve.png")
 var pitchoune_depite = preload("res://assets/graphisme/histoire/FLYNN/Pitchoune triste dépité.png")
 var sancheese = preload("res://assets/graphisme/histoire/Marguarita Sancheeze.png")
+var mec_louche = preload("res://assets/graphisme/histoire/Glurb.png")
+var mec_louche_pas_content = preload("res://assets/graphisme/histoire/Glurb pas content.png")
+var gaston = preload("res://assets/graphisme/histoire/Gaston.png")
 
 var sprites_dir = {"pitchoune": pitchoune, "pitchoune_triste": pitchoune_triste, \
 "pitchoune_bourre_content": pitchoune_bourre_content, "pitchoune_bourre_pas_content": pitchoune_bourre_pas_content,\
 "pitchoune_sunglasses": pitchoune_sunglasses, "pitchoune_tel": pitchoune_tel, \
-"pitchoune_enerve": pitchoune_enerve, "pitchoune_depite": pitchoune_depite, "sancheese": sancheese
+"pitchoune_enerve": pitchoune_enerve, "pitchoune_depite": pitchoune_depite, "sancheese": sancheese, \
+"mec_louche": mec_louche, "mec_louche_pas_content": mec_louche_pas_content, "gaston": gaston
  }
 
 onready var tie = get_node("Panel/text_interface_engine")

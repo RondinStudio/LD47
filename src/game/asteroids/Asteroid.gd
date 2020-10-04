@@ -1,4 +1,4 @@
-﻿extends Node
+extends Node
 
 var speed
 var rng = RandomNumberGenerator.new()
