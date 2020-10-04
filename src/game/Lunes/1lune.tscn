@@ -1,13 +1,15 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=4 format=2]
 
-[ext_resource path="res://src/game/basic_planet/Planet.tscn" type="PackedScene" id=1]
+[ext_resource path="res://src/game/basic_planet/PlanetYellow.tscn" type="PackedScene" id=1]
 [ext_resource path="res://src/game/Lunes/Lune.tscn" type="PackedScene" id=2]
+[ext_resource path="res://src/game/Lunes/PivotLune.gd" type="Script" id=3]
 
 [node name="Planet" instance=ExtResource( 1 )]
 position = Vector2( 424.17, 355.287 )
 
 [node name="PivotLune" type="Node2D" parent="." index="4"]
 rotation = 1.3631
+script = ExtResource( 3 )
 
 [node name="Lune1" parent="PivotLune" index="0" instance=ExtResource( 2 )]
 position = Vector2( -139.895, 109.774 )

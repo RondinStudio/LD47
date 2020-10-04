@@ -1,4 +1,4 @@
-extends KinematicBody2D
+﻿extends KinematicBody2D
 
 var orbited = false
 var positionToFollow
@@ -22,13 +22,16 @@ func _physics_process(delta):
 		# Quand le joueur veut accélérer
 		if Input.is_action_pressed("space"):
 			$AnimationPlayer.play("Moving")
-			# on incrémente speed d'ACCELERATION chaque frame où le joueur accélère
+			$trail/CPUParticles2D.emitting = true
+			$trail2/CPUParticles2D.emitting = true
 			speed += ACCELERATION
 			# Cette speed est capée à MAX_SPEED
 			speed = clamp(speed, 0, MAX_SPEED)
 		else:
 			$AnimationPlayer.play("Idle")
-		# Le vecteur mouvement du joueur prend en compte sa vitesse et son orientation
+			$trail/CPUParticles2D.emitting = false
+			$trail2/CPUParticles2D.emitting = false
+
 		velocity = speed * movedir
 		# On applique les forces au player
 		movement = ((velocity * MOVE_SPEED)+ applied_forces) * delta 
@@ -68,3 +71,11 @@ func orbit(toFollow , direction):
 	positionToFollow = toFollow
 	direction_tangent = direction
 	orbited = true
+
+func desorbit():
+	orbited = false
+
+func _on_VisibilityNotifier2D_screen_exited():
+	var father = get_parent()
+	position = father.get_node("spawn_position").position
+
