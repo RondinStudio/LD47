@@ -5,14 +5,6 @@
 [ext_resource path="res://assets/graphisme/Fusee pixel art gaz base.png" type="Texture" id=3]
 [ext_resource path="res://src/particles/smoke/trail.tscn" type="PackedScene" id=5]
 
-[sub_resource type="SpriteFrames" id=1]
-animations = [ {
-"frames": [ ExtResource( 1 ), ExtResource( 3 ) ],
-"loop": true,
-"name": "default",
-"speed": 5.0
-} ]
-
 [sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 50.2224, 26.6693 )
 
@@ -47,17 +39,19 @@ tracks/0/keys = {
 "values": [ 1, 2 ]
 }
 
+[sub_resource type="SpriteFrames" id=1]
+animations = [ {
+"frames": [ ExtResource( 1 ), ExtResource( 3 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+} ]
+
 [node name="Spaceship" type="KinematicBody2D" groups=[
 "joueur",
 ]]
-position = Vector2( 330.373, 128.812 )
 collision_mask = 2
 script = ExtResource( 2 )
-
-[node name="Sprite" type="AnimatedSprite" parent="."]
-rotation = 1.5708
-frames = SubResource( 1 )
-frame = 1
 
 [node name="Hitbox" type="CollisionShape2D" parent="."]
 shape = SubResource( 2 )
@@ -71,7 +65,12 @@ anims/Idle = SubResource( 3 )
 anims/Moving = SubResource( 4 )
 
 [node name="trail" parent="." instance=ExtResource( 5 )]
-position = Vector2( -46.104, 6.68174 )
+position = Vector2( -45.9554, 4.45197 )
 
 [node name="trail2" parent="." instance=ExtResource( 5 )]
-position = Vector2( -46.9949, -7.12718 )
+position = Vector2( -46.9949, -6.08662 )
+
+[node name="Sprite" type="AnimatedSprite" parent="."]
+rotation = 1.5708
+frames = SubResource( 1 )
+frame = 1
