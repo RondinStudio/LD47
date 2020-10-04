@@ -10,6 +10,7 @@ export var speed = 100
 
 func _ready():
 	$Aura/attraction.shape.radius = RADIUS
+	$AnimationPlayer.play("Rotate")
 
 
 func _physics_process(delta):

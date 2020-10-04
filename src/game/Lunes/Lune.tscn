@@ -1,13 +1,13 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=3 format=2]
 
-[ext_resource path="res://icon.png" type="Texture" id=1]
-[ext_resource path="res://src/game/Lunes/Lune.gd" type="Script" id=2]
+[ext_resource path="res://assets/graphisme/Lune.png" type="Texture" id=1]
 
 [sub_resource type="CircleShape2D" id=1]
-radius = 24.0
+radius = 28.0701
 
-[node name="Lune" type="KinematicBody2D"]
-script = ExtResource( 2 )
+[node name="Lune" type="KinematicBody2D" groups=[
+"lune",
+]]
 
 [node name="Sprite" type="Sprite" parent="."]
 texture = ExtResource( 1 )

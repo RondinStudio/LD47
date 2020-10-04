@@ -18,3 +18,4 @@ func _process(delta):
 func _on_Body_body_entered(body):
 	if (body.is_in_group("joueur")):
 		print("mort")
+
