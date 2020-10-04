@@ -21,3 +21,4 @@ script = ExtResource( 2 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
+scroll_scale = 0.1

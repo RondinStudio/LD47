@@ -16,6 +16,7 @@ func _ready():
 	$ShockwaveAnimationPlayer.play("shockwave")
 
 
+# warning-ignore:unused_argument
 func _physics_process(delta):
 	# Si le vaisseau est dans la zone d'attraction du trou noir, il subit de nouvelles forces.
 	if apply_forces:
