@@ -13,6 +13,7 @@ var apply_forces = false
 func _ready():
 	$Aura/attraction.shape.radius = RADIUS
 	$AnimationPlayer.play("Rotate")
+	$ShockwaveAnimationPlayer.play("shockwave")
 
 
 func _physics_process(delta):
