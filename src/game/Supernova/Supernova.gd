@@ -9,6 +9,7 @@ var state = false
 
 func _ready():
 	$Aura/attraction.shape.radius = RADIUS
+	$wave_animation.play("wave")
 
 
 func _physics_process(delta):
