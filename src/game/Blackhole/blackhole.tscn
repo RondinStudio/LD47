@@ -17,7 +17,7 @@ shader_param/thickness = 0.383
 radius = 200.0
 
 [sub_resource type="CircleShape2D" id=3]
-radius = 35.0
+radius = 30.0
 
 [sub_resource type="Animation" id=4]
 length = 9.6
@@ -62,7 +62,7 @@ tracks/0/keys = {
 }
 
 [node name="Trou noir" type="Node2D"]
-position = Vector2( 983.428, 563.999 )
+position = Vector2( 884.433, 504.602 )
 script = ExtResource( 2 )
 __meta__ = {
 "_edit_group_": true
@@ -95,3 +95,4 @@ anims/shockwave = SubResource( 5 )
 [node name="Blackhole_particles" parent="." instance=ExtResource( 5 )]
 [connection signal="body_entered" from="Aura" to="." method="_on_Aura_body_entered"]
 [connection signal="body_exited" from="Aura" to="." method="_on_Aura_body_exited"]
+[connection signal="body_entered" from="Centre" to="." method="_on_Centre_body_entered"]
