@@ -24,6 +24,11 @@ config/name="LD47"
 run/main_scene="res://src/main/MainScene.tscn"
 config/icon="res://icon.png"
 
+[autoload]
+
+Events="*res://src/globals/Events.gd"
+Globals="*res://src/globals/globals.gd"
+
 [display]
 
 window/size/width=1920
