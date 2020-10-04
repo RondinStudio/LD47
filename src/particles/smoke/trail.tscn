@@ -2,22 +2,22 @@
 
 [ext_resource path="res://src/particles/smoke/etincelle.png" type="Texture" id=1]
 
-[sub_resource type="Curve" id=4]
+[sub_resource type="Curve" id=1]
 _data = [ Vector2( 0, 1 ), 0.0, 0.0, 0, 0, Vector2( 1, 0.394318 ), -1.68401, 0.0, 0, 0 ]
 
-[sub_resource type="CurveTexture" id=5]
-curve = SubResource( 4 )
+[sub_resource type="CurveTexture" id=2]
+curve = SubResource( 1 )
 
-[sub_resource type="Curve" id=2]
+[sub_resource type="Curve" id=3]
 _data = [ Vector2( 0, 1 ), 0.0, 0.0, 0, 0, Vector2( 0.898734, 0.690909 ), -1.17521, -1.17521, 0, 0, Vector2( 1, 0 ), -2.04115, 0.0, 0, 0 ]
 
-[sub_resource type="CurveTexture" id=3]
-curve = SubResource( 2 )
+[sub_resource type="CurveTexture" id=4]
+curve = SubResource( 3 )
 
-[sub_resource type="ParticlesMaterial" id=1]
+[sub_resource type="ParticlesMaterial" id=5]
 lifetime_randomness = 0.17
 trail_divisor = 5
-trail_size_modifier = SubResource( 3 )
+trail_size_modifier = SubResource( 4 )
 emission_shape = 1
 emission_sphere_radius = 3.0
 flag_disable_z = true
@@ -25,11 +25,12 @@ spread = 90.0
 gravity = Vector3( -98, 0, 0 )
 orbit_velocity = 0.0
 orbit_velocity_random = 0.0
-scale_curve = SubResource( 5 )
+scale_curve = SubResource( 2 )
 
 [node name="trail" type="Node2D"]
 
 [node name="Particles2D" type="Particles2D" parent="."]
 amount = 50
-process_material = SubResource( 1 )
+local_coords = false
+process_material = SubResource( 5 )
 texture = ExtResource( 1 )

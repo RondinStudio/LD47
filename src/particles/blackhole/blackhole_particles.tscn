@@ -8,6 +8,7 @@ colors = PoolColorArray( 0, 0.345098, 0.647059, 1, 0.0705882, 0.0588235, 0.08627
 gradient = SubResource( 1 )
 
 [sub_resource type="ParticlesMaterial" id=3]
+lifetime_randomness = 0.3
 emission_shape = 1
 emission_sphere_radius = 96.62
 flag_disable_z = true
@@ -23,5 +24,7 @@ color_ramp = SubResource( 2 )
 
 [node name="CPUParticles2D" type="Particles2D" parent="."]
 scale = Vector2( 2, 2 )
-amount = 50
+amount = 200
+explosiveness = 0.4
+randomness = 0.15
 process_material = SubResource( 3 )

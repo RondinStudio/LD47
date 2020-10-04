@@ -3,7 +3,7 @@
 [ext_resource path="res://src/shaders/background/nebulous_background.shader" type="Shader" id=1]
 [ext_resource path="res://src/shaders/background/parallax_bg.gd" type="Script" id=2]
 
-[sub_resource type="ShaderMaterial" id=2]
+[sub_resource type="ShaderMaterial" id=1]
 shader = ExtResource( 1 )
 shader_param/octaves = 5
 shader_param/x_offset = 0.0
@@ -14,7 +14,7 @@ shader_param/y_offset = 0.0
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
 
 [node name="ColorRect" type="ColorRect" parent="ParallaxBackground"]
-material = SubResource( 2 )
+material = SubResource( 1 )
 anchor_right = 1.0
 anchor_bottom = 1.0
 script = ExtResource( 2 )
