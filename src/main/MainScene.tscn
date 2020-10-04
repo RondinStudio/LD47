@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://src/game/spaceship/Spaceship.tscn" type="PackedScene" id=1]
 [ext_resource path="res://src/game/basic_planet/PlanetYellow.tscn" type="PackedScene" id=2]
@@ -11,10 +11,6 @@
 [ext_resource path="res://src/game/asteroids/Asteroid2.tscn" type="PackedScene" id=9]
 [ext_resource path="res://src/game/asteroids/Asteroid3.tscn" type="PackedScene" id=10]
 [ext_resource path="res://assets/Star.tscn" type="PackedScene" id=11]
-[ext_resource path="res://src/UI/pause_popup.tscn" type="PackedScene" id=12]
-[ext_resource path="res://src/game/Comete/Comete_path.tscn" type="PackedScene" id=13]
-[ext_resource path="res://src/game/Lunes/1lune.tscn" type="PackedScene" id=14]
-[ext_resource path="res://src/game/Enemy_spaceship/Enemy_path.tscn" type="PackedScene" id=15]
 
 [node name="MainScene" type="Node2D"]
 script = ExtResource( 3 )
@@ -22,17 +18,13 @@ etoile = ExtResource( 11 )
 nb_etoile = 40
 
 [node name="Background" type="ColorRect" parent="."]
-margin_left = -6.7937
-margin_top = 6.74644
-margin_right = 3582.21
-margin_bottom = 2135.75
+margin_left = -6.0
+margin_right = 3583.0
+margin_bottom = 2129.0
 color = Color( 0, 0, 0, 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
-
-[node name="spawn_position" type="Position2D" parent="."]
-position = Vector2( 124.453, 188.361 )
 
 [node name="Planet" parent="." instance=ExtResource( 2 )]
 position = Vector2( 766.715, 280.177 )
@@ -47,7 +39,7 @@ position = Vector2( 425.424, 784.176 )
 position = Vector2( 1365.16, 857.197 )
 
 [node name="PlanetGreen" parent="." instance=ExtResource( 4 )]
-position = Vector2( 1384.13, 220.009 )
+position = Vector2( 1460.41, 317.48 )
 
 [node name="Trou noir" parent="." instance=ExtResource( 5 )]
 position = Vector2( 947.036, 726.4 )
@@ -82,16 +74,4 @@ position = Vector2( 270.769, 517.992 )
 [node name="Timer" type="Timer" parent="."]
 wait_time = 0.02
 autostart = true
-
-[node name="pause_popup" parent="." instance=ExtResource( 12 )]
-visible = false
-
-[node name="Comet" parent="." instance=ExtResource( 13 )]
-
-[node name="Planet2" parent="." instance=ExtResource( 14 )]
-position = Vector2( 1729.43, 219.676 )
-
-[node name="vaisseau_ennemy" parent="." instance=ExtResource( 15 )]
-position = Vector2( 400, -50 )
-rotation = 1.5708
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
