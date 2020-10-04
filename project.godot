@@ -27,6 +27,7 @@ config/icon="res://icon.png"
 [autoload]
 
 Events="*res://src/globals/Events.gd"
+Globals="*res://src/globals/globals.gd"
 
 [display]
 

@@ -3,9 +3,13 @@ extends Node2D
 export (PackedScene) var etoile
 export (int) var nb_etoile
 var nb_actuel = 0
+var player
 
 func _ready():
+	Events.connect("player_death",self, "on_player_death")
+	Events.connect("new_checkpoint", self, "on_new_checkpoint") 
 	randomize()
+	player = Globals.player
 	
 func _process(delta):
 	if Input.is_action_pressed("ui_cancel"):
@@ -31,3 +35,9 @@ func _on_Timer_timeout():
 	if (nb_actuel == nb_etoile):
 		$Timer.stop()
 
+func on_new_checkpoint(planete):
+	$spawn_position.position.x = planete.position.x - planete.get_node("Gravity/attraction").shape.radius + 25
+	$spawn_position.position.y = planete.position.y
+
+func on_player_death():
+	player.position = $spawn_position.position

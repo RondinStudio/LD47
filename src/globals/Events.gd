@@ -15,4 +15,6 @@ extends Node
 #Events.emit_signal("new_food_needed_per_tick", food_needed_per_tick)
 ###
 
-signal wait_for_espace()
+signal new_checkpoint(planete)
+
+signal player_death()

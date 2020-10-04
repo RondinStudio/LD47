@@ -7,11 +7,15 @@ export (float) var lune_speed
 var gaucheDroite = true
 var rotate_speed
 var rng = RandomNumberGenerator.new()
+export var is_checkpoint = false
+var already_checked = false
 
 func _ready():
 	rng.randomize()
 	rotate_speed = rng.randfn(0, 0.05)
 	set_process(true)
+	if is_checkpoint == true:
+		$SpriteBaseDrapeau.show()
 	
 func _physics_process(delta):
 	if gaucheDroite == true:
@@ -29,8 +33,7 @@ func _physics_process(delta):
 func _on_Gravity_body_entered(body):
 	if (body.is_in_group("joueur")):
 		$Pivot/OrbitPosition.global_position = body.global_position 
-		body.orbit($Pivot/OrbitPosition, calculate_rotation_direction(body))
-		body.planete = self
+		body.orbit(self, $Pivot/OrbitPosition, calculate_rotation_direction(body))
 
 func calculate_rotation_direction(player):
 	var vector_to_planet = player.position.direction_to(position)

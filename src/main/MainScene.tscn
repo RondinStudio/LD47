@@ -50,6 +50,7 @@ position = Vector2( 135.723, 190.488 )
 
 [node name="PlanetYellow" parent="." instance=ExtResource( 2 )]
 position = Vector2( 766.715, 280.177 )
+is_checkpoint = true
 
 [node name="PlanetRed" type="Node2D" parent="."]
 position = Vector2( 427.631, 844.572 )

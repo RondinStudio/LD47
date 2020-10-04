@@ -58,13 +58,8 @@ rotation = 1.5708
 frames = SubResource( 1 )
 frame = 1
 
-
 [node name="Hitbox" type="CollisionShape2D" parent="."]
 shape = SubResource( 2 )
-
-[node name="RayCast2D" type="RayCast2D" parent="."]
-visible = false
-cast_to = Vector2( 50, 0 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 anims/Idle = SubResource( 3 )
@@ -75,3 +70,6 @@ position = Vector2( -46.104, 6.68174 )
 
 [node name="trail2" parent="." instance=ExtResource( 5 )]
 position = Vector2( -46.9949, -7.12718 )
+
+[node name="VisibilityNotifier2D" type="VisibilityNotifier2D" parent="."]
+[connection signal="screen_exited" from="VisibilityNotifier2D" to="." method="_on_VisibilityNotifier2D_screen_exited"]
