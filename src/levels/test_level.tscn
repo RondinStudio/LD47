@@ -1,0 +1,45 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://src/levels/level.gd" type="Script" id=1]
+[ext_resource path="res://src/game/basic_planet/PlanetYellow.tscn" type="PackedScene" id=2]
+[ext_resource path="res://src/game/spaceship/Spaceship.tscn" type="PackedScene" id=3]
+[ext_resource path="res://src/game/asteroids/Asteroid3.tscn" type="PackedScene" id=4]
+[ext_resource path="res://src/game/asteroids/Asteroid1.tscn" type="PackedScene" id=5]
+[ext_resource path="res://src/game/asteroids/Asteroid2.tscn" type="PackedScene" id=6]
+[ext_resource path="res://assets/Star.tscn" type="PackedScene" id=7]
+
+[node name="Test_level" type="Node2D"]
+script = ExtResource( 1 )
+etoile = ExtResource( 7 )
+
+[node name="background" type="ColorRect" parent="."]
+margin_right = 1925.0
+margin_bottom = 1089.0
+color = Color( 0, 0, 0, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="spawn_position" type="Position2D" parent="."]
+
+[node name="Asteroids" parent="." instance=ExtResource( 5 )]
+position = Vector2( 1138.97, 372.937 )
+rotation = 4.46638e-06
+
+[node name="PlanetYellow" parent="." instance=ExtResource( 2 )]
+position = Vector2( 680.358, 645.08 )
+is_checkpoint = true
+
+[node name="Spaceship" parent="." instance=ExtResource( 3 )]
+position = Vector2( 219.058, 488.92 )
+
+[node name="Asteroids2" parent="." instance=ExtResource( 6 )]
+position = Vector2( 1184.33, 448.532 )
+
+[node name="Asteroids3" parent="." instance=ExtResource( 4 )]
+position = Vector2( 1239.76, 519.088 )
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.02
+autostart = true
+[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
