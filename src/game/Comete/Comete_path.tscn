@@ -12,6 +12,6 @@ curve = SubResource( 1 )
 
 [node name="PathFollow2D" type="PathFollow2D" parent="."]
 position = Vector2( 729.835, -97.8067 )
-rotation = 0.815342
+rotation = 0.813123
 
 [node name="Comete" parent="PathFollow2D" instance=ExtResource( 1 )]

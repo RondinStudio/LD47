@@ -1,4 +1,4 @@
-extends Node
+﻿extends Node
 
 var speed
 var rng = RandomNumberGenerator.new()
@@ -14,7 +14,4 @@ func _ready():
 func _process(delta):
 	self.rotation += speed * delta
 
-# Pour la mort du player ( à finir )
-func _on_Body_body_entered(body):
-	if (body.is_in_group("joueur")):
-		print("mort")
+
