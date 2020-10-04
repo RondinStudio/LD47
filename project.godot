@@ -27,7 +27,7 @@ _global_script_class_icons={
 [application]
 
 config/name="LD47"
-run/main_scene="res://src/main/MainScene.tscn"
+run/main_scene="res://src/levels/level_container.tscn"
 config/icon="res://icon.png"
 
 [autoload]
@@ -38,6 +38,7 @@ Events="*res://src/globals/Events.gd"
 
 window/size/width=1920
 window/size/height=1080
+window/size/fullscreen=true
 window/stretch/mode="viewport"
 window/stretch/aspect="keep"
 

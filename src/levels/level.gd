@@ -31,6 +31,7 @@ func on_new_checkpoint(planete):
 func on_player_death():
 	player.position = $spawn_position.position
 	player.set_physics_process(true)
+	print("zeubi t'es la?")
 
 func on_end_of_level_reached():
 	get_parent().go_to_next_level()
