@@ -15,6 +15,3 @@ func _ready():
 func _process(delta):
 	self.rotation += speed * delta
 
-func _on_Body_body_entered(body):
-	if (body.is_in_group("joueur")):
-		print("mort")

@@ -1,14 +1,13 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://assets/graphisme/Fusee pixel art.png" type="Texture" id=1]
 [ext_resource path="res://src/game/spaceship/Spaceship.gd" type="Script" id=2]
-[ext_resource path="res://assets/graphisme/Fusee pixel art gaz 1.png" type="Texture" id=3]
-[ext_resource path="res://assets/graphisme/Fusee pixel art gaz 2.png" type="Texture" id=4]
+[ext_resource path="res://assets/graphisme/Fusee pixel art gaz base.png" type="Texture" id=3]
 [ext_resource path="res://src/particles/smoke/trail.tscn" type="PackedScene" id=5]
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
-"frames": [ ExtResource( 1 ), ExtResource( 4 ), ExtResource( 3 ) ],
+"frames": [ ExtResource( 1 ), ExtResource( 3 ) ],
 "loop": true,
 "name": "default",
 "speed": 5.0
@@ -28,7 +27,7 @@ tracks/0/enabled = true
 tracks/0/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
-"update": 1,
+"update": 0,
 "values": [ 0 ]
 }
 
@@ -44,7 +43,7 @@ tracks/0/enabled = true
 tracks/0/keys = {
 "times": PoolRealArray( 0, 0.1 ),
 "transitions": PoolRealArray( 1, 1 ),
-"update": 1,
+"update": 0,
 "values": [ 1, 2 ]
 }
 
@@ -67,7 +66,7 @@ scale = Vector2( 1.5, 1.5 )
 [node name="Sprite" type="AnimatedSprite" parent="."]
 rotation = 1.5708
 frames = SubResource( 1 )
-frame = 2
+frame = 1
 
 [node name="Hitbox" type="CollisionShape2D" parent="."]
 shape = SubResource( 2 )
