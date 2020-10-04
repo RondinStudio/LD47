@@ -50,6 +50,7 @@ tracks/0/keys = {
 [node name="Spaceship" type="KinematicBody2D" groups=[
 "joueur",
 ]]
+position = Vector2( 330.373, 128.812 )
 collision_mask = 2
 script = ExtResource( 2 )
 
@@ -57,7 +58,6 @@ script = ExtResource( 2 )
 rotation = 1.5708
 frames = SubResource( 1 )
 frame = 1
-
 
 [node name="Hitbox" type="CollisionShape2D" parent="."]
 shape = SubResource( 2 )
