@@ -38,7 +38,7 @@ func _on_Gravity_body_entered(body):
 		if is_checkpoint == true:
 			if is_already_checked == false:
 				is_already_checked = true
-				$SpriteDrapeau.show()
+				$Sprite/SpriteDrapeau.show()
 				Events.emit_signal("new_checkpoint", self)
 
 func calculate_rotation_direction(player):

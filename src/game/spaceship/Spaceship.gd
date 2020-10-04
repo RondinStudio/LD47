@@ -75,9 +75,6 @@ func desorbit():
 	orbited = false
 	
 func die():
-	velocity = 0
-	speed = 0
-	movement = 0
 	Events.emit_signal("player_death")
 
 func _on_VisibilityNotifier2D_screen_exited():
