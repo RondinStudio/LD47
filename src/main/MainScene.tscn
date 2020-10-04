@@ -1,6 +1,148 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=21 format=2]
 
+[ext_resource path="res://src/game/spaceship/Spaceship.tscn" type="PackedScene" id=1]
+[ext_resource path="res://src/game/basic_planet/PlanetYellow.tscn" type="PackedScene" id=2]
 [ext_resource path="res://src/main/MainScene.gd" type="Script" id=3]
+[ext_resource path="res://src/game/basic_planet/PlanetGreen.tscn" type="PackedScene" id=4]
+[ext_resource path="res://src/game/Blackhole/blackhole.tscn" type="PackedScene" id=5]
+[ext_resource path="res://src/game/basic_planet/PlanetBlue.tscn" type="PackedScene" id=6]
+[ext_resource path="res://src/game/basic_planet/Planet.gd" type="Script" id=7]
+[ext_resource path="res://src/game/asteroids/Asteroid1.tscn" type="PackedScene" id=8]
+[ext_resource path="res://src/game/asteroids/Asteroid2.tscn" type="PackedScene" id=9]
+[ext_resource path="res://src/game/asteroids/Asteroid3.tscn" type="PackedScene" id=10]
+[ext_resource path="res://src/UI/pause_popup.tscn" type="PackedScene" id=12]
+[ext_resource path="res://src/game/Comete/Comete_path.tscn" type="PackedScene" id=13]
+[ext_resource path="res://assets/graphisme/Planete rouge.png" type="Texture" id=14]
+[ext_resource path="res://src/game/Enemy_spaceship/enemy_spaceship.tscn" type="PackedScene" id=15]
+[ext_resource path="res://src/game/Lunes/Lune.tscn" type="PackedScene" id=16]
+[ext_resource path="res://src/game/Supernova/Supernova.tscn" type="PackedScene" id=17]
+[ext_resource path="res://src/shaders/background/nebulous_background.tscn" type="PackedScene" id=18]
+
+[sub_resource type="CircleShape2D" id=1]
+radius = 217.648
+
+[sub_resource type="CircleShape2D" id=2]
+radius = 124.417
+
+[sub_resource type="Curve2D" id=3]
+_data = {
+"points": PoolVector2Array( 0, 0, 0, 0, 91.5647, 51.6897, 0, 0, 0, 0, 176.86, -93.174, 0, 0, 0, 0, 446.498, -123.876 )
+}
 
 [node name="MainScene" type="Node2D"]
 script = ExtResource( 3 )
+
+[node name="Nebulous_background" parent="." instance=ExtResource( 18 )]
+
+[node name="Background" type="ColorRect" parent="."]
+visible = false
+margin_left = -6.0
+margin_right = 3583.0
+margin_bottom = 2129.0
+color = Color( 0, 0, 0, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="spawn_position" type="Position2D" parent="."]
+position = Vector2( 124.453, 188.361 )
+
+[node name="Spaceship" parent="." instance=ExtResource( 1 )]
+position = Vector2( 135.723, 190.488 )
+
+[node name="PlanetYellow" parent="." instance=ExtResource( 2 )]
+position = Vector2( 766.715, 280.177 )
+
+[node name="PlanetRed" type="Node2D" parent="."]
+position = Vector2( 427.631, 844.572 )
+script = ExtResource( 7 )
+speed = 1.0
+lune_speed = 1.0
+
+[node name="Sprite" type="Sprite" parent="PlanetRed"]
+texture = ExtResource( 14 )
+
+[node name="Gravity" type="Area2D" parent="PlanetRed"]
+collision_layer = 2
+
+[node name="attraction" type="CollisionShape2D" parent="PlanetRed/Gravity"]
+shape = SubResource( 1 )
+
+[node name="Body" type="Area2D" parent="PlanetRed"]
+collision_layer = 2
+
+[node name="death" type="CollisionShape2D" parent="PlanetRed/Body"]
+shape = SubResource( 2 )
+
+[node name="Pivot" type="Node2D" parent="PlanetRed"]
+rotation = 1.3631
+
+[node name="OrbitPosition" type="Position2D" parent="PlanetRed/Pivot"]
+position = Vector2( -161.837, 141.963 )
+
+[node name="PivotLune" type="Node2D" parent="PlanetRed"]
+
+[node name="Lune" parent="PlanetRed/PivotLune" instance=ExtResource( 16 )]
+position = Vector2( -269.391, -33.6738 )
+
+[node name="PlanetBlue" parent="." instance=ExtResource( 6 )]
+position = Vector2( 273.028, 200.013 )
+
+[node name="PlanetGreen" parent="." instance=ExtResource( 4 )]
+position = Vector2( 1460.41, 317.48 )
+
+[node name="Trou noir" parent="." instance=ExtResource( 5 )]
+position = Vector2( 947.036, 726.4 )
+
+[node name="Asteroids" parent="." instance=ExtResource( 8 )]
+position = Vector2( 117.731, 428.115 )
+
+[node name="Asteroids9" parent="." instance=ExtResource( 8 )]
+position = Vector2( 227.048, 567.703 )
+
+[node name="Asteroids8" parent="." instance=ExtResource( 8 )]
+position = Vector2( 344.773, 512.204 )
+
+[node name="Asteroids2" parent="." instance=ExtResource( 9 )]
+position = Vector2( 173.225, 432.221 )
+
+[node name="Asteroids7" parent="." instance=ExtResource( 9 )]
+position = Vector2( 205.179, 504.538 )
+
+[node name="Asteroids6" parent="." instance=ExtResource( 9 )]
+position = Vector2( 238.815, 420.448 )
+
+[node name="Asteroids3" parent="." instance=ExtResource( 10 )]
+position = Vector2( 149.68, 516.31 )
+
+[node name="Asteroids4" parent="." instance=ExtResource( 10 )]
+position = Vector2( 292.632, 455.766 )
+
+[node name="Asteroids5" parent="." instance=ExtResource( 10 )]
+position = Vector2( 270.769, 517.992 )
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.02
+autostart = true
+
+[node name="pause_popup" parent="." instance=ExtResource( 12 )]
+visible = false
+
+[node name="Comet" parent="." instance=ExtResource( 13 )]
+
+[node name="vaisseau_ennemy" type="Path2D" parent="."]
+position = Vector2( 400, -50 )
+rotation = 1.5708
+curve = SubResource( 3 )
+
+[node name="PathFollow2D" type="PathFollow2D" parent="vaisseau_ennemy"]
+position = Vector2( 91.5647, 51.6897 )
+rotation = -1.03865
+
+[node name="Enemy_vaisseau" parent="vaisseau_ennemy/PathFollow2D" instance=ExtResource( 15 )]
+position = Vector2( -0.123535, -0.34061 )
+
+[node name="Supernova" parent="." instance=ExtResource( 17 )]
+position = Vector2( 1724.22, 559.043 )
+[connection signal="body_entered" from="PlanetRed/Gravity" to="PlanetRed" method="_on_Gravity_body_entered"]
+[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
