@@ -159,7 +159,6 @@ color_ramp = SubResource( 6 )
 
 [node name="Sprite" type="AnimatedSprite" parent="."]
 rotation = 1.5708
-scale = Vector2( 1, 1 )
 frames = SubResource( 7 )
 frame = 1
 

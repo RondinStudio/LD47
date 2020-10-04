@@ -36,7 +36,6 @@ func physics_process_in_movement(delta):
 	movement = ((velocity * MOVE_SPEED)+ applied_forces) * delta 
 	look_at(position + movement)
 	var collision = move_and_collide(movement)
-	print(collision)
 	if collision != null:
 		set_physics_process(false)
 		$AnimationPlayer.play("Death")
