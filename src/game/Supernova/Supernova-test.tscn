@@ -10,4 +10,4 @@ position = Vector2( 489.794, 304.271 )
 FORCE = 5
 
 [node name="Spaceship" parent="." instance=ExtResource( 2 )]
-position = Vector2( 122.212, 194.028 )
+position = Vector2( 128.512, 262.064 )

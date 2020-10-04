@@ -8,14 +8,8 @@
 shader = ExtResource( 3 )
 shader_param/center = Vector2( 0.5, 0.5 )
 shader_param/force = 1.551
-shader_param/size = 0.493954
+shader_param/size = 0.0
 shader_param/thickness = null
-
-[sub_resource type="CircleShape2D" id=2]
-radius = 124.49
-
-[sub_resource type="CircleShape2D" id=3]
-radius = 30.4006
 
 [sub_resource type="Animation" id=4]
 resource_name = "wave"
@@ -31,6 +25,12 @@ tracks/0/keys = {
 "times": PoolRealArray( 0, 1 )
 }
 
+[sub_resource type="CircleShape2D" id=2]
+radius = 124.49
+
+[sub_resource type="CircleShape2D" id=3]
+radius = 30.4006
+
 [node name="Supernova" type="Node2D"]
 position = Vector2( 0.944946, -0.629959 )
 script = ExtResource( 2 )
@@ -42,6 +42,9 @@ FORCE = 10
 [node name="Sprite" type="Sprite" parent="."]
 material = SubResource( 1 )
 texture = ExtResource( 1 )
+
+[node name="wave_animation" type="AnimationPlayer" parent="."]
+anims/wave = SubResource( 4 )
 
 [node name="Aura" type="Area2D" parent="."]
 
@@ -56,9 +59,6 @@ autostart = true
 
 [node name="mort" type="CollisionShape2D" parent="Centre"]
 shape = SubResource( 3 )
-
-[node name="wave_animation" type="AnimationPlayer" parent="."]
-anims/wave = SubResource( 4 )
 [connection signal="body_entered" from="Aura" to="." method="_on_Aura_body_entered"]
 [connection signal="body_exited" from="Aura" to="." method="_on_Aura_body_exited"]
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
