@@ -53,20 +53,11 @@ tracks/0/keys = {
 collision_mask = 2
 script = ExtResource( 2 )
 
-[node name="trail" parent="." instance=ExtResource( 5 )]
-position = Vector2( -45.804, 4.57722 )
-rotation = -0.523599
-scale = Vector2( 1.5, 1.5 )
-
-[node name="trail2" parent="." instance=ExtResource( 5 )]
-position = Vector2( -45.5812, -5.44539 )
-rotation = -0.523599
-scale = Vector2( 1.5, 1.5 )
-
 [node name="Sprite" type="AnimatedSprite" parent="."]
 rotation = 1.5708
 frames = SubResource( 1 )
 frame = 1
+
 
 [node name="Hitbox" type="CollisionShape2D" parent="."]
 shape = SubResource( 2 )
@@ -79,5 +70,8 @@ cast_to = Vector2( 50, 0 )
 anims/Idle = SubResource( 3 )
 anims/Moving = SubResource( 4 )
 
-[node name="VisibilityNotifier2D" type="VisibilityNotifier2D" parent="."]
-[connection signal="screen_exited" from="VisibilityNotifier2D" to="." method="_on_VisibilityNotifier2D_screen_exited"]
+[node name="trail" parent="." instance=ExtResource( 5 )]
+position = Vector2( -46.104, 6.68174 )
+
+[node name="trail2" parent="." instance=ExtResource( 5 )]
+position = Vector2( -46.9949, -7.12718 )
