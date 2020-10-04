@@ -1,4 +1,4 @@
-extends KinematicBody2D
+﻿extends KinematicBody2D
 
 var orbited = false
 var positionToFollow

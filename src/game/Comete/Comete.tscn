@@ -21,14 +21,22 @@ _data = [ Vector2( 0, 0 ), 0.0, 5.57692, 0, 0, Vector2( 1, 102.273 ), 249.513, 0
 offsets = PoolRealArray( 0, 0.701987, 1 )
 colors = PoolColorArray( 0.896973, 0.644833, 0.087595, 1, 0.752441, 0.648974, 0.420309, 1, 0.794922, 0.76216, 0.568245, 1 )
 
-[sub_resource type="CircleShape2D" id=5]
+[sub_resource type="Curve" id=5]
+min_value = -200.0
+max_value = 200.0
+_data = [ Vector2( 0, 1 ), 0.0, 0.0, 0, 0, Vector2( 1, 200 ), 274.182, 0.0, 0, 0 ]
+
+[sub_resource type="Gradient" id=6]
+offsets = PoolRealArray( 0, 0.333333, 0.437086 )
+colors = PoolColorArray( 0.917969, 0.411837, 0.190048, 1, 0.847656, 0.560724, 0.225159, 1, 0.878906, 0.674361, 0.240326, 1 )
+
+[sub_resource type="CircleShape2D" id=7]
 radius = 124.49
 
-[sub_resource type="CircleShape2D" id=6]
-radius = 24.66
+[sub_resource type="CircleShape2D" id=8]
+radius = 41.2091
 
-[sub_resource type="Animation" id=7]
-resource_name = "Rotate"
+[sub_resource type="Animation" id=9]
 length = 9.6
 loop = true
 tracks/0/type = "value"
@@ -43,15 +51,6 @@ tracks/0/keys = {
 "update": 0,
 "values": [ 0.0, 180.0, 360.0 ]
 }
-
-[sub_resource type="Curve" id=8]
-min_value = -200.0
-max_value = 200.0
-_data = [ Vector2( 0, 1 ), 0.0, 0.0, 0, 0, Vector2( 1, 200 ), 274.182, 0.0, 0, 0 ]
-
-[sub_resource type="Gradient" id=9]
-offsets = PoolRealArray( 0, 0.333333, 0.806667 )
-colors = PoolColorArray( 0.917969, 0.411837, 0.190048, 1, 0.847656, 0.560724, 0.225159, 1, 0.878906, 0.674361, 0.240326, 1 )
 
 [node name="Comete" type="Node2D"]
 position = Vector2( 0.944946, -0.629959 )
@@ -77,6 +76,19 @@ damping_curve = SubResource( 3 )
 scale_amount = 1.5
 color_ramp = SubResource( 4 )
 
+[node name="CPUParticles2D" type="CPUParticles2D" parent="."]
+scale = Vector2( 2, 2 )
+amount = 20
+emission_shape = 1
+emission_sphere_radius = 60.0
+gravity = Vector2( 0, 0 )
+linear_accel_curve = SubResource( 5 )
+radial_accel = -50.0
+damping = 20.0
+scale_amount = 2.0
+scale_amount_random = 0.4
+color_ramp = SubResource( 6 )
+
 [node name="Sprite" type="Sprite" parent="."]
 position = Vector2( 0.373213, 0.943871 )
 texture = ExtResource( 3 )
@@ -84,29 +96,16 @@ texture = ExtResource( 3 )
 [node name="Aura" type="Area2D" parent="."]
 
 [node name="attraction" type="CollisionShape2D" parent="Aura"]
-shape = SubResource( 5 )
+shape = SubResource( 7 )
 
 [node name="Centre" type="Area2D" parent="."]
 
 [node name="mort" type="CollisionShape2D" parent="Centre"]
-shape = SubResource( 6 )
+shape = SubResource( 8 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-anims/Rotate = SubResource( 7 )
+anims/Rotate = SubResource( 9 )
 
 [node name="particles" type="Node2D" parent="."]
-
-[node name="CPUParticles2D" type="CPUParticles2D" parent="particles"]
-scale = Vector2( 2, 2 )
-amount = 20
-emission_shape = 1
-emission_sphere_radius = 50.0
-gravity = Vector2( 0, 0 )
-linear_accel_curve = SubResource( 8 )
-radial_accel = -50.0
-damping = 20.0
-scale_amount = 3.0
-scale_amount_random = 0.4
-color_ramp = SubResource( 9 )
 [connection signal="body_entered" from="Aura" to="." method="_on_Aura_body_entered"]
 [connection signal="body_exited" from="Aura" to="." method="_on_Aura_body_exited"]
