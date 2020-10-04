@@ -16,3 +16,8 @@ extends Node
 ###
 
 signal change_background_fin_premier(name)
+signal new_checkpoint(planete)
+
+signal player_death()
+
+signal end_of_level_reached()

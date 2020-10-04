@@ -1,20 +1,66 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://assets/graphisme/Fusee pixel art.png" type="Texture" id=1]
 [ext_resource path="res://src/game/spaceship/Spaceship.gd" type="Script" id=2]
 [ext_resource path="res://assets/graphisme/Fusee pixel art gaz base.png" type="Texture" id=3]
+[ext_resource path="res://assets/graphisme/Fusee pixel art bobo.png" type="Texture" id=4]
 [ext_resource path="res://src/particles/smoke/trail.tscn" type="PackedScene" id=5]
 
-[sub_resource type="SpriteFrames" id=1]
-animations = [ {
-"frames": [ ExtResource( 1 ), ExtResource( 3 ) ],
-"loop": true,
-"name": "default",
-"speed": 5.0
-} ]
-
-[sub_resource type="RectangleShape2D" id=2]
+[sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 50.2224, 26.6693 )
+
+[sub_resource type="Animation" id=2]
+resource_name = "Death"
+tracks/0/type = "value"
+tracks/0/path = NodePath("Explode/explosion:emitting")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0.1 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Sprite:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 2 ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("smoke/CPUParticles2D:emitting")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0.6 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+tracks/3/type = "method"
+tracks/3/path = NodePath(".")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0.8 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "death"
+} ]
+}
 
 [sub_resource type="Animation" id=3]
 resource_name = "Idle"
@@ -41,11 +87,31 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 0.1 ),
-"transitions": PoolRealArray( 1, 1 ),
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ 1, 2 ]
+"values": [ 1 ]
 }
+
+[sub_resource type="Curve" id=5]
+max_value = 3.0
+_data = [ Vector2( 0, 3 ), 0.0, 0.0, 0, 0, Vector2( 0.856322, 1.24432 ), 0.0, 0.0, 0, 0 ]
+
+[sub_resource type="Gradient" id=6]
+offsets = PoolRealArray( 0, 0.794702, 1 )
+colors = PoolColorArray( 0.187012, 0.185551, 0.185551, 1, 0.256836, 0.255833, 0.255833, 1, 0.414063, 0.414063, 0.414063, 1 )
+
+[sub_resource type="SpriteFrames" id=7]
+animations = [ {
+"frames": [ ExtResource( 1 ), ExtResource( 3 ), ExtResource( 4 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+} ]
+
+[sub_resource type="Gradient" id=8]
+offsets = PoolRealArray( 0, 0.384106, 0.728477, 1 )
+colors = PoolColorArray( 1, 1, 1, 1, 1, 0, 0, 1, 1, 0.585938, 0, 1, 0.957031, 0.903409, 0.553284, 1 )
 
 [node name="Spaceship" type="KinematicBody2D" groups=[
 "joueur",
@@ -53,19 +119,11 @@ tracks/0/keys = {
 collision_mask = 2
 script = ExtResource( 2 )
 
-[node name="Sprite" type="AnimatedSprite" parent="."]
-rotation = 1.5708
-frames = SubResource( 1 )
-frame = 1
-
 [node name="Hitbox" type="CollisionShape2D" parent="."]
-shape = SubResource( 2 )
-
-[node name="RayCast2D" type="RayCast2D" parent="."]
-visible = false
-cast_to = Vector2( 50, 0 )
+shape = SubResource( 1 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/Death = SubResource( 2 )
 anims/Idle = SubResource( 3 )
 anims/Moving = SubResource( 4 )
 
@@ -74,3 +132,50 @@ position = Vector2( -46.104, 6.68174 )
 
 [node name="trail2" parent="." instance=ExtResource( 5 )]
 position = Vector2( -46.9949, -7.12718 )
+
+[node name="smoke" type="Node2D" parent="."]
+scale = Vector2( 4, 4 )
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="smoke"]
+position = Vector2( -11.0243, 1.31242 )
+emitting = false
+amount = 250
+one_shot = true
+speed_scale = 0.25
+randomness = 0.14
+lifetime_randomness = 0.14
+emission_shape = 3
+emission_points = PoolVector2Array( 0, 0, 1, 0, 2, 0, 3, 0, 4, 0, 5, 0, 7, 0, 8, 0, 10, 0, 12, 0, 14, 0, 15, 0, 18, 0 )
+emission_colors = PoolColorArray(  )
+direction = Vector2( 0, 0 )
+spread = 90.0
+gravity = Vector2( 0, -30 )
+initial_velocity = 20.0
+linear_accel = -65.62
+linear_accel_random = 0.5
+scale_amount_random = 0.2
+scale_amount_curve = SubResource( 5 )
+color_ramp = SubResource( 6 )
+
+[node name="Sprite" type="AnimatedSprite" parent="."]
+rotation = 1.5708
+frames = SubResource( 7 )
+frame = 1
+
+[node name="Explode" type="Node2D" parent="."]
+position = Vector2( 129.083, 10.1022 )
+
+[node name="explosion" type="CPUParticles2D" parent="Explode"]
+position = Vector2( -129.083, -10.069 )
+emitting = false
+amount = 130
+lifetime = 0.5
+one_shot = true
+explosiveness = 0.5
+emission_shape = 1
+emission_sphere_radius = 6.13
+spread = 180.0
+gravity = Vector2( 0, 0 )
+initial_velocity = 64.52
+scale_amount = 11.75
+color_ramp = SubResource( 8 )

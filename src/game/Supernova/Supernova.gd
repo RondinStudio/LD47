@@ -9,6 +9,7 @@ var state = false
 
 func _ready():
 	$Aura/attraction.shape.radius = RADIUS
+	$wave_animation.play("wave")
 
 
 func _physics_process(delta):
@@ -19,7 +20,7 @@ func _physics_process(delta):
 			var push_force = -inverse_lerp($Aura/attraction.shape.radius, 0, $Sprite.global_position.distance_to(player.position))
 			if push_force >= 0:
 				push_force = 0
-			print(push_force)
+			#print(push_force)
 			var attraction_direction = - (($Aura.global_position) - (player.global_position)).normalized()
 			var added_velocity =  - 10*attraction_direction * (push_force * FORCE)
 			player.applied_forces += added_velocity
@@ -40,4 +41,4 @@ func _on_Timer_timeout():
 		state = false
 	else :
 		state = true
-	print(state)
+	#print(state)
