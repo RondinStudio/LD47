@@ -60,9 +60,6 @@ func physics_process_in_orbit(delta):
 
 func death():
 	Events.emit_signal("player_death")
-	print("death")
-	
-	# Lancer l'animation et arrêter le vaisseau pour éviter les collisions bizarres
 
 func orbit(planete_param, toFollow , direction):
 	planete = planete_param
@@ -72,9 +69,3 @@ func orbit(planete_param, toFollow , direction):
 
 func desorbit():
 	orbited = false
-	
-func die():
-	Events.emit_signal("player_death")
-
-func _on_VisibilityNotifier2D_screen_exited():
-	die()
