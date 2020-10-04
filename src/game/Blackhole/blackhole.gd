@@ -28,7 +28,6 @@ func _on_Aura_body_entered(body):
 		player = body
 		apply_forces = true
 
-
 func _on_Aura_body_exited(body):
 	if body == player:
 		apply_forces = false

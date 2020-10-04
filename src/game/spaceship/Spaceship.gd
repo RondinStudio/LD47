@@ -23,10 +23,14 @@ func _physics_process(delta):
 		var movedir = Vector2(1,0).rotated(rotation)
 		if Input.is_action_pressed("space"):
 			$AnimationPlayer.play("Moving")
+			$trail/CPUParticles2D.emitting = true
+			$trail2/CPUParticles2D.emitting = true
 			speed += ACCELERATION
 			speed = clamp(speed, 0, MAX_SPEED)
 		else:
 			$AnimationPlayer.play("Idle")
+			$trail/CPUParticles2D.emitting = false
+			$trail2/CPUParticles2D.emitting = false
 		velocity = speed * movedir
 		movement = ((velocity * MOVE_SPEED)+ applied_forces) * delta 
 		look_at(position + movement)
@@ -56,3 +60,7 @@ func orbit(toFollow , direction):
 
 func desorbit():
 	orbited = false
+
+func _on_VisibilityNotifier2D_screen_exited():
+	var father = get_parent()
+	position = father.get_node("spawn_position").position

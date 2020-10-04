@@ -1,4 +1,3 @@
-
 [gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://assets/graphisme/Fusee pixel art.png" type="Texture" id=1]
@@ -7,7 +6,7 @@
 [ext_resource path="res://assets/graphisme/Fusee pixel art gaz 2.png" type="Texture" id=4]
 [ext_resource path="res://src/particles/smoke/trail.tscn" type="PackedScene" id=5]
 
-[sub_resource type="SpriteFrames" id=2]
+[sub_resource type="SpriteFrames" id=1]
 animations = [ {
 "frames": [ ExtResource( 1 ), ExtResource( 4 ), ExtResource( 3 ) ],
 "loop": true,
@@ -15,10 +14,10 @@ animations = [ {
 "speed": 5.0
 } ]
 
-[sub_resource type="RectangleShape2D" id=1]
+[sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 50.2224, 26.6693 )
 
-[sub_resource type="Animation" id=4]
+[sub_resource type="Animation" id=3]
 resource_name = "Idle"
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:frame")
@@ -33,8 +32,7 @@ tracks/0/keys = {
 "values": [ 0 ]
 }
 
-[sub_resource type="Animation" id=3]
-resource_name = "Moving"
+[sub_resource type="Animation" id=4]
 length = 0.2
 loop = true
 tracks/0/type = "value"
@@ -56,23 +54,31 @@ tracks/0/keys = {
 collision_mask = 2
 script = ExtResource( 2 )
 
+[node name="trail" parent="." instance=ExtResource( 5 )]
+position = Vector2( -45.804, 4.57722 )
+rotation = -0.523599
+scale = Vector2( 1.5, 1.5 )
+
+[node name="trail2" parent="." instance=ExtResource( 5 )]
+position = Vector2( -45.5812, -5.44539 )
+rotation = -0.523599
+scale = Vector2( 1.5, 1.5 )
+
 [node name="Sprite" type="AnimatedSprite" parent="."]
 rotation = 1.5708
-frames = SubResource( 2 )
+frames = SubResource( 1 )
 frame = 2
 
 [node name="Hitbox" type="CollisionShape2D" parent="."]
-shape = SubResource( 1 )
+shape = SubResource( 2 )
 
 [node name="RayCast2D" type="RayCast2D" parent="."]
 visible = false
 cast_to = Vector2( 50, 0 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-anims/Idle = SubResource( 4 )
-anims/Moving = SubResource( 3 )
+anims/Idle = SubResource( 3 )
+anims/Moving = SubResource( 4 )
 
-[node name="trail" parent="." instance=ExtResource( 5 )]
-position = Vector2( -46.2494, 1.6818 )
-rotation = -0.523599
-
+[node name="VisibilityNotifier2D" type="VisibilityNotifier2D" parent="."]
+[connection signal="screen_exited" from="VisibilityNotifier2D" to="." method="_on_VisibilityNotifier2D_screen_exited"]
