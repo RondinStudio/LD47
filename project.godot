@@ -9,12 +9,18 @@
 config_version=4
 
 _global_script_classes=[ {
+"base": "ColorRect",
+"class": "GSky",
+"language": "GDScript",
+"path": "res://src/shaders/background/parallax_bg.gd"
+}, {
 "base": "Node",
 "class": "SoundManagerModule",
 "language": "GDScript",
 "path": "res://addons/sound_manager/module/internal_scripts/SoundManager_config.gd"
 } ]
 _global_script_class_icons={
+"GSky": "",
 "SoundManagerModule": ""
 }
 
