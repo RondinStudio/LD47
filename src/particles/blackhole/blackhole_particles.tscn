@@ -1,16 +1,3 @@
-
-[gd_scene load_steps=3 format=2]
-
-[sub_resource type="Curve" id=1]
-min_value = -200.0
-max_value = 200.0
-_data = [ Vector2( 0, 1 ), 0.0, 0.0, 0, 0, Vector2( 1, 200 ), 274.182, 0.0, 0, 0 ]
-
-[sub_resource type="Gradient" id=2]
-offsets = PoolRealArray( 0.02, 0.666667, 1 )
-colors = PoolColorArray( 0, 0.345098, 0.647059, 1, 0.0705882, 0.0588235, 0.0862745, 1, 0.178882, 0.128107, 0.246582, 1 )
-
-[node name="blackhole_particles" type="Node2D"]
 [gd_scene load_steps=4 format=2]
 
 [sub_resource type="Gradient" id=1]
@@ -22,16 +9,15 @@ gradient = SubResource( 1 )
 
 [sub_resource type="ParticlesMaterial" id=3]
 emission_shape = 1
-
-emission_sphere_radius = 70.0
-gravity = Vector2( 0, 0 )
-linear_accel_curve = SubResource( 1 )
-radial_accel = -50.0
-damping = 20.0
-scale_amount = 3.0
-scale_amount_random = 0.44
+emission_sphere_radius = 96.62
+flag_disable_z = true
+gravity = Vector3( 0, 0, 0 )
+orbit_velocity = 0.0
+orbit_velocity_random = 0.0
+radial_accel = -80.0
+radial_accel_random = 1.0
+scale = 1.5
 color_ramp = SubResource( 2 )
-
 
 [node name="Blackhole_particles" type="Node2D"]
 
@@ -39,4 +25,3 @@ color_ramp = SubResource( 2 )
 scale = Vector2( 2, 2 )
 amount = 50
 process_material = SubResource( 3 )
-
