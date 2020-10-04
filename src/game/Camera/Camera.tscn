@@ -1,0 +1,12 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://src/game/Camera/camera.gd" type="Script" id=1]
+[ext_resource path="res://src/shaders/background/nebulous_background.tscn" type="PackedScene" id=2]
+
+
+[node name="Camera2D" type="Camera2D"]
+position = Vector2( 179.172, 658.534 )
+current = true
+script = ExtResource( 1 )
+
+[node name="Nebulous_background" type="Node2D" parent="." instance=ExtResource( 2 )]
