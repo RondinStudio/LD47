@@ -73,4 +73,4 @@ func orbit(planete_param, toFollow , direction):
 	Events.emit_signal("player_enter_orbit", planete_param.global_position)
 
 func _on_VisibilityNotifier2D_screen_exited():
-	die()
+	death()
