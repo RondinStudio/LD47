@@ -6,11 +6,11 @@
 [ext_resource path="res://demo/Cave-Story.ttf" type="DynamicFontData" id=4]
 [ext_resource path="res://assets/graphisme/histoire/Fond vaisseau.png" type="Texture" id=5]
 
-[sub_resource type="DynamicFont" id=1]
+[sub_resource type="DynamicFont" id=4]
 size = 70
 font_data = ExtResource( 4 )
 
-[sub_resource type="DynamicFont" id=2]
+[sub_resource type="DynamicFont" id=5]
 size = 70
 font_data = ExtResource( 4 )
 
@@ -57,14 +57,14 @@ script = ExtResource( 2 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
-FONT = SubResource( 1 )
+FONT = SubResource( 4 )
 
 [node name="Label" type="Label" parent="Panel"]
 margin_left = 1255.24
 margin_top = 225.657
 margin_right = 1837.24
 margin_bottom = 300.657
-custom_fonts/font = SubResource( 2 )
+custom_fonts/font = SubResource( 5 )
 align = 1
 valign = 1
 

@@ -5,6 +5,7 @@
 
 [node name="Supernova" instance=ExtResource( 1 )]
 script = ExtResource( 2 )
+FORCE = 10
 
 [node name="Timer" type="Timer" parent="." index="3"]
 wait_time = 0.5

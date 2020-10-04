@@ -3,15 +3,19 @@ extends Node
 var speed
 var rng = RandomNumberGenerator.new()
 
-
-# Called when the node enters the scene tree for the first time.
 func _ready():
+	# Applique un seed au randomizer ( nécessaire pour être vrmt random )
 	rng.randomize()
+	# Distribution gaussienne
 	speed = rng.randfn(0, 2)
 	set_process(true)
 
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
+# Fais tourner les astéroïdes sur eux même, dans le deux sens grace à la distribution gaussienne
 func _process(delta):
 	self.rotation += speed * delta
+
+# Pour la mort du player ( à finir )
+func _on_Body_body_entered(body):
+	if (body.is_in_group("joueur")):
+		print("mort")
 

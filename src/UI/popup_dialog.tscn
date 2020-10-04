@@ -3,11 +3,19 @@
 [ext_resource path="res://demo/Cave-Story.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://addons/GodotTIE/text_interface_engine.gd" type="Script" id=2]
 
+<<<<<<< HEAD
 [sub_resource type="DynamicFont" id=1]
 size = 70
 font_data = ExtResource( 1 )
 
 [sub_resource type="DynamicFont" id=2]
+=======
+[sub_resource type="DynamicFont" id=4]
+size = 70
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=5]
+>>>>>>> dev
 size = 70
 font_data = ExtResource( 1 )
 
@@ -30,13 +38,21 @@ script = ExtResource( 2 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
+<<<<<<< HEAD
 FONT = SubResource( 1 )
+=======
+FONT = SubResource( 4 )
+>>>>>>> dev
 
 [node name="Label" type="Label" parent="."]
 margin_left = 1255.24
 margin_top = 225.657
 margin_right = 1837.24
 margin_bottom = 300.657
+<<<<<<< HEAD
 custom_fonts/font = SubResource( 2 )
+=======
+custom_fonts/font = SubResource( 5 )
+>>>>>>> dev
 align = 1
 valign = 1
