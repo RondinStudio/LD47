@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=2]
+[gd_scene load_steps=22 format=2]
 
 [ext_resource path="res://src/game/spaceship/Spaceship.tscn" type="PackedScene" id=1]
 [ext_resource path="res://src/game/basic_planet/PlanetYellow.tscn" type="PackedScene" id=2]
@@ -17,6 +17,7 @@
 [ext_resource path="res://src/game/Enemy_spaceship/enemy_spaceship.tscn" type="PackedScene" id=15]
 [ext_resource path="res://src/game/Lunes/Lune.tscn" type="PackedScene" id=16]
 [ext_resource path="res://src/game/Supernova/Supernova.tscn" type="PackedScene" id=17]
+[ext_resource path="res://src/shaders/background/nebulous_background.tscn" type="PackedScene" id=18]
 
 [sub_resource type="CircleShape2D" id=1]
 radius = 217.648
@@ -34,7 +35,10 @@ script = ExtResource( 3 )
 etoile = ExtResource( 11 )
 nb_etoile = 40
 
+[node name="Nebulous_background" parent="." instance=ExtResource( 18 )]
+
 [node name="Background" type="ColorRect" parent="."]
+visible = false
 margin_left = -6.0
 margin_right = 3583.0
 margin_bottom = 2129.0
@@ -51,7 +55,6 @@ position = Vector2( 135.723, 190.488 )
 
 [node name="PlanetYellow" parent="." instance=ExtResource( 2 )]
 position = Vector2( 766.715, 280.177 )
-is_checkpoint = true
 
 [node name="PlanetRed" type="Node2D" parent="."]
 position = Vector2( 427.631, 844.572 )
