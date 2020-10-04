@@ -16,6 +16,9 @@ extends Node
 ###
 
 # warning-ignore:unused_signal
+signal change_background_fin_premier(name)
+
+# warning-ignore:unused_signal
 signal new_checkpoint(planete)
 
 # warning-ignore:unused_signal

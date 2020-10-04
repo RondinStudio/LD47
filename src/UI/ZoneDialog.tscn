@@ -1,0 +1,72 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://addons/GodotTIE/text_interface_engine.gd" type="Script" id=1]
+[ext_resource path="res://assets/graphisme/histoire/Banniere texre.png" type="Texture" id=3]
+[ext_resource path="res://src/UI/ZoneDialog.gd" type="Script" id=4]
+[ext_resource path="res://assets/fonts/typewcond_regular.otf" type="DynamicFontData" id=5]
+
+[sub_resource type="DynamicFont" id=1]
+size = 50
+font_data = ExtResource( 5 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 50
+font_data = ExtResource( 5 )
+
+[sub_resource type="DynamicFont" id=3]
+size = 40
+font_data = ExtResource( 5 )
+
+[node name="ZoneDialog" type="Control"]
+margin_right = 40.0
+margin_bottom = 40.0
+script = ExtResource( 4 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Panel" type="TextureRect" parent="."]
+self_modulate = Color( 1, 1, 1, 0.631373 )
+margin_top = 630.0
+margin_right = 1920.0
+margin_bottom = 1082.0
+texture = ExtResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="text_interface_engine" type="ReferenceRect" parent="Panel"]
+margin_left = 37.0
+margin_top = 125.0
+margin_right = 1881.0
+margin_bottom = 417.0
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+FONT = SubResource( 1 )
+
+[node name="Label" type="Label" parent="Panel"]
+margin_left = 1274.34
+margin_top = 367.83
+margin_right = 2010.34
+margin_bottom = 461.83
+custom_fonts/font = SubResource( 2 )
+text = "Press space to continue"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="nom" type="Label" parent="."]
+margin_left = 1424.31
+margin_top = 639.631
+margin_right = 1832.31
+margin_bottom = 708.631
+custom_fonts/font = SubResource( 3 )
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
