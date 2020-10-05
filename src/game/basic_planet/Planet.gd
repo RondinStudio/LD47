@@ -30,17 +30,6 @@ func _physics_process(delta):
 	else:
 		$PivotLune.rotation -= lune_speed * delta
 
-func _on_Gravity_body_entered(body):
-	if (body.is_in_group("joueur")):
-		$Pivot/OrbitPosition.global_position = body.global_position 
-		body.orbit(self, $Pivot/OrbitPosition, calculate_rotation_direction(body))
-		
-		if is_checkpoint == true:
-			if is_already_checked == false:
-				is_already_checked = true
-				$Sprite/SpriteDrapeau.show()
-				Events.emit_signal("new_checkpoint", body.global_position)
-
 func calculate_rotation_direction(player):
 	var vector_to_planet = player.position.direction_to(position)
 	var tangent1 = vector_to_planet.tangent()
@@ -54,3 +43,14 @@ func calculate_rotation_direction(player):
 	else:
 		gaucheDroite = true
 		return 1
+
+func _on_Gravity_area_entered(area):
+	if (area.is_in_group("joueur")):
+		$Pivot/OrbitPosition.global_position = area.global_position 
+		area.get_parent().orbit(self, $Pivot/OrbitPosition, calculate_rotation_direction(area.get_parent()))
+		
+		if is_checkpoint == true:
+			if is_already_checked == false:
+				is_already_checked = true
+				$Sprite/SpriteDrapeau.show()
+				Events.emit_signal("new_checkpoint", area.global_position)
