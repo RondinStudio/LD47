@@ -1,0 +1,33 @@
+[gd_scene load_steps=4 format=2]
+
+[sub_resource type="Gradient" id=1]
+offsets = PoolRealArray( 0, 0.659259, 1 )
+colors = PoolColorArray( 0.984207, 0.191406, 1, 1, 0.992157, 0.615686, 1, 0.878431, 1, 1, 1, 0 )
+
+[sub_resource type="GradientTexture" id=2]
+gradient = SubResource( 1 )
+
+[sub_resource type="ParticlesMaterial" id=3]
+emission_shape = 1
+emission_sphere_radius = 1.0
+flag_disable_z = true
+gravity = Vector3( 0, 0, 0 )
+orbit_velocity = 0.0
+orbit_velocity_random = 0.0
+radial_accel = 100.0
+radial_accel_random = 0.01
+tangential_accel = 100.0
+tangential_accel_random = 0.16
+damping = 4.0
+scale = 3.0
+scale_random = 1.0
+color_ramp = SubResource( 2 )
+
+[node name="Shockwave" type="Node2D"]
+
+[node name="Particles2D" type="Particles2D" parent="."]
+scale = Vector2( 2, 2 )
+amount = 70
+speed_scale = 2.0
+explosiveness = 1.0
+process_material = SubResource( 3 )

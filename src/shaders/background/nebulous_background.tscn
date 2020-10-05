@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://src/shaders/background/nebulous_background.shader" type="Shader" id=1]
 [ext_resource path="res://src/shaders/background/parallax_bg.gd" type="Script" id=2]
+[ext_resource path="res://src/shaders/background/nebulous_background.gd" type="Script" id=3]
 
 [sub_resource type="ShaderMaterial" id=1]
 shader = ExtResource( 1 )
@@ -10,6 +11,7 @@ shader_param/x_offset = 0.0
 shader_param/y_offset = 0.0
 
 [node name="Nebulous_background" type="Node2D"]
+script = ExtResource( 3 )
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
 
@@ -22,3 +24,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 scroll_scale = 0.1
+
+[node name="Timer" type="Timer" parent="ParallaxBackground"]
+wait_time = 0.02
+[connection signal="timeout" from="ParallaxBackground/Timer" to="." method="_on_Timer_timeout"]

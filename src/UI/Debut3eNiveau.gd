@@ -3,21 +3,21 @@ extends Control
 var ordrePersos = [
 	"Narrator", 
 	"Flynn", 
-	"Robot",
+	"MMA-0-TRA-K",
 	"Flynn", 
-	"Robot",
+	"MMA-0-TRA-K",
 	"Narrator",
 	"Flynn",
-	"Flynn"
+	"MMA-0-TRA-K"
 ]
 
 var ordrePhrase = [
-	"The phone starts ringing", \
+	"The phone starts ringing.", \
 	"Hello, X-Treme Epic Truck Delivery Service Flynn, how could I help you ?", \
 	"Hello. I’m MMA-0-TRA-K, a diplomatic robot. I serve an anonymous client. He wants you to deliver a special package to the dangerous planet K2-1000. Do you accept this highly risky mission, in exchange for many rewards ?", \
 	"Don’t say it twice. I’m the not-man you’re looking for !", \
 	"We will teleport the package into your ship right now. Good luck mister Flynn.", \
-	"*swoosh*, a package arrives in your ship", \
+	"A package teleports into your ship", \
 	"What’s the hell is that ? It looks like... A marshmallow tree...", \
 	"First rule, no question, just deliver. Let’s go."
 ]
@@ -30,7 +30,7 @@ var ordreSprite = [
 	"robot",
 	"Narrator", 
 	"pitchoune",
-	"pitchoune"
+	"robot"
 ]
 
 func _ready():
