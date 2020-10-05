@@ -9,6 +9,7 @@
 script = ExtResource( 1 )
 
 [node name="Camera2D" parent="." instance=ExtResource( 3 )]
+visible = true
 
 [node name="lvl2" parent="." instance=ExtResource( 4 )]
 

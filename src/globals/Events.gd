@@ -37,3 +37,4 @@ signal reset()
 signal next_level()
 
 signal fin_niveau()
+signal camera_reached_target()

@@ -10,14 +10,17 @@
 [ext_resource path="res://src/game/Lunes/Lune.tscn" type="PackedScene" id=8]
 [ext_resource path="res://assets/graphisme/Planete jaune.png" type="Texture" id=9]
 [ext_resource path="res://src/game/basic_planet/ring.tscn" type="PackedScene" id=10]
-[ext_resource path="res://src/game/basic_planet/PlanetGreen.tscn" type="PackedScene" id=11]
+[ext_resource path="res://assets/graphisme/Planete verte.png" type="Texture" id=11]
 [ext_resource path="res://src/game/asteroids/AsteroidsArea.tscn" type="PackedScene" id=12]
 [ext_resource path="res://src/game/Enemy_spaceship/enemy_spaceship.tscn" type="PackedScene" id=13]
 [ext_resource path="res://src/game/asteroids/Asteroid.tscn" type="PackedScene" id=14]
 [ext_resource path="res://assets/graphisme/Drapeau arrivee.png" type="Texture" id=15]
 [ext_resource path="res://src/game/spaceship/Spaceship.tscn" type="PackedScene" id=16]
 
-[sub_resource type="GDScript" id=1]
+[sub_resource type="CircleShape2D" id=1]
+radius = 95.0735
+
+[sub_resource type="GDScript" id=2]
 script/source = "extends Node2D
 
 # Classe servant à avoir 5 astéroïdes dans une scène ( classe pratique )
@@ -50,9 +53,41 @@ radius = 217.648
 script = ExtResource( 6 )
 nb_etoile = 80
 
-[node name="PlanetGreen" parent="." instance=ExtResource( 11 )]
+[node name="PlanetGreen" type="Node2D" parent="."]
 position = Vector2( 147.462, 347.248 )
+script = ExtResource( 1 )
+speed = 1.0
+lune_speed = 1.0
 is_checkpoint = true
+
+[node name="Sprite" type="Sprite" parent="PlanetGreen"]
+texture = ExtResource( 11 )
+
+[node name="SpriteDrapeau" type="Sprite" parent="PlanetGreen/Sprite"]
+visible = false
+position = Vector2( -0.0834274, -46.4691 )
+texture = ExtResource( 5 )
+
+[node name="SpriteBaseDrapeau" type="Sprite" parent="PlanetGreen/Sprite"]
+visible = false
+position = Vector2( -0.0834274, -38.4601 )
+texture = ExtResource( 2 )
+
+[node name="Gravity" type="Area2D" parent="PlanetGreen"]
+collision_layer = 2
+
+[node name="attraction" type="CollisionShape2D" parent="PlanetGreen/Gravity"]
+shape = SubResource( 1 )
+
+[node name="Pivot" type="Node2D" parent="PlanetGreen"]
+rotation = 1.3631
+
+[node name="OrbitPosition" type="Position2D" parent="PlanetGreen/Pivot"]
+position = Vector2( -52.6988, 56.4451 )
+
+[node name="PivotLune" type="Node2D" parent="PlanetGreen"]
+
+[node name="pivot" parent="PlanetGreen" instance=ExtResource( 10 )]
 
 [node name="Asteroids Area2" type="Node2D" parent="."]
 position = Vector2( 1349.45, 736.554 )
@@ -104,9 +139,6 @@ position = Vector2( 109.398, 161.365 )
 [node name="Timer" type="Timer" parent="."]
 wait_time = 0.02
 autostart = true
-
-[node name="Spaceship" parent="." instance=ExtResource( 16 )]
-position = Vector2( 149.216, 276.208 )
 
 [node name="spawn_position" type="Position2D" parent="."]
 
@@ -536,6 +568,10 @@ position = Vector2( -300, 100 )
 position = Vector2( 0, -316.2 )
 
 [node name="pivot" parent="PlanetRed3" instance=ExtResource( 10 )]
+
+[node name="Spaceship" parent="." instance=ExtResource( 16 )]
+position = Vector2( 70.6436, 287.433 )
+[connection signal="area_entered" from="PlanetGreen/Gravity" to="PlanetGreen" method="_on_Gravity_area_entered"]
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
 [connection signal="area_entered" from="PlanetBlue/Gravity" to="PlanetBlue" method="_on_Gravity_area_entered"]
 [connection signal="area_entered" from="PlanetBlue2/Gravity" to="PlanetBlue2" method="_on_Gravity_area_entered"]

@@ -89,7 +89,7 @@ _data = {
 radius = 296.848
 
 [sub_resource type="CircleShape2D" id=9]
-radius = 78.7256
+radius = 108.075
 
 [node name="lvl3" type="Node2D"]
 script = ExtResource( 18 )
@@ -100,9 +100,6 @@ nb_etoile = 40
 [node name="Timer" type="Timer" parent="."]
 wait_time = 0.02
 autostart = true
-
-[node name="Spaceship" parent="." instance=ExtResource( 13 )]
-position = Vector2( 241.127, 357.581 )
 
 [node name="PlanetYellow" parent="." instance=ExtResource( 17 )]
 position = Vector2( 251.865, 537.619 )
@@ -270,7 +267,7 @@ position = Vector2( -452.402, 0 )
 [node name="pivot" parent="PlanetRed2" instance=ExtResource( 12 )]
 
 [node name="PlanetGreen" type="Node2D" parent="."]
-position = Vector2( 2253.47, -3315.72 )
+position = Vector2( 2097.24, -3114.13 )
 script = ExtResource( 19 )
 __meta__ = {
 "_edit_group_": true
@@ -383,6 +380,21 @@ position = Vector2( 1173.89, -2640.18 )
 
 [node name="Asteroids Area11" parent="." instance=ExtResource( 16 )]
 position = Vector2( 12.7136, -415.309 )
+
+[node name="Asteroids Area20" parent="." instance=ExtResource( 16 )]
+position = Vector2( 2507.36, -1120.86 )
+
+[node name="Asteroids Area21" parent="." instance=ExtResource( 16 )]
+position = Vector2( 2860.14, -1095.67 )
+
+[node name="Asteroids Area22" parent="." instance=ExtResource( 16 )]
+position = Vector2( 2713.99, -1342.61 )
+
+[node name="Asteroids Area23" parent="." instance=ExtResource( 16 )]
+position = Vector2( 3127.24, -1267.02 )
+
+[node name="Spaceship" parent="." instance=ExtResource( 13 )]
+position = Vector2( 241.127, 357.581 )
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
 [connection signal="body_entered" from="Trou noir/Aura" to="Trou noir" method="_on_Aura_body_entered"]
 [connection signal="body_exited" from="Trou noir/Aura" to="Trou noir" method="_on_Aura_body_exited"]
