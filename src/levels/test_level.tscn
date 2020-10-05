@@ -1,18 +1,17 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://src/levels/level.gd" type="Script" id=1]
 [ext_resource path="res://src/game/basic_planet/PlanetYellow.tscn" type="PackedScene" id=2]
 [ext_resource path="res://src/game/spaceship/Spaceship.tscn" type="PackedScene" id=3]
 [ext_resource path="res://src/game/asteroids/Asteroid.tscn" type="PackedScene" id=6]
-[ext_resource path="res://assets/Star.tscn" type="PackedScene" id=7]
 [ext_resource path="res://src/game/Blackhole/blackhole.tscn" type="PackedScene" id=8]
 
 [node name="Test_level" type="Node2D"]
 script = ExtResource( 1 )
-etoile = ExtResource( 7 )
-nb_etoile = 50
+nb_etoile = 10
 
 [node name="spawn_position" type="Position2D" parent="."]
+position = Vector2( 461.413, 825.31 )
 
 [node name="Asteroids" parent="." instance=ExtResource( 6 )]
 position = Vector2( 1138.97, 372.937 )
@@ -36,20 +35,6 @@ position = Vector2( 622.263, 756.806 )
 
 [node name="Spaceship" parent="." instance=ExtResource( 3 )]
 position = Vector2( 192.089, 650.737 )
-
-[node name="LevelLimits" type="Node2D" parent="."]
-
-[node name="Position2DTop" type="Position2D" parent="LevelLimits"]
-position = Vector2( 989.42, -61.8387 )
-
-[node name="Position2DRight" type="Position2D" parent="LevelLimits"]
-position = Vector2( 2088.25, 570.819 )
-
-[node name="Position2DBottom" type="Position2D" parent="LevelLimits"]
-position = Vector2( 984.663, 1208.23 )
-
-[node name="Position2DLeft" type="Position2D" parent="LevelLimits"]
-position = Vector2( -85.6229, 523.251 )
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
 
 [editable path="PlanetYellow"]

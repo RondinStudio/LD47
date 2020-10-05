@@ -63,6 +63,20 @@ tracks/3/keys = {
 "method": "stop_thrusters"
 } ]
 }
+tracks/4/type = "method"
+tracks/4/path = NodePath(".")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0.1 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "bruit_explosion"
+} ]
+}
 
 [sub_resource type="Animation" id=3]
 resource_name = "Idle"

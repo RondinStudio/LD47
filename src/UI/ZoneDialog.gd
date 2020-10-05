@@ -41,7 +41,6 @@ func init(liste_phrases: Array, liste_persos: Array, liste_sprites: Array):
 	print_page()
 	
 func print_page():
-	print(ordrePersos[current_page])
 	if ordrePersos[current_page] == "nightclub" or ordrePersos[current_page] == "dark_alley" or ordrePersos[current_page] == "spaceship":
 		Events.emit_signal("change_background_fin_premier", ordrePersos[current_page])
 		ordrePersos[current_page] = "Narrator"
@@ -77,7 +76,7 @@ func _physics_process(delta):
 		_on_space_pressed()
 
 func next_level():
-	print("slt c fini")
+	Events.emit_signal("next_level")
 
 func change_name():
 	$nom.text = ordrePersos[current_page] 
@@ -88,20 +87,5 @@ func change_sprite():
 	else:
 		get_parent().get_node("Sprite").texture = sprites_dir[ordreSprite[current_page]]
 
-func _on_input_enter(s):
-	print("Input Enter ",s)
-
-func _on_state_change(i):
-	print("New state: ", i)
-
-func _on_enter_break():
-	print("Enter Break")
-
 func _on_buff_end():
 	page_fini = true
-
-func _on_resume_break():
-	print("Resume Break")
-
-func _on_tag_buff(s):
-	print("Tag Buff ",s)
