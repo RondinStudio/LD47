@@ -1,4 +1,4 @@
-[gd_scene load_steps=36 format=2]
+[gd_scene load_steps=38 format=2]
 
 [ext_resource path="res://src/game/spaceship/Spaceship.tscn" type="PackedScene" id=1]
 [ext_resource path="res://src/UI/PopUpUI/PopUpUI.tscn" type="PackedScene" id=2]
@@ -19,6 +19,10 @@
 [ext_resource path="res://src/particles/blackhole/blackhole_particles.gd" type="Script" id=17]
 [ext_resource path="res://assets/graphisme/Planete jaune.png" type="Texture" id=18]
 [ext_resource path="res://src/game/asteroids/AsteroidsArea.tscn" type="PackedScene" id=19]
+[ext_resource path="res://assets/graphisme/Drapeau arrivee.png" type="Texture" id=20]
+
+[sub_resource type="CircleShape2D" id=17]
+radius = 180.128
 
 [sub_resource type="CircleShape2D" id=1]
 radius = 180.128
@@ -215,9 +219,47 @@ is_checkpoint = true
 position = Vector2( 804.262, 464.002 )
 is_checkpoint = true
 
-[node name="PlanetYellow4" parent="." instance=ExtResource( 7 )]
+[node name="PlanetYellow4" type="Node2D" parent="."]
 position = Vector2( 8002.13, -159.294 )
+script = ExtResource( 4 )
+speed = 1.0
+lune_speed = 1.0
 is_checkpoint = true
+is_final_planet = true
+
+[node name="Sprite" type="Sprite" parent="PlanetYellow4"]
+texture = ExtResource( 18 )
+
+[node name="SpriteDrapeau" type="Sprite" parent="PlanetYellow4/Sprite"]
+visible = false
+position = Vector2( -2.6727, -116.708 )
+texture = ExtResource( 9 )
+
+[node name="SpriteBaseDrapeau" type="Sprite" parent="PlanetYellow4/Sprite"]
+visible = false
+position = Vector2( -2.6727, -108.244 )
+texture = ExtResource( 8 )
+
+[node name="SpriteFinNiveau" type="Sprite" parent="PlanetYellow4/Sprite"]
+visible = false
+position = Vector2( 0.707092, -128.694 )
+texture = ExtResource( 20 )
+
+[node name="Gravity" type="Area2D" parent="PlanetYellow4"]
+collision_layer = 2
+
+[node name="attraction" type="CollisionShape2D" parent="PlanetYellow4/Gravity"]
+shape = SubResource( 17 )
+
+[node name="Pivot" type="Node2D" parent="PlanetYellow4"]
+rotation = 1.3631
+
+[node name="OrbitPosition" type="Position2D" parent="PlanetYellow4/Pivot"]
+position = Vector2( -139.895, 109.774 )
+
+[node name="PivotLune" type="Node2D" parent="PlanetYellow4"]
+
+[node name="pivot" parent="PlanetYellow4" instance=ExtResource( 11 )]
 
 [node name="PlanetYellow3" type="Node2D" parent="."]
 position = Vector2( 5542.18, 769.128 )
@@ -483,6 +525,7 @@ margin_top = 64.1447
 margin_right = -893.685
 margin_bottom = -1015.86
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
+[connection signal="area_entered" from="PlanetYellow4/Gravity" to="PlanetYellow4" method="_on_Gravity_area_entered"]
 [connection signal="area_entered" from="PlanetYellow3/Gravity" to="PlanetYellow3" method="_on_Gravity_area_entered"]
 [connection signal="body_entered" from="Trou noir/Aura" to="Trou noir" method="_on_Aura_body_entered"]
 [connection signal="body_exited" from="Trou noir/Aura" to="Trou noir" method="_on_Aura_body_exited"]

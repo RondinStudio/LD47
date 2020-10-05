@@ -1,9 +1,10 @@
-[gd_scene load_steps=38 format=2]
+[gd_scene load_steps=39 format=2]
 
 [ext_resource path="res://assets/graphisme/Drapeau.png" type="Texture" id=1]
 [ext_resource path="res://assets/graphisme/Base drapeau.png" type="Texture" id=2]
 [ext_resource path="res://assets/graphisme/Supernova.png" type="Texture" id=3]
 [ext_resource path="res://assets/graphisme/Trou noir tourne 2.png" type="Texture" id=4]
+[ext_resource path="res://assets/graphisme/Drapeau arrivee.png" type="Texture" id=5]
 [ext_resource path="res://assets/graphisme/Trou noir tourne 1.png" type="Texture" id=6]
 [ext_resource path="res://assets/graphisme/Planete bleue.png" type="Texture" id=7]
 [ext_resource path="res://assets/graphisme/Planete verte.png" type="Texture" id=8]
@@ -89,9 +90,6 @@ tracks/1/keys = {
 [sub_resource type="CircleShape2D" id=8]
 radius = 331.637
 
-[sub_resource type="CircleShape2D" id=9]
-radius = 311.798
-
 [sub_resource type="ShaderMaterial" id=10]
 shader = ExtResource( 22 )
 shader_param/center = Vector2( 0.5, 0.5 )
@@ -160,6 +158,9 @@ func _ready():
 _data = {
 "points": PoolVector2Array( -32.7579, 64.256, 32.7579, -64.256, 1701.41, -334.531, 34.0179, -62.9961, -34.0179, 62.9961, 1611.23, -333.555, 32.7579, -59.2163, -32.7579, 59.2163, 1581.03, 119.504, -37.7976, 62.9961, 37.7976, -62.9961, 1629.57, 163.842, 0, 0, 0, 0, 1674.4, -301.859, 0, 0, 0, 0, 1701.41, -334.531 )
 }
+
+[sub_resource type="CircleShape2D" id=17]
+radius = 320.0
 
 [node name="lvl4" type="Node2D"]
 script = ExtResource( 19 )
@@ -269,42 +270,6 @@ position = Vector2( -102.049, 70.778 )
 [node name="PivotLune" type="Node2D" parent="PlanetBlue"]
 
 [node name="pivot" parent="PlanetBlue" instance=ExtResource( 14 )]
-
-[node name="PlanetGreen" type="Node2D" parent="."]
-position = Vector2( 326.357, 1133.76 )
-script = ExtResource( 20 )
-speed = 1.0
-lune_speed = 1.0
-is_checkpoint = true
-
-[node name="Sprite" type="Sprite" parent="PlanetGreen"]
-texture = ExtResource( 8 )
-
-[node name="SpriteDrapeau" type="Sprite" parent="PlanetGreen/Sprite"]
-visible = false
-position = Vector2( -0.0834274, -46.4691 )
-texture = ExtResource( 1 )
-
-[node name="SpriteBaseDrapeau" type="Sprite" parent="PlanetGreen/Sprite"]
-visible = false
-position = Vector2( -0.0834274, -38.4601 )
-texture = ExtResource( 2 )
-
-[node name="Gravity" type="Area2D" parent="PlanetGreen"]
-collision_layer = 2
-
-[node name="attraction" type="CollisionShape2D" parent="PlanetGreen/Gravity"]
-shape = SubResource( 9 )
-
-[node name="Pivot" type="Node2D" parent="PlanetGreen"]
-rotation = 1.3631
-
-[node name="OrbitPosition" type="Position2D" parent="PlanetGreen/Pivot"]
-position = Vector2( -52.6988, 56.4451 )
-
-[node name="PivotLune" type="Node2D" parent="PlanetGreen"]
-
-[node name="pivot" parent="PlanetGreen" instance=ExtResource( 14 )]
 
 [node name="Trou noir" type="Node2D" parent="."]
 position = Vector2( 1138.91, 1733.77 )
@@ -427,12 +392,54 @@ position = Vector2( 1261.02, 2189.79 )
 
 [node name="Spaceship" parent="." instance=ExtResource( 12 )]
 position = Vector2( 196.623, 324.498 )
+
+[node name="PlanetGreen2" type="Node2D" parent="."]
+position = Vector2( 326.636, 1133.69 )
+script = ExtResource( 20 )
+speed = 1.0
+lune_speed = 1.0
+is_final_planet = true
+
+[node name="Sprite" type="Sprite" parent="PlanetGreen2"]
+texture = ExtResource( 8 )
+
+[node name="SpriteDrapeau" type="Sprite" parent="PlanetGreen2/Sprite"]
+visible = false
+position = Vector2( -0.0834274, -46.4691 )
+texture = ExtResource( 1 )
+
+[node name="SpriteBaseDrapeau" type="Sprite" parent="PlanetGreen2/Sprite"]
+visible = false
+position = Vector2( -0.0834274, -38.4601 )
+texture = ExtResource( 2 )
+
+[node name="SpriteFinNiveau" type="Sprite" parent="PlanetGreen2/Sprite"]
+visible = false
+position = Vector2( 0.841843, -49.9495 )
+scale = Vector2( 0.6, 0.6 )
+texture = ExtResource( 5 )
+
+[node name="Gravity" type="Area2D" parent="PlanetGreen2"]
+collision_layer = 2
+
+[node name="attraction" type="CollisionShape2D" parent="PlanetGreen2/Gravity"]
+shape = SubResource( 17 )
+
+[node name="Pivot" type="Node2D" parent="PlanetGreen2"]
+rotation = 1.3631
+
+[node name="OrbitPosition" type="Position2D" parent="PlanetGreen2/Pivot"]
+position = Vector2( -100.334, 288.257 )
+
+[node name="PivotLune" type="Node2D" parent="PlanetGreen2"]
+
+[node name="pivot" parent="PlanetGreen2" instance=ExtResource( 14 )]
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
 [connection signal="body_entered" from="Supernova/Aura" to="Supernova" method="_on_Aura_body_entered"]
 [connection signal="body_exited" from="Supernova/Aura" to="Supernova" method="_on_Aura_body_exited"]
 [connection signal="body_entered" from="Supernova/Centre" to="Supernova" method="_on_Centre_body_entered"]
 [connection signal="area_entered" from="PlanetBlue/Gravity" to="PlanetBlue" method="_on_Gravity_area_entered"]
-[connection signal="area_entered" from="PlanetGreen/Gravity" to="PlanetGreen" method="_on_Gravity_area_entered"]
 [connection signal="body_entered" from="Trou noir/Aura" to="Trou noir" method="_on_Aura_body_entered"]
 [connection signal="body_exited" from="Trou noir/Aura" to="Trou noir" method="_on_Aura_body_exited"]
 [connection signal="body_entered" from="Trou noir/Centre" to="Trou noir" method="_on_Centre_body_entered"]
+[connection signal="area_entered" from="PlanetGreen2/Gravity" to="PlanetGreen2" method="_on_Gravity_area_entered"]

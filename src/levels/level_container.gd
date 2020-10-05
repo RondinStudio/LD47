@@ -9,22 +9,22 @@ var niveau5 = load("res://src/levels/niveau5.tscn")
 
 
 func _ready():
-#	if (Globals.current_level == 1):
-#		var new_level = niveau1.instance()
-#		self.add_child(new_level)
-#	if (Globals.current_level == 2):
-#		var new_level = niveau2.instance()
-#		self.add_child(new_level)
-#	if (Globals.current_level == 3):
-#		var new_level = niveau3.instance()
-#		self.add_child(new_level)
-#	if (Globals.current_level == 4):
-#		var new_level = niveau4.instance()
-#		self.add_child(new_level)
-#	if (Globals.current_level == 5):
-#		var new_level = niveau5.instance()
-#		self.add_child(new_level)
-	$Camera2D.init(get_child(1).get_node("Spaceship"), get_child(1).get_node("LevelLimits"))
+	if (Globals.current_level == 1):
+		var new_level = niveau1.instance()
+		self.add_child(new_level)
+	if (Globals.current_level == 2):
+		var new_level = niveau2.instance()
+		self.add_child(new_level)
+	if (Globals.current_level == 3):
+		var new_level = niveau3.instance()
+		self.add_child(new_level)
+	if (Globals.current_level == 4):
+		var new_level = niveau4.instance()
+		self.add_child(new_level)
+	if (Globals.current_level == 5):
+		var new_level = niveau5.instance()
+		self.add_child(new_level)
+	$Camera2D.init(get_child(2).get_node("Spaceship"), get_child(2).get_node("LevelLimits"))
 
 func _process(delta):
 	if Input.is_action_pressed("ui_cancel"):
