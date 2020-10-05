@@ -47,7 +47,12 @@ func _on_Timer_timeout():
 		$Timer.stop()
 
 func on_reset():
+<<<<<<< Updated upstream
 	player.position = $spawn_position.position
+=======
+	if player.orbited == false:
+		player.position = player.lastPositionToFollow.position
+>>>>>>> Stashed changes
 
 func on_new_checkpoint(new_spawn_pos):
 	$spawn_position.position = new_spawn_pos
@@ -56,6 +61,14 @@ func on_new_checkpoint(new_spawn_pos):
 func on_player_death():
 	player.position = $spawn_position.position
 	player.set_physics_process(true)
+<<<<<<< Updated upstream
+=======
+	player.positionToFollow = player.lastPositionToFollow
+	$spawn_position.position = player.positionToFollow.position
+	player.position = player.positionToFollow.position
+	player.orbited = true
+>>>>>>> Stashed changes
+
 
 func on_end_of_level_reached():
 	Globals.current_level += 1
