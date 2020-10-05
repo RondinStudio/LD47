@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=2]
+[gd_scene load_steps=31 format=2]
 
 [ext_resource path="res://src/game/basic_planet/PlanetYellow.tscn" type="PackedScene" id=1]
 [ext_resource path="res://src/particles/blackhole/blackhole_particles.tscn" type="PackedScene" id=2]
@@ -18,6 +18,9 @@
 [ext_resource path="res://src/game/basic_planet/ring.tscn" type="PackedScene" id=16]
 [ext_resource path="res://src/game/asteroids/AsteroidsArea.tscn" type="PackedScene" id=17]
 [ext_resource path="res://src/game/basic_planet/Planet.gd" type="Script" id=18]
+[ext_resource path="res://assets/graphisme/Planete rouge.png" type="Texture" id=19]
+[ext_resource path="res://src/game/Lunes/Lune.tscn" type="PackedScene" id=20]
+[ext_resource path="res://assets/graphisme/Planete verte.png" type="Texture" id=21]
 
 [sub_resource type="ShaderMaterial" id=1]
 shader = ExtResource( 10 )
@@ -82,7 +85,13 @@ _data = {
 "points": PoolVector2Array( 33.9795, -96.2752, -33.9795, 96.2752, 1335.28, -1487.33, -44.3621, 86.8364, 44.3621, -86.8364, 1414.56, -1457.12, -38, 86, 38, -86, 1720.38, -2121.61, 27, -70, -27, 70, 1629.77, -2148.04, 0, 0, 0, 0, 1335.28, -1487.33 )
 }
 
-[node name="Test_lvl_5" type="Node2D"]
+[sub_resource type="CircleShape2D" id=22]
+radius = 296.848
+
+[sub_resource type="CircleShape2D" id=23]
+radius = 78.7256
+
+[node name="Test_lvl_2" type="Node2D"]
 script = ExtResource( 5 )
 etoile = ExtResource( 9 )
 nb_etoile = 40
@@ -107,7 +116,7 @@ __meta__ = {
 "_edit_group_": true
 }
 RADIUS = 500
-FORCE = 15
+FORCE = 8
 
 [node name="Sprite" type="Sprite" parent="Trou noir"]
 texture = ExtResource( 4 )
@@ -238,8 +247,131 @@ position = Vector2( 1802.84, -280.653 )
 
 [node name="Asteroids Area10" parent="." instance=ExtResource( 17 )]
 position = Vector2( 2544.9, -1070.29 )
+
+[node name="Asteroids Area16" parent="." instance=ExtResource( 17 )]
+position = Vector2( 2907.76, -1035.01 )
+
+[node name="Asteroids Area11" parent="." instance=ExtResource( 17 )]
+position = Vector2( 1485.3, -2556.43 )
+
+[node name="Asteroids Area12" parent="." instance=ExtResource( 17 )]
+position = Vector2( 1822.03, -2525 )
+
+[node name="Asteroids Area13" parent="." instance=ExtResource( 17 )]
+position = Vector2( 2239.59, -2484.59 )
+
+[node name="Asteroids Area14" parent="." instance=ExtResource( 17 )]
+position = Vector2( 2616.74, -2435.2 )
+
+[node name="Asteroids Area15" parent="." instance=ExtResource( 17 )]
+position = Vector2( 2984.91, -2399.28 )
+
+[node name="PlanetRed2" type="Node2D" parent="."]
+position = Vector2( 541.676, -3106.31 )
+script = ExtResource( 18 )
+__meta__ = {
+"_edit_group_": true
+}
+speed = 1.0
+lune_speed = 1.0
+is_checkpoint = true
+
+[node name="Sprite" type="Sprite" parent="PlanetRed2"]
+texture = ExtResource( 19 )
+
+[node name="SpriteDrapeau" type="Sprite" parent="PlanetRed2/Sprite"]
+visible = false
+position = Vector2( -0.749161, -133.349 )
+texture = ExtResource( 14 )
+
+[node name="SpriteBaseDrapeau" type="Sprite" parent="PlanetRed2/Sprite"]
+visible = false
+position = Vector2( -0.764341, -125.276 )
+texture = ExtResource( 15 )
+
+[node name="Gravity" type="Area2D" parent="PlanetRed2"]
+collision_layer = 2
+
+[node name="attraction" type="CollisionShape2D" parent="PlanetRed2/Gravity"]
+shape = SubResource( 22 )
+
+[node name="Pivot" type="Node2D" parent="PlanetRed2"]
+rotation = 1.3631
+
+[node name="OrbitPosition" type="Position2D" parent="PlanetRed2/Pivot"]
+position = Vector2( -161.837, 141.963 )
+
+[node name="PivotLune" type="Node2D" parent="PlanetRed2"]
+
+[node name="Lune" parent="PlanetRed2/PivotLune" instance=ExtResource( 20 )]
+position = Vector2( 452.402, 0 )
+
+[node name="Lune2" parent="PlanetRed2/PivotLune" instance=ExtResource( 20 )]
+position = Vector2( -452.402, 0 )
+
+[node name="pivot" parent="PlanetRed2" instance=ExtResource( 16 )]
+
+[node name="PlanetGreen" type="Node2D" parent="."]
+position = Vector2( 2236.52, -2904.65 )
+script = ExtResource( 18 )
+__meta__ = {
+"_edit_group_": true
+}
+speed = 1.0
+lune_speed = 2.0
+is_checkpoint = true
+
+[node name="Sprite" type="Sprite" parent="PlanetGreen"]
+texture = ExtResource( 21 )
+
+[node name="SpriteDrapeau" type="Sprite" parent="PlanetGreen/Sprite"]
+visible = false
+position = Vector2( -0.0834274, -46.4691 )
+texture = ExtResource( 14 )
+
+[node name="SpriteBaseDrapeau" type="Sprite" parent="PlanetGreen/Sprite"]
+visible = false
+position = Vector2( -0.0834274, -38.4601 )
+texture = ExtResource( 15 )
+
+[node name="Gravity" type="Area2D" parent="PlanetGreen"]
+collision_layer = 2
+
+[node name="attraction" type="CollisionShape2D" parent="PlanetGreen/Gravity"]
+shape = SubResource( 23 )
+
+[node name="Pivot" type="Node2D" parent="PlanetGreen"]
+rotation = 1.3631
+
+[node name="OrbitPosition" type="Position2D" parent="PlanetGreen/Pivot"]
+position = Vector2( -52.6988, 56.4451 )
+
+[node name="PivotLune" type="Node2D" parent="PlanetGreen"]
+
+[node name="Lune" parent="PlanetGreen/PivotLune" instance=ExtResource( 20 )]
+position = Vector2( -500, 0 )
+
+[node name="Lune2" parent="PlanetGreen/PivotLune" instance=ExtResource( 20 )]
+position = Vector2( 500, 0 )
+
+[node name="pivot" parent="PlanetGreen" instance=ExtResource( 16 )]
+
+[node name="LevelLimits" type="Node2D" parent="."]
+
+[node name="Position2DTop" type="Position2D" parent="LevelLimits"]
+position = Vector2( 2197.3, -3618.49 )
+
+[node name="Position2DRight" type="Position2D" parent="LevelLimits"]
+position = Vector2( 3195.16, -403.175 )
+
+[node name="Position2DBottom" type="Position2D" parent="LevelLimits"]
+position = Vector2( 1128.89, 1023.06 )
+
+[node name="Position2DLeft" type="Position2D" parent="LevelLimits"]
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
 [connection signal="body_entered" from="Trou noir/Aura" to="Trou noir" method="_on_Aura_body_entered"]
 [connection signal="body_exited" from="Trou noir/Aura" to="Trou noir" method="_on_Aura_body_exited"]
 [connection signal="body_entered" from="Trou noir/Centre" to="Trou noir" method="_on_Centre_body_entered"]
 [connection signal="area_entered" from="PlanetYellow2/Gravity" to="PlanetYellow2" method="_on_Gravity_area_entered"]
+[connection signal="area_entered" from="PlanetRed2/Gravity" to="PlanetRed2" method="_on_Gravity_area_entered"]
+[connection signal="area_entered" from="PlanetGreen/Gravity" to="PlanetGreen" method="_on_Gravity_area_entered"]

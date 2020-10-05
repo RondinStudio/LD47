@@ -1,28 +1,28 @@
 [gd_scene load_steps=50 format=2]
 
-[ext_resource path="res://src/game/spaceship/Spaceship.tscn" type="PackedScene" id=1]
-[ext_resource path="res://assets/Star.tscn" type="PackedScene" id=2]
-[ext_resource path="res://src/levels/level.gd" type="Script" id=3]
-[ext_resource path="res://assets/graphisme/Supernova.png" type="Texture" id=4]
-[ext_resource path="res://src/shaders/blackhole/blackhole_shockwave.shader" type="Shader" id=5]
-[ext_resource path="res://src/game/Supernova/Supernova.gd" type="Script" id=6]
-[ext_resource path="res://src/game/basic_planet/ring.tscn" type="PackedScene" id=7]
-[ext_resource path="res://src/particles/blackhole/blackhole_particles.tscn" type="PackedScene" id=8]
-[ext_resource path="res://src/game/basic_planet/PlanetYellow.tscn" type="PackedScene" id=9]
-[ext_resource path="res://src/game/basic_planet/PlanetRed.tscn" type="PackedScene" id=10]
-[ext_resource path="res://src/game/Blackhole/blackhole.gd" type="Script" id=11]
+[ext_resource path="res://assets/graphisme/Comete.png" type="Texture" id=1]
+[ext_resource path="res://src/game/basic_planet/ring.tscn" type="PackedScene" id=2]
+[ext_resource path="res://src/particles/blackhole/blackhole_particles.tscn" type="PackedScene" id=3]
+[ext_resource path="res://src/game/spaceship/Spaceship.tscn" type="PackedScene" id=4]
+[ext_resource path="res://src/game/basic_planet/PlanetRed.tscn" type="PackedScene" id=5]
+[ext_resource path="res://assets/Star.tscn" type="PackedScene" id=6]
+[ext_resource path="res://src/game/asteroids/Asteroid.tscn" type="PackedScene" id=7]
+[ext_resource path="res://src/game/Blackhole/blackhole.gd" type="Script" id=8]
+[ext_resource path="res://src/levels/level.gd" type="Script" id=9]
+[ext_resource path="res://src/game/Comete/Comet.gd" type="Script" id=10]
+[ext_resource path="res://assets/graphisme/Supernova.png" type="Texture" id=11]
 [ext_resource path="res://assets/graphisme/Planete verte.png" type="Texture" id=12]
-[ext_resource path="res://src/game/basic_planet/Planet.gd" type="Script" id=13]
-[ext_resource path="res://assets/graphisme/Drapeau.png" type="Texture" id=14]
-[ext_resource path="res://assets/graphisme/Planete bleue.png" type="Texture" id=15]
-[ext_resource path="res://assets/graphisme/Base drapeau.png" type="Texture" id=16]
-[ext_resource path="res://assets/graphisme/Trou noir tourne 1.png" type="Texture" id=17]
-[ext_resource path="res://assets/graphisme/Trou noir tourne 2.png" type="Texture" id=18]
-[ext_resource path="res://src/game/asteroids/Asteroid.tscn" type="PackedScene" id=19]
-[ext_resource path="res://src/game/asteroids/AsteroidsArea.tscn" type="PackedScene" id=20]
+[ext_resource path="res://src/shaders/blackhole/blackhole_shockwave.shader" type="Shader" id=13]
+[ext_resource path="res://src/game/basic_planet/Planet.gd" type="Script" id=14]
+[ext_resource path="res://src/game/Supernova/Supernova.gd" type="Script" id=15]
+[ext_resource path="res://assets/graphisme/Drapeau.png" type="Texture" id=16]
+[ext_resource path="res://assets/graphisme/Planete bleue.png" type="Texture" id=17]
+[ext_resource path="res://assets/graphisme/Base drapeau.png" type="Texture" id=18]
+[ext_resource path="res://assets/graphisme/Trou noir tourne 1.png" type="Texture" id=19]
+[ext_resource path="res://assets/graphisme/Trou noir tourne 2.png" type="Texture" id=20]
 [ext_resource path="res://src/game/Enemy_spaceship/enemy_spaceship.tscn" type="PackedScene" id=21]
-[ext_resource path="res://assets/graphisme/Comete.png" type="Texture" id=22]
-[ext_resource path="res://src/game/Comete/Comet.gd" type="Script" id=23]
+[ext_resource path="res://src/game/basic_planet/PlanetYellow.tscn" type="PackedScene" id=22]
+[ext_resource path="res://src/game/asteroids/AsteroidsArea.tscn" type="PackedScene" id=23]
 
 [sub_resource type="Gradient" id=1]
 offsets = PoolRealArray( 0, 0.659259, 1 )
@@ -54,7 +54,7 @@ radius = 582.307
 radius = 30.4006
 
 [sub_resource type="ShaderMaterial" id=6]
-shader = ExtResource( 5 )
+shader = ExtResource( 13 )
 shader_param/center = Vector2( 0.5, 0.5 )
 shader_param/force = 0.0
 shader_param/size = 0.0
@@ -95,7 +95,7 @@ radius = 331.637
 radius = 311.798
 
 [sub_resource type="ShaderMaterial" id=10]
-shader = ExtResource( 5 )
+shader = ExtResource( 13 )
 shader_param/center = Vector2( 0.5, 0.5 )
 shader_param/force = 91.451
 shader_param/size = 0.740329
@@ -165,7 +165,7 @@ _data = {
 
 [sub_resource type="Curve2D" id=17]
 _data = {
-"points": PoolVector2Array( 0, 0, 0, 0, -209.771, 1241.63, 0, 0, 0, 0, 1303.14, 2610.45 )
+"points": PoolVector2Array( 0, 0, 0, 0, 180.837, -450.785, 0, 0, 0, 0, 3572.54, -833.801 )
 }
 
 [sub_resource type="Curve" id=18]
@@ -218,8 +218,8 @@ tracks/0/keys = {
 }
 
 [node name="Lvl 4" type="Node2D"]
-script = ExtResource( 3 )
-etoile = ExtResource( 2 )
+script = ExtResource( 9 )
+etoile = ExtResource( 6 )
 nb_etoile = 40
 
 [node name="spawn_position" type="Position2D" parent="."]
@@ -229,12 +229,12 @@ position = Vector2( 226.786, 186.468 )
 wait_time = 0.02
 autostart = true
 
-[node name="Spaceship" parent="." instance=ExtResource( 1 )]
+[node name="Spaceship" parent="." instance=ExtResource( 4 )]
 position = Vector2( 196.623, 324.498 )
 
 [node name="Supernova" type="Node2D" parent="."]
 position = Vector2( 1422.31, 707.981 )
-script = ExtResource( 6 )
+script = ExtResource( 15 )
 __meta__ = {
 "_edit_group_": true
 }
@@ -252,7 +252,7 @@ speed_scale = 2.0
 process_material = SubResource( 3 )
 
 [node name="Sprite2" type="Sprite" parent="Supernova"]
-texture = ExtResource( 4 )
+texture = ExtResource( 11 )
 
 [node name="Aura" type="Area2D" parent="Supernova"]
 
@@ -266,26 +266,26 @@ shape = SubResource( 5 )
 
 [node name="Sprite" type="Sprite" parent="Supernova"]
 material = SubResource( 6 )
-texture = ExtResource( 4 )
+texture = ExtResource( 11 )
 
 [node name="wave_animation" type="AnimationPlayer" parent="Supernova"]
 anims/wave = SubResource( 7 )
 
-[node name="PlanetYellow" parent="." instance=ExtResource( 9 )]
+[node name="PlanetYellow" parent="." instance=ExtResource( 22 )]
 position = Vector2( 371.452, 279.383 )
 is_checkpoint = true
 
-[node name="PlanetRed" parent="." instance=ExtResource( 10 )]
+[node name="PlanetRed" parent="." instance=ExtResource( 5 )]
 position = Vector2( 2139.82, -3.05176e-05 )
 is_checkpoint = true
 
-[node name="PlanetYellow2" parent="." instance=ExtResource( 9 )]
+[node name="PlanetYellow2" parent="." instance=ExtResource( 22 )]
 position = Vector2( 1111.18, -171.439 )
 is_checkpoint = true
 
 [node name="PlanetBlue" type="Node2D" parent="."]
 position = Vector2( 2216.01, 1444.53 )
-script = ExtResource( 13 )
+script = ExtResource( 14 )
 __meta__ = {
 "_edit_group_": true
 }
@@ -294,17 +294,17 @@ lune_speed = 1.0
 is_checkpoint = true
 
 [node name="Sprite" type="Sprite" parent="PlanetBlue"]
-texture = ExtResource( 15 )
+texture = ExtResource( 17 )
 
 [node name="SpriteDrapeau" type="Sprite" parent="PlanetBlue/Sprite"]
 visible = false
 position = Vector2( -0.789539, -84.2806 )
-texture = ExtResource( 14 )
+texture = ExtResource( 16 )
 
 [node name="SpriteBaseDrapeau" type="Sprite" parent="PlanetBlue/Sprite"]
 visible = false
 position = Vector2( -0.75, -76.25 )
-texture = ExtResource( 16 )
+texture = ExtResource( 18 )
 
 [node name="Gravity" type="Area2D" parent="PlanetBlue"]
 collision_layer = 2
@@ -321,14 +321,11 @@ position = Vector2( -102.049, 70.778 )
 
 [node name="PivotLune" type="Node2D" parent="PlanetBlue"]
 
-[node name="pivot" parent="PlanetBlue" instance=ExtResource( 7 )]
+[node name="pivot" parent="PlanetBlue" instance=ExtResource( 2 )]
 
 [node name="PlanetGreen" type="Node2D" parent="."]
-position = Vector2( 422.249, 1139.75 )
-script = ExtResource( 13 )
-__meta__ = {
-"_edit_group_": true
-}
+position = Vector2( 326.357, 1133.76 )
+script = ExtResource( 14 )
 speed = 1.0
 lune_speed = 1.0
 is_checkpoint = true
@@ -339,12 +336,12 @@ texture = ExtResource( 12 )
 [node name="SpriteDrapeau" type="Sprite" parent="PlanetGreen/Sprite"]
 visible = false
 position = Vector2( -0.0834274, -46.4691 )
-texture = ExtResource( 14 )
+texture = ExtResource( 16 )
 
 [node name="SpriteBaseDrapeau" type="Sprite" parent="PlanetGreen/Sprite"]
 visible = false
 position = Vector2( -0.0834274, -38.4601 )
-texture = ExtResource( 16 )
+texture = ExtResource( 18 )
 
 [node name="Gravity" type="Area2D" parent="PlanetGreen"]
 collision_layer = 2
@@ -360,23 +357,23 @@ position = Vector2( -52.6988, 56.4451 )
 
 [node name="PivotLune" type="Node2D" parent="PlanetGreen"]
 
-[node name="pivot" parent="PlanetGreen" instance=ExtResource( 7 )]
+[node name="pivot" parent="PlanetGreen" instance=ExtResource( 2 )]
 
 [node name="Trou noir" type="Node2D" parent="."]
 position = Vector2( 1138.91, 1733.77 )
-script = ExtResource( 11 )
+script = ExtResource( 8 )
 __meta__ = {
 "_edit_group_": true
 }
 RADIUS = 400
 
 [node name="Sprite" type="Sprite" parent="Trou noir"]
-texture = ExtResource( 17 )
+texture = ExtResource( 19 )
 
 [node name="Sprite2" type="Sprite" parent="Trou noir"]
 material = SubResource( 10 )
 position = Vector2( 0, 3 )
-texture = ExtResource( 18 )
+texture = ExtResource( 20 )
 
 [node name="Aura" type="Area2D" parent="Trou noir"]
 
@@ -394,59 +391,59 @@ anims/Rotate = SubResource( 13 )
 [node name="ShockwaveAnimationPlayer" type="AnimationPlayer" parent="Trou noir"]
 anims/shockwave = SubResource( 14 )
 
-[node name="Blackhole_particles" parent="Trou noir" instance=ExtResource( 8 )]
+[node name="Blackhole_particles" parent="Trou noir" instance=ExtResource( 3 )]
 scale = Vector2( 1.3, 1.3 )
 
-[node name="Asteroids Area" parent="." instance=ExtResource( 20 )]
+[node name="Asteroids Area" parent="." instance=ExtResource( 23 )]
 position = Vector2( 53.9391, 554.374 )
 
 [node name="Asteroids Area3" type="Node2D" parent="Asteroids Area"]
 position = Vector2( 704.204, 44.9492 )
 script = SubResource( 15 )
 
-[node name="Asteroids" parent="Asteroids Area/Asteroids Area3" instance=ExtResource( 19 )]
+[node name="Asteroids" parent="Asteroids Area/Asteroids Area3" instance=ExtResource( 7 )]
 position = Vector2( 33.9028, 25.4271 )
 
-[node name="Asteroids10" parent="Asteroids Area/Asteroids Area3" instance=ExtResource( 19 )]
+[node name="Asteroids10" parent="Asteroids Area/Asteroids Area3" instance=ExtResource( 7 )]
 position = Vector2( 159.806, 178.755 )
 
-[node name="Asteroids8" parent="Asteroids Area/Asteroids Area3" instance=ExtResource( 19 )]
+[node name="Asteroids8" parent="Asteroids Area/Asteroids Area3" instance=ExtResource( 7 )]
 position = Vector2( 228.844, 38.1407 )
 
-[node name="Asteroids9" parent="Asteroids Area/Asteroids Area3" instance=ExtResource( 19 )]
+[node name="Asteroids9" parent="Asteroids Area/Asteroids Area3" instance=ExtResource( 7 )]
 position = Vector2( 93.2327, 72.0435 )
 
-[node name="Asteroids3" parent="Asteroids Area/Asteroids Area3" instance=ExtResource( 19 )]
+[node name="Asteroids3" parent="Asteroids Area/Asteroids Area3" instance=ExtResource( 7 )]
 position = Vector2( 169.981, 102.007 )
 
-[node name="Asteroids5" parent="Asteroids Area/Asteroids Area3" instance=ExtResource( 19 )]
+[node name="Asteroids5" parent="Asteroids Area/Asteroids Area3" instance=ExtResource( 7 )]
 position = Vector2( 43.1815, 154.961 )
 
-[node name="Asteroids2" parent="Asteroids Area/Asteroids Area3" instance=ExtResource( 19 )]
+[node name="Asteroids2" parent="Asteroids Area/Asteroids Area3" instance=ExtResource( 7 )]
 position = Vector2( 233.736, 146.834 )
 
-[node name="Asteroids Area2" parent="Asteroids Area" instance=ExtResource( 20 )]
+[node name="Asteroids Area2" parent="Asteroids Area" instance=ExtResource( 23 )]
 position = Vector2( 344.611, 23.9729 )
 
-[node name="Asteroids Area2" parent="." instance=ExtResource( 20 )]
+[node name="Asteroids Area2" parent="." instance=ExtResource( 23 )]
 position = Vector2( 668.245, -95.8917 )
 rotation = 0.380482
 
-[node name="Asteroids Area3" parent="Asteroids Area2" instance=ExtResource( 20 )]
+[node name="Asteroids Area3" parent="Asteroids Area2" instance=ExtResource( 23 )]
 position = Vector2( -184.182, -226.483 )
 rotation = 2.98023e-08
 
-[node name="Asteroids Area4" parent="Asteroids Area2" instance=ExtResource( 20 )]
+[node name="Asteroids Area4" parent="Asteroids Area2" instance=ExtResource( 23 )]
 position = Vector2( -377.277, -39.5178 )
 rotation = 2.98023e-08
 
-[node name="Asteroids Area3" parent="." instance=ExtResource( 20 )]
+[node name="Asteroids Area3" parent="." instance=ExtResource( 23 )]
 position = Vector2( 2091.64, 581.343 )
 
-[node name="Asteroids Area5" parent="Asteroids Area3" instance=ExtResource( 20 )]
+[node name="Asteroids Area5" parent="Asteroids Area3" instance=ExtResource( 23 )]
 position = Vector2( 218.753, 215.756 )
 
-[node name="Asteroids Area4" parent="Asteroids Area3" instance=ExtResource( 20 )]
+[node name="Asteroids Area4" parent="Asteroids Area3" instance=ExtResource( 23 )]
 position = Vector2( 134.848, -203.77 )
 
 [node name="vaisseau_ennemy" type="Path2D" parent="."]
@@ -472,20 +469,22 @@ rotation = -1.12091
 position = Vector2( -0.123535, -0.34061 )
 
 [node name="Comet_path" type="Path2D" parent="."]
+position = Vector2( -221.746, 156.23 )
 curve = SubResource( 17 )
 
 [node name="PathFollow2D" type="PathFollow2D" parent="Comet_path"]
-position = Vector2( -209.771, 1241.63 )
-rotation = 0.735435
+position = Vector2( 180.837, -450.785 )
+rotation = -0.112472
 
 [node name="Comete" type="Node2D" parent="Comet_path/PathFollow2D"]
 position = Vector2( 0.944946, -0.629959 )
-script = ExtResource( 23 )
+script = ExtResource( 10 )
 __meta__ = {
 "_edit_group_": true
 }
 RADIUS = 250
 FORCE = 40
+speed = 250
 
 [node name="particules" type="CPUParticles2D" parent="Comet_path/PathFollow2D/Comete"]
 amount = 150
@@ -518,7 +517,7 @@ color_ramp = SubResource( 23 )
 
 [node name="Sprite" type="Sprite" parent="Comet_path/PathFollow2D/Comete"]
 position = Vector2( 0.373213, 0.943871 )
-texture = ExtResource( 22 )
+texture = ExtResource( 1 )
 
 [node name="Aura" type="Area2D" parent="Comet_path/PathFollow2D/Comete"]
 
@@ -538,7 +537,7 @@ anims/Rotate = SubResource( 26 )
 [node name="LevelLimits" type="Node2D" parent="."]
 
 [node name="Position2DTop" type="Position2D" parent="LevelLimits"]
-position = Vector2( 1502.65, -604.08 )
+position = Vector2( 1568.16, -689.754 )
 
 [node name="Position2DRight" type="Position2D" parent="LevelLimits"]
 position = Vector2( 2786.32, 792.854 )
