@@ -9,7 +9,6 @@ var state = false
 
 func _ready():
 	$Aura/attraction.shape.radius = RADIUS	
-	$pivot.init($Aura/attraction.shape.radius)
 
 
 func _physics_process(delta):

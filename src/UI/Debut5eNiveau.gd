@@ -23,8 +23,8 @@ var ordrePhrase = ["A few weaks later, Flynn is trying really hard to get as muc
 "Bilge barrrrel !", \
 "Alright... Let's get back to the ship real quick and let's get going as fast as we can"]
 var ordreSprite = ["Narrator", "pitchoune", "gaston", "pitchoune_triste", "gaston", "pitchoune", "Narrator", "pitchoune_bourre_pas_content", \
-"gaston", "perroquet", "pitchoune", "gaston", "pitchoune", "gaston", "pitchoune_depite", "gaston", "perroquet", \
-"pitchoune_enerve", "perroquet", "pitchoune_enerve"]
+"gaston", "Narrator", "pitchoune", "gaston", "pitchoune", "gaston", "pitchoune_depite", "gaston", "Narrator", \
+"pitchoune_enerve", "Narrator", "pitchoune_enerve"]
 
 func _ready():
 	$ZoneDialog.init(ordrePhrase, ordrePersos, ordreSprite)

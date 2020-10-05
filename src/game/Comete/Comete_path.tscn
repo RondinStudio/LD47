@@ -4,14 +4,14 @@
 
 [sub_resource type="Curve2D" id=1]
 _data = {
-"points": PoolVector2Array( 0, 0, 0, 0, 3.18677, -0.560059, 0, 0, 0, 0, 0.106869, 0.251696, 0, 0, 0, 0, 2001.87, 1246.86 )
+"points": PoolVector2Array( 0, 0, 0, 0, 729.835, -97.8067, 0, 0, 0, 0, 2001.87, 1246.86 )
 }
 
 [node name="Comet_path" type="Path2D"]
 curve = SubResource( 1 )
 
 [node name="PathFollow2D" type="PathFollow2D" parent="."]
-position = Vector2( 3.18677, -0.560059 )
-rotation = 1.07392
+position = Vector2( 729.835, -97.8067 )
+rotation = 0.813123
 
 [node name="Comete" parent="PathFollow2D" instance=ExtResource( 1 )]
