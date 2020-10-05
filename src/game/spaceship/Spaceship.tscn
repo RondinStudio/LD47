@@ -7,7 +7,7 @@
 [ext_resource path="res://src/particles/smoke/trail.tscn" type="PackedScene" id=5]
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 50.2224, 26.6693 )
+extents = Vector2( 50.222, 26.669 )
 
 [sub_resource type="Animation" id=2]
 resource_name = "Death"
@@ -163,10 +163,8 @@ frames = SubResource( 7 )
 frame = 1
 
 [node name="Explode" type="Node2D" parent="."]
-position = Vector2( 129.083, 10.1022 )
 
 [node name="explosion" type="CPUParticles2D" parent="Explode"]
-position = Vector2( -129.083, -10.069 )
 emitting = false
 amount = 130
 lifetime = 0.5
