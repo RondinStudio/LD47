@@ -26,12 +26,12 @@ var ordrePersos = [
 
 var ordrePhrase = [
 	"The phone starts ringing.", 
-	"Just in time M.Flynn ! Now we're able to bake our delicious cement and anchory pizza !", 
-	"Well that's wonderful. Now, time to speak about money.", 
+	"Just in time M.Flynn ! Now we're able to bake our delicious nutella-anchovies pizza !", 
+	"Well that's wonderful. Now, time to speak money.", 
 	"Si, si... Here is your payment !", 
 	"Thank you Margarita Sancheese, even if you probably don't have any taste bud, you're a man of honor !", 
-	"A few minutes later, Flynn doesn't even have enough time to relax before the phone starts ringing again.", 
-	"Hello, X-Treme Turbo Epic Giant Truck Delivery Service Flynn, how could I help you ?", 
+	"A few minutes later, even before Flynn had time to relax, the phone starts ringing again.", 
+	"Hello, X-Treme Turbo Epic Giant Truck Delivery Service Flynn, how can I help you ?", 
 	"Hello brother. Are you Flynn the one known as 'best truck driver in the whole galaxy' ?", 
 	"In the flesh.", 
 	"I am Brigitte, from the Kind Association of Flub the Beautiful.", 
