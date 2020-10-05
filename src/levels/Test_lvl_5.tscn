@@ -193,7 +193,7 @@ curve = SubResource( 7 )
 
 [node name="PathFollow2D" type="PathFollow2D" parent="vaisseau_ennemy"]
 position = Vector2( 1335.28, -1487.33 )
-rotation = 1.90028
+rotation = 1.90024
 
 [node name="Enemy_vaisseau" parent="vaisseau_ennemy/PathFollow2D" instance=ExtResource( 12 )]
 position = Vector2( -0.123535, -0.34061 )
@@ -204,7 +204,7 @@ curve = SubResource( 7 )
 
 [node name="PathFollow2D" type="PathFollow2D" parent="vaisseau_ennemy2"]
 position = Vector2( 1335.28, -1487.33 )
-rotation = 1.90028
+rotation = 1.90024
 
 [node name="Enemy_vaisseau" parent="vaisseau_ennemy2/PathFollow2D" instance=ExtResource( 12 )]
 position = Vector2( -0.123535, -0.34061 )
