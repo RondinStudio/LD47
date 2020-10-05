@@ -2,7 +2,7 @@
 
 [ext_resource path="res://src/levels/level_container.gd" type="Script" id=1]
 [ext_resource path="res://src/UI/pause_popup.tscn" type="PackedScene" id=2]
-[ext_resource path="res://src/levels/Test_lvl_3.tscn" type="PackedScene" id=3]
+[ext_resource path="res://src/levels/Test_lvl_2.tscn" type="PackedScene" id=3]
 [ext_resource path="res://src/game/Camera/Camera.tscn" type="PackedScene" id=15]
 
 [node name="LevelContainer" type="Node2D"]
@@ -13,4 +13,4 @@ visible = false
 
 [node name="Camera2D" parent="." instance=ExtResource( 15 )]
 
-[node name="Test_lvl_3" parent="." instance=ExtResource( 3 )]
+[node name="Test_lvl_2" parent="." instance=ExtResource( 3 )]
