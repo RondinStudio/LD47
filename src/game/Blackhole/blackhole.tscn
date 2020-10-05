@@ -5,7 +5,7 @@
 [ext_resource path="res://assets/graphisme/Trou noir tourne 2.png" type="Texture" id=3]
 [ext_resource path="res://src/shaders/blackhole/blackhole_shockwave.shader" type="Shader" id=4]
 [ext_resource path="res://src/particles/blackhole/blackhole_particles.tscn" type="PackedScene" id=5]
-[ext_resource path="res://src/game/basic_planet/ring.gd" type="Script" id=6]
+[ext_resource path="res://src/game/basic_planet/ring.tscn" type="PackedScene" id=6]
 
 [sub_resource type="ShaderMaterial" id=1]
 shader = ExtResource( 4 )
@@ -94,12 +94,7 @@ anims/shockwave = SubResource( 5 )
 
 [node name="Blackhole_particles" parent="." instance=ExtResource( 5 )]
 
-[node name="pivot" type="Node2D" parent="."]
-script = ExtResource( 6 )
-
-[node name="Position2D" type="Position2D" parent="pivot"]
-
-[node name="SpawnPos" type="Node2D" parent="pivot/Position2D"]
+[node name="pivot" parent="." instance=ExtResource( 6 )]
 [connection signal="body_entered" from="Aura" to="." method="_on_Aura_body_entered"]
 [connection signal="body_exited" from="Aura" to="." method="_on_Aura_body_exited"]
 [connection signal="body_entered" from="Centre" to="." method="_on_Centre_body_entered"]
