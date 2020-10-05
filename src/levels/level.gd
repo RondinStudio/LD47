@@ -16,8 +16,8 @@ func _ready():
 	player = $Spaceship
 
 func _on_Timer_timeout():
-	var x = randi()%1920
-	var y = randi()%1080
+	var x = randi()%8000
+	var y = randi()%4000
 	var new_etoile = etoile.instance()
 	new_etoile.position.x = x
 	new_etoile.position.y = y
@@ -34,6 +34,7 @@ func on_new_checkpoint(new_spawn_pos):
 func on_player_death():
 	player.position = $spawn_position.position
 	player.set_physics_process(true)
+	print("zeubi t'es la?")
 
 func on_end_of_level_reached():
 	get_parent().go_to_next_level()

@@ -64,6 +64,7 @@ func physics_process_in_orbit(delta):
 		Events.emit_signal("player_leave_orbit")
 
 func death():
+	orbited = false
 	Events.emit_signal("player_death")
 	# Lancer l'animation et arrêter le vaisseau pour éviter les collisions bizarres
 
