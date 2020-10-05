@@ -41,4 +41,3 @@ func _on_Timer_timeout():
 		state = false
 	else :
 		state = true
-	#print(state)
