@@ -13,21 +13,16 @@ func _ready():
 
 func _physics_process(delta):
 	# Si le vaisseau est dans la zone d'attraction de la supernova, il subit de nouvelles forces.
-	if state :
-		$wave_animation.play("wave")
-		$Shockwave/Particles2D.emitting = true
 		if apply_forces:
 			# La force d'attraction dépend de la distance vaisseau - supernova.
+			#var push_force = -1
 			var push_force = -inverse_lerp($Aura/attraction.shape.radius, 0, $Sprite.global_position.distance_to(player.position))
 			if push_force >= 0:
 				push_force = 0
 			#print(push_force)
 			var attraction_direction = - (($Aura.global_position) - (player.global_position)).normalized()
-			var added_velocity =  - 10*attraction_direction * (push_force * FORCE)
+			var added_velocity =  -attraction_direction * (push_force * FORCE)
 			player.applied_forces += added_velocity
-	else :
-		$Shockwave/Particles2D.emitting = false
-		$wave_animation.stop(true)
 
 func _on_Aura_body_entered(body):
 	if body.name == "Spaceship":
@@ -45,3 +40,9 @@ func _on_Timer_timeout():
 		state = false
 	else :
 		state = true
+
+
+func _on_Centre_body_entered(body):
+	if body.name == "Spaceship":
+		player.set_physics_process(false)
+		player.get_node("AnimationPlayer").play("Death")

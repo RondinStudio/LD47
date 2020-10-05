@@ -10,6 +10,7 @@ var planete
 var speed = 0
 var movement = Vector2(0, 0)
 var direction_tangent = 1
+var thrusters_playing = false
 
 func _physics_process(delta):
 	if orbited == false:
@@ -21,6 +22,9 @@ func _physics_process(delta):
 func physics_process_in_movement(delta):
 	if Input.is_action_pressed("space"):
 		$AnimationPlayer.play("Moving")
+		if thrusters_playing == false:
+			SoundManager.play_se("res://assets/son/Sound effects/thrusters.wav")
+			thrusters_playing = true
 		$trail/Particles2D.emitting = true
 		$trail2/Particles2D.emitting = true
 		speed += ACCELERATION
@@ -29,7 +33,7 @@ func physics_process_in_movement(delta):
 		$AnimationPlayer.play("Idle")
 		$trail/Particles2D.emitting = false
 		$trail2/Particles2D.emitting = false
-		
+		stop_thrusters()
 	var movedir = Vector2(1,0).rotated(rotation)
 	velocity = speed * movedir
 	movement = ((velocity * MOVE_SPEED)+ applied_forces) * delta 
@@ -74,6 +78,7 @@ func death():
 	# Lancer l'animation et arrêter le vaisseau pour éviter les collisions bizarres
 
 func orbit(planete_param, toFollow , direction):
+	stop_thrusters()
 	planete = planete_param
 	positionToFollow = toFollow
 	direction_tangent = direction
@@ -82,3 +87,11 @@ func orbit(planete_param, toFollow , direction):
 
 func _on_VisibilityNotifier2D_screen_exited():
 	death()
+
+func stop_thrusters():
+	if thrusters_playing == true:
+		SoundManager.stop("res://assets/son/Sound effects/thrusters.wav")
+		thrusters_playing = false
+
+func bruit_explosion():
+	SoundManager.play_se("res://assets/son/Sound effects/explosion.wav")

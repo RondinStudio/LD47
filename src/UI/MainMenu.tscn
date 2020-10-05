@@ -26,17 +26,15 @@ __meta__ = {
 [node name="Start" type="Button" parent="."]
 margin_left = 725.0
 margin_top = 561.0
-margin_right = 857.0
-margin_bottom = 604.0
-rect_scale = Vector2( 4, 4 )
+margin_right = 1253.0
+margin_bottom = 733.0
 text = "Start"
 
 [node name="Exit" type="Button" parent="."]
 margin_left = 725.0
 margin_top = 817.0
-margin_right = 857.0
-margin_bottom = 860.0
-rect_scale = Vector2( 4, 4 )
+margin_right = 1253.0
+margin_bottom = 989.0
 text = "Exit"
 __meta__ = {
 "_edit_use_anchors_": false

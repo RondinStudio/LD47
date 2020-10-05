@@ -1,13 +1,29 @@
 extends Node2D
 
-var current_level_number = 1
-onready var current_level_reference = $Test_level
+var niveau1 = load("res://src/levels/niveau1.tscn")
+var niveau2 = load("res://src/levels/niveau2.tscn")
+var niveau3 = load("res://src/levels/niveau3.tscn")
+var niveau4 = load("res://src/levels/niveau4.tscn")
+var niveau5 = load("res://src/levels/niveau5.tscn")
 
 func _ready():
-	$Camera2D.init(current_level_reference.get_node("Spaceship")) 
+	if (Globals.current_level == 1):
+		var new_level = niveau1.instance()
+		self.add_child(new_level)
+	if (Globals.current_level == 2):
+		var new_level = niveau2.instance()
+		self.add_child(new_level)
+	if (Globals.current_level == 3):
+		var new_level = niveau3.instance()
+		self.add_child(new_level)
+	if (Globals.current_level == 4):
+		var new_level = niveau4.instance()
+		self.add_child(new_level)
+	if (Globals.current_level == 5):
+		var new_level = niveau5.instance()
+		self.add_child(new_level)
+	$Camera2D.init(get_child(1).get_node("Spaceship"))
 
-#TODO : utiliser la fonction _event (_input je sais plus) à la place
-# warning-ignore:unused_argument
 func _process(delta):
 	if Input.is_action_pressed("ui_cancel"):
 		on_pause_pressed()
@@ -20,9 +36,4 @@ func on_resume():
 	get_tree().paused = false
 	$pause_popup.hide()
 
-func go_to_next_level():
-	#go_to_level(current_level + 1)
-	#level + 1
-	pass
-	
 # A TERME : AJOUTER DES FONCTIONS POUR MANIPULER LA MUSIQUE

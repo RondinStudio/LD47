@@ -1,4 +1,4 @@
-extends Node
+extends Camera2D
 
 var position_to_move_to:Vector2 = Vector2()
 var direction_to_move_to:Vector2 = Vector2()
@@ -48,8 +48,12 @@ func _input(event):
 			self.zoom.x = clamp(self.zoom.x, 0.5, 2)
 			self.zoom.y = clamp(self.zoom.y, 0.5, 2)
 	
-func init(player_param):
+func init(player_param, levelLimits):
 	player = player_param
+	self.limit_top = levelLimits.get_node("Position2DTop").position.y
+	self.limit_right = levelLimits.get_node("Position2DRight").position.x
+	self.limit_bottom = levelLimits.get_node("Position2DBottom").position.y
+	self.limit_left = levelLimits.get_node("Position2DLeft").position.x
 
 func on_player_enter_orbit(planet_pos):
 	position_to_move_to = planet_pos
