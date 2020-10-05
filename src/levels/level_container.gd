@@ -5,8 +5,8 @@ var current_level_number = 1
 onready var current_level_reference = $Test_lvl_4
 
 
-func _ready():
-	$Camera2D.init(current_level_reference.get_node("Spaceship")) 
+#func _ready():
+#	$Camera2D.init(current_level_reference.get_node("Spaceship")) 
 
 #TODO : utiliser la fonction _event (_input je sais plus) à la place
 # warning-ignore:unused_argument

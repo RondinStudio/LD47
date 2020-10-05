@@ -75,6 +75,7 @@ __meta__ = {
 }
 FORCE = 10
 
+
 [node name="Shockwave" type="Node2D" parent="."]
 scale = Vector2( 1.25, 1.25 )
 
@@ -86,7 +87,6 @@ process_material = SubResource( 7 )
 
 [node name="Sprite2" type="Sprite" parent="."]
 texture = ExtResource( 1 )
-
 [node name="Aura" type="Area2D" parent="."]
 
 [node name="attraction" type="CollisionShape2D" parent="Aura"]
