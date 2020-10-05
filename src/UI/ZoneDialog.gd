@@ -13,13 +13,17 @@ var mec_louche = preload("res://assets/graphisme/histoire/Glurb.png")
 var mec_louche_pas_content = preload("res://assets/graphisme/histoire/Glurb pas content.png")
 var gaston = preload("res://assets/graphisme/histoire/Gaston.png")
 var robot = preload("res://assets/graphisme/histoire/robot.png")
+var frog = preload("res://assets/graphisme/histoire/Grenouille.png")
+var rick = preload("res://assets/graphisme/histoire/Rick.png")
+var jeho = preload("res://assets/graphisme/histoire/Jeho.png")
+var perroquet = preload("res://assets/graphisme/histoire/Perroquet.png")
 
 var sprites_dir = {"pitchoune": pitchoune, "pitchoune_triste": pitchoune_triste, \
 "pitchoune_bourre_content": pitchoune_bourre_content, "pitchoune_bourre_pas_content": pitchoune_bourre_pas_content,\
 "pitchoune_sunglasses": pitchoune_sunglasses, "pitchoune_tel": pitchoune_tel, \
 "pitchoune_enerve": pitchoune_enerve, "pitchoune_depite": pitchoune_depite, "sancheese": sancheese, \
 "mec_louche": mec_louche, "mec_louche_pas_content": mec_louche_pas_content, "gaston": gaston, \
-"robot": robot
+"robot": robot, "frog": frog, "rick": rick, "jeho": jeho, "perroquet": perroquet
  }
 
 onready var tie = get_node("Panel/text_interface_engine")

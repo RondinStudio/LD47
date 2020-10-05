@@ -24,9 +24,9 @@ var ordrePhrase = ["After a long travel, they finaly arrived to their destinatio
 "He hangs up.", \
 "OH BOIII LETS FLEE SOMEWHERE HE WON'T FIND US !", \
 "And that's how the story of flee, the most famous space trucker of the galaxy ends, nobody never heard about him anymore. Some says he's been hiding since, always struggling to get money because he keeps spending it."]
-var ordreSprite = ["Narrator", "pitchoune_bourre_content", "Narrator", "pitchoune_enerve", "Narrator", "Narrator", \
+var ordreSprite = ["Narrator", "pitchoune_bourre_content", "perroquet", "pitchoune_enerve", "perroquet", "Narrator", \
 "pitchoune_bourre_content", "Narrator", "pitchoune_tel", "Narrator", "pitchoune", "Narrator", "pitchoune", \
-"Narrator", "Narrator", "pitchoune_depite", "pitchoune_triste", "Narrator", "Narrator", "pitchoune_triste", "Narrator"]
+"rick", "Narrator", "pitchoune_depite", "pitchoune_triste", "rick", "Narrator", "pitchoune_triste", "Narrator"]
 
 func _ready():
 	$ZoneDialog.init(ordrePhrase, ordrePersos, ordreSprite)
