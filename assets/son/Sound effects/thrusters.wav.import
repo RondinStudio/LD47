@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/thrusters.wav-4b8b1a6a2275ad96656a07e222e0854c.sample"
+
+[deps]
+
+source_file="res://assets/son/Sound effects/thrusters.wav"
+dest_files=[ "res://.import/thrusters.wav-4b8b1a6a2275ad96656a07e222e0854c.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0
