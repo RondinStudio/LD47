@@ -9,12 +9,13 @@ var state = false
 
 func _ready():
 	$Aura/attraction.shape.radius = RADIUS
-	$wave_animation.play("wave")
 
 
 func _physics_process(delta):
 	# Si le vaisseau est dans la zone d'attraction du trou noir, il subit de nouvelles forces.
 	if state :
+		$wave_animation.play("wave")
+		$Shockwave/Particles2D.emitting = true
 		if apply_forces:
 			# La force d'attraction dépend de la distance vaisseau - trou noir.
 			var push_force = -inverse_lerp($Aura/attraction.shape.radius, 0, $Sprite.global_position.distance_to(player.position))
@@ -24,6 +25,9 @@ func _physics_process(delta):
 			var attraction_direction = - (($Aura.global_position) - (player.global_position)).normalized()
 			var added_velocity =  - 10*attraction_direction * (push_force * FORCE)
 			player.applied_forces += added_velocity
+	else :
+		$Shockwave/Particles2D.emitting = false
+		$wave_animation.stop(true)
 
 func _on_Aura_body_entered(body):
 	if body.name == "Spaceship":
