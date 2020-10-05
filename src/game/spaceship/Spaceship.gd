@@ -75,6 +75,7 @@ func physics_process_in_orbit(delta):
 		Events.emit_signal("reset")
 
 func death():
+	applied_forces = Vector2(0, 0)
 	orbited = false
 	Events.emit_signal("player_death")
 
