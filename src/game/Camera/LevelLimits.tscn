@@ -1,0 +1,11 @@
+[gd_scene format=2]
+
+[node name="LevelLimits" type="Node2D"]
+
+[node name="Position2DTop" type="Position2D" parent="."]
+
+[node name="Position2DRight" type="Position2D" parent="."]
+
+[node name="Position2DBottom" type="Position2D" parent="."]
+
+[node name="Position2DLeft" type="Position2D" parent="."]
