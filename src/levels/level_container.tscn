@@ -1,3 +1,4 @@
+
 [gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://src/levels/level_container.gd" type="Script" id=1]
@@ -14,3 +15,4 @@ visible = false
 [node name="Camera2D" parent="." instance=ExtResource( 15 )]
 
 [node name="Test_lvl_2" parent="." instance=ExtResource( 3 )]
+
