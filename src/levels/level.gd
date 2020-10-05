@@ -49,6 +49,7 @@ func _on_Timer_timeout():
 func on_reset():
 	if player.orbited == false:
 		player.position = $spawn_position.position
+		player.positionToFollow = player.lastPositionToFollow
 
 func on_new_checkpoint(new_spawn_pos):
 	$spawn_position.position = new_spawn_pos

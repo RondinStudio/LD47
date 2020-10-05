@@ -75,6 +75,7 @@ func physics_process_in_orbit(delta):
 		Events.emit_signal("reset")
 
 func death():
+	applied_forces = Vector2(0, 0)
 	orbited = false
 	Events.emit_signal("player_death")
 
@@ -88,7 +89,9 @@ func orbit(planete_param, toFollow , direction):
 	Events.emit_signal("player_enter_orbit", planete_param.global_position)
 
 func _on_VisibilityNotifier2D_screen_exited():
-	death()
+	if $AnimationPlayer.current_animation != "Death" and (position.x < get_parent().get_node("LevelLimits/Position2DLeft").position.x or position.x > get_parent().get_node("LevelLimits/Position2DRight").position.x or position.y < get_parent().get_node("LevelLimits/Position2DTop").position.y or position.y > get_parent().get_node("LevelLimits/Position2DBottom").position.y):
+		set_physics_process(false)
+		$AnimationPlayer.play("Death")
 
 func stop_thrusters():
 	if thrusters_playing == true:
