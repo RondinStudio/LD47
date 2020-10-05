@@ -19,11 +19,11 @@ var ordrePhrase = ["After a long travel, they finaly arrived to their destinatio
 "I AM RICK THE RED ! SHIVER BEFORE ME !", \
 "Flynn sudenly remember the news, Rick The Red is the most famous and dangerous space pirate.", \
 "Oh boi.", \
-"I... I don't have your parrot anymore it just teleported.", \
+"Sir, i don't have your parrot anymore it just teleported.", \
 "Ooho so you're trying to fuck with me. Alright. You'll pay with your own life.", \
 "He hangs up.", \
 "OH BOIII LETS FLEE SOMEWHERE HE WON'T FIND US !", \
-"And that's how the story of Flynn, the most famous space trucker of the galaxy ends, nobody never heard about him anymore. Some says he's been hiding since, always struggling to get money because he keeps... somehow, losing it."]
+"And that's how the story of flee, the most famous space trucker of the galaxy ends, nobody never heard about him anymore. Some says he's been hiding since, always struggling to get money because he keeps spending it."]
 var ordreSprite = ["Narrator", "pitchoune_bourre_content", "Narrator", "pitchoune_enerve", "Narrator", "Narrator", \
 "pitchoune_bourre_content", "Narrator", "pitchoune_tel", "Narrator", "pitchoune", "Narrator", "pitchoune", \
 "Narrator", "Narrator", "pitchoune_depite", "pitchoune_triste", "Narrator", "Narrator", "pitchoune_triste", "Narrator"]

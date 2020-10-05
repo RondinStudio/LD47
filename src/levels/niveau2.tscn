@@ -1,4 +1,3 @@
-﻿
 [gd_scene load_steps=24 format=2]
 
 [ext_resource path="res://src/game/basic_planet/Planet.gd" type="Script" id=1]
@@ -16,7 +15,6 @@
 [ext_resource path="res://src/game/Enemy_spaceship/enemy_spaceship.tscn" type="PackedScene" id=13]
 [ext_resource path="res://src/game/asteroids/Asteroid.tscn" type="PackedScene" id=14]
 [ext_resource path="res://src/game/spaceship/Spaceship.tscn" type="PackedScene" id=16]
-
 
 [sub_resource type="Curve2D" id=7]
 _data = {
@@ -123,7 +121,6 @@ position = Vector2( -0.123535, -0.34061 )
 speed = 100
 
 [node name="Timer" type="Timer" parent="."]
-
 wait_time = 0.02
 autostart = true
 
@@ -550,7 +547,6 @@ position = Vector2( -300, 100 )
 position = Vector2( 0, -316.2 )
 
 [node name="pivot" parent="PlanetRed3" instance=ExtResource( 10 )]
-
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
 [connection signal="area_entered" from="PlanetBlue/Gravity" to="PlanetBlue" method="_on_Gravity_area_entered"]
 [connection signal="area_entered" from="PlanetYellow/Gravity" to="PlanetYellow" method="_on_Gravity_area_entered"]
