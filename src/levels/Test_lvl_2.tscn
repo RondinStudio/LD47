@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=2]
+[gd_scene load_steps=24 format=2]
 
 [ext_resource path="res://src/game/basic_planet/Planet.gd" type="Script" id=1]
 [ext_resource path="res://assets/graphisme/Base drapeau.png" type="Texture" id=2]
@@ -9,11 +9,10 @@
 [ext_resource path="res://assets/Star.tscn" type="PackedScene" id=7]
 [ext_resource path="res://src/game/Lunes/Lune.tscn" type="PackedScene" id=8]
 [ext_resource path="res://assets/graphisme/Planete jaune.png" type="Texture" id=9]
-[ext_resource path="res://src/game/asteroids/AsteroidsArea.gd" type="Script" id=10]
 [ext_resource path="res://src/game/basic_planet/PlanetGreen.tscn" type="PackedScene" id=11]
 [ext_resource path="res://src/game/asteroids/AsteroidsArea.tscn" type="PackedScene" id=12]
 [ext_resource path="res://src/game/Enemy_spaceship/enemy_spaceship.tscn" type="PackedScene" id=13]
-[ext_resource path="res://src/game/asteroids/Asteroid1.tscn" type="PackedScene" id=14]
+[ext_resource path="res://src/game/asteroids/Asteroid.tscn" type="PackedScene" id=14]
 [ext_resource path="res://src/game/Comete/Comete.tscn" type="PackedScene" id=15]
 [ext_resource path="res://src/game/spaceship/Spaceship.tscn" type="PackedScene" id=16]
 
@@ -35,12 +34,12 @@ radius = 180.128
 [sub_resource type="CircleShape2D" id=6]
 radius = 107.654
 
-[sub_resource type="Curve2D" id=8]
+[sub_resource type="Curve2D" id=7]
 _data = {
 "points": PoolVector2Array( 0, 0, 0, 0, 1427.2, -20.816, 0, 0, 0, 0, 801.311, 1163.62 )
 }
 
-[sub_resource type="Curve2D" id=7]
+[sub_resource type="Curve2D" id=8]
 _data = {
 "points": PoolVector2Array( -8.13173, 4.24264, 8.13173, -4.24264, 371.379, 47.8563, 44.1942, -6.01041, -44.1942, 6.01041, 351.148, 9.8884, 26.5165, -28.9914, -26.5165, 28.9914, 89.0848, 127.061, -30.7591, 3.88909, 30.7591, -3.88909, 106.928, 164.724, 13.7886, 1.41421, -13.7886, -1.41421, 371.379, 47.8563 )
 }
@@ -49,14 +48,6 @@ _data = {
 script = ExtResource( 6 )
 etoile = ExtResource( 7 )
 nb_etoile = 80
-
-[node name="ColorRect" type="ColorRect" parent="."]
-margin_right = 1920.0
-margin_bottom = 1080.0
-color = Color( 0, 0, 0, 1 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="1lune" type="Node2D" parent="."]
 position = Vector2( 461.893, 840.454 )
@@ -207,7 +198,6 @@ is_checkpoint = true
 [node name="Asteroids Area" type="Node2D" parent="."]
 position = Vector2( 410, 38 )
 rotation = 1.01578
-script = ExtResource( 10 )
 
 [node name="Asteroids" parent="Asteroids Area" instance=ExtResource( 14 )]
 position = Vector2( 33.9028, 25.4271 )
@@ -236,76 +226,91 @@ position = Vector2( 43.1815, 154.961 )
 [node name="Asteroids Area" parent="Asteroids Area" instance=ExtResource( 12 )]
 position = Vector2( -432.843, 254.045 )
 rotation = -1.14319
+script = null
 
 [node name="Asteroids Area2" parent="Asteroids Area" instance=ExtResource( 12 )]
 position = Vector2( -232.362, -61.7073 )
 rotation = -1.14319
+script = null
 
 [node name="Asteroids Area3" parent="Asteroids Area" instance=ExtResource( 12 )]
 position = Vector2( -40.5503, -371.068 )
 rotation = -1.14319
+script = null
 
 [node name="Asteroids Area4" parent="Asteroids Area" instance=ExtResource( 12 )]
 position = Vector2( 149.97, -685.937 )
 rotation = -1.14319
+script = null
 
 [node name="Asteroids Area5" parent="Asteroids Area" instance=ExtResource( 12 )]
 position = Vector2( 348.751, -1002.74 )
 rotation = -1.14319
+script = null
 
 [node name="Asteroids Area6" parent="Asteroids Area" instance=ExtResource( 12 )]
 position = Vector2( 565.857, -1352.9 )
 rotation = -1.14319
+script = null
 
 [node name="Asteroids Area7" parent="Asteroids Area" instance=ExtResource( 12 )]
 position = Vector2( 680.381, 906.622 )
 rotation = -1.14319
+script = null
 
 [node name="Asteroids Area8" parent="Asteroids Area" instance=ExtResource( 12 )]
 position = Vector2( 899.595, 553.066 )
 rotation = -1.14319
+script = null
 
 [node name="Asteroids Area9" parent="Asteroids Area" instance=ExtResource( 12 )]
 position = Vector2( 1106.23, 238.776 )
 rotation = -1.14319
+script = null
 
 [node name="Asteroids Area10" parent="Asteroids Area" instance=ExtResource( 12 )]
 position = Vector2( 1322.11, -98.0193 )
 rotation = -1.14319
+script = null
 
 [node name="Asteroids Area11" parent="Asteroids Area" instance=ExtResource( 12 )]
 position = Vector2( 1535.65, -438.622 )
 rotation = -1.14319
+script = null
 
 [node name="Asteroids Area12" parent="Asteroids Area" instance=ExtResource( 12 )]
 position = Vector2( 1475.11, -1062.11 )
 rotation = 0.253073
+script = null
 
 [node name="Asteroids Area13" parent="Asteroids Area" instance=ExtResource( 12 )]
 position = Vector2( 1125.84, -1269.26 )
 rotation = 0.253073
+script = null
 
 [node name="Asteroids Area14" parent="Asteroids Area" instance=ExtResource( 12 )]
 position = Vector2( 799.345, -1509.34 )
 rotation = 0.253073
+script = null
 
 [node name="Asteroids Area15" parent="Asteroids Area" instance=ExtResource( 12 )]
 position = Vector2( -351.594, 327.954 )
 rotation = 0.253073
+script = null
 
 [node name="Asteroids Area16" parent="Asteroids Area" instance=ExtResource( 12 )]
 position = Vector2( -9.69923, 546.998 )
 rotation = 0.253073
+script = null
 
 [node name="Asteroids Area17" parent="Asteroids Area" instance=ExtResource( 12 )]
 position = Vector2( 339.233, 777.464 )
 rotation = 0.253073
+script = null
 
 [node name="Asteroids Area2" type="Node2D" parent="."]
 position = Vector2( 1349.45, 736.554 )
 rotation = 1.90415
-scale = Vector2( 1, 1 )
-script = ExtResource( 10 )
 
 [node name="Asteroids10" parent="Asteroids Area2" instance=ExtResource( 14 )]
 position = Vector2( 196.44, 176.736 )
@@ -326,17 +331,17 @@ position = Vector2( 263.796, 121.104 )
 position = Vector2( 109.398, 161.365 )
 
 [node name="Comet_path" type="Path2D" parent="."]
-curve = SubResource( 8 )
+curve = SubResource( 7 )
 
 [node name="PathFollow2D" type="PathFollow2D" parent="Comet_path"]
 position = Vector2( 1427.2, -20.816 )
-rotation = 2.05693
+rotation = 2.05695
 
 [node name="Comete" parent="Comet_path/PathFollow2D" instance=ExtResource( 15 )]
 
 [node name="vaisseau_ennemy" type="Path2D" parent="."]
 position = Vector2( -18.0471, 481.267 )
-curve = SubResource( 7 )
+curve = SubResource( 8 )
 __meta__ = {
 "_edit_group_": true
 }

@@ -1,8 +1,7 @@
-[gd_scene load_steps=38 format=2]
+[gd_scene load_steps=37 format=2]
 
-[ext_resource path="res://src/game/asteroids/AsteroidsArea.gd" type="Script" id=1]
 [ext_resource path="res://src/game/basic_planet/Planet.gd" type="Script" id=2]
-[ext_resource path="res://src/game/asteroids/Asteroid1.tscn" type="PackedScene" id=3]
+[ext_resource path="res://src/game/asteroids/Asteroid.tscn" type="PackedScene" id=3]
 [ext_resource path="res://src/game/Enemy_spaceship/enemy_spaceship.tscn" type="PackedScene" id=4]
 [ext_resource path="res://assets/graphisme/Drapeau.png" type="Texture" id=5]
 [ext_resource path="res://assets/graphisme/Planete bleue.png" type="Texture" id=6]
@@ -186,14 +185,6 @@ script = ExtResource( 19 )
 etoile = ExtResource( 20 )
 nb_etoile = 80
 
-[node name="ColorRect" type="ColorRect" parent="."]
-margin_right = 1925.0
-margin_bottom = 1089.0
-color = Color( 0, 0, 0, 1 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
 [node name="spawn_position" type="Position2D" parent="."]
 
 [node name="PlanetBlue" type="Node2D" parent="."]
@@ -279,7 +270,6 @@ position = Vector2( -102.049, 70.778 )
 
 [node name="Asteroids Area" type="Node2D" parent="."]
 position = Vector2( 3.77979, 7.55945 )
-script = ExtResource( 1 )
 
 [node name="Asteroids" parent="Asteroids Area" instance=ExtResource( 3 )]
 position = Vector2( 705.738, 880.468 )
@@ -313,69 +303,91 @@ position = Vector2( 706.65, 345.944 )
 
 [node name="Asteroids Area2" parent="Asteroids Area" instance=ExtResource( 21 )]
 position = Vector2( -3.77979, -244.538 )
+script = null
 
 [node name="Asteroids Area4" parent="Asteroids Area" instance=ExtResource( 21 )]
 position = Vector2( 783.775, -235.629 )
+script = null
 
 [node name="Asteroids Area5" parent="Asteroids Area" instance=ExtResource( 21 )]
 position = Vector2( 1170.42, -224.939 )
+script = null
 
 [node name="Asteroids Area6" parent="Asteroids Area" instance=ExtResource( 21 )]
 position = Vector2( 1555.29, -235.629 )
+script = null
 
 [node name="Asteroids Area7" parent="Asteroids Area" instance=ExtResource( 21 )]
 position = Vector2( 1922.34, -52.1044 )
+script = null
 
 [node name="Asteroids Area8" parent="Asteroids Area" instance=ExtResource( 21 )]
 position = Vector2( 1920.56, 145.675 )
+script = null
 
 [node name="Asteroids Area9" parent="Asteroids Area" instance=ExtResource( 21 )]
 position = Vector2( 1931.25, 347.018 )
+script = null
 
 [node name="Asteroids Area10" parent="Asteroids Area" instance=ExtResource( 21 )]
 position = Vector2( 1938.38, 546.58 )
+script = null
 
 [node name="Asteroids Area11" parent="Asteroids Area" instance=ExtResource( 21 )]
 position = Vector2( 1949.07, 747.923 )
+script = null
 
 [node name="Asteroids Area12" parent="Asteroids Area" instance=ExtResource( 21 )]
 position = Vector2( 1965.11, 979.556 )
+script = null
 
 [node name="Asteroids Area13" parent="Asteroids Area" instance=ExtResource( 21 )]
 position = Vector2( 1610.53, 1106.06 )
+script = null
 
 [node name="Asteroids Area14" parent="Asteroids Area" instance=ExtResource( 21 )]
 position = Vector2( 1238.13, 1091.81 )
+script = null
 
 [node name="Asteroids Area15" parent="Asteroids Area" instance=ExtResource( 21 )]
 position = Vector2( 885.338, 1095.37 )
+script = null
 
 [node name="Asteroids Area17" parent="Asteroids Area" instance=ExtResource( 21 )]
 position = Vector2( 85.3105, 1095.37 )
+script = null
 
 [node name="Asteroids Area18" parent="Asteroids Area" instance=ExtResource( 21 )]
 position = Vector2( -279.958, 1056.17 )
+script = null
 
 [node name="Asteroids Area19" parent="Asteroids Area" instance=ExtResource( 21 )]
 position = Vector2( -402.902, 808.503 )
+script = null
 
 [node name="Asteroids Area20" parent="Asteroids Area" instance=ExtResource( 21 )]
 position = Vector2( -401.12, 562.615 )
+script = null
 
 [node name="Asteroids Area21" parent="Asteroids Area" instance=ExtResource( 21 )]
 position = Vector2( -390.429, 323.855 )
+script = null
 
 [node name="Asteroids Area22" parent="Asteroids Area" instance=ExtResource( 21 )]
 position = Vector2( -383.302, 83.312 )
+script = null
 
 [node name="Asteroids Area23" parent="Asteroids Area" instance=ExtResource( 21 )]
 position = Vector2( -376.175, -167.921 )
+script = null
 
 [node name="Asteroids Area16" parent="Asteroids Area" instance=ExtResource( 21 )]
 position = Vector2( 470.179, 1091.81 )
+script = null
 
 [node name="Asteroids Area3" parent="Asteroids Area" instance=ExtResource( 21 )]
 position = Vector2( 386.434, -226.721 )
+script = null
 
 [node name="Trou noir" type="Node2D" parent="."]
 position = Vector2( 980.285, 530.488 )
