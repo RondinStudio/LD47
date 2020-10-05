@@ -1,33 +1,16 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://src/levels/level.gd" type="Script" id=1]
-[ext_resource path="res://src/game/basic_planet/Planet.gd" type="Script" id=2]
+[ext_resource path="res://src/game/basic_planet/PlanetYellow.tscn" type="PackedScene" id=2]
 [ext_resource path="res://src/game/spaceship/Spaceship.tscn" type="PackedScene" id=3]
 [ext_resource path="res://src/game/asteroids/Asteroid.tscn" type="PackedScene" id=6]
 [ext_resource path="res://assets/Star.tscn" type="PackedScene" id=7]
 [ext_resource path="res://src/game/Blackhole/blackhole.tscn" type="PackedScene" id=8]
-[ext_resource path="res://assets/graphisme/Planete jaune.png" type="Texture" id=10]
-[ext_resource path="res://assets/graphisme/Base drapeau.png" type="Texture" id=11]
-[ext_resource path="res://assets/graphisme/Drapeau.png" type="Texture" id=12]
-
-[sub_resource type="CircleShape2D" id=1]
-radius = 180.128
-
-[sub_resource type="CircleShape2D" id=2]
-radius = 107.654
 
 [node name="Test_level" type="Node2D"]
 script = ExtResource( 1 )
 etoile = ExtResource( 7 )
 nb_etoile = 10
-
-[node name="background" type="ColorRect" parent="."]
-margin_right = 1925.0
-margin_bottom = 1089.0
-color = Color( 0, 0, 0, 1 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="spawn_position" type="Position2D" parent="."]
 
@@ -35,48 +18,8 @@ __meta__ = {
 position = Vector2( 1138.97, 372.937 )
 rotation = 4.46638e-06
 
-[node name="PlanetYellow" type="Node2D" parent="."]
-position = Vector2( 680.358, 645.08 )
-script = ExtResource( 2 )
-speed = 1.0
-lune_speed = 1.0
-is_checkpoint = true
-
-[node name="Sprite" type="Sprite" parent="PlanetYellow"]
-texture = ExtResource( 10 )
-
-[node name="SpriteDrapeau" type="Sprite" parent="PlanetYellow/Sprite"]
-visible = false
-position = Vector2( -2.6727, -116.708 )
-texture = ExtResource( 12 )
-
-[node name="SpriteBaseDrapeau" type="Sprite" parent="PlanetYellow/Sprite"]
-visible = false
-position = Vector2( -2.6727, -108.244 )
-texture = ExtResource( 11 )
-
-[node name="Gravity" type="Area2D" parent="PlanetYellow"]
-collision_layer = 2
-
-[node name="attraction" type="CollisionShape2D" parent="PlanetYellow/Gravity"]
-shape = SubResource( 1 )
-
-[node name="Body" type="Area2D" parent="PlanetYellow"]
-collision_layer = 2
-
-[node name="death" type="CollisionShape2D" parent="PlanetYellow/Body"]
-shape = SubResource( 2 )
-
-[node name="Pivot" type="Node2D" parent="PlanetYellow"]
-rotation = 1.3631
-
-[node name="OrbitPosition" type="Position2D" parent="PlanetYellow/Pivot"]
-position = Vector2( -139.895, 109.774 )
-
-[node name="PivotLune" type="Node2D" parent="PlanetYellow"]
-
 [node name="Spaceship" parent="." instance=ExtResource( 3 )]
-position = Vector2( 219.058, 488.92 )
+position = Vector2( 192.089, 650.737 )
 
 [node name="Asteroids2" parent="." instance=ExtResource( 6 )]
 position = Vector2( 1184.33, 448.532 )
@@ -90,5 +33,8 @@ autostart = true
 
 [node name="Trou noir" parent="." instance=ExtResource( 8 )]
 position = Vector2( 630.27, 229.873 )
-[connection signal="body_entered" from="PlanetYellow/Gravity" to="PlanetYellow" method="_on_Gravity_body_entered"]
+
+[node name="PlanetYellow" parent="." instance=ExtResource( 2 )]
+position = Vector2( 701.208, 683.228 )
+is_checkpoint = true
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
