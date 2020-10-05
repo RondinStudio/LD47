@@ -1,18 +1,14 @@
-[gd_scene load_steps=15 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://src/levels/level.gd" type="Script" id=1]
 [ext_resource path="res://src/game/basic_planet/Planet.gd" type="Script" id=2]
 [ext_resource path="res://src/game/spaceship/Spaceship.tscn" type="PackedScene" id=3]
-[ext_resource path="res://src/game/asteroids/Asteroid3.tscn" type="PackedScene" id=4]
-[ext_resource path="res://src/game/asteroids/Asteroid.tscn" type="PackedScene" id=5]
-[ext_resource path="res://src/game/asteroids/Asteroid2.tscn" type="PackedScene" id=6]
+[ext_resource path="res://src/game/asteroids/Asteroid.tscn" type="PackedScene" id=6]
 [ext_resource path="res://assets/Star.tscn" type="PackedScene" id=7]
 [ext_resource path="res://src/game/Blackhole/blackhole.tscn" type="PackedScene" id=8]
-[ext_resource path="res://src/game/Lunes/Lune.tscn" type="PackedScene" id=9]
 [ext_resource path="res://assets/graphisme/Planete jaune.png" type="Texture" id=10]
 [ext_resource path="res://assets/graphisme/Base drapeau.png" type="Texture" id=11]
 [ext_resource path="res://assets/graphisme/Drapeau.png" type="Texture" id=12]
-
 
 [sub_resource type="CircleShape2D" id=1]
 radius = 180.128
@@ -23,6 +19,7 @@ radius = 107.654
 [node name="Test_level" type="Node2D"]
 script = ExtResource( 1 )
 etoile = ExtResource( 7 )
+nb_etoile = 10
 
 [node name="background" type="ColorRect" parent="."]
 margin_right = 1925.0
@@ -34,7 +31,7 @@ __meta__ = {
 
 [node name="spawn_position" type="Position2D" parent="."]
 
-[node name="Asteroids" parent="." instance=ExtResource( 5 )]
+[node name="Asteroids" parent="." instance=ExtResource( 6 )]
 position = Vector2( 1138.97, 372.937 )
 rotation = 4.46638e-06
 
@@ -78,16 +75,13 @@ position = Vector2( -139.895, 109.774 )
 
 [node name="PivotLune" type="Node2D" parent="PlanetYellow"]
 
-[node name="Lune" parent="PlanetYellow/PivotLune" instance=ExtResource( 9 )]
-position = Vector2( 226.53, -137.806 )
-
 [node name="Spaceship" parent="." instance=ExtResource( 3 )]
 position = Vector2( 219.058, 488.92 )
 
 [node name="Asteroids2" parent="." instance=ExtResource( 6 )]
 position = Vector2( 1184.33, 448.532 )
 
-[node name="Asteroids3" parent="." instance=ExtResource( 4 )]
+[node name="Asteroids3" parent="." instance=ExtResource( 6 )]
 position = Vector2( 1239.76, 519.088 )
 
 [node name="Timer" type="Timer" parent="."]
