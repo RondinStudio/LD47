@@ -15,9 +15,19 @@ extends Node
 #Events.emit_signal("new_food_needed_per_tick", food_needed_per_tick)
 ###
 
+# warning-ignore:unused_signal
 signal change_background_fin_premier(name)
+
+# warning-ignore:unused_signal
 signal new_checkpoint(planete)
 
+# warning-ignore:unused_signal
 signal player_death()
 
+# warning-ignore:unused_signal
 signal end_of_level_reached()
+
+# warning-ignore:unused_signal
+signal player_enter_orbit(planet_pos)
+# warning-ignore:unused_signal
+signal player_leave_orbit()
