@@ -10,19 +10,19 @@ var actual_nightclub = 1
 var dark_alley = preload("res://assets/graphisme/histoire/Fond vaisseau.png")
 var spaceship = preload("res://assets/graphisme/histoire/Fond vaisseau.png")
 
-var ordrePersos = ["Gaston The Kraken", "Flynn", "nightclub", "Flynn", "Gaston The Kraken", "Flynn", "Gaston The Kraken", "Flynn", "Gaston The Kraken", \
+var ordrePersos = ["Gaston Le Kraken", "Flynn", "nightclub", "Flynn", "Gaston Le Kraken", "Flynn", "Gaston Le Kraken", "Flynn", "Gaston Le Kraken", \
 "Flynn", "Flynn", "spaceship", "Flynn", "Frog", "Flynn", "Frog", "Flynn", "Narrator", "Flynn"]
-var ordrePhrase = ["Wow, that was a little bit more stressful than I thought. Wanna relax at The Groovy Groove like we used to do ?", \
+var ordrePhrase = ["Wow, that was a bit more stressful than I expected. Wanna relax at The Groovy Groove like we used to do ?", \
 "There's no better nightclub than The Groovy Groove in the universe. LET'S GO !", \
-"They head toward the Groovy Groove and they start drinking a LOT", \
+"They head towards the Groovy Groove and they start drinking... a LOT", \
 "Heeeeey ! Gaston ! THIS PARTY IS INSANE !", \
-"Yeah ! Guess what ? I’ve found my lost tentacule !", \
-"What ?", \
-"And look at what there was with it ! DRY JELLYFISH POWDER !", \
-"I don’t take those anymore, you know ?", \
+"Yeah ! Guess what ? I found my lost tentacle !", \
+"What? How?", \
+"And look at what I found with it! DRY JELLYFISH POWDER !", \
+"I don’t touch that anymore, you know ?", \
 "Just one, in memory of the good old days !", \
 "...", \
-"Just one, in memory of the good old days.", \
+"Just one, in memory of the good old days...", \
 "Flynn wakes up several hours later, laying in his spaceship", \
 "Outch... My head... Where I am ? And... Where are my pants ?", \
 "Ribbit.", \
