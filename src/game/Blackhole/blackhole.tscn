@@ -62,7 +62,6 @@ tracks/0/keys = {
 }
 
 [node name="Trou noir" type="Node2D"]
-position = Vector2( 884.433, 504.602 )
 script = ExtResource( 2 )
 __meta__ = {
 "_edit_group_": true
