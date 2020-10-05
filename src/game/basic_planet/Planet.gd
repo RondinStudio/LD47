@@ -8,6 +8,7 @@ var gaucheDroite = true
 var rotate_speed
 var rng = RandomNumberGenerator.new()
 export var is_checkpoint = false
+export var is_final_planet = false
 var is_already_checked = false
 
 func _ready():
@@ -16,6 +17,8 @@ func _ready():
 	set_process(true)
 	if is_checkpoint == true:
 		$Sprite/SpriteBaseDrapeau.show()
+	if is_final_planet == true:
+		$Sprite/SpriteFinNiveau.show()
 	$pivot.init($Gravity/attraction.shape.radius)
 	
 func _physics_process(delta):
@@ -55,3 +58,5 @@ func _on_Gravity_area_entered(area):
 				is_already_checked = true
 				$Sprite/SpriteDrapeau.show()
 				Events.emit_signal("new_checkpoint", area.global_position)
+		if is_final_planet == true:
+			Events.emit_signal("fin_niveau")
