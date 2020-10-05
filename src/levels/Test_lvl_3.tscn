@@ -1,9 +1,8 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://src/levels/level.gd" type="Script" id=2]
 [ext_resource path="res://src/game/asteroids/AsteroidsArea.tscn" type="PackedScene" id=3]
 [ext_resource path="res://src/game/Enemy_spaceship/enemy_spaceship.tscn" type="PackedScene" id=4]
-[ext_resource path="res://assets/Star.tscn" type="PackedScene" id=5]
 [ext_resource path="res://src/game/basic_planet/PlanetYellow.tscn" type="PackedScene" id=6]
 [ext_resource path="res://src/game/asteroids/Asteroid.tscn" type="PackedScene" id=7]
 [ext_resource path="res://src/game/spaceship/Spaceship.tscn" type="PackedScene" id=8]
@@ -15,7 +14,6 @@ _data = {
 
 [node name="Test_lvl_3" type="Node2D"]
 script = ExtResource( 2 )
-etoile = ExtResource( 5 )
 nb_etoile = 80
 
 [node name="Timer" type="Timer" parent="."]

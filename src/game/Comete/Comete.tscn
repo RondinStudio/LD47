@@ -1,5 +1,6 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=13 format=2]
 
+[ext_resource path="res://src/game/basic_planet/ring_comete.gd" type="Script" id=1]
 [ext_resource path="res://src/game/Comete/Comet.gd" type="Script" id=2]
 [ext_resource path="res://assets/graphisme/Comete.png" type="Texture" id=3]
 
@@ -53,7 +54,6 @@ tracks/0/keys = {
 }
 
 [node name="Comete" type="Node2D"]
-position = Vector2( 0.944946, -0.629959 )
 script = ExtResource( 2 )
 __meta__ = {
 "_edit_group_": true
@@ -107,6 +107,13 @@ shape = SubResource( 8 )
 anims/Rotate = SubResource( 9 )
 
 [node name="particles" type="Node2D" parent="."]
+
+[node name="pivot" type="Node2D" parent="."]
+script = ExtResource( 1 )
+
+[node name="Position2D" type="Position2D" parent="pivot"]
+
+[node name="SpawnPos" type="Node2D" parent="pivot/Position2D"]
 [connection signal="body_entered" from="Aura" to="." method="_on_Aura_body_entered"]
 [connection signal="body_exited" from="Aura" to="." method="_on_Aura_body_exited"]
 [connection signal="body_entered" from="Centre" to="." method="_on_Centre_body_entered"]

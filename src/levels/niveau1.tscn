@@ -310,6 +310,8 @@ explosiveness = 0.4
 randomness = 0.15
 process_material = SubResource( 9 )
 
+[node name="pivot" parent="Trou noir" instance=ExtResource( 11 )]
+
 [node name="Trou noir2" type="Node2D" parent="."]
 position = Vector2( 7445.61, 254.507 )
 script = ExtResource( 13 )
@@ -351,6 +353,8 @@ amount = 200
 explosiveness = 0.4
 randomness = 0.15
 process_material = SubResource( 9 )
+
+[node name="pivot" parent="Trou noir2" instance=ExtResource( 11 )]
 
 [node name="PlanetRed2" parent="." instance=ExtResource( 6 )]
 position = Vector2( 2515.14, 1291.03 )
