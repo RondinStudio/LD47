@@ -31,3 +31,5 @@ signal end_of_level_reached()
 signal player_enter_orbit(planet_pos)
 # warning-ignore:unused_signal
 signal player_leave_orbit()
+
+signal reset()

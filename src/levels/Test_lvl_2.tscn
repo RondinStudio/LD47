@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=2]
+[gd_scene load_steps=25 format=2]
 
 [ext_resource path="res://src/game/basic_planet/Planet.gd" type="Script" id=1]
 [ext_resource path="res://assets/graphisme/Base drapeau.png" type="Texture" id=2]
@@ -9,6 +9,7 @@
 [ext_resource path="res://assets/Star.tscn" type="PackedScene" id=7]
 [ext_resource path="res://src/game/Lunes/Lune.tscn" type="PackedScene" id=8]
 [ext_resource path="res://assets/graphisme/Planete jaune.png" type="Texture" id=9]
+[ext_resource path="res://src/game/basic_planet/ring.tscn" type="PackedScene" id=10]
 [ext_resource path="res://src/game/basic_planet/PlanetGreen.tscn" type="PackedScene" id=11]
 [ext_resource path="res://src/game/asteroids/AsteroidsArea.tscn" type="PackedScene" id=12]
 [ext_resource path="res://src/game/Enemy_spaceship/enemy_spaceship.tscn" type="PackedScene" id=13]
@@ -92,6 +93,8 @@ position = Vector2( -102.049, 70.778 )
 [node name="Lune" parent="1lune/PivotLune" instance=ExtResource( 8 )]
 position = Vector2( 0, 200 )
 
+[node name="pivot" parent="1lune" instance=ExtResource( 10 )]
+
 [node name="3 lunes" type="Node2D" parent="."]
 position = Vector2( 1578.31, 742.429 )
 script = ExtResource( 1 )
@@ -143,6 +146,8 @@ position = Vector2( 225.49, -143.349 )
 [node name="Lune3" parent="3 lunes/PivotLune" instance=ExtResource( 8 )]
 position = Vector2( -225.49, -143.349 )
 
+[node name="pivot" parent="3 lunes" instance=ExtResource( 10 )]
+
 [node name="2 lunes" type="Node2D" parent="."]
 position = Vector2( 776.744, 265.326 )
 script = ExtResource( 1 )
@@ -190,6 +195,8 @@ position = Vector2( 0, -230 )
 
 [node name="Lune2" parent="2 lunes/PivotLune" instance=ExtResource( 8 )]
 position = Vector2( 0, 230 )
+
+[node name="pivot" parent="2 lunes" instance=ExtResource( 10 )]
 
 [node name="PlanetGreen" parent="." instance=ExtResource( 11 )]
 position = Vector2( 147.462, 347.248 )
