@@ -15,5 +15,5 @@ void fragment() {
 
 	COLOR = texture(TEXTURE, UV - disp);
 	
-	COLOR.rgb = vec3(mask);
+//	COLOR.rgb = vec3(mask);
 }

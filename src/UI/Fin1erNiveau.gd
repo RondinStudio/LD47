@@ -25,8 +25,8 @@ var ordrePhrase = ["The phone starts ringing.", \
 "PLEASE DON’T KILL ME !! I’LL GIVE YOU EVERYTHING I HAVE... PLEASE !", \
 "And once again, Flynn is poor... He really is stuck in poverty", \
 "Back to the start... No money, no jobs, just me and my good old spaceship..."]
-var ordreSprite = ["Narrator", "sancheese", "pitchoune_tel", "pitchoune_bourre_content", "Narrator", "Narrator", \
-"pitchoune_sunglasses", "Narrator", "pitchoune_bourre_pas_content", "Narrator", "Narrator", "Narrator", \
+var ordreSprite = ["Narrator", "sancheese", "pitchoune_tel", "pitchoune_bourre_content", "Narrator", "mec_louche", \
+"pitchoune_sunglasses", "Narrator", "pitchoune_bourre_pas_content", "mec_louche", "Narrator", "mec_louche_pas_content", \
 "pitchoune_triste", "Narrator", "pitchoune_enerve"]
 
 func _ready():

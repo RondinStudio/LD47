@@ -47,6 +47,5 @@ func _on_Aura_body_exited(body):
 
 func _on_Centre_body_entered(body):
 	if body.name == "Spaceship":
-		print("meh")
 		player.set_physics_process(false)
 		player.get_node("AnimationPlayer").play("Death")
