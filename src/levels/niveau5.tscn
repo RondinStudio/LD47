@@ -507,7 +507,7 @@ script = ExtResource( 22 )
 position = Vector2( 390.764, -598.416 )
 script = ExtResource( 19 )
 speed = 1.0
-lune_speed = 1.0
+lune_speed = 0.6
 is_checkpoint = true
 
 [node name="Sprite" type="Sprite" parent="PlanetRed"]

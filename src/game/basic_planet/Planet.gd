@@ -48,7 +48,8 @@ func calculate_rotation_direction(player):
 func _on_Gravity_area_entered(area):
 	if (area.is_in_group("joueur")):
 		$Pivot/OrbitPosition.global_position = area.global_position 
-		area.get_parent().orbit(self, $Pivot/OrbitPosition, calculate_rotation_direction(area.get_parent()))
+		if(area.get_parent().orbited == false):
+			area.get_parent().orbit(self, $Pivot/OrbitPosition, calculate_rotation_direction(area.get_parent()))
 		
 		if is_checkpoint == true:
 			if is_already_checked == false:

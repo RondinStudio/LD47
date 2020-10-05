@@ -166,7 +166,7 @@ _data = {
 
 [sub_resource type="Curve2D" id=17]
 _data = {
-"points": PoolVector2Array( 0, 0, 0, 0, 180.837, -450.785, 0, 0, 0, 0, 3572.54, -833.801 )
+"points": PoolVector2Array( 0, 0, 0, 0, 180.837, -450.785, 0, 0, 0, 0, 202.451, -473.256, 0, 0, 0, 0, 3572.54, -833.801 )
 }
 
 [sub_resource type="Curve" id=18]
@@ -373,6 +373,7 @@ __meta__ = {
 "_edit_group_": true
 }
 RADIUS = 400
+FORCE = 30
 
 [node name="Sprite" type="Sprite" parent="Trou noir"]
 texture = ExtResource( 6 )
@@ -471,24 +472,16 @@ rotation = -1.12086
 [node name="Enemy_vaisseau" parent="vaisseau_ennemy/PathFollow2D" instance=ExtResource( 13 )]
 position = Vector2( -0.123535, -0.34061 )
 
-[node name="vaisseau_ennemy2" type="Path2D" parent="."]
-position = Vector2( -18.4032, 1757.82 )
-curve = SubResource( 16 )
-
-[node name="PathFollow2D" type="PathFollow2D" parent="vaisseau_ennemy2"]
-position = Vector2( 1701.41, -334.531 )
-rotation = -1.12086
-
-[node name="Enemy_vaisseau" parent="vaisseau_ennemy2/PathFollow2D" instance=ExtResource( 13 )]
-position = Vector2( -0.123535, -0.34061 )
-
 [node name="Comet_path" type="Path2D" parent="."]
-position = Vector2( -221.746, 156.23 )
+position = Vector2( -231.27, 35.5875 )
 curve = SubResource( 17 )
+__meta__ = {
+"_edit_group_": true
+}
 
 [node name="PathFollow2D" type="PathFollow2D" parent="Comet_path"]
 position = Vector2( 180.837, -450.785 )
-rotation = -0.112449
+rotation = -0.80484
 
 [node name="Comete" type="Node2D" parent="Comet_path/PathFollow2D"]
 position = Vector2( 0.944946, -0.629959 )
@@ -558,7 +551,7 @@ script = ExtResource( 24 )
 [node name="LevelLimits" type="Node2D" parent="."]
 
 [node name="Position2DTop" type="Position2D" parent="LevelLimits"]
-position = Vector2( 1568.16, -689.754 )
+position = Vector2( 1558.64, -832.62 )
 
 [node name="Position2DRight" type="Position2D" parent="LevelLimits"]
 position = Vector2( 2786.32, 792.854 )

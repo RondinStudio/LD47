@@ -157,12 +157,15 @@ is_checkpoint = true
 
 [node name="PlanetBlue" parent="." instance=ExtResource( 15 )]
 position = Vector2( 2733.5, -295.257 )
+is_checkpoint = true
 
 [node name="PlanetBlue2" parent="." instance=ExtResource( 15 )]
 position = Vector2( 2044.57, -1009.59 )
+is_checkpoint = true
 
 [node name="PlanetBlue3" parent="." instance=ExtResource( 15 )]
 position = Vector2( 2746.06, -1681.49 )
+is_checkpoint = true
 
 [node name="PlanetYellow2" type="Node2D" parent="."]
 position = Vector2( 672.038, -1999.09 )
@@ -221,54 +224,6 @@ rotation = 1.90024
 [node name="Enemy_vaisseau" parent="vaisseau_ennemy2/PathFollow2D" instance=ExtResource( 10 )]
 position = Vector2( -0.123535, -0.34061 )
 
-[node name="Asteroids Area" parent="." instance=ExtResource( 16 )]
-position = Vector2( 556.549, -1398.51 )
-
-[node name="Asteroids Area2" parent="." instance=ExtResource( 16 )]
-position = Vector2( 922.824, -1360.45 )
-
-[node name="Asteroids Area3" parent="." instance=ExtResource( 16 )]
-position = Vector2( 1308.13, -1322.4 )
-
-[node name="Asteroids Area4" parent="." instance=ExtResource( 16 )]
-position = Vector2( 23.7839, -76.1096 )
-
-[node name="Asteroids Area5" parent="." instance=ExtResource( 16 )]
-position = Vector2( 404.33, -42.8118 )
-
-[node name="Asteroids Area6" parent="." instance=ExtResource( 16 )]
-position = Vector2( 789.633, -90.3801 )
-
-[node name="Asteroids Area7" parent="." instance=ExtResource( 16 )]
-position = Vector2( 1160.67, -161.732 )
-
-[node name="Asteroids Area8" parent="." instance=ExtResource( 16 )]
-position = Vector2( 1545.97, -114.164 )
-
-[node name="Asteroids Area9" parent="." instance=ExtResource( 16 )]
-position = Vector2( 1802.84, -280.653 )
-
-[node name="Asteroids Area10" parent="." instance=ExtResource( 16 )]
-position = Vector2( 2544.9, -1070.29 )
-
-[node name="Asteroids Area16" parent="." instance=ExtResource( 16 )]
-position = Vector2( 2907.76, -1035.01 )
-
-[node name="Asteroids Area11" parent="." instance=ExtResource( 16 )]
-position = Vector2( 1485.3, -2556.43 )
-
-[node name="Asteroids Area12" parent="." instance=ExtResource( 16 )]
-position = Vector2( 1822.03, -2525 )
-
-[node name="Asteroids Area13" parent="." instance=ExtResource( 16 )]
-position = Vector2( 2239.59, -2484.59 )
-
-[node name="Asteroids Area14" parent="." instance=ExtResource( 16 )]
-position = Vector2( 2616.74, -2435.2 )
-
-[node name="Asteroids Area15" parent="." instance=ExtResource( 16 )]
-position = Vector2( 2984.91, -2399.28 )
-
 [node name="PlanetRed2" type="Node2D" parent="."]
 position = Vector2( 541.676, -3106.31 )
 script = ExtResource( 19 )
@@ -276,7 +231,7 @@ __meta__ = {
 "_edit_group_": true
 }
 speed = 1.0
-lune_speed = 1.0
+lune_speed = 0.8
 is_checkpoint = true
 
 [node name="Sprite" type="Sprite" parent="PlanetRed2"]
@@ -315,7 +270,7 @@ position = Vector2( -452.402, 0 )
 [node name="pivot" parent="PlanetRed2" instance=ExtResource( 12 )]
 
 [node name="PlanetGreen" type="Node2D" parent="."]
-position = Vector2( 2236.52, -2904.65 )
+position = Vector2( 2253.47, -3315.72 )
 script = ExtResource( 19 )
 __meta__ = {
 "_edit_group_": true
@@ -362,7 +317,7 @@ position = Vector2( 500, 0 )
 [node name="LevelLimits" type="Node2D" parent="."]
 
 [node name="Position2DTop" type="Position2D" parent="LevelLimits"]
-position = Vector2( 2197.3, -3618.49 )
+position = Vector2( 2174.67, -3969.21 )
 
 [node name="Position2DRight" type="Position2D" parent="LevelLimits"]
 position = Vector2( 3195.16, -403.175 )
@@ -371,6 +326,63 @@ position = Vector2( 3195.16, -403.175 )
 position = Vector2( 1128.89, 1023.06 )
 
 [node name="Position2DLeft" type="Position2D" parent="LevelLimits"]
+
+[node name="Asteroids Area" parent="." instance=ExtResource( 16 )]
+position = Vector2( 12.7136, -118.66 )
+
+[node name="Asteroids Area2" parent="." instance=ExtResource( 16 )]
+position = Vector2( 406.834, -105.946 )
+
+[node name="Asteroids Area3" parent="." instance=ExtResource( 16 )]
+position = Vector2( 800.954, -97.4705 )
+
+[node name="Asteroids Area4" parent="." instance=ExtResource( 16 )]
+position = Vector2( 1254.4, -84.7568 )
+
+[node name="Asteroids Area5" parent="." instance=ExtResource( 16 )]
+position = Vector2( 1657, -67.8054 )
+
+[node name="Asteroids Area6" parent="." instance=ExtResource( 16 )]
+position = Vector2( 1915.51, -262.747 )
+
+[node name="Asteroids Area7" parent="." instance=ExtResource( 16 )]
+position = Vector2( 1500.2, -322.077 )
+
+[node name="Asteroids Area8" parent="." instance=ExtResource( 16 )]
+position = Vector2( 1114.56, -343.266 )
+
+[node name="Asteroids Area9" parent="." instance=ExtResource( 16 )]
+position = Vector2( 754.338, -377.169 )
+
+[node name="Asteroids Area10" parent="." instance=ExtResource( 16 )]
+position = Vector2( 377.169, -389.882 )
+
+[node name="Asteroids Area12" parent="." instance=ExtResource( 16 )]
+position = Vector2( 1457.82, -1356.11 )
+
+[node name="Asteroids Area13" parent="." instance=ExtResource( 16 )]
+position = Vector2( 1063.7, -1385.78 )
+
+[node name="Asteroids Area14" parent="." instance=ExtResource( 16 )]
+position = Vector2( 678.057, -1432.39 )
+
+[node name="Asteroids Area15" parent="." instance=ExtResource( 16 )]
+position = Vector2( 2652.9, -2517.28 )
+
+[node name="Asteroids Area16" parent="." instance=ExtResource( 16 )]
+position = Vector2( 2271.49, -2559.66 )
+
+[node name="Asteroids Area17" parent="." instance=ExtResource( 16 )]
+position = Vector2( 1898.56, -2585.09 )
+
+[node name="Asteroids Area18" parent="." instance=ExtResource( 16 )]
+position = Vector2( 1534.1, -2606.28 )
+
+[node name="Asteroids Area19" parent="." instance=ExtResource( 16 )]
+position = Vector2( 1173.89, -2640.18 )
+
+[node name="Asteroids Area11" parent="." instance=ExtResource( 16 )]
+position = Vector2( 12.7136, -415.309 )
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
 [connection signal="body_entered" from="Trou noir/Aura" to="Trou noir" method="_on_Aura_body_entered"]
 [connection signal="body_exited" from="Trou noir/Aura" to="Trou noir" method="_on_Aura_body_exited"]

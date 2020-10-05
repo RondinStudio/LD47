@@ -1,14 +1,7 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://assets/fonts/alley garden/AlleyGarden-2Ogdw.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://src/UI/MainMenu.gd" type="Script" id=2]
-[ext_resource path="res://assets/graphisme/menu principal/Start Pressed.png" type="Texture" id=3]
-[ext_resource path="res://assets/graphisme/menu principal/Exit.png" type="Texture" id=4]
-[ext_resource path="res://assets/graphisme/menu principal/Exit Pressed.png" type="Texture" id=5]
-[ext_resource path="res://assets/graphisme/menu principal/Start.png" type="Texture" id=6]
-[ext_resource path="res://assets/graphisme/menu principal/Start Over.png" type="Texture" id=7]
-[ext_resource path="res://assets/graphisme/menu principal/Exit Over.png" type="Texture" id=8]
-[ext_resource path="res://src/shaders/background/nebulous_background.tscn" type="PackedScene" id=9]
 
 [sub_resource type="DynamicFont" id=1]
 size = 150
@@ -22,25 +15,30 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Nebulous_background" parent="." instance=ExtResource( 9 )]
+[node name="Background" type="ColorRect" parent="."]
+margin_right = 1920.0
+margin_bottom = 1080.0
+color = Color( 0, 0, 0, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
-[node name="Start" type="TextureButton" parent="."]
+[node name="Start" type="Button" parent="."]
 margin_left = 725.0
 margin_top = 561.0
 margin_right = 1253.0
 margin_bottom = 733.0
-texture_normal = ExtResource( 6 )
-texture_pressed = ExtResource( 3 )
-texture_hover = ExtResource( 7 )
+text = "Start"
 
-[node name="Exit" type="TextureButton" parent="."]
+[node name="Exit" type="Button" parent="."]
 margin_left = 725.0
 margin_top = 817.0
 margin_right = 1253.0
 margin_bottom = 989.0
-texture_normal = ExtResource( 4 )
-texture_pressed = ExtResource( 5 )
-texture_hover = ExtResource( 8 )
+text = "Exit"
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="Logo" type="Label" parent="."]
 margin_left = 570.0
@@ -55,10 +53,5 @@ et les texturebutton
 __meta__ = {
 "_edit_use_anchors_": false
 }
-
-[node name="Timer" type="Timer" parent="."]
-wait_time = 0.02
-autostart = true
 [connection signal="pressed" from="Start" to="." method="_on_Start_pressed"]
 [connection signal="pressed" from="Exit" to="." method="_on_Exit_pressed"]
-[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
