@@ -1,9 +1,394 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=26 format=2]
 
 [ext_resource path="res://src/levels/level_container.gd" type="Script" id=1]
+[ext_resource path="res://src/levels/level.gd" type="Script" id=2]
 [ext_resource path="res://src/game/Camera/Camera.tscn" type="PackedScene" id=3]
+[ext_resource path="res://assets/graphisme/Planete rouge.png" type="Texture" id=4]
+[ext_resource path="res://assets/graphisme/Planete jaune.png" type="Texture" id=5]
+[ext_resource path="res://src/game/basic_planet/PlanetGreen.tscn" type="PackedScene" id=6]
+[ext_resource path="res://src/game/Enemy_spaceship/enemy_spaceship.tscn" type="PackedScene" id=7]
+[ext_resource path="res://src/game/Comete/Comete.tscn" type="PackedScene" id=8]
+[ext_resource path="res://src/game/spaceship/Spaceship.tscn" type="PackedScene" id=9]
+[ext_resource path="res://src/game/asteroids/AsteroidsArea.tscn" type="PackedScene" id=10]
+[ext_resource path="res://src/game/asteroids/Asteroid.tscn" type="PackedScene" id=11]
+[ext_resource path="res://src/game/basic_planet/ring.tscn" type="PackedScene" id=12]
+[ext_resource path="res://src/game/Lunes/Lune.tscn" type="PackedScene" id=13]
+[ext_resource path="res://assets/graphisme/Base drapeau.png" type="Texture" id=14]
+[ext_resource path="res://assets/graphisme/Drapeau.png" type="Texture" id=15]
+[ext_resource path="res://assets/graphisme/Planete bleue.png" type="Texture" id=16]
+[ext_resource path="res://src/game/basic_planet/Planet.gd" type="Script" id=17]
+
+[sub_resource type="CircleShape2D" id=1]
+radius = 126.017
+
+[sub_resource type="CircleShape2D" id=2]
+radius = 75.623
+
+[sub_resource type="CircleShape2D" id=3]
+radius = 217.648
+
+[sub_resource type="CircleShape2D" id=4]
+radius = 124.417
+
+[sub_resource type="CircleShape2D" id=5]
+radius = 180.128
+
+[sub_resource type="CircleShape2D" id=6]
+radius = 107.654
+
+[sub_resource type="Curve2D" id=7]
+_data = {
+"points": PoolVector2Array( 0, 0, 0, 0, 1427.2, -20.816, 0, 0, 0, 0, 801.311, 1163.62 )
+}
+
+[sub_resource type="Curve2D" id=8]
+_data = {
+"points": PoolVector2Array( -8.13173, 4.24264, 8.13173, -4.24264, 371.379, 47.8563, 44.1942, -6.01041, -44.1942, 6.01041, 351.148, 9.8884, 26.5165, -28.9914, -26.5165, 28.9914, 89.0848, 127.061, -30.7591, 3.88909, 30.7591, -3.88909, 106.928, 164.724, 13.7886, 1.41421, -13.7886, -1.41421, 371.379, 47.8563 )
+}
 
 [node name="LevelContainer" type="Node2D"]
 script = ExtResource( 1 )
 
 [node name="Camera2D" parent="." instance=ExtResource( 3 )]
+
+[node name="Test_lvl_2" type="Node2D" parent="."]
+script = ExtResource( 2 )
+nb_etoile = 80
+
+[node name="1lune" type="Node2D" parent="Test_lvl_2"]
+position = Vector2( 461.893, 840.454 )
+script = ExtResource( 17 )
+speed = 1.0
+lune_speed = 1.0
+
+[node name="Sprite" type="Sprite" parent="Test_lvl_2/1lune"]
+texture = ExtResource( 16 )
+
+[node name="SpriteDrapeau" type="Sprite" parent="Test_lvl_2/1lune/Sprite"]
+visible = false
+position = Vector2( -0.789539, -84.2806 )
+texture = ExtResource( 15 )
+
+[node name="SpriteBaseDrapeau" type="Sprite" parent="Test_lvl_2/1lune/Sprite"]
+visible = false
+position = Vector2( -0.75, -76.25 )
+texture = ExtResource( 14 )
+
+[node name="Gravity" type="Area2D" parent="Test_lvl_2/1lune"]
+collision_layer = 2
+
+[node name="attraction" type="CollisionShape2D" parent="Test_lvl_2/1lune/Gravity"]
+position = Vector2( -0.140308, -2.24493 )
+shape = SubResource( 1 )
+
+[node name="Body" type="Area2D" parent="Test_lvl_2/1lune"]
+collision_layer = 2
+
+[node name="death" type="CollisionShape2D" parent="Test_lvl_2/1lune/Body"]
+shape = SubResource( 2 )
+
+[node name="Pivot" type="Node2D" parent="Test_lvl_2/1lune"]
+rotation = 1.3631
+
+[node name="OrbitPosition" type="Position2D" parent="Test_lvl_2/1lune/Pivot"]
+position = Vector2( -102.049, 70.778 )
+
+[node name="PivotLune" type="Node2D" parent="Test_lvl_2/1lune"]
+
+[node name="Lune" parent="Test_lvl_2/1lune/PivotLune" instance=ExtResource( 13 )]
+position = Vector2( 0, 200 )
+
+[node name="pivot" parent="Test_lvl_2/1lune" instance=ExtResource( 12 )]
+
+[node name="3 lunes" type="Node2D" parent="Test_lvl_2"]
+position = Vector2( 1578.31, 742.429 )
+script = ExtResource( 17 )
+__meta__ = {
+"_edit_group_": true
+}
+speed = 1.0
+lune_speed = 1.0
+
+[node name="Sprite" type="Sprite" parent="Test_lvl_2/3 lunes"]
+texture = ExtResource( 4 )
+
+[node name="SpriteDrapeau" type="Sprite" parent="Test_lvl_2/3 lunes/Sprite"]
+visible = false
+position = Vector2( -0.749161, -133.349 )
+texture = ExtResource( 15 )
+
+[node name="SpriteBaseDrapeau" type="Sprite" parent="Test_lvl_2/3 lunes/Sprite"]
+visible = false
+position = Vector2( -0.764341, -125.276 )
+texture = ExtResource( 14 )
+
+[node name="Gravity" type="Area2D" parent="Test_lvl_2/3 lunes"]
+collision_layer = 2
+
+[node name="attraction" type="CollisionShape2D" parent="Test_lvl_2/3 lunes/Gravity"]
+shape = SubResource( 3 )
+
+[node name="Body" type="Area2D" parent="Test_lvl_2/3 lunes"]
+collision_layer = 2
+
+[node name="death" type="CollisionShape2D" parent="Test_lvl_2/3 lunes/Body"]
+shape = SubResource( 4 )
+
+[node name="Pivot" type="Node2D" parent="Test_lvl_2/3 lunes"]
+rotation = 1.3631
+
+[node name="OrbitPosition" type="Position2D" parent="Test_lvl_2/3 lunes/Pivot"]
+position = Vector2( -161.837, 141.963 )
+
+[node name="PivotLune" type="Node2D" parent="Test_lvl_2/3 lunes"]
+
+[node name="Lune" parent="Test_lvl_2/3 lunes/PivotLune" instance=ExtResource( 13 )]
+position = Vector2( 0, 267.19 )
+
+[node name="Lune2" parent="Test_lvl_2/3 lunes/PivotLune" instance=ExtResource( 13 )]
+position = Vector2( 225.49, -143.349 )
+
+[node name="Lune3" parent="Test_lvl_2/3 lunes/PivotLune" instance=ExtResource( 13 )]
+position = Vector2( -225.49, -143.349 )
+
+[node name="pivot" parent="Test_lvl_2/3 lunes" instance=ExtResource( 12 )]
+
+[node name="2 lunes" type="Node2D" parent="Test_lvl_2"]
+position = Vector2( 776.744, 265.326 )
+script = ExtResource( 17 )
+__meta__ = {
+"_edit_group_": true
+}
+speed = 1.0
+lune_speed = 1.0
+
+[node name="Sprite" type="Sprite" parent="Test_lvl_2/2 lunes"]
+texture = ExtResource( 5 )
+
+[node name="SpriteDrapeau" type="Sprite" parent="Test_lvl_2/2 lunes/Sprite"]
+visible = false
+position = Vector2( -2.6727, -116.708 )
+texture = ExtResource( 15 )
+
+[node name="SpriteBaseDrapeau" type="Sprite" parent="Test_lvl_2/2 lunes/Sprite"]
+visible = false
+position = Vector2( -2.6727, -108.244 )
+texture = ExtResource( 14 )
+
+[node name="Gravity" type="Area2D" parent="Test_lvl_2/2 lunes"]
+collision_layer = 2
+
+[node name="attraction" type="CollisionShape2D" parent="Test_lvl_2/2 lunes/Gravity"]
+shape = SubResource( 5 )
+
+[node name="Body" type="Area2D" parent="Test_lvl_2/2 lunes"]
+collision_layer = 2
+
+[node name="death" type="CollisionShape2D" parent="Test_lvl_2/2 lunes/Body"]
+shape = SubResource( 6 )
+
+[node name="Pivot" type="Node2D" parent="Test_lvl_2/2 lunes"]
+rotation = 1.3631
+
+[node name="OrbitPosition" type="Position2D" parent="Test_lvl_2/2 lunes/Pivot"]
+position = Vector2( -139.895, 109.774 )
+
+[node name="PivotLune" type="Node2D" parent="Test_lvl_2/2 lunes"]
+
+[node name="Lune" parent="Test_lvl_2/2 lunes/PivotLune" instance=ExtResource( 13 )]
+position = Vector2( 0, -230 )
+
+[node name="Lune2" parent="Test_lvl_2/2 lunes/PivotLune" instance=ExtResource( 13 )]
+position = Vector2( 0, 230 )
+
+[node name="pivot" parent="Test_lvl_2/2 lunes" instance=ExtResource( 12 )]
+
+[node name="PlanetGreen" parent="Test_lvl_2" instance=ExtResource( 6 )]
+position = Vector2( 147.462, 347.248 )
+is_checkpoint = true
+
+[node name="Asteroids Area" type="Node2D" parent="Test_lvl_2"]
+position = Vector2( 410, 38 )
+rotation = 1.01578
+
+[node name="Asteroids" parent="Test_lvl_2/Asteroids Area" instance=ExtResource( 11 )]
+position = Vector2( 33.9028, 25.4271 )
+
+[node name="Asteroids10" parent="Test_lvl_2/Asteroids Area" instance=ExtResource( 11 )]
+position = Vector2( 159.806, 178.755 )
+
+[node name="Asteroids6" parent="Test_lvl_2/Asteroids Area" instance=ExtResource( 11 )]
+position = Vector2( 361.086, 127.136 )
+
+[node name="Asteroids7" parent="Test_lvl_2/Asteroids Area" instance=ExtResource( 11 )]
+position = Vector2( 310.736, 212.126 )
+
+[node name="Asteroids9" parent="Test_lvl_2/Asteroids Area" instance=ExtResource( 11 )]
+position = Vector2( 93.2327, 72.0435 )
+
+[node name="Asteroids3" parent="Test_lvl_2/Asteroids Area" instance=ExtResource( 11 )]
+position = Vector2( 169.981, 102.007 )
+
+[node name="Asteroids4" parent="Test_lvl_2/Asteroids Area" instance=ExtResource( 11 )]
+position = Vector2( 268.011, 140.978 )
+
+[node name="Asteroids5" parent="Test_lvl_2/Asteroids Area" instance=ExtResource( 11 )]
+position = Vector2( 43.1815, 154.961 )
+
+[node name="Asteroids Area" parent="Test_lvl_2/Asteroids Area" instance=ExtResource( 10 )]
+position = Vector2( -432.843, 254.045 )
+rotation = -1.14319
+script = null
+
+[node name="Asteroids Area2" parent="Test_lvl_2/Asteroids Area" instance=ExtResource( 10 )]
+position = Vector2( -232.362, -61.7073 )
+rotation = -1.14319
+script = null
+
+[node name="Asteroids Area3" parent="Test_lvl_2/Asteroids Area" instance=ExtResource( 10 )]
+position = Vector2( -40.5503, -371.068 )
+rotation = -1.14319
+script = null
+
+[node name="Asteroids Area4" parent="Test_lvl_2/Asteroids Area" instance=ExtResource( 10 )]
+position = Vector2( 149.97, -685.937 )
+rotation = -1.14319
+script = null
+
+[node name="Asteroids Area5" parent="Test_lvl_2/Asteroids Area" instance=ExtResource( 10 )]
+position = Vector2( 348.751, -1002.74 )
+rotation = -1.14319
+script = null
+
+[node name="Asteroids Area6" parent="Test_lvl_2/Asteroids Area" instance=ExtResource( 10 )]
+position = Vector2( 565.857, -1352.9 )
+rotation = -1.14319
+script = null
+
+[node name="Asteroids Area7" parent="Test_lvl_2/Asteroids Area" instance=ExtResource( 10 )]
+position = Vector2( 680.381, 906.622 )
+rotation = -1.14319
+script = null
+
+[node name="Asteroids Area8" parent="Test_lvl_2/Asteroids Area" instance=ExtResource( 10 )]
+position = Vector2( 899.595, 553.066 )
+rotation = -1.14319
+script = null
+
+[node name="Asteroids Area9" parent="Test_lvl_2/Asteroids Area" instance=ExtResource( 10 )]
+position = Vector2( 1106.23, 238.776 )
+rotation = -1.14319
+script = null
+
+[node name="Asteroids Area10" parent="Test_lvl_2/Asteroids Area" instance=ExtResource( 10 )]
+position = Vector2( 1322.11, -98.0193 )
+rotation = -1.14319
+script = null
+
+[node name="Asteroids Area11" parent="Test_lvl_2/Asteroids Area" instance=ExtResource( 10 )]
+position = Vector2( 1535.65, -438.622 )
+rotation = -1.14319
+script = null
+
+[node name="Asteroids Area12" parent="Test_lvl_2/Asteroids Area" instance=ExtResource( 10 )]
+position = Vector2( 1475.11, -1062.11 )
+rotation = 0.253073
+script = null
+
+[node name="Asteroids Area13" parent="Test_lvl_2/Asteroids Area" instance=ExtResource( 10 )]
+position = Vector2( 1125.84, -1269.26 )
+rotation = 0.253073
+script = null
+
+[node name="Asteroids Area14" parent="Test_lvl_2/Asteroids Area" instance=ExtResource( 10 )]
+position = Vector2( 799.345, -1509.34 )
+rotation = 0.253073
+script = null
+
+[node name="Asteroids Area15" parent="Test_lvl_2/Asteroids Area" instance=ExtResource( 10 )]
+position = Vector2( -351.594, 327.954 )
+rotation = 0.253073
+script = null
+
+[node name="Asteroids Area16" parent="Test_lvl_2/Asteroids Area" instance=ExtResource( 10 )]
+position = Vector2( -9.69923, 546.998 )
+rotation = 0.253073
+script = null
+
+[node name="Asteroids Area17" parent="Test_lvl_2/Asteroids Area" instance=ExtResource( 10 )]
+position = Vector2( 339.233, 777.464 )
+rotation = 0.253073
+script = null
+
+[node name="Asteroids Area2" type="Node2D" parent="Test_lvl_2"]
+position = Vector2( 1349.45, 736.554 )
+rotation = 1.90415
+
+[node name="Asteroids10" parent="Test_lvl_2/Asteroids Area2" instance=ExtResource( 11 )]
+position = Vector2( 196.44, 176.736 )
+
+[node name="Asteroids6" parent="Test_lvl_2/Asteroids Area2" instance=ExtResource( 11 )]
+position = Vector2( 361.086, 127.136 )
+
+[node name="Asteroids7" parent="Test_lvl_2/Asteroids Area2" instance=ExtResource( 11 )]
+position = Vector2( 310.736, 212.126 )
+
+[node name="Asteroids3" parent="Test_lvl_2/Asteroids Area2" instance=ExtResource( 11 )]
+position = Vector2( 169.981, 102.007 )
+
+[node name="Asteroids4" parent="Test_lvl_2/Asteroids Area2" instance=ExtResource( 11 )]
+position = Vector2( 263.796, 121.104 )
+
+[node name="Asteroids5" parent="Test_lvl_2/Asteroids Area2" instance=ExtResource( 11 )]
+position = Vector2( 109.398, 161.365 )
+
+[node name="Comet_path" type="Path2D" parent="Test_lvl_2"]
+curve = SubResource( 7 )
+
+[node name="PathFollow2D" type="PathFollow2D" parent="Test_lvl_2/Comet_path"]
+position = Vector2( 1427.2, -20.816 )
+rotation = 2.05695
+
+[node name="Comete" parent="Test_lvl_2/Comet_path/PathFollow2D" instance=ExtResource( 8 )]
+
+[node name="vaisseau_ennemy" type="Path2D" parent="Test_lvl_2"]
+position = Vector2( -18.0471, 481.267 )
+curve = SubResource( 8 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="PathFollow2D" type="PathFollow2D" parent="Test_lvl_2/vaisseau_ennemy"]
+position = Vector2( 371.379, 47.8563 )
+rotation = -0.753247
+
+[node name="Enemy_vaisseau" parent="Test_lvl_2/vaisseau_ennemy/PathFollow2D" instance=ExtResource( 7 )]
+position = Vector2( -0.123535, -0.34061 )
+speed = 100
+
+[node name="Timer" type="Timer" parent="Test_lvl_2"]
+wait_time = 0.02
+autostart = true
+
+[node name="Spaceship" parent="Test_lvl_2" instance=ExtResource( 9 )]
+position = Vector2( 149.216, 276.208 )
+
+[node name="spawn_position" type="Position2D" parent="Test_lvl_2"]
+
+[node name="LevelLimits" type="Node2D" parent="Test_lvl_2"]
+
+[node name="Position2DTop" type="Position2D" parent="Test_lvl_2/LevelLimits"]
+position = Vector2( 816.922, -256.289 )
+
+[node name="Position2DRight" type="Position2D" parent="Test_lvl_2/LevelLimits"]
+position = Vector2( 2311.94, 563.302 )
+
+[node name="Position2DBottom" type="Position2D" parent="Test_lvl_2/LevelLimits"]
+position = Vector2( 1009.14, 1236.06 )
+
+[node name="Position2DLeft" type="Position2D" parent="Test_lvl_2/LevelLimits"]
+position = Vector2( -269.638, 523.257 )
+[connection signal="body_entered" from="Test_lvl_2/1lune/Gravity" to="Test_lvl_2/1lune" method="_on_Gravity_body_entered"]
+[connection signal="body_entered" from="Test_lvl_2/3 lunes/Gravity" to="Test_lvl_2/3 lunes" method="_on_Gravity_body_entered"]
+[connection signal="body_entered" from="Test_lvl_2/2 lunes/Gravity" to="Test_lvl_2/2 lunes" method="_on_Gravity_body_entered"]
+[connection signal="timeout" from="Test_lvl_2/Timer" to="Test_lvl_2" method="_on_Timer_timeout"]
