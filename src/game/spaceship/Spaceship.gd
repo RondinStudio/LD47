@@ -2,13 +2,12 @@ extends KinematicBody2D
 
 var orbited = false
 var positionToFollow
-const MOVE_SPEED = 400
+const MOVE_SPEED = 500
 var velocity = Vector2()
 var applied_forces = Vector2()
 const ACCELERATION = 0.03
 var planete
 var speed = 0
-const MAX_SPEED = 1.4
 var movement = Vector2(0, 0)
 var direction_tangent = 1
 
@@ -25,7 +24,7 @@ func physics_process_in_movement(delta):
 		$trail/Particles2D.emitting = true
 		$trail2/Particles2D.emitting = true
 		speed += ACCELERATION
-		speed = clamp(speed, 0, MAX_SPEED)
+		speed = clamp(speed, 0, 1)
 	else:
 		$AnimationPlayer.play("Idle")
 		$trail/Particles2D.emitting = false
@@ -55,13 +54,15 @@ func physics_process_in_orbit(delta):
 		orbited = false
 		positionToFollow = null
 		movement = ((tangent.normalized() * MOVE_SPEED/2)+ applied_forces) * delta 
-		move_and_collide(movement)
+		var collision = move_and_collide(movement)
+		if collision != null:
+			set_physics_process(false)
+			$AnimationPlayer.play("Death")
 		speed = 0.5
+		Events.emit_signal("player_leave_orbit")
 
 func death():
 	Events.emit_signal("player_death")
-	print("death")
-	
 	# Lancer l'animation et arrêter le vaisseau pour éviter les collisions bizarres
 
 func orbit(planete_param, toFollow , direction):
@@ -69,12 +70,7 @@ func orbit(planete_param, toFollow , direction):
 	positionToFollow = toFollow
 	direction_tangent = direction
 	orbited = true
-
-func desorbit():
-	orbited = false
-	
-func die():
-	Events.emit_signal("player_death")
+	Events.emit_signal("player_enter_orbit", planete_param.global_position)
 
 func _on_VisibilityNotifier2D_screen_exited():
-	die()
+	death()

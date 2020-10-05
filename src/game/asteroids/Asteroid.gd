@@ -1,22 +1,18 @@
-﻿extends Node
+extends KinematicBody2D
 
 var speed
-var rng = RandomNumberGenerator.new()
 
 func _ready():
-	# Applique un seed au randomizer ( nécessaire pour être vrmt random )
-	rng.randomize()
-	# Distribution gaussienne
-	speed = rng.randfn(0, 2)
-	set_process(true)
+	speed = rand_range(0, 2)
+	
+	var texture_rand = randi() % 3
+	if texture_rand == 0:
+		$Sprite.texture = load("res://assets/graphisme/Asteroide 1.png")
+	elif texture_rand == 1:
+		$Sprite.texture = load("res://assets/graphisme/Asteroide 2.png")
+	else:
+		$Sprite.texture = load("res://assets/graphisme/Asteroide 3.png")
 
 # Fais tourner les astéroïdes sur eux même, dans le deux sens grace à la distribution gaussienne
-func _process(delta):
+func _process(delta):	
 	self.rotation += speed * delta
-
-# Pour la mort du player ( à finir )
-func _on_Body_body_entered(body):
-	if (body.is_in_group("joueur")):
-		print("mort")
-
-

@@ -6,8 +6,11 @@ var nb_actuel = 0
 var player
 
 func _ready():
+# warning-ignore:return_value_discarded
 	Events.connect("player_death",self, "on_player_death")
+# warning-ignore:return_value_discarded
 	Events.connect("new_checkpoint", self, "on_new_checkpoint") 
+# warning-ignore:return_value_discarded
 	Events.connect("end_of_level_reached", self, "on_end_of_level_reached")
 	randomize()
 	player = $Spaceship
@@ -27,6 +30,7 @@ func _on_Timer_timeout():
 func on_new_checkpoint(planete):
 	var direction_to_planet = planete.get_node("Pivot/OrbitPosition").global_position.direction_to(planete.global_position)
 	$spawn_position.position = planete.get_node("Pivot/OrbitPosition").global_position + direction_to_planet * 20
+	get_parent().get_node("Camera2D").current = true
 
 func on_player_death():
 	player.position = $spawn_position.position

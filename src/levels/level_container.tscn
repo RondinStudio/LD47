@@ -1,8 +1,25 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=17 format=2]
 
 [ext_resource path="res://src/levels/level_container.gd" type="Script" id=1]
 [ext_resource path="res://src/UI/pause_popup.tscn" type="PackedScene" id=2]
-[ext_resource path="res://src/levels/test_level.tscn" type="PackedScene" id=3]
+[ext_resource path="res://assets/graphisme/Planete jaune.png" type="Texture" id=3]
+[ext_resource path="res://assets/graphisme/Base drapeau.png" type="Texture" id=4]
+[ext_resource path="res://src/game/basic_planet/Planet.gd" type="Script" id=5]
+[ext_resource path="res://src/levels/level.gd" type="Script" id=6]
+[ext_resource path="res://assets/graphisme/Drapeau.png" type="Texture" id=7]
+[ext_resource path="res://src/game/Blackhole/blackhole.tscn" type="PackedScene" id=8]
+[ext_resource path="res://assets/Star.tscn" type="PackedScene" id=11]
+[ext_resource path="res://src/game/asteroids/Asteroid.tscn" type="PackedScene" id=12]
+[ext_resource path="res://src/game/spaceship/Spaceship.tscn" type="PackedScene" id=13]
+[ext_resource path="res://src/game/Lunes/Lune.tscn" type="PackedScene" id=14]
+[ext_resource path="res://src/game/Camera/Camera.tscn" type="PackedScene" id=15]
+[ext_resource path="res://src/game/basic_planet/PlanetRed.tscn" type="PackedScene" id=16]
+
+[sub_resource type="CircleShape2D" id=1]
+radius = 180.128
+
+[sub_resource type="CircleShape2D" id=2]
+radius = 107.654
 
 [node name="LevelContainer" type="Node2D"]
 script = ExtResource( 1 )
@@ -10,4 +27,78 @@ script = ExtResource( 1 )
 [node name="pause_popup" parent="." instance=ExtResource( 2 )]
 visible = false
 
-[node name="Test_level" parent="." instance=ExtResource( 3 )]
+[node name="Camera2D" parent="." instance=ExtResource( 15 )]
+
+[node name="Test_level" type="Node2D" parent="."]
+script = ExtResource( 6 )
+etoile = ExtResource( 11 )
+
+[node name="spawn_position" type="Position2D" parent="Test_level"]
+
+[node name="Asteroids" parent="Test_level" instance=ExtResource( 12 )]
+position = Vector2( 1138.97, 372.937 )
+rotation = 4.46638e-06
+
+[node name="PlanetYellow" type="Node2D" parent="Test_level"]
+position = Vector2( 680.358, 645.08 )
+script = ExtResource( 5 )
+speed = 1.0
+lune_speed = 1.0
+is_checkpoint = true
+
+[node name="Sprite" type="Sprite" parent="Test_level/PlanetYellow"]
+texture = ExtResource( 3 )
+
+[node name="SpriteDrapeau" type="Sprite" parent="Test_level/PlanetYellow/Sprite"]
+visible = false
+position = Vector2( -2.6727, -116.708 )
+texture = ExtResource( 7 )
+
+[node name="SpriteBaseDrapeau" type="Sprite" parent="Test_level/PlanetYellow/Sprite"]
+visible = false
+position = Vector2( -2.6727, -108.244 )
+texture = ExtResource( 4 )
+
+[node name="Gravity" type="Area2D" parent="Test_level/PlanetYellow"]
+collision_layer = 2
+
+[node name="attraction" type="CollisionShape2D" parent="Test_level/PlanetYellow/Gravity"]
+shape = SubResource( 1 )
+
+[node name="Body" type="Area2D" parent="Test_level/PlanetYellow"]
+collision_layer = 2
+
+[node name="death" type="CollisionShape2D" parent="Test_level/PlanetYellow/Body"]
+shape = SubResource( 2 )
+
+[node name="Pivot" type="Node2D" parent="Test_level/PlanetYellow"]
+rotation = 1.3631
+
+[node name="OrbitPosition" type="Position2D" parent="Test_level/PlanetYellow/Pivot"]
+position = Vector2( -139.895, 109.774 )
+
+[node name="PivotLune" type="Node2D" parent="Test_level/PlanetYellow"]
+
+[node name="Lune" parent="Test_level/PlanetYellow/PivotLune" instance=ExtResource( 14 )]
+position = Vector2( 226.53, -137.806 )
+
+[node name="Spaceship" parent="Test_level" instance=ExtResource( 13 )]
+position = Vector2( 198.854, 661.626 )
+
+[node name="Asteroids2" parent="Test_level" instance=ExtResource( 12 )]
+position = Vector2( 1184.33, 448.532 )
+
+[node name="Asteroids3" parent="Test_level" instance=ExtResource( 12 )]
+position = Vector2( 1239.76, 519.088 )
+
+[node name="Timer" type="Timer" parent="Test_level"]
+wait_time = 0.02
+autostart = true
+
+[node name="Trou noir" parent="Test_level" instance=ExtResource( 8 )]
+position = Vector2( 630.27, 229.873 )
+
+[node name="PlanetRed" parent="Test_level" instance=ExtResource( 16 )]
+position = Vector2( 1227.71, 810.624 )
+[connection signal="body_entered" from="Test_level/PlanetYellow/Gravity" to="Test_level/PlanetYellow" method="_on_Gravity_body_entered"]
+[connection signal="timeout" from="Test_level/Timer" to="Test_level" method="_on_Timer_timeout"]
