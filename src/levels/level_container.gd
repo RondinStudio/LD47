@@ -32,10 +32,10 @@ func _process(delta):
 
 func on_pause_pressed():
 	get_tree().paused = true
-	$pause_popup.show()
+	$CanvasLayer/pause_popup.show()
 
 func on_resume():
 	get_tree().paused = false
-	$pause_popup.hide()
+	$CanvasLayer/pause_popup.hide()
 
 # A TERME : AJOUTER DES FONCTIONS POUR MANIPULER LA MUSIQUE

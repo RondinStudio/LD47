@@ -81,6 +81,7 @@ func death():
 func orbit(planete_param, toFollow , direction):
 	stop_thrusters()
 	planete = planete_param
+	lastPositionToFollow = positionToFollow
 	positionToFollow = toFollow
 	direction_tangent = direction
 	orbited = true

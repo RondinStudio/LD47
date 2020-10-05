@@ -43,9 +43,8 @@ func _on_Timer_timeout():
 		$Timer.stop()
 
 func on_reset():
-	if player.positionToFollow != null:
-		$spawn_position.position = player.positionToFolloW
-	player.position = $spawn_position.position
+	if player.orbited == false:
+		player.position = $spawn_position.position
 
 func on_new_checkpoint(new_spawn_pos):
 	$spawn_position.position = new_spawn_pos
@@ -54,8 +53,8 @@ func on_new_checkpoint(new_spawn_pos):
 func on_player_death():
 	player.set_physics_process(true)
 	player.positionToFollow = player.lastPositionToFollow
-	$spawn_position.position = player.positionToFollow.position
-	Events.emit_signal("reset")
+	#$spawn_position.position = player.positionToFollow.position
+	player.position = $spawn_position.position
 	player.orbited = true
 
 func on_end_of_level_reached():
