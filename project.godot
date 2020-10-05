@@ -34,6 +34,7 @@ config/icon="res://icon.png"
 
 Events="*res://src/globals/Events.gd"
 Globals="*res://src/globals/globals.gd"
+SoundManager="*res://addons/sound_manager/module/SoundManager.tscn"
 
 [display]
 
@@ -41,6 +42,10 @@ window/size/width=1920
 window/size/height=1080
 window/stretch/mode="viewport"
 window/stretch/aspect="keep"
+
+[editor_plugins]
+
+enabled=PoolStringArray( "sound_manager" )
 
 [input]
 
