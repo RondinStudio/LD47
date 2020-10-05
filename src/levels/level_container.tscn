@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://src/levels/level_container.gd" type="Script" id=1]
 [ext_resource path="res://src/UI/pause_popup.tscn" type="PackedScene" id=2]
@@ -16,9 +16,6 @@
 
 [sub_resource type="CircleShape2D" id=1]
 radius = 180.128
-
-[sub_resource type="CircleShape2D" id=2]
-radius = 107.654
 
 [node name="LevelContainer" type="Node2D"]
 script = ExtResource( 1 )
@@ -38,8 +35,27 @@ etoile = ExtResource( 11 )
 position = Vector2( 1138.97, 372.937 )
 rotation = 4.46638e-06
 
+[node name="Spaceship" parent="Test_level" instance=ExtResource( 13 )]
+position = Vector2( 198.854, 661.626 )
+
+[node name="Asteroids2" parent="Test_level" instance=ExtResource( 12 )]
+position = Vector2( 1184.33, 448.532 )
+
+[node name="Asteroids3" parent="Test_level" instance=ExtResource( 12 )]
+position = Vector2( 1239.76, 519.088 )
+
+[node name="Timer" type="Timer" parent="Test_level"]
+wait_time = 0.02
+autostart = true
+
+[node name="Trou noir" parent="Test_level" instance=ExtResource( 8 )]
+position = Vector2( 630.27, 229.873 )
+
+[node name="PlanetRed" parent="Test_level" instance=ExtResource( 16 )]
+position = Vector2( 1227.71, 810.624 )
+
 [node name="PlanetYellow" type="Node2D" parent="Test_level"]
-position = Vector2( 680.358, 645.08 )
+position = Vector2( 616.597, 712.764 )
 script = ExtResource( 5 )
 speed = 1.0
 lune_speed = 1.0
@@ -64,12 +80,6 @@ collision_layer = 2
 [node name="attraction" type="CollisionShape2D" parent="Test_level/PlanetYellow/Gravity"]
 shape = SubResource( 1 )
 
-[node name="Body" type="Area2D" parent="Test_level/PlanetYellow"]
-collision_layer = 2
-
-[node name="death" type="CollisionShape2D" parent="Test_level/PlanetYellow/Body"]
-shape = SubResource( 2 )
-
 [node name="Pivot" type="Node2D" parent="Test_level/PlanetYellow"]
 rotation = 1.3631
 
@@ -77,24 +87,5 @@ rotation = 1.3631
 position = Vector2( -139.895, 109.774 )
 
 [node name="PivotLune" type="Node2D" parent="Test_level/PlanetYellow"]
-
-[node name="Spaceship" parent="Test_level" instance=ExtResource( 13 )]
-position = Vector2( 198.854, 661.626 )
-
-[node name="Asteroids2" parent="Test_level" instance=ExtResource( 12 )]
-position = Vector2( 1184.33, 448.532 )
-
-[node name="Asteroids3" parent="Test_level" instance=ExtResource( 12 )]
-position = Vector2( 1239.76, 519.088 )
-
-[node name="Timer" type="Timer" parent="Test_level"]
-wait_time = 0.02
-autostart = true
-
-[node name="Trou noir" parent="Test_level" instance=ExtResource( 8 )]
-position = Vector2( 630.27, 229.873 )
-
-[node name="PlanetRed" parent="Test_level" instance=ExtResource( 16 )]
-position = Vector2( 1227.71, 810.624 )
-[connection signal="body_entered" from="Test_level/PlanetYellow/Gravity" to="Test_level/PlanetYellow" method="_on_Gravity_body_entered"]
 [connection signal="timeout" from="Test_level/Timer" to="Test_level" method="_on_Timer_timeout"]
+[connection signal="area_entered" from="Test_level/PlanetYellow/Gravity" to="Test_level/PlanetYellow" method="_on_Gravity_area_entered"]

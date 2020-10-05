@@ -109,13 +109,10 @@ animations = [ {
 "speed": 5.0
 } ]
 
-[sub_resource type="Gradient" id=6]
-offsets = PoolRealArray( 0, 0.384106, 0.728477, 1 )
-colors = PoolColorArray( 1, 1, 1, 1, 1, 0, 0, 1, 1, 0.585938, 0, 1, 0.957031, 0.903409, 0.553284, 1 )
+[sub_resource type="CircleShape2D" id=8]
+radius = 1.67331
 
-[node name="Spaceship" type="KinematicBody2D" groups=[
-"joueur",
-]]
+[node name="Spaceship" type="KinematicBody2D"]
 position = Vector2( 190.273, 111.786 )
 collision_mask = 2
 script = ExtResource( 2 )
@@ -178,3 +175,11 @@ gravity = Vector2( 0, 0 )
 initial_velocity = 64.52
 scale_amount = 11.75
 color_ramp = SubResource( 6 )
+
+[node name="OrbitPoint" type="Area2D" parent="." groups=[
+"joueur",
+]]
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="OrbitPoint"]
+shape = SubResource( 8 )
