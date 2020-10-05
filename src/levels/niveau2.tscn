@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=2]
+[gd_scene load_steps=23 format=2]
 
 [ext_resource path="res://src/game/basic_planet/Planet.gd" type="Script" id=1]
 [ext_resource path="res://assets/graphisme/Base drapeau.png" type="Texture" id=2]
@@ -20,33 +20,19 @@
 [sub_resource type="CircleShape2D" id=1]
 radius = 95.0735
 
-[sub_resource type="GDScript" id=2]
-script/source = "extends Node2D
-
-# Classe servant à avoir 5 astéroïdes dans une scène ( classe pratique )
-
-func _ready():
-	pass
-"
-
-[sub_resource type="Curve2D" id=2]
-_data = {
-"points": PoolVector2Array( -2.22725, 64.5902, 2.22725, -64.5902, 3058.64, 283.463, -3.56359, -67.7083, 3.56359, 67.7083, 3197.23, 283.463, 1.88775, -79.2854, -1.88775, 79.2854, 3197.23, 745.854, -1.88775, 85.8926, 1.88775, -85.8926, 3058.64, 747.114, 0, 0, 0, 0, 3054.58, 519.844, 0, 0, 0, 0, 3058.64, 283.463 )
-}
-
-[sub_resource type="CircleShape2D" id=3]
+[sub_resource type="CircleShape2D" id=2]
 radius = 243.944
 
-[sub_resource type="CircleShape2D" id=5]
+[sub_resource type="CircleShape2D" id=3]
 radius = 207.78
 
-[sub_resource type="CircleShape2D" id=8]
+[sub_resource type="CircleShape2D" id=4]
+radius = 180.128
+
+[sub_resource type="CircleShape2D" id=5]
 radius = 180.128
 
 [sub_resource type="CircleShape2D" id=6]
-radius = 180.128
-
-[sub_resource type="CircleShape2D" id=7]
 radius = 217.648
 
 [node name="lvl2" type="Node2D"]
@@ -141,6 +127,7 @@ wait_time = 0.02
 autostart = true
 
 [node name="spawn_position" type="Position2D" parent="."]
+position = Vector2( 99.5218, 268.341 )
 
 [node name="Asteroids Area" type="Node2D" parent="."]
 position = Vector2( 356.762, 66.5956 )
@@ -274,7 +261,7 @@ is_checkpoint = true
 [node name="vaisseau_ennemy2" type="Path2D" parent="."]
 position = Vector2( 1169.75, -26.8625 )
 scale = Vector2( 0.582433, 0.90475 )
-curve = SubResource( 2 )
+curve = null
 
 [node name="PathFollow2D" type="PathFollow2D" parent="vaisseau_ennemy2"]
 position = Vector2( 3058.64, 283.463 )
@@ -287,7 +274,7 @@ position = Vector2( -0.123535, -0.34061 )
 position = Vector2( 5265.13, 906.646 )
 rotation = 3.14159
 scale = Vector2( 0.582433, 0.90475 )
-curve = SubResource( 2 )
+curve = null
 
 [node name="PathFollow2D" type="PathFollow2D" parent="vaisseau_ennemy4"]
 position = Vector2( 3058.64, 283.463 )
@@ -299,7 +286,7 @@ position = Vector2( -0.123535, -0.34061 )
 [node name="vaisseau_ennemy3" type="Path2D" parent="."]
 position = Vector2( 2026.72, -26.862 )
 scale = Vector2( 0.582433, 0.90475 )
-curve = SubResource( 2 )
+curve = null
 
 [node name="PathFollow2D" type="PathFollow2D" parent="vaisseau_ennemy3"]
 position = Vector2( 3058.64, 283.463 )
@@ -333,7 +320,7 @@ collision_layer = 2
 
 [node name="attraction" type="CollisionShape2D" parent="PlanetBlue/Gravity"]
 position = Vector2( -0.140308, -2.24493 )
-shape = SubResource( 3 )
+shape = SubResource( 2 )
 
 [node name="Pivot" type="Node2D" parent="PlanetBlue"]
 rotation = 1.3631
@@ -386,7 +373,7 @@ collision_layer = 2
 
 [node name="attraction" type="CollisionShape2D" parent="PlanetBlue2/Gravity"]
 position = Vector2( -0.140308, -2.24493 )
-shape = SubResource( 5 )
+shape = SubResource( 3 )
 
 [node name="Pivot" type="Node2D" parent="PlanetBlue2"]
 rotation = 1.3631
@@ -431,7 +418,7 @@ texture = ExtResource( 15 )
 collision_layer = 2
 
 [node name="attraction" type="CollisionShape2D" parent="PlanetYellow3/Gravity"]
-shape = SubResource( 8 )
+shape = SubResource( 4 )
 
 [node name="Pivot" type="Node2D" parent="PlanetYellow3"]
 rotation = 1.3631
@@ -506,7 +493,7 @@ texture = ExtResource( 2 )
 collision_layer = 2
 
 [node name="attraction" type="CollisionShape2D" parent="PlanetYellow2/Gravity"]
-shape = SubResource( 6 )
+shape = SubResource( 5 )
 
 [node name="Pivot" type="Node2D" parent="PlanetYellow2"]
 rotation = 1.3631
@@ -548,7 +535,7 @@ texture = ExtResource( 2 )
 collision_layer = 2
 
 [node name="attraction" type="CollisionShape2D" parent="PlanetRed3/Gravity"]
-shape = SubResource( 7 )
+shape = SubResource( 6 )
 
 [node name="Pivot" type="Node2D" parent="PlanetRed3"]
 rotation = 1.3631
@@ -570,7 +557,7 @@ position = Vector2( 0, -316.2 )
 [node name="pivot" parent="PlanetRed3" instance=ExtResource( 10 )]
 
 [node name="Spaceship" parent="." instance=ExtResource( 16 )]
-position = Vector2( 70.6436, 287.433 )
+position = Vector2( 84.1131, 286.311 )
 [connection signal="area_entered" from="PlanetGreen/Gravity" to="PlanetGreen" method="_on_Gravity_area_entered"]
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
 [connection signal="area_entered" from="PlanetBlue/Gravity" to="PlanetBlue" method="_on_Gravity_area_entered"]

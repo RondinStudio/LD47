@@ -23,6 +23,7 @@ var fourth_popup_text = ["Gas is expensive, so you'd better make use of the attr
 var fifth_popup_text = ["Congratulations ! You got the gist of navigating around is space ! But be careful, there is a lot of other dangers awaiting ... I heard there's some mean spaceships patrolling the area and exploding supernovas in the vicinity ! Good luck !"]
 
 func _ready():
+	Events.connect("fin_niveau", self, "on_end_of_level_reached")
 # warning-ignore:return_value_discarded
 	Events.connect("reset",self, "on_reset")
 # warning-ignore:return_value_discarded
@@ -44,10 +45,6 @@ func _ready():
 	limitLevelBottom = $LevelLimits/Position2DBottom.position
 	limitLevelLeft = $LevelLimits/Position2DLeft.position
 
-func _physics_process(delta):
-	if Input.is_action_just_pressed("ui_up"):
-		on_end_of_level_reached()
-
 func _on_Timer_timeout():
 	var x = rng.randi_range(-limitLevelLeft.x, limitLevelRight.x)
 	var y = rng.randi_range(limitLevelTop.y, limitLevelBottom.y)
@@ -61,6 +58,8 @@ func _on_Timer_timeout():
 		$Timer.stop()
 
 func on_reset():
+	if player.positionToFollow != null:
+		$spawn_position.position = player.positionToFolloW
 	player.position = $spawn_position.position
 
 func on_new_checkpoint(new_spawn_pos):
@@ -68,8 +67,11 @@ func on_new_checkpoint(new_spawn_pos):
 	get_parent().get_node("Camera2D").current = true
 
 func on_player_death():
-	player.position = $spawn_position.position
 	player.set_physics_process(true)
+	player.positionToFollow = player.lastPositionToFollow
+	$spawn_position.position = player.positionToFollow.position
+	Events.emit_signal("reset")
+	player.orbited = true
 
 func on_end_of_level_reached():
 	Globals.current_level += 1

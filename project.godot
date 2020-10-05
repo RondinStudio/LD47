@@ -45,7 +45,6 @@ window/stretch/aspect="keep"
 
 [editor_plugins]
 
-enabled=PoolStringArray( "sound_manager" )
 enabled=PoolStringArray( "GodotTIE", "sound_manager" )
 
 [input]

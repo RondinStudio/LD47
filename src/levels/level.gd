@@ -29,11 +29,6 @@ func _ready():
 	limitLevelRight = $LevelLimits/Position2DRight.position
 	limitLevelBottom = $LevelLimits/Position2DBottom.position
 	limitLevelLeft = $LevelLimits/Position2DLeft.position
-	
-
-func _physics_process(delta):
-	if Input.is_action_just_pressed("ui_up"):
-		on_end_of_level_reached()
 
 func _on_Timer_timeout():
 	var x = rng.randi_range(-limitLevelLeft.x, limitLevelRight.x)
@@ -48,6 +43,8 @@ func _on_Timer_timeout():
 		$Timer.stop()
 
 func on_reset():
+	if player.positionToFollow != null:
+		$spawn_position.position = player.positionToFolloW
 	player.position = $spawn_position.position
 
 func on_new_checkpoint(new_spawn_pos):
