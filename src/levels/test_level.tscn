@@ -1,18 +1,17 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://src/levels/level.gd" type="Script" id=1]
 [ext_resource path="res://src/game/basic_planet/PlanetYellow.tscn" type="PackedScene" id=2]
 [ext_resource path="res://src/game/spaceship/Spaceship.tscn" type="PackedScene" id=3]
 [ext_resource path="res://src/game/asteroids/Asteroid.tscn" type="PackedScene" id=6]
-[ext_resource path="res://assets/Star.tscn" type="PackedScene" id=7]
 [ext_resource path="res://src/game/Blackhole/blackhole.tscn" type="PackedScene" id=8]
 
 [node name="Test_level" type="Node2D"]
 script = ExtResource( 1 )
-etoile = ExtResource( 7 )
 nb_etoile = 10
 
 [node name="spawn_position" type="Position2D" parent="."]
+position = Vector2( 461.413, 825.31 )
 
 [node name="Asteroids" parent="." instance=ExtResource( 6 )]
 position = Vector2( 1138.97, 372.937 )

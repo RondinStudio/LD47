@@ -33,3 +33,5 @@ signal player_enter_orbit(planet_pos)
 signal player_leave_orbit()
 
 signal reset()
+
+signal next_level()

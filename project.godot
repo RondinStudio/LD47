@@ -27,7 +27,7 @@ _global_script_class_icons={
 [application]
 
 config/name="LD47"
-run/main_scene="res://src/main/MainScene.tscn"
+run/main_scene="res://src/UI/MainMenu.tscn"
 config/icon="res://icon.png"
 
 [autoload]
@@ -52,11 +52,6 @@ enabled=PoolStringArray( "sound_manager" )
 space={
 "deadzone": 0.5,
 "events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":32,"unicode":0,"echo":false,"script":null)
- ]
-}
-R={
-"deadzone": 0.5,
-"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":82,"unicode":0,"echo":false,"script":null)
  ]
 }
 

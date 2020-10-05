@@ -20,7 +20,6 @@ func _physics_process(delta):
 		physics_process_in_orbit(delta)
 			
 func physics_process_in_movement(delta):
-	print("icicici")
 	if Input.is_action_pressed("space"):
 		$AnimationPlayer.play("Moving")
 		if thrusters_playing == false:
@@ -93,3 +92,6 @@ func stop_thrusters():
 	if thrusters_playing == true:
 		SoundManager.stop("res://assets/son/Sound effects/thrusters.wav")
 		thrusters_playing = false
+
+func bruit_explosion():
+	SoundManager.play_se("res://assets/son/Sound effects/explosion.wav")

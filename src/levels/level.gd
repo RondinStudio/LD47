@@ -1,6 +1,6 @@
 extends Node2D
 
-export (PackedScene) var etoile
+var etoile = load("res://assets/Star.tscn")
 export (int) var nb_etoile
 var nb_actuel = 0
 var player
@@ -15,6 +15,10 @@ func _ready():
 	Events.connect("end_of_level_reached", self, "on_end_of_level_reached")
 	randomize()
 	player = $Spaceship
+
+func _physics_process(delta):
+	if Input.is_action_just_pressed("ui_up"):
+		on_end_of_level_reached()
 
 func _on_Timer_timeout():
 	var x = randi()%8000
@@ -40,4 +44,14 @@ func on_player_death():
 	player.set_physics_process(true)
 
 func on_end_of_level_reached():
-	get_parent().go_to_next_level()
+	Globals.current_level += 1
+	if (Globals.current_level == 2):
+		get_tree().change_scene("res://src/UI/Fin1erNiveau.tscn")
+	if (Globals.current_level == 3):
+		get_tree().change_scene("res://src/UI/Fin2eNiveau.tscn")
+	if (Globals.current_level == 4):
+		get_tree().change_scene("res://src/UI/Fin3eNiveau.tscn")
+	if (Globals.current_level == 5):
+		get_tree().change_scene("res://src/UI/Fin4eNiveau.tscn")
+	if (Globals.current_level == 6):
+		get_tree().change_scene("res://src/UI/Fin5eNiveau.tscn")

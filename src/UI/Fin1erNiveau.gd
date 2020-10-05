@@ -32,6 +32,11 @@ var ordreSprite = ["Narrator", "sancheese", "pitchoune_tel", "pitchoune_bourre_c
 func _ready():
 	Events.connect("change_background_fin_premier", self, "on_change_background")
 	$ZoneDialog.init(ordrePhrase, ordrePersos, ordreSprite)
+	Events.connect("next_level", self, "on_next_level") 
+
+func on_next_level():
+	print("JE SUIS PASSE DANS LE NEXT LEVEL DE LA FIN DU PREMIER NIVEAU")
+	get_tree().change_scene("res://src/UI/Debut2eNiveau.tscn")
 
 func on_change_background(name):
 	$changementFond.stop()

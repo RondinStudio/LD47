@@ -52,11 +52,15 @@ var ordreSprite = [
 	"robot",
 	"pitchoune_tel",
 	"robot",
-	"narrator",
+	"Narrator",
 	"pitchoune_triste",
 	"pitchoune_depite"
 ]
 
 func _ready():
 	$ZoneDialog.init(ordrePhrase, ordrePersos, ordreSprite)
+	Events.connect("next_level", self, "on_next_level") 
+
+func on_next_level():
+	get_tree().change_scene("res://src/UI/Debut4eNiveau.tscn")
 
