@@ -14,6 +14,7 @@ func _ready():
 	$Aura/attraction.shape.radius = RADIUS
 	$AnimationPlayer.play("Rotate")
 	$ShockwaveAnimationPlayer.play("shockwave")
+	$pivot.init($Aura/attraction.shape.radius)
 
 
 # warning-ignore:unused_argument

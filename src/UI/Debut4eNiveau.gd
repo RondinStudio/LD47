@@ -20,7 +20,7 @@ var ordrePhrase = ["Somewhere around Salmon-4 \nFlynn's phone rings.",\
 "Even pizzaiolo are talking like start-uppers nowadays...", \
 "Something teleports into your ship.", \
 "DAMN, THAT STINKS, where's my gas mask...", \
-"Well, gotta go fast!"]
+"Well, let's get going"]
 
 var ordreSprite = ["Narrator", "pitchoune_tel", "sancheese", "pitchoune_tel", "sancheese", "pitchoune_bourre_content", "sancheese",\
 "pitchoune_depite", "sancheese", "pitchoune_sunglasses", "sancheese", "pitchoune_triste", "sancheese", "Narrator", "pitchoune_depite", \
