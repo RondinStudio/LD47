@@ -27,9 +27,8 @@ func _on_Timer_timeout():
 	if (nb_actuel == nb_etoile):
 		$Timer.stop()
 
-func on_new_checkpoint(planete):
-	var direction_to_planet = planete.get_node("Pivot/OrbitPosition").global_position.direction_to(planete.global_position)
-	$spawn_position.position = planete.get_node("Pivot/OrbitPosition").global_position + direction_to_planet * 20
+func on_new_checkpoint(new_spawn_pos):
+	$spawn_position.position = new_spawn_pos
 	get_parent().get_node("Camera2D").current = true
 
 func on_player_death():

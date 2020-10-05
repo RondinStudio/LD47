@@ -39,7 +39,7 @@ func _on_Gravity_body_entered(body):
 			if is_already_checked == false:
 				is_already_checked = true
 				$Sprite/SpriteDrapeau.show()
-				Events.emit_signal("new_checkpoint", self)
+				Events.emit_signal("new_checkpoint", body.global_position)
 
 func calculate_rotation_direction(player):
 	var vector_to_planet = player.position.direction_to(position)
