@@ -109,3 +109,4 @@ anims/Rotate = SubResource( 9 )
 [node name="particles" type="Node2D" parent="."]
 [connection signal="body_entered" from="Aura" to="." method="_on_Aura_body_entered"]
 [connection signal="body_exited" from="Aura" to="." method="_on_Aura_body_exited"]
+[connection signal="body_entered" from="Centre" to="." method="_on_Centre_body_entered"]

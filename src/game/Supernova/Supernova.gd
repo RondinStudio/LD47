@@ -8,16 +8,16 @@ var state = false
 
 
 func _ready():
-	$Aura/attraction.shape.radius = RADIUS
+	$Aura/attraction.shape.radius = RADIUS	
 
 
 func _physics_process(delta):
-	# Si le vaisseau est dans la zone d'attraction du trou noir, il subit de nouvelles forces.
+	# Si le vaisseau est dans la zone d'attraction de la supernova, il subit de nouvelles forces.
 	if state :
 		$wave_animation.play("wave")
 		$Shockwave/Particles2D.emitting = true
 		if apply_forces:
-			# La force d'attraction dépend de la distance vaisseau - trou noir.
+			# La force d'attraction dépend de la distance vaisseau - supernova.
 			var push_force = -inverse_lerp($Aura/attraction.shape.radius, 0, $Sprite.global_position.distance_to(player.position))
 			if push_force >= 0:
 				push_force = 0
