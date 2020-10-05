@@ -7,7 +7,7 @@ var nightclub2 = preload("res://assets/graphisme/histoire/nightclub 2.png")
 var nightclub3 = preload("res://assets/graphisme/histoire/nightclub 3.png")
 var actual_nightclub = 1
 
-var dark_alley = preload("res://assets/graphisme/histoire/Fond vaisseau.png")
+var dark_alley = preload("res://assets/graphisme/histoire/Dark back Alley.png")
 var spaceship = preload("res://assets/graphisme/histoire/Fond vaisseau.png")
 
 var ordrePersos = ["Narrator", "Margarita Sancheese", "Flynn", "Flynn", "nightclub", "Sleazy guy", \

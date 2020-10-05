@@ -1,9 +1,9 @@
-extends Node2D
+﻿extends Node2D
 
 var current_level_number = 1
 
-onready var current_level_reference = $Test_lvl_5
 
+onready var current_level_reference = $Test_lvl_5
 
 func _ready():
 	$Camera2D.init(current_level_reference.get_node("Spaceship")) 

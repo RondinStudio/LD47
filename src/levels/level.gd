@@ -6,6 +6,7 @@ var nb_actuel = 0
 var player
 
 func _ready():
+	Events.connect("reset",self, "on_reset")
 # warning-ignore:return_value_discarded
 	Events.connect("player_death",self, "on_player_death")
 # warning-ignore:return_value_discarded
@@ -27,6 +28,9 @@ func _on_Timer_timeout():
 	if (nb_actuel == nb_etoile):
 		$Timer.stop()
 
+func on_reset():
+	player.position = $spawn_position.position
+
 func on_new_checkpoint(new_spawn_pos):
 	$spawn_position.position = new_spawn_pos
 	get_parent().get_node("Camera2D").current = true
@@ -34,7 +38,6 @@ func on_new_checkpoint(new_spawn_pos):
 func on_player_death():
 	player.position = $spawn_position.position
 	player.set_physics_process(true)
-	print("zeubi t'es la?")
 
 func on_end_of_level_reached():
 	get_parent().go_to_next_level()
