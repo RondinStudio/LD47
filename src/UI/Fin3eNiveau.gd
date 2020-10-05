@@ -20,22 +20,22 @@ var ordrePersos = [
 ]
 
 var ordrePhrase = [
-	"Here we are. K2-1000. Wasn’t easy, but I did it !", \
+	"Here we are. K2-1000. It wasn’t easy, but I did it !", \
 	"Something teleports into your ship", \
 	"Let’s call this MMA-0-TRA-K.", \
 	"Phone ringing...", \
 	"Phone ringing...", \
 	"Phone ringing...", \
-	"This stupid piece of scrap won’t answer. Seems fishy...", \
+	"This stupid piece of scrap won’t answer. Smells fishy...", \
 	"Phone ringing...", \
-	"Hello. I’m MMA-0-TRA-K, a diplomatic robot. How could I help you ?", \
+	"Hello. I’m MMA-0-TRA-K, a diplomatic robot. How can I help you ?", \
 	"Finally ! I delivered your package ! Now I want my \"many rewards\" !", \
 	"Who are you ?", \
-	"I’m Flynn ! You hired me !", \
+	"It's Flynn ! You hired me !", \
 	"I don’t have your name in my database, sorry. Have a nice day.", \
 	"The robot hangs up", \
 	"Fuck robots.", \
-	"I think I have to sleep in my spaceship again. Could be a comfy house to live in if I had a bed."
+	"I think I'll have to sleep in my spaceship again. Could be a comfy house to live in if I had a bed."
 ]
 
 var ordreSprite = [

@@ -14,8 +14,8 @@ var ordrePersos = ["Narrator", "Margarita Sancheese", "Flynn", "Flynn", "nightcl
 "Flynn", "dark_alley", "Flynn", "Sleazy guy", "Narrator", "Sleazy guy", "Flynn", "Narrator", "Flynn"]
 var ordrePhrase = ["The phone starts ringing.", \
 "You’ve done it perfecto ! Here’s your money !", \
-"That's what I wanted to hear.", \
-"Ok, now it is time to have some fun. Nothing is worth more than a delicious Coconut milk from my favorite nightclub The Groovy Grove !", \
+"That's what I like to hear.", \
+"Ok, now it is time to have some fun. Nothing is worth more than a delicious Coconut milk from my favorite nightclub, The Groovy Grove !", \
 "Therefore, Flynn headed to the nightclub.", \
 "Hey buddy, you seem to be a very cool guy. I'll pay you the next one !", \
 "Indeed, I’m the coolest space trucker you could see in the whole galaxy. Thanks for the drink, I owe you one !", \
@@ -23,7 +23,7 @@ var ordrePhrase = ["The phone starts ringing.", \
 "I don’t like the way this dark alley looks like man... It seems very... Dark...", \
 "Don’t worry everything will be fine...", "He draws a blaster", "IF YOU GIVE ME ALL YOUR MONEY !", \
 "PLEASE DON’T KILL ME !! I’LL GIVE YOU EVERYTHING I HAVE... PLEASE !", \
-"And once again, Flynn is poor... He really is stuck in poverty", \
+"And once again, Flynn is poor... He really is stuck in poverty.", \
 "Back to the start... No money, no jobs, just me and my good old spaceship..."]
 var ordreSprite = ["Narrator", "sancheese", "pitchoune_tel", "pitchoune_bourre_content", "Narrator", "mec_louche", \
 "pitchoune_sunglasses", "Narrator", "pitchoune_bourre_pas_content", "mec_louche", "Narrator", "mec_louche_pas_content", \
