@@ -1,15 +1,498 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=36 format=2]
 
 [ext_resource path="res://src/game/spaceship/Spaceship.tscn" type="PackedScene" id=1]
-[ext_resource path="res://src/levels/level.gd" type="Script" id=2]
+[ext_resource path="res://src/UI/PopUpUI/PopUpUI.tscn" type="PackedScene" id=2]
+[ext_resource path="res://src/levels/tuto.gd" type="Script" id=3]
+[ext_resource path="res://src/game/basic_planet/Planet.gd" type="Script" id=4]
+[ext_resource path="res://src/game/basic_planet/PlanetGreen.tscn" type="PackedScene" id=5]
+[ext_resource path="res://src/game/basic_planet/PlanetRed.tscn" type="PackedScene" id=6]
+[ext_resource path="res://src/game/basic_planet/PlanetYellow.tscn" type="PackedScene" id=7]
+[ext_resource path="res://assets/graphisme/Base drapeau.png" type="Texture" id=8]
+[ext_resource path="res://assets/graphisme/Drapeau.png" type="Texture" id=9]
+[ext_resource path="res://assets/graphisme/Planete bleue.png" type="Texture" id=10]
+[ext_resource path="res://src/game/basic_planet/ring.tscn" type="PackedScene" id=11]
+[ext_resource path="res://src/game/Lunes/Lune.tscn" type="PackedScene" id=12]
+[ext_resource path="res://src/game/Blackhole/blackhole.gd" type="Script" id=13]
+[ext_resource path="res://assets/graphisme/Trou noir tourne 1.png" type="Texture" id=14]
+[ext_resource path="res://src/shaders/blackhole/blackhole_shockwave.shader" type="Shader" id=15]
+[ext_resource path="res://assets/graphisme/Trou noir tourne 2.png" type="Texture" id=16]
+[ext_resource path="res://src/particles/blackhole/blackhole_particles.gd" type="Script" id=17]
+[ext_resource path="res://assets/graphisme/Planete jaune.png" type="Texture" id=18]
+[ext_resource path="res://src/game/asteroids/AsteroidsArea.tscn" type="PackedScene" id=19]
+
+[sub_resource type="CircleShape2D" id=1]
+radius = 180.128
+
+[sub_resource type="ShaderMaterial" id=2]
+shader = ExtResource( 15 )
+shader_param/center = Vector2( 0.5, 0.5 )
+shader_param/force = 91.451
+shader_param/size = 0.740329
+shader_param/thickness = 0.383
+
+[sub_resource type="CircleShape2D" id=3]
+radius = 354.052
+
+[sub_resource type="CircleShape2D" id=4]
+radius = 30.0
+
+[sub_resource type="Animation" id=5]
+length = 9.6
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:rotation_degrees")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 4.8, 9.6 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ 0.0, 180.0, 360.0 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Sprite2:rotation_degrees")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 4.8, 9.6 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ 0.0, -180.0, -360.0 ]
+}
+
+[sub_resource type="Animation" id=6]
+resource_name = "shockwave"
+loop = true
+tracks/0/type = "bezier"
+tracks/0/path = NodePath("Sprite2:material:shader_param/size")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"points": PoolRealArray( 1.2, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0, 1 )
+}
+
+[sub_resource type="Gradient" id=7]
+offsets = PoolRealArray( 0, 0.696296, 1 )
+colors = PoolColorArray( 0, 0.345098, 0.647059, 1, 0.0705882, 0.0588235, 0.0862745, 1, 0.0352941, 0.0235294, 0.0509804, 1 )
+
+[sub_resource type="GradientTexture" id=8]
+gradient = SubResource( 7 )
+
+[sub_resource type="ParticlesMaterial" id=9]
+lifetime_randomness = 0.3
+emission_shape = 1
+emission_sphere_radius = 128.0
+flag_disable_z = true
+gravity = Vector3( 0, 0, 0 )
+orbit_velocity = 0.0
+orbit_velocity_random = 0.0
+radial_accel = -80.0
+radial_accel_random = 1.0
+scale = 1.5
+color_ramp = SubResource( 8 )
+
+[sub_resource type="Animation" id=10]
+length = 9.6
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:rotation_degrees")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 4.8, 9.6 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ 0.0, 180.0, 360.0 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Sprite2:rotation_degrees")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 4.8, 9.6 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ 0.0, -180.0, -360.0 ]
+}
+
+[sub_resource type="Animation" id=11]
+resource_name = "shockwave"
+loop = true
+tracks/0/type = "bezier"
+tracks/0/path = NodePath("Sprite2:material:shader_param/size")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"points": PoolRealArray( 1.2, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0, 1 )
+}
+
+[sub_resource type="CircleShape2D" id=12]
+radius = 207.78
+
+[sub_resource type="CircleShape2D" id=13]
+radius = 232.259
+
+[sub_resource type="CircleShape2D" id=14]
+radius = 190.021
+
+[sub_resource type="CircleShape2D" id=15]
+radius = 212.436
+
+[sub_resource type="CircleShape2D" id=16]
+radius = 230.132
 
 [node name="niveau1" type="Node2D"]
-script = ExtResource( 2 )
-
-[node name="Spaceship" parent="." instance=ExtResource( 1 )]
+script = ExtResource( 3 )
 
 [node name="spawn_position" type="Position2D" parent="."]
 position = Vector2( 154.597, 107.029 )
 
+[node name="LevelLimits" type="Node2D" parent="."]
+
+[node name="Position2DTop" type="Position2D" parent="LevelLimits"]
+position = Vector2( 4730.14, -890.919 )
+
+[node name="Position2DRight" type="Position2D" parent="LevelLimits"]
+position = Vector2( 8874.16, 749.713 )
+
+[node name="Position2DBottom" type="Position2D" parent="LevelLimits"]
+position = Vector2( 4140.14, 2374.52 )
+
+[node name="Position2DLeft" type="Position2D" parent="LevelLimits"]
+position = Vector2( -1611.55, 569.237 )
+
+[node name="Asteroids" type="Node2D" parent="."]
+
+[node name="Asteroids Area" parent="Asteroids" instance=ExtResource( 19 )]
+position = Vector2( 3788.89, 920.806 )
+rotation = 0.760963
+
+[node name="Asteroids Area2" parent="Asteroids" instance=ExtResource( 19 )]
+position = Vector2( 3678.13, 506.508 )
+rotation = 1.14145
+
+[node name="Asteroids Area3" parent="Asteroids" instance=ExtResource( 19 )]
+position = Vector2( 4325.06, 1419.82 )
+rotation = -0.00174533
+
+[node name="Asteroids Area4" parent="Asteroids" instance=ExtResource( 19 )]
+position = Vector2( 4753.17, 1500.69 )
+rotation = -0.380482
+
+[node name="Asteroids Area5" parent="Asteroids" instance=ExtResource( 19 )]
+position = Vector2( 7566.89, 718.424 )
+rotation = 1.14319
+
+[node name="Asteroids Area6" parent="Asteroids" instance=ExtResource( 19 )]
+position = Vector2( 7565.17, 302.832 )
+rotation = 1.33343
+
+[node name="Asteroids Area7" parent="Asteroids" instance=ExtResource( 19 )]
+position = Vector2( 7695.38, 1137.94 )
+rotation = 1.52367
+
 [node name="Timer" type="Timer" parent="."]
+
+[node name="PlanetRedStart" parent="." instance=ExtResource( 6 )]
+position = Vector2( 131.929, 472.459 )
+is_checkpoint = true
+
+[node name="PlanetYellow" parent="." instance=ExtResource( 7 )]
+position = Vector2( 804.262, 464.002 )
+is_checkpoint = true
+
+[node name="PlanetYellow4" parent="." instance=ExtResource( 7 )]
+position = Vector2( 8002.13, -159.294 )
+is_checkpoint = true
+
+[node name="PlanetYellow3" type="Node2D" parent="."]
+position = Vector2( 5542.18, 769.128 )
+script = ExtResource( 4 )
+speed = 1.0
+lune_speed = 1.5
+is_checkpoint = true
+
+[node name="Sprite" type="Sprite" parent="PlanetYellow3"]
+texture = ExtResource( 18 )
+
+[node name="SpriteDrapeau" type="Sprite" parent="PlanetYellow3/Sprite"]
+visible = false
+position = Vector2( -2.6727, -116.708 )
+texture = ExtResource( 9 )
+
+[node name="SpriteBaseDrapeau" type="Sprite" parent="PlanetYellow3/Sprite"]
+visible = false
+position = Vector2( -2.6727, -108.244 )
+texture = ExtResource( 8 )
+
+[node name="Gravity" type="Area2D" parent="PlanetYellow3"]
+collision_layer = 2
+
+[node name="attraction" type="CollisionShape2D" parent="PlanetYellow3/Gravity"]
+shape = SubResource( 1 )
+
+[node name="Pivot" type="Node2D" parent="PlanetYellow3"]
+rotation = 1.3631
+
+[node name="OrbitPosition" type="Position2D" parent="PlanetYellow3/Pivot"]
+position = Vector2( -139.895, 109.774 )
+
+[node name="PivotLune" type="Node2D" parent="PlanetYellow3"]
+
+[node name="Lune" parent="PlanetYellow3/PivotLune" instance=ExtResource( 12 )]
+position = Vector2( -264, -156 )
+
+[node name="Lune2" parent="PlanetYellow3/PivotLune" instance=ExtResource( 12 )]
+position = Vector2( -324, 144 )
+
+[node name="pivot" parent="PlanetYellow3" instance=ExtResource( 11 )]
+
+[node name="PlanetYellow2" parent="." instance=ExtResource( 7 )]
+position = Vector2( 3704.7, 1766.06 )
+is_checkpoint = true
+
+[node name="PlanetGreen" parent="." instance=ExtResource( 5 )]
+position = Vector2( 7211.65, 934.196 )
+is_checkpoint = true
+
+[node name="Trou noir" type="Node2D" parent="."]
+position = Vector2( 2137.21, 760.004 )
+script = ExtResource( 13 )
+__meta__ = {
+"_edit_group_": true
+}
+RADIUS = 350
+
+[node name="Sprite" type="Sprite" parent="Trou noir"]
+texture = ExtResource( 14 )
+
+[node name="Sprite2" type="Sprite" parent="Trou noir"]
+material = SubResource( 2 )
+texture = ExtResource( 16 )
+
+[node name="Aura" type="Area2D" parent="Trou noir"]
+
+[node name="attraction" type="CollisionShape2D" parent="Trou noir/Aura"]
+shape = SubResource( 3 )
+
+[node name="Centre" type="Area2D" parent="Trou noir"]
+
+[node name="mort" type="CollisionShape2D" parent="Trou noir/Centre"]
+shape = SubResource( 4 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Trou noir"]
+anims/Rotate = SubResource( 5 )
+
+[node name="ShockwaveAnimationPlayer" type="AnimationPlayer" parent="Trou noir"]
+anims/shockwave = SubResource( 6 )
+
+[node name="Blackhole_particles" type="Node2D" parent="Trou noir"]
+script = ExtResource( 17 )
+
+[node name="CPUParticles2D" type="Particles2D" parent="Trou noir/Blackhole_particles"]
+scale = Vector2( 2, 2 )
+amount = 200
+explosiveness = 0.4
+randomness = 0.15
+process_material = SubResource( 9 )
+
+[node name="pivot" parent="Trou noir" instance=ExtResource( 11 )]
+
+[node name="Trou noir2" type="Node2D" parent="."]
+position = Vector2( 7445.61, 254.507 )
+script = ExtResource( 13 )
+__meta__ = {
+"_edit_group_": true
+}
+RADIUS = 350
+FORCE = 20
+
+[node name="Sprite" type="Sprite" parent="Trou noir2"]
+texture = ExtResource( 14 )
+
+[node name="Sprite2" type="Sprite" parent="Trou noir2"]
+material = SubResource( 2 )
+texture = ExtResource( 16 )
+
+[node name="Aura" type="Area2D" parent="Trou noir2"]
+
+[node name="attraction" type="CollisionShape2D" parent="Trou noir2/Aura"]
+shape = SubResource( 3 )
+
+[node name="Centre" type="Area2D" parent="Trou noir2"]
+
+[node name="mort" type="CollisionShape2D" parent="Trou noir2/Centre"]
+shape = SubResource( 4 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Trou noir2"]
+anims/Rotate = SubResource( 10 )
+
+[node name="ShockwaveAnimationPlayer" type="AnimationPlayer" parent="Trou noir2"]
+anims/shockwave = SubResource( 11 )
+
+[node name="Blackhole_particles" type="Node2D" parent="Trou noir2"]
+script = ExtResource( 17 )
+
+[node name="CPUParticles2D" type="Particles2D" parent="Trou noir2/Blackhole_particles"]
+scale = Vector2( 2, 2 )
+amount = 200
+explosiveness = 0.4
+randomness = 0.15
+process_material = SubResource( 9 )
+
+[node name="pivot" parent="Trou noir2" instance=ExtResource( 11 )]
+
+[node name="PlanetRed2" parent="." instance=ExtResource( 6 )]
+position = Vector2( 2515.14, 1291.03 )
+is_checkpoint = true
+
+[node name="PlanetRed3" parent="." instance=ExtResource( 6 )]
+position = Vector2( 4707.4, 1119.68 )
+is_checkpoint = true
+
+[node name="PlanetRed4" parent="." instance=ExtResource( 6 )]
+position = Vector2( 6178.39, 929.188 )
+is_checkpoint = true
+
+[node name="PlanetBlue" type="Node2D" parent="."]
+position = Vector2( 1439.55, 459.713 )
+script = ExtResource( 4 )
+speed = 1.0
+lune_speed = 0.7
+is_checkpoint = true
+
+[node name="Sprite" type="Sprite" parent="PlanetBlue"]
+texture = ExtResource( 10 )
+
+[node name="SpriteDrapeau" type="Sprite" parent="PlanetBlue/Sprite"]
+visible = false
+position = Vector2( -0.789539, -84.2806 )
+texture = ExtResource( 9 )
+
+[node name="SpriteBaseDrapeau" type="Sprite" parent="PlanetBlue/Sprite"]
+visible = false
+position = Vector2( -0.75, -76.25 )
+texture = ExtResource( 8 )
+
+[node name="Gravity" type="Area2D" parent="PlanetBlue"]
+collision_layer = 2
+
+[node name="attraction" type="CollisionShape2D" parent="PlanetBlue/Gravity"]
+position = Vector2( -0.140308, -2.24493 )
+shape = SubResource( 12 )
+
+[node name="Pivot" type="Node2D" parent="PlanetBlue"]
+rotation = 1.3631
+
+[node name="OrbitPosition" type="Position2D" parent="PlanetBlue/Pivot"]
+position = Vector2( -102.049, 70.778 )
+
+[node name="PivotLune" type="Node2D" parent="PlanetBlue"]
+
+[node name="Lune" parent="PlanetBlue/PivotLune" instance=ExtResource( 12 )]
+position = Vector2( -313.951, 0 )
+
+[node name="pivot" parent="PlanetBlue" instance=ExtResource( 11 )]
+
+[node name="PlanetBlue2" type="Node2D" parent="."]
+position = Vector2( 4204.25, 791.353 )
+script = ExtResource( 4 )
+speed = 1.0
+lune_speed = 2.0
+is_checkpoint = true
+
+[node name="Sprite" type="Sprite" parent="PlanetBlue2"]
+texture = ExtResource( 10 )
+
+[node name="SpriteDrapeau" type="Sprite" parent="PlanetBlue2/Sprite"]
+visible = false
+position = Vector2( -0.789539, -84.2806 )
+texture = ExtResource( 9 )
+
+[node name="SpriteBaseDrapeau" type="Sprite" parent="PlanetBlue2/Sprite"]
+visible = false
+position = Vector2( -0.75, -76.25 )
+texture = ExtResource( 8 )
+
+[node name="Gravity" type="Area2D" parent="PlanetBlue2"]
+collision_layer = 2
+
+[node name="attraction" type="CollisionShape2D" parent="PlanetBlue2/Gravity"]
+position = Vector2( -0.140308, -2.24493 )
+shape = SubResource( 12 )
+
+[node name="Pivot" type="Node2D" parent="PlanetBlue2"]
+rotation = 1.3631
+
+[node name="OrbitPosition" type="Position2D" parent="PlanetBlue2/Pivot"]
+position = Vector2( -102.049, 70.778 )
+
+[node name="PivotLune" type="Node2D" parent="PlanetBlue2"]
+
+[node name="pivot" parent="PlanetBlue2" instance=ExtResource( 11 )]
+
+[node name="Spaceship" parent="." instance=ExtResource( 1 )]
+position = Vector2( -523.374, 508.861 )
+
+[node name="Checkpoints" type="Node2D" parent="."]
+
+[node name="FIRST_JUMP" type="Area2D" parent="Checkpoints"]
+position = Vector2( 131.851, 473.465 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Checkpoints/FIRST_JUMP"]
+shape = SubResource( 13 )
+
+[node name="SECOND_JUMP" type="Area2D" parent="Checkpoints"]
+position = Vector2( 805.67, 464.989 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Checkpoints/SECOND_JUMP"]
+shape = SubResource( 14 )
+
+[node name="THIRD_JUMP_BH" type="Area2D" parent="Checkpoints"]
+position = Vector2( 1438.4, 459.995 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Checkpoints/THIRD_JUMP_BH"]
+shape = SubResource( 15 )
+
+[node name="LAST_WORDS" type="Area2D" parent="Checkpoints"]
+position = Vector2( 2517.04, 1296.43 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Checkpoints/LAST_WORDS"]
+shape = SubResource( 16 )
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="PopUpUI" parent="CanvasLayer" instance=ExtResource( 2 )]
+visible = false
+margin_left = 1026.32
+margin_top = 64.1447
+margin_right = -893.685
+margin_bottom = -1015.86
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
+[connection signal="area_entered" from="PlanetYellow3/Gravity" to="PlanetYellow3" method="_on_Gravity_area_entered"]
+[connection signal="body_entered" from="Trou noir/Aura" to="Trou noir" method="_on_Aura_body_entered"]
+[connection signal="body_exited" from="Trou noir/Aura" to="Trou noir" method="_on_Aura_body_exited"]
+[connection signal="body_entered" from="Trou noir/Centre" to="Trou noir" method="_on_Centre_body_entered"]
+[connection signal="body_entered" from="Trou noir2/Aura" to="Trou noir2" method="_on_Aura_body_entered"]
+[connection signal="body_exited" from="Trou noir2/Aura" to="Trou noir2" method="_on_Aura_body_exited"]
+[connection signal="body_entered" from="Trou noir2/Centre" to="Trou noir2" method="_on_Centre_body_entered"]
+[connection signal="area_entered" from="PlanetBlue/Gravity" to="PlanetBlue" method="_on_Gravity_area_entered"]
+[connection signal="area_entered" from="PlanetBlue2/Gravity" to="PlanetBlue2" method="_on_Gravity_area_entered"]
+[connection signal="body_entered" from="Checkpoints/FIRST_JUMP" to="." method="_on_FIRST_JUMP_body_entered"]
+[connection signal="body_entered" from="Checkpoints/SECOND_JUMP" to="." method="_on_SECOND_JUMP_body_entered"]
+[connection signal="body_entered" from="Checkpoints/THIRD_JUMP_BH" to="." method="_on_THIRD_JUMP_BH_body_entered"]
+[connection signal="body_entered" from="Checkpoints/LAST_WORDS" to="." method="_on_LAST_WORDS_body_entered"]
