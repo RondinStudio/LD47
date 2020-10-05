@@ -318,7 +318,7 @@ __meta__ = {
 "_edit_group_": true
 }
 RADIUS = 600
-FORCE = 25
+FORCE = 15
 
 [node name="Sprite" type="Sprite" parent="Trou noir"]
 texture = ExtResource( 6 )
