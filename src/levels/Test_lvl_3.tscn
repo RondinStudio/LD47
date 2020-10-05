@@ -192,8 +192,11 @@ position = Vector2( 1165.48, 8.39233e-05 )
 position = Vector2( 1547.25, 10.0908 )
 
 [node name="vaisseau_ennemy" type="Path2D" parent="."]
-position = Vector2( -90.0844, -49.1369 )
+position = Vector2( -153.652, -49.137 )
 curve = SubResource( 1 )
+__meta__ = {
+"_edit_group_": true
+}
 
 [node name="PathFollow2D" type="PathFollow2D" parent="vaisseau_ennemy"]
 position = Vector2( 731.353, 688.552 )
@@ -204,7 +207,7 @@ position = Vector2( -0.123535, -0.34061 )
 speed = 120
 
 [node name="vaisseau_ennemy2" type="Path2D" parent="."]
-position = Vector2( 1543.28, 979.471 )
+position = Vector2( 1509.38, 979.471 )
 rotation = 3.14159
 curve = SubResource( 1 )
 __meta__ = {
@@ -220,7 +223,7 @@ position = Vector2( -0.123535, -0.34061 )
 speed = 120
 
 [node name="vaisseau_ennemy4" type="Path2D" parent="."]
-position = Vector2( 1877.01, 979.471 )
+position = Vector2( 1900.32, 979.471 )
 rotation = 3.14159
 curve = SubResource( 1 )
 __meta__ = {
@@ -236,7 +239,7 @@ position = Vector2( -0.123535, -0.34061 )
 speed = 120
 
 [node name="vaisseau_ennemy3" type="Path2D" parent="."]
-position = Vector2( 240.952, -49.137 )
+position = Vector2( 227.179, -49.137 )
 curve = SubResource( 1 )
 __meta__ = {
 "_edit_group_": true
