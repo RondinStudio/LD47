@@ -146,16 +146,16 @@ tracks/0/keys = {
 radius = 207.78
 
 [sub_resource type="CircleShape2D" id=14]
-radius = 232.259
+radius = 207.102
 
 [sub_resource type="CircleShape2D" id=15]
-radius = 190.021
+radius = 170.3
 
 [sub_resource type="CircleShape2D" id=16]
-radius = 212.436
+radius = 199.798
 
 [sub_resource type="CircleShape2D" id=17]
-radius = 230.132
+radius = 203.575
 
 [node name="niveau1" type="Node2D"]
 script = ExtResource( 3 )
@@ -512,6 +512,9 @@ shape = SubResource( 16 )
 position = Vector2( 2517.04, 1296.43 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Checkpoints/LAST_WORDS"]
+
+position = Vector2( -1.33472, -4.00439 )
+
 shape = SubResource( 17 )
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]

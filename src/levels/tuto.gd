@@ -33,6 +33,7 @@ func _ready():
 	Events.connect("end_of_level_reached", self, "on_end_of_level_reached")
 # warning-ignore:return_value_discarded
 	Events.connect("camera_reached_target", self, "on_camera_reached_target")
+	Events.connect("end_of_level_reached", self, "on_end_of_level_reached")
 	$CanvasLayer/PopUpUI.connect("end_reached", self, "on_end_reached")
 	
 	randomize()
