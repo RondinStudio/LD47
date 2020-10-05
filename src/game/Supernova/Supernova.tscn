@@ -13,8 +13,8 @@ radius = 30.4006
 [sub_resource type="ShaderMaterial" id=3]
 shader = ExtResource( 3 )
 shader_param/center = Vector2( 0.5, 0.5 )
-shader_param/force = 4.47519
-shader_param/size = 0.447519
+shader_param/force = 1.02144
+shader_param/size = 0.102144
 shader_param/thickness = -0.238
 
 [sub_resource type="Animation" id=4]
