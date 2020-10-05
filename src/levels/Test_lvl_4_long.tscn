@@ -22,30 +22,30 @@
 [ext_resource path="res://src/game/Supernova/Supernova.gd" type="Script" id=20]
 [ext_resource path="res://src/game/basic_planet/ring.tscn" type="PackedScene" id=21]
 
-[sub_resource type="Curve2D" id=5]
+[sub_resource type="Curve2D" id=1]
 _data = {
 "points": PoolVector2Array( 0, 0, 0, 0, 2160.44, 173.724, 0, 0, 0, 0, -152.776, 176.244 )
 }
 
-[sub_resource type="Curve2D" id=10]
+[sub_resource type="Curve2D" id=2]
 _data = {
 "points": PoolVector2Array( 9, -11, -9, 11, 805.612, -190.31, -51, 35, 51, -35, 1380.93, -578.748, 61, -38, -61, 38, 1323.08, -657.863, 0, 0, 0, 0, 989.393, -441.883, 40.8756, -26.9858, -40.8756, 26.9858, 744.209, -271.735, -50.2016, 25.0016, 50.2016, -25.0016, 805.612, -190.31 )
 }
 
-[sub_resource type="ShaderMaterial" id=11]
+[sub_resource type="ShaderMaterial" id=3]
 shader = ExtResource( 16 )
 shader_param/center = Vector2( 0.5, 0.5 )
 shader_param/force = 91.451
 shader_param/size = 0.740329
 shader_param/thickness = 0.383
 
-[sub_resource type="CircleShape2D" id=12]
+[sub_resource type="CircleShape2D" id=4]
 radius = 437.242
 
-[sub_resource type="CircleShape2D" id=13]
+[sub_resource type="CircleShape2D" id=5]
 radius = 30.0
 
-[sub_resource type="Animation" id=14]
+[sub_resource type="Animation" id=6]
 length = 9.6
 loop = true
 tracks/0/type = "value"
@@ -73,7 +73,7 @@ tracks/1/keys = {
 "values": [ 0.0, -180.0, -360.0 ]
 }
 
-[sub_resource type="Animation" id=15]
+[sub_resource type="Animation" id=7]
 loop = true
 tracks/0/type = "bezier"
 tracks/0/path = NodePath("Sprite2:material:shader_param/size")
@@ -86,14 +86,14 @@ tracks/0/keys = {
 "times": PoolRealArray( 0, 1 )
 }
 
-[sub_resource type="Gradient" id=16]
+[sub_resource type="Gradient" id=8]
 offsets = PoolRealArray( 0, 0.696296, 1 )
 colors = PoolColorArray( 0, 0.345098, 0.647059, 1, 0.0705882, 0.0588235, 0.0862745, 1, 0.0352941, 0.0235294, 0.0509804, 1 )
 
-[sub_resource type="GradientTexture" id=17]
-gradient = SubResource( 16 )
+[sub_resource type="GradientTexture" id=9]
+gradient = SubResource( 8 )
 
-[sub_resource type="ParticlesMaterial" id=18]
+[sub_resource type="ParticlesMaterial" id=10]
 lifetime_randomness = 0.3
 emission_shape = 1
 emission_sphere_radius = 200.0
@@ -104,16 +104,16 @@ orbit_velocity_random = 0.0
 radial_accel = -80.0
 radial_accel_random = 1.0
 scale = 1.5
-color_ramp = SubResource( 17 )
+color_ramp = SubResource( 9 )
 
-[sub_resource type="Gradient" id=27]
+[sub_resource type="Gradient" id=11]
 offsets = PoolRealArray( 0, 0.659259, 1 )
 colors = PoolColorArray( 0.984207, 0.191406, 1, 1, 0.992157, 0.615686, 1, 0.878431, 1, 1, 1, 0 )
 
-[sub_resource type="GradientTexture" id=6]
-gradient = SubResource( 27 )
+[sub_resource type="GradientTexture" id=12]
+gradient = SubResource( 11 )
 
-[sub_resource type="ParticlesMaterial" id=7]
+[sub_resource type="ParticlesMaterial" id=13]
 emission_shape = 1
 emission_sphere_radius = 1.0
 flag_disable_z = true
@@ -127,23 +127,22 @@ tangential_accel_random = 0.16
 damping = 4.0
 scale = 3.0
 scale_random = 1.0
-color_ramp = SubResource( 6 )
+color_ramp = SubResource( 12 )
 
-[sub_resource type="CircleShape2D" id=1]
+[sub_resource type="CircleShape2D" id=14]
 radius = 654.185
 
-[sub_resource type="CircleShape2D" id=2]
+[sub_resource type="CircleShape2D" id=15]
 radius = 30.4006
 
-[sub_resource type="ShaderMaterial" id=3]
+[sub_resource type="ShaderMaterial" id=16]
 shader = ExtResource( 16 )
 shader_param/center = Vector2( 0.5, 0.5 )
 shader_param/force = 0.0
 shader_param/size = 0.0
 shader_param/thickness = -0.238
 
-[sub_resource type="Animation" id=4]
-resource_name = "wave"
+[sub_resource type="Animation" id=17]
 length = 2.0
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite2:material:shader_param/force")
@@ -170,16 +169,16 @@ tracks/1/keys = {
 "values": [ 0.0, 0.7 ]
 }
 
-[sub_resource type="CircleShape2D" id=30]
+[sub_resource type="CircleShape2D" id=18]
 radius = 217.648
 
-[sub_resource type="CircleShape2D" id=28]
+[sub_resource type="CircleShape2D" id=19]
 radius = 351.833
 
-[sub_resource type="CircleShape2D" id=29]
+[sub_resource type="CircleShape2D" id=20]
 radius = 494.905
 
-[sub_resource type="CircleShape2D" id=31]
+[sub_resource type="CircleShape2D" id=21]
 radius = 207.78
 
 [node name="Test_lvl_4" type="Node2D"]
@@ -211,7 +210,7 @@ position = Vector2( -2.51984, -221.746 )
 
 [node name="Comet_path" type="Path2D" parent="."]
 position = Vector2( 9.52441, 101.594 )
-curve = SubResource( 5 )
+curve = SubResource( 1 )
 __meta__ = {
 "_edit_group_": true
 }
@@ -225,7 +224,7 @@ speed = 200
 
 [node name="vaisseau_ennemy" type="Path2D" parent="."]
 position = Vector2( -141.027, 33.27 )
-curve = SubResource( 10 )
+curve = SubResource( 2 )
 __meta__ = {
 "_edit_group_": true
 }
@@ -251,25 +250,25 @@ FORCE = 15
 texture = ExtResource( 6 )
 
 [node name="Sprite2" type="Sprite" parent="Trou noir"]
-material = SubResource( 11 )
+material = SubResource( 3 )
 position = Vector2( 0, 3 )
 texture = ExtResource( 15 )
 
 [node name="Aura" type="Area2D" parent="Trou noir"]
 
 [node name="attraction" type="CollisionShape2D" parent="Trou noir/Aura"]
-shape = SubResource( 12 )
+shape = SubResource( 4 )
 
 [node name="Centre" type="Area2D" parent="Trou noir"]
 
 [node name="mort" type="CollisionShape2D" parent="Trou noir/Centre"]
-shape = SubResource( 13 )
+shape = SubResource( 5 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Trou noir"]
-anims/Rotate = SubResource( 14 )
+anims/Rotate = SubResource( 6 )
 
 [node name="ShockwaveAnimationPlayer" type="AnimationPlayer" parent="Trou noir"]
-anims/shockwave = SubResource( 15 )
+anims/shockwave = SubResource( 7 )
 
 [node name="Blackhole_particles" type="Node2D" parent="Trou noir"]
 
@@ -278,7 +277,7 @@ scale = Vector2( 2, 2 )
 amount = 200
 explosiveness = 0.4
 randomness = 0.15
-process_material = SubResource( 18 )
+process_material = SubResource( 10 )
 
 [node name="Asteroids Area2" parent="." instance=ExtResource( 7 )]
 position = Vector2( 983.277, -1010.22 )
@@ -345,7 +344,7 @@ scale = Vector2( 1.25, 1.25 )
 scale = Vector2( 4.5, 4.5 )
 amount = 70
 speed_scale = 2.0
-process_material = SubResource( 7 )
+process_material = SubResource( 13 )
 
 [node name="Sprite" type="Sprite" parent="Supernova"]
 texture = ExtResource( 18 )
@@ -353,19 +352,19 @@ texture = ExtResource( 18 )
 [node name="Aura" type="Area2D" parent="Supernova"]
 
 [node name="attraction" type="CollisionShape2D" parent="Supernova/Aura"]
-shape = SubResource( 1 )
+shape = SubResource( 14 )
 
 [node name="Centre" type="Area2D" parent="Supernova"]
 
 [node name="mort" type="CollisionShape2D" parent="Supernova/Centre"]
-shape = SubResource( 2 )
+shape = SubResource( 15 )
 
 [node name="Sprite" type="Sprite" parent="Supernova"]
-material = SubResource( 3 )
+material = SubResource( 16 )
 texture = ExtResource( 18 )
 
 [node name="wave_animation" type="AnimationPlayer" parent="Supernova"]
-anims/wave = SubResource( 4 )
+anims/wave = SubResource( 17 )
 
 [node name="PlanetRed" type="Node2D" parent="."]
 position = Vector2( 390.764, -598.416 )
@@ -391,7 +390,7 @@ texture = ExtResource( 12 )
 collision_layer = 2
 
 [node name="attraction" type="CollisionShape2D" parent="PlanetRed/Gravity"]
-shape = SubResource( 30 )
+shape = SubResource( 18 )
 
 [node name="Pivot" type="Node2D" parent="PlanetRed"]
 rotation = 1.3631
@@ -430,7 +429,7 @@ texture = ExtResource( 12 )
 collision_layer = 2
 
 [node name="attraction" type="CollisionShape2D" parent="PlanetYellow/Gravity"]
-shape = SubResource( 28 )
+shape = SubResource( 19 )
 
 [node name="Pivot" type="Node2D" parent="PlanetYellow"]
 rotation = 1.3631
@@ -466,7 +465,7 @@ texture = ExtResource( 12 )
 collision_layer = 2
 
 [node name="attraction" type="CollisionShape2D" parent="PlanetYellow2/Gravity"]
-shape = SubResource( 28 )
+shape = SubResource( 19 )
 
 [node name="Pivot" type="Node2D" parent="PlanetYellow2"]
 rotation = 1.3631
@@ -506,7 +505,7 @@ collision_layer = 2
 
 [node name="attraction" type="CollisionShape2D" parent="PlanetBlue2/Gravity"]
 position = Vector2( -0.140308, -2.24493 )
-shape = SubResource( 29 )
+shape = SubResource( 20 )
 
 [node name="Pivot" type="Node2D" parent="PlanetBlue2"]
 rotation = 1.3631
@@ -547,7 +546,7 @@ collision_layer = 2
 
 [node name="attraction" type="CollisionShape2D" parent="PlanetBlue/Gravity"]
 position = Vector2( -0.140308, -2.24493 )
-shape = SubResource( 31 )
+shape = SubResource( 21 )
 
 [node name="Pivot" type="Node2D" parent="PlanetBlue"]
 rotation = 1.3631
