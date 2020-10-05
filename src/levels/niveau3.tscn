@@ -1,3 +1,4 @@
+
 [gd_scene load_steps=31 format=2]
 
 [ext_resource path="res://assets/graphisme/Drapeau.png" type="Texture" id=1]
@@ -21,6 +22,7 @@
 [ext_resource path="res://src/game/basic_planet/Planet.gd" type="Script" id=19]
 [ext_resource path="res://src/shaders/blackhole/blackhole_shockwave.shader" type="Shader" id=20]
 [ext_resource path="res://src/game/basic_planet/ring.gd" type="Script" id=21]
+
 
 [sub_resource type="ShaderMaterial" id=1]
 shader = ExtResource( 20 )
@@ -98,6 +100,7 @@ nb_etoile = 40
 [node name="spawn_position" type="Position2D" parent="."]
 
 [node name="Timer" type="Timer" parent="."]
+
 wait_time = 0.02
 autostart = true
 
@@ -371,6 +374,7 @@ position = Vector2( 3195.16, -403.175 )
 position = Vector2( 1128.89, 1023.06 )
 
 [node name="Position2DLeft" type="Position2D" parent="LevelLimits"]
+
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
 [connection signal="body_entered" from="Trou noir/Aura" to="Trou noir" method="_on_Aura_body_entered"]
 [connection signal="body_exited" from="Trou noir/Aura" to="Trou noir" method="_on_Aura_body_exited"]

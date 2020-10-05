@@ -24,7 +24,9 @@ func _ready():
 	if (Globals.current_level == 5):
 		var new_level = niveau5.instance()
 		self.add_child(new_level)
-	$Camera2D.init(get_child(1).get_node("Spaceship")) #,get_child(1).get_node("LevelLimits")
+
+	$Camera2D.init(get_child(1).get_node("Spaceship"), get_child(1).get_node("LevelLimits"))
+
 
 func _process(delta):
 	if Input.is_action_pressed("ui_cancel"):
