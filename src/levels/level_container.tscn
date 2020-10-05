@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=2]
+[gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://src/levels/level_container.gd" type="Script" id=1]
 [ext_resource path="res://src/UI/pause_popup.tscn" type="PackedScene" id=2]
@@ -11,7 +11,6 @@
 [ext_resource path="res://assets/Star.tscn" type="PackedScene" id=11]
 [ext_resource path="res://src/game/asteroids/Asteroid.tscn" type="PackedScene" id=12]
 [ext_resource path="res://src/game/spaceship/Spaceship.tscn" type="PackedScene" id=13]
-[ext_resource path="res://src/game/Lunes/Lune.tscn" type="PackedScene" id=14]
 [ext_resource path="res://src/game/Camera/Camera.tscn" type="PackedScene" id=15]
 [ext_resource path="res://src/game/basic_planet/PlanetRed.tscn" type="PackedScene" id=16]
 
@@ -76,9 +75,6 @@ rotation = 1.3631
 position = Vector2( -139.895, 109.774 )
 
 [node name="PivotLune" type="Node2D" parent="Test_level/PlanetYellow"]
-
-[node name="Lune" parent="Test_level/PlanetYellow/PivotLune" instance=ExtResource( 14 )]
-position = Vector2( 226.53, -137.806 )
 
 [node name="Spaceship" parent="Test_level" instance=ExtResource( 13 )]
 position = Vector2( 198.854, 661.626 )

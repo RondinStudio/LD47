@@ -19,7 +19,7 @@ extends Node
 signal change_background_fin_premier(name)
 
 # warning-ignore:unused_signal
-signal new_checkpoint(planete)
+signal new_checkpoint(pos)
 
 # warning-ignore:unused_signal
 signal player_death()

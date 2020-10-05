@@ -42,6 +42,8 @@ func physics_process_in_movement(delta):
 	
 func physics_process_in_orbit(delta):
 	$AnimationPlayer.play("Idle")
+	$trail/Particles2D.emitting = false
+	$trail2/Particles2D.emitting = false
 	speed = 0
 	self.position = positionToFollow.global_position
 	var vect = position.direction_to(planete.position)
@@ -50,7 +52,7 @@ func physics_process_in_orbit(delta):
 	var position_to_look_at = position + tangent * direction_tangent
 	look_at(position_to_look_at)
 	
-	if Input.is_action_pressed("space"):
+	if Input.is_action_just_pressed("space"):
 		orbited = false
 		positionToFollow = null
 		movement = ((tangent.normalized() * MOVE_SPEED/2)+ applied_forces) * delta 
