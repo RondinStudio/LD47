@@ -1,4 +1,4 @@
-[gd_scene load_steps=43 format=2]
+[gd_scene load_steps=42 format=2]
 
 [ext_resource path="res://src/levels/level.gd" type="Script" id=1]
 [ext_resource path="res://src/game/spaceship/Spaceship.tscn" type="PackedScene" id=2]
@@ -21,42 +21,30 @@
 [ext_resource path="res://assets/graphisme/Planete bleue.png" type="Texture" id=19]
 [ext_resource path="res://src/game/Supernova/Supernova.gd" type="Script" id=20]
 
-[sub_resource type="Curve2D" id=1]
+[sub_resource type="Curve2D" id=5]
 _data = {
 "points": PoolVector2Array( 0, 0, 0, 0, 2160.44, 173.724, 0, 0, 0, 0, -152.776, 176.244 )
 }
 
-[sub_resource type="CircleShape2D" id=2]
-radius = 263.173
-
-[sub_resource type="CircleShape2D" id=3]
-radius = 107.654
-
-[sub_resource type="CircleShape2D" id=4]
-radius = 217.648
-
-[sub_resource type="CircleShape2D" id=5]
-radius = 124.417
-
-[sub_resource type="Curve2D" id=6]
+[sub_resource type="Curve2D" id=10]
 _data = {
 "points": PoolVector2Array( 9, -11, -9, 11, 805.612, -190.31, -51, 35, 51, -35, 1380.93, -578.748, 61, -38, -61, 38, 1323.08, -657.863, 0, 0, 0, 0, 989.393, -441.883, 40.8756, -26.9858, -40.8756, 26.9858, 744.209, -271.735, -50.2016, 25.0016, 50.2016, -25.0016, 805.612, -190.31 )
 }
 
-[sub_resource type="ShaderMaterial" id=7]
+[sub_resource type="ShaderMaterial" id=11]
 shader = ExtResource( 16 )
 shader_param/center = Vector2( 0.5, 0.5 )
 shader_param/force = 91.451
 shader_param/size = 0.740329
 shader_param/thickness = 0.383
 
-[sub_resource type="CircleShape2D" id=8]
+[sub_resource type="CircleShape2D" id=12]
 radius = 437.242
 
-[sub_resource type="CircleShape2D" id=9]
+[sub_resource type="CircleShape2D" id=13]
 radius = 30.0
 
-[sub_resource type="Animation" id=10]
+[sub_resource type="Animation" id=14]
 length = 9.6
 loop = true
 tracks/0/type = "value"
@@ -84,8 +72,7 @@ tracks/1/keys = {
 "values": [ 0.0, -180.0, -360.0 ]
 }
 
-[sub_resource type="Animation" id=11]
-resource_name = "shockwave"
+[sub_resource type="Animation" id=15]
 loop = true
 tracks/0/type = "bezier"
 tracks/0/path = NodePath("Sprite2:material:shader_param/size")
@@ -98,14 +85,14 @@ tracks/0/keys = {
 "times": PoolRealArray( 0, 1 )
 }
 
-[sub_resource type="Gradient" id=12]
+[sub_resource type="Gradient" id=16]
 offsets = PoolRealArray( 0, 0.696296, 1 )
 colors = PoolColorArray( 0, 0.345098, 0.647059, 1, 0.0705882, 0.0588235, 0.0862745, 1, 0.0352941, 0.0235294, 0.0509804, 1 )
 
-[sub_resource type="GradientTexture" id=13]
-gradient = SubResource( 12 )
+[sub_resource type="GradientTexture" id=17]
+gradient = SubResource( 16 )
 
-[sub_resource type="ParticlesMaterial" id=14]
+[sub_resource type="ParticlesMaterial" id=18]
 lifetime_randomness = 0.3
 emission_shape = 1
 emission_sphere_radius = 200.0
@@ -116,60 +103,83 @@ orbit_velocity_random = 0.0
 radial_accel = -80.0
 radial_accel_random = 1.0
 scale = 1.5
-color_ramp = SubResource( 13 )
+color_ramp = SubResource( 17 )
 
-[sub_resource type="CircleShape2D" id=15]
-radius = 410.801
+[sub_resource type="CircleShape2D" id=23]
+radius = 276.551
 
-[sub_resource type="CircleShape2D" id=16]
-radius = 107.654
+[sub_resource type="CircleShape2D" id=24]
+radius = 217.648
 
-[sub_resource type="CircleShape2D" id=17]
-radius = 693.995
+[sub_resource type="CircleShape2D" id=25]
+radius = 353.002
 
-[sub_resource type="CircleShape2D" id=18]
+[sub_resource type="CircleShape2D" id=26]
+radius = 494.962
+
+[sub_resource type="Gradient" id=27]
+offsets = PoolRealArray( 0, 0.659259, 1 )
+colors = PoolColorArray( 0.984207, 0.191406, 1, 1, 0.992157, 0.615686, 1, 0.878431, 1, 1, 1, 0 )
+
+[sub_resource type="GradientTexture" id=6]
+gradient = SubResource( 27 )
+
+[sub_resource type="ParticlesMaterial" id=7]
+emission_shape = 1
+emission_sphere_radius = 1.0
+flag_disable_z = true
+gravity = Vector3( 0, 0, 0 )
+orbit_velocity = 0.0
+orbit_velocity_random = 0.0
+radial_accel = 100.0
+radial_accel_random = 0.01
+tangential_accel = 100.0
+tangential_accel_random = 0.16
+damping = 4.0
+scale = 3.0
+scale_random = 1.0
+color_ramp = SubResource( 6 )
+
+[sub_resource type="CircleShape2D" id=1]
+radius = 654.185
+
+[sub_resource type="CircleShape2D" id=2]
 radius = 30.4006
 
-[sub_resource type="ShaderMaterial" id=19]
+[sub_resource type="ShaderMaterial" id=3]
 shader = ExtResource( 16 )
 shader_param/center = Vector2( 0.5, 0.5 )
-shader_param/force = 1.02144
-shader_param/size = 0.102144
+shader_param/force = 0.0
+shader_param/size = 0.0
 shader_param/thickness = -0.238
 
-[sub_resource type="Animation" id=20]
+[sub_resource type="Animation" id=4]
 resource_name = "wave"
-loop = true
+length = 2.0
 tracks/0/type = "value"
-tracks/0/path = NodePath("Sprite:material:shader_param/force")
+tracks/0/path = NodePath("Sprite2:material:shader_param/force")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 1 ),
+"times": PoolRealArray( 0, 2 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
 "values": [ 0.0, 7.0 ]
 }
 tracks/1/type = "value"
-tracks/1/path = NodePath("Sprite:material:shader_param/size")
+tracks/1/path = NodePath("Sprite2:material:shader_param/size")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
-"times": PoolRealArray( 0, 1 ),
+"times": PoolRealArray( 0, 2 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
 "values": [ 0.0, 0.7 ]
 }
-
-[sub_resource type="CircleShape2D" id=21]
-radius = 527.071
-
-[sub_resource type="CircleShape2D" id=22]
-radius = 75.623
 
 [node name="Test_lvl_4" type="Node2D"]
 script = ExtResource( 1 )
@@ -177,16 +187,17 @@ etoile = ExtResource( 9 )
 nb_etoile = 40
 
 [node name="spawn_position" type="Position2D" parent="."]
+position = Vector2( 375.789, 979.906 )
 
 [node name="Timer" type="Timer" parent="."]
 wait_time = 0.02
 autostart = true
 
 [node name="Spaceship" parent="." instance=ExtResource( 2 )]
-position = Vector2( 380.013, 1062.72 )
+position = Vector2( 327.915, 986.128 )
 
 [node name="PlanetRedDepart" parent="." instance=ExtResource( 5 )]
-position = Vector2( 385.536, 854.227 )
+position = Vector2( 357.46, 783.969 )
 is_checkpoint = true
 
 [node name="Asteroids Area 1" parent="." instance=ExtResource( 7 )]
@@ -202,7 +213,11 @@ position = Vector2( 388.056, 37.7976 )
 position = Vector2( -2.51984, -221.746 )
 
 [node name="Comet_path" type="Path2D" parent="."]
-curve = SubResource( 1 )
+position = Vector2( 9.52441, 101.594 )
+curve = SubResource( 5 )
+__meta__ = {
+"_edit_group_": true
+}
 
 [node name="PathFollow2D" type="PathFollow2D" parent="Comet_path"]
 position = Vector2( 2160.44, 173.724 )
@@ -211,94 +226,9 @@ rotation = 3.1405
 [node name="Comete" parent="Comet_path/PathFollow2D" instance=ExtResource( 3 )]
 speed = 200
 
-[node name="PlanetYellow" type="Node2D" parent="."]
-position = Vector2( 1365.76, -178.909 )
-script = ExtResource( 14 )
-speed = 1.0
-lune_speed = 1.0
-
-[node name="Sprite" type="Sprite" parent="PlanetYellow"]
-texture = ExtResource( 13 )
-
-[node name="SpriteDrapeau" type="Sprite" parent="PlanetYellow/Sprite"]
-visible = false
-position = Vector2( -2.6727, -116.708 )
-texture = ExtResource( 11 )
-
-[node name="SpriteBaseDrapeau" type="Sprite" parent="PlanetYellow/Sprite"]
-visible = false
-position = Vector2( -2.6727, -108.244 )
-texture = ExtResource( 12 )
-
-[node name="Gravity" type="Area2D" parent="PlanetYellow"]
-collision_layer = 2
-
-[node name="attraction" type="CollisionShape2D" parent="PlanetYellow/Gravity"]
-shape = SubResource( 2 )
-
-[node name="Body" type="Area2D" parent="PlanetYellow"]
-collision_layer = 2
-
-[node name="death" type="CollisionShape2D" parent="PlanetYellow/Body"]
-shape = SubResource( 3 )
-
-[node name="Pivot" type="Node2D" parent="PlanetYellow"]
-rotation = 1.3631
-
-[node name="OrbitPosition" type="Position2D" parent="PlanetYellow/Pivot"]
-position = Vector2( -139.895, 109.774 )
-
-[node name="PivotLune" type="Node2D" parent="PlanetYellow"]
-
-[node name="PlanetRedCheckpoint" type="Node2D" parent="."]
-position = Vector2( 391.325, -610.549 )
-script = ExtResource( 14 )
-__meta__ = {
-"_edit_group_": true
-}
-speed = 1.0
-lune_speed = 0.8
-is_checkpoint = true
-
-[node name="Sprite" type="Sprite" parent="PlanetRedCheckpoint"]
-texture = ExtResource( 10 )
-
-[node name="SpriteDrapeau" type="Sprite" parent="PlanetRedCheckpoint/Sprite"]
-visible = false
-position = Vector2( -0.749161, -133.349 )
-texture = ExtResource( 11 )
-
-[node name="SpriteBaseDrapeau" type="Sprite" parent="PlanetRedCheckpoint/Sprite"]
-visible = false
-position = Vector2( -0.764341, -125.276 )
-texture = ExtResource( 12 )
-
-[node name="Gravity" type="Area2D" parent="PlanetRedCheckpoint"]
-collision_layer = 2
-
-[node name="attraction" type="CollisionShape2D" parent="PlanetRedCheckpoint/Gravity"]
-shape = SubResource( 4 )
-
-[node name="Body" type="Area2D" parent="PlanetRedCheckpoint"]
-collision_layer = 2
-
-[node name="death" type="CollisionShape2D" parent="PlanetRedCheckpoint/Body"]
-shape = SubResource( 5 )
-
-[node name="Pivot" type="Node2D" parent="PlanetRedCheckpoint"]
-rotation = 1.3631
-
-[node name="OrbitPosition" type="Position2D" parent="PlanetRedCheckpoint/Pivot"]
-position = Vector2( -161.837, 141.963 )
-
-[node name="PivotLune" type="Node2D" parent="PlanetRedCheckpoint"]
-
-[node name="Lune" parent="PlanetRedCheckpoint/PivotLune" instance=ExtResource( 8 )]
-position = Vector2( 370.997, 216.844 )
-
 [node name="vaisseau_ennemy" type="Path2D" parent="."]
 position = Vector2( -141.027, 33.27 )
-curve = SubResource( 6 )
+curve = SubResource( 10 )
 __meta__ = {
 "_edit_group_": true
 }
@@ -324,25 +254,25 @@ FORCE = 15
 texture = ExtResource( 6 )
 
 [node name="Sprite2" type="Sprite" parent="Trou noir"]
-material = SubResource( 7 )
+material = SubResource( 11 )
 position = Vector2( 0, 3 )
 texture = ExtResource( 15 )
 
 [node name="Aura" type="Area2D" parent="Trou noir"]
 
 [node name="attraction" type="CollisionShape2D" parent="Trou noir/Aura"]
-shape = SubResource( 8 )
+shape = SubResource( 12 )
 
 [node name="Centre" type="Area2D" parent="Trou noir"]
 
 [node name="mort" type="CollisionShape2D" parent="Trou noir/Centre"]
-shape = SubResource( 9 )
+shape = SubResource( 13 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Trou noir"]
-anims/Rotate = SubResource( 10 )
+anims/Rotate = SubResource( 14 )
 
 [node name="ShockwaveAnimationPlayer" type="AnimationPlayer" parent="Trou noir"]
-anims/shockwave = SubResource( 11 )
+anims/shockwave = SubResource( 15 )
 
 [node name="Blackhole_particles" type="Node2D" parent="Trou noir"]
 
@@ -351,119 +281,7 @@ scale = Vector2( 2, 2 )
 amount = 200
 explosiveness = 0.4
 randomness = 0.15
-process_material = SubResource( 14 )
-
-[node name="PlanetYellow2" type="Node2D" parent="."]
-position = Vector2( 1685.82, -1489.77 )
-script = ExtResource( 14 )
-speed = 1.0
-lune_speed = 1.0
-
-[node name="Sprite" type="Sprite" parent="PlanetYellow2"]
-texture = ExtResource( 13 )
-
-[node name="SpriteDrapeau" type="Sprite" parent="PlanetYellow2/Sprite"]
-visible = false
-position = Vector2( -2.6727, -116.708 )
-texture = ExtResource( 11 )
-
-[node name="SpriteBaseDrapeau" type="Sprite" parent="PlanetYellow2/Sprite"]
-visible = false
-position = Vector2( -2.6727, -108.244 )
-texture = ExtResource( 12 )
-
-[node name="Gravity" type="Area2D" parent="PlanetYellow2"]
-collision_layer = 2
-
-[node name="attraction" type="CollisionShape2D" parent="PlanetYellow2/Gravity"]
-shape = SubResource( 15 )
-
-[node name="Body" type="Area2D" parent="PlanetYellow2"]
-collision_layer = 2
-
-[node name="death" type="CollisionShape2D" parent="PlanetYellow2/Body"]
-shape = SubResource( 16 )
-
-[node name="Pivot" type="Node2D" parent="PlanetYellow2"]
-rotation = 1.3631
-
-[node name="OrbitPosition" type="Position2D" parent="PlanetYellow2/Pivot"]
-position = Vector2( -139.895, 109.774 )
-
-[node name="PivotLune" type="Node2D" parent="PlanetYellow2"]
-
-[node name="Supernova" type="Node2D" parent="."]
-position = Vector2( 2900.88, -623.133 )
-script = ExtResource( 20 )
-__meta__ = {
-"_edit_group_": true
-}
-FORCE = 10
-
-[node name="Sprite" type="Sprite" parent="Supernova"]
-texture = ExtResource( 18 )
-
-[node name="Aura" type="Area2D" parent="Supernova"]
-
-[node name="attraction" type="CollisionShape2D" parent="Supernova/Aura"]
-shape = SubResource( 17 )
-
-[node name="Timer" type="Timer" parent="Supernova"]
-wait_time = 0.5
-autostart = true
-
-[node name="Centre" type="Area2D" parent="Supernova"]
-
-[node name="mort" type="CollisionShape2D" parent="Supernova/Centre"]
-shape = SubResource( 18 )
-
-[node name="Sprite" type="Sprite" parent="Supernova"]
-material = SubResource( 19 )
-texture = ExtResource( 18 )
-
-[node name="wave_animation" type="AnimationPlayer" parent="Supernova"]
-anims/wave = SubResource( 20 )
-
-[node name="PlanetBlue" type="Node2D" parent="."]
-position = Vector2( 2900.88, -2662.48 )
-script = ExtResource( 14 )
-speed = 1.0
-lune_speed = 1.0
-is_checkpoint = true
-
-[node name="Sprite" type="Sprite" parent="PlanetBlue"]
-texture = ExtResource( 19 )
-
-[node name="SpriteDrapeau" type="Sprite" parent="PlanetBlue/Sprite"]
-visible = false
-position = Vector2( -0.789539, -84.2806 )
-texture = ExtResource( 11 )
-
-[node name="SpriteBaseDrapeau" type="Sprite" parent="PlanetBlue/Sprite"]
-visible = false
-position = Vector2( -0.75, -76.25 )
-texture = ExtResource( 12 )
-
-[node name="Gravity" type="Area2D" parent="PlanetBlue"]
-collision_layer = 2
-
-[node name="attraction" type="CollisionShape2D" parent="PlanetBlue/Gravity"]
-position = Vector2( -0.140308, -2.24493 )
-shape = SubResource( 21 )
-
-[node name="Body" type="Area2D" parent="PlanetBlue"]
-collision_layer = 2
-
-[node name="death" type="CollisionShape2D" parent="PlanetBlue/Body"]
-shape = SubResource( 22 )
-
-[node name="Pivot" type="Node2D" parent="PlanetBlue"]
-rotation = 1.3631
-
-[node name="OrbitPosition" type="Position2D" parent="PlanetBlue/Pivot"]
-position = Vector2( -102.049, 70.778 )
-
-[node name="PivotLune" type="Node2D" parent="PlanetBlue"]
+process_material = SubResource( 18 )
 
 [node name="Asteroids Area2" parent="." instance=ExtResource( 7 )]
 position = Vector2( 983.277, -1010.22 )
@@ -532,14 +350,320 @@ position = Vector2( 25.5798, -484.814 )
 
 [node name="Asteroids Area19" parent="Asteroids Area5" instance=ExtResource( 7 )]
 position = Vector2( -19.9622, -252.136 )
+
+[node name="Asteroids Area6" parent="." instance=ExtResource( 7 )]
+position = Vector2( -26.9037, 281.353 )
+rotation = 1.37706
+
+[node name="Asteroids Area24" parent="Asteroids Area6" instance=ExtResource( 7 )]
+position = Vector2( -389.117, -73.4593 )
+rotation = 1.49012e-08
+scale = Vector2( 1, 1 )
+
+[node name="Asteroids Area25" parent="Asteroids Area6" instance=ExtResource( 7 )]
+position = Vector2( -765.989, -135.869 )
+rotation = 1.49012e-08
+scale = Vector2( 1, 1 )
+
+[node name="Asteroids Area26" parent="Asteroids Area6" instance=ExtResource( 7 )]
+position = Vector2( -1137.61, -198.495 )
+rotation = 1.49012e-08
+scale = Vector2( 1, 1 )
+
+[node name="Asteroids Area27" parent="Asteroids Area6" instance=ExtResource( 7 )]
+position = Vector2( -1501.14, -214.973 )
+rotation = 1.49012e-08
+scale = Vector2( 1, 1 )
+
+[node name="Asteroids Area29" parent="Asteroids Area6" instance=ExtResource( 7 )]
+position = Vector2( -2337.56, -389.357 )
+rotation = 1.49012e-08
+scale = Vector2( 1, 1 )
+
+[node name="Asteroids Area28" parent="Asteroids Area6" instance=ExtResource( 7 )]
+position = Vector2( -1866.03, -242.001 )
+rotation = 1.49012e-08
+
+[node name="Asteroids Area31" parent="Asteroids Area6" instance=ExtResource( 7 )]
+position = Vector2( -2595.36, -892.391 )
+rotation = 1.49012e-08
+scale = Vector2( 1, 1 )
+
+[node name="Asteroids Area33" parent="Asteroids Area6" instance=ExtResource( 7 )]
+position = Vector2( -2451.82, -1326.97 )
+rotation = 1.49012e-08
+scale = Vector2( 1, 1 )
+
+[node name="Asteroids Area32" parent="Asteroids Area6" instance=ExtResource( 7 )]
+position = Vector2( -2514.37, -1113.01 )
+rotation = 1.49012e-08
+scale = Vector2( 1, 1 )
+
+[node name="Asteroids Area30" parent="Asteroids Area6" instance=ExtResource( 7 )]
+position = Vector2( -2533.71, -630.073 )
+rotation = 1.49012e-08
+scale = Vector2( 1, 1 )
+
+[node name="Asteroids Area34" parent="Asteroids Area6" instance=ExtResource( 7 )]
+position = Vector2( 537.706, -2238.36 )
+rotation = 1.49012e-08
+scale = Vector2( 1, 1 )
+
+[node name="Asteroids Area35" parent="Asteroids Area6" instance=ExtResource( 7 )]
+position = Vector2( 348.688, -2515.38 )
+rotation = 1.49012e-08
+scale = Vector2( 1, 1 )
+
+[node name="Asteroids Area36" parent="Asteroids Area6" instance=ExtResource( 7 )]
+position = Vector2( -101.705, -2473.49 )
+rotation = 1.49012e-08
+scale = Vector2( 1, 1 )
+
+[node name="Asteroids Area37" parent="Asteroids Area6" instance=ExtResource( 7 )]
+position = Vector2( 56.4756, -2511.01 )
+rotation = -1.37706
+scale = Vector2( 1, 1 )
+
+[node name="Asteroids Area38" parent="Asteroids Area6" instance=ExtResource( 7 )]
+position = Vector2( 152.692, -2896.61 )
+rotation = -1.37706
+scale = Vector2( 1, 1 )
+
+[node name="Asteroids Area39" parent="Asteroids Area6" instance=ExtResource( 7 )]
+position = Vector2( 242.37, -3266.34 )
+rotation = -1.37706
+scale = Vector2( 1, 1 )
+
+[node name="Asteroids Area40" parent="Asteroids Area6" instance=ExtResource( 7 )]
+position = Vector2( 113.412, -3535.01 )
+rotation = -1.37706
+scale = Vector2( 1, 1 )
+
+[node name="Asteroids Area41" parent="Asteroids Area6" instance=ExtResource( 7 )]
+position = Vector2( -114.397, -3596.84 )
+rotation = -1.37706
+scale = Vector2( 1, 1 )
+
+[node name="Asteroids Area42" parent="Asteroids Area6" instance=ExtResource( 7 )]
+position = Vector2( 972.007, -730.652 )
+rotation = -1.37706
+scale = Vector2( 1, 1 )
+
+[node name="Asteroids Area43" parent="Asteroids Area6" instance=ExtResource( 7 )]
+position = Vector2( 1002.91, -398.957 )
+rotation = -1.37706
+scale = Vector2( 1, 1 )
+
+[node name="Asteroids Area44" parent="Asteroids Area6" instance=ExtResource( 7 )]
+position = Vector2( 889.414, -47.6032 )
+rotation = -1.37706
+scale = Vector2( 1, 1 )
+
+[node name="Asteroids Area45" parent="Asteroids Area6" instance=ExtResource( 7 )]
+position = Vector2( 768.025, 309.057 )
+rotation = -1.37706
+scale = Vector2( 1, 1 )
+
+[node name="Asteroids Area46" parent="Asteroids Area6" instance=ExtResource( 7 )]
+position = Vector2( -2648.77, -2507.04 )
+rotation = -1.37706
+scale = Vector2( 1, 1 )
+
+[node name="Asteroids Area47" parent="Asteroids Area6" instance=ExtResource( 7 )]
+position = Vector2( -2195.3, -4049.66 )
+rotation = -1.37706
+scale = Vector2( 1, 1 )
+
+[node name="Asteroids Area23" parent="Asteroids Area6" instance=ExtResource( 7 )]
+position = Vector2( 368.002, 63.552 )
+rotation = 1.49012e-08
+scale = Vector2( 1, 1 )
+
+[node name="PlanetYellow" type="Node2D" parent="."]
+position = Vector2( 1336, -160 )
+script = ExtResource( 14 )
+speed = 1.0
+lune_speed = 1.0
+is_checkpoint = true
+
+[node name="Sprite" type="Sprite" parent="PlanetYellow"]
+texture = ExtResource( 13 )
+
+[node name="SpriteDrapeau" type="Sprite" parent="PlanetYellow/Sprite"]
+visible = false
+position = Vector2( -2.6727, -116.708 )
+texture = ExtResource( 11 )
+
+[node name="SpriteBaseDrapeau" type="Sprite" parent="PlanetYellow/Sprite"]
+visible = false
+position = Vector2( -2.6727, -108.244 )
+texture = ExtResource( 12 )
+
+[node name="Gravity" type="Area2D" parent="PlanetYellow"]
+collision_layer = 2
+
+[node name="attraction" type="CollisionShape2D" parent="PlanetYellow/Gravity"]
+shape = SubResource( 23 )
+
+[node name="Pivot" type="Node2D" parent="PlanetYellow"]
+rotation = 1.3631
+
+[node name="OrbitPosition" type="Position2D" parent="PlanetYellow/Pivot"]
+position = Vector2( -139.895, 109.774 )
+
+[node name="PivotLune" type="Node2D" parent="PlanetYellow"]
+
+[node name="PlanetRedCheckpoint" type="Node2D" parent="."]
+position = Vector2( 391.325, -601.775 )
+script = ExtResource( 14 )
+speed = 1.0
+lune_speed = 1.0
+is_checkpoint = true
+
+[node name="Sprite" type="Sprite" parent="PlanetRedCheckpoint"]
+texture = ExtResource( 10 )
+
+[node name="SpriteDrapeau" type="Sprite" parent="PlanetRedCheckpoint/Sprite"]
+visible = false
+position = Vector2( -0.749161, -133.349 )
+texture = ExtResource( 11 )
+
+[node name="SpriteBaseDrapeau" type="Sprite" parent="PlanetRedCheckpoint/Sprite"]
+visible = false
+position = Vector2( -0.764341, -125.276 )
+texture = ExtResource( 12 )
+
+[node name="Gravity" type="Area2D" parent="PlanetRedCheckpoint"]
+collision_layer = 2
+
+[node name="attraction" type="CollisionShape2D" parent="PlanetRedCheckpoint/Gravity"]
+shape = SubResource( 24 )
+
+[node name="Pivot" type="Node2D" parent="PlanetRedCheckpoint"]
+rotation = 1.3631
+
+[node name="OrbitPosition" type="Position2D" parent="PlanetRedCheckpoint/Pivot"]
+position = Vector2( -161.837, 141.963 )
+
+[node name="PivotLune" type="Node2D" parent="PlanetRedCheckpoint"]
+
+[node name="Lune" parent="PlanetRedCheckpoint/PivotLune" instance=ExtResource( 8 )]
+position = Vector2( 192.196, 304.064 )
+
+[node name="PlanetYellow2" type="Node2D" parent="."]
+position = Vector2( 1516.04, -1489.77 )
+script = ExtResource( 14 )
+speed = 1.0
+lune_speed = 1.0
+is_checkpoint = true
+
+[node name="Sprite" type="Sprite" parent="PlanetYellow2"]
+texture = ExtResource( 13 )
+
+[node name="SpriteDrapeau" type="Sprite" parent="PlanetYellow2/Sprite"]
+visible = false
+position = Vector2( -2.6727, -116.708 )
+texture = ExtResource( 11 )
+
+[node name="SpriteBaseDrapeau" type="Sprite" parent="PlanetYellow2/Sprite"]
+visible = false
+position = Vector2( -2.6727, -108.244 )
+texture = ExtResource( 12 )
+
+[node name="Gravity" type="Area2D" parent="PlanetYellow2"]
+collision_layer = 2
+
+[node name="attraction" type="CollisionShape2D" parent="PlanetYellow2/Gravity"]
+shape = SubResource( 25 )
+
+[node name="Pivot" type="Node2D" parent="PlanetYellow2"]
+rotation = 1.3631
+
+[node name="OrbitPosition" type="Position2D" parent="PlanetYellow2/Pivot"]
+position = Vector2( -139.895, 109.774 )
+
+[node name="PivotLune" type="Node2D" parent="PlanetYellow2"]
+
+[node name="PlanetBlue" type="Node2D" parent="."]
+position = Vector2( 2903.73, -2530.15 )
+script = ExtResource( 14 )
+speed = 1.0
+lune_speed = 1.0
+is_checkpoint = true
+
+[node name="Sprite" type="Sprite" parent="PlanetBlue"]
+texture = ExtResource( 19 )
+
+[node name="SpriteDrapeau" type="Sprite" parent="PlanetBlue/Sprite"]
+visible = false
+position = Vector2( -0.789539, -84.2806 )
+texture = ExtResource( 11 )
+
+[node name="SpriteBaseDrapeau" type="Sprite" parent="PlanetBlue/Sprite"]
+visible = false
+position = Vector2( -0.75, -76.25 )
+texture = ExtResource( 12 )
+
+[node name="Gravity" type="Area2D" parent="PlanetBlue"]
+collision_layer = 2
+
+[node name="attraction" type="CollisionShape2D" parent="PlanetBlue/Gravity"]
+position = Vector2( -0.140308, -2.24493 )
+shape = SubResource( 26 )
+
+[node name="Pivot" type="Node2D" parent="PlanetBlue"]
+rotation = 1.3631
+
+[node name="OrbitPosition" type="Position2D" parent="PlanetBlue/Pivot"]
+position = Vector2( -102.049, 70.778 )
+
+[node name="PivotLune" type="Node2D" parent="PlanetBlue"]
+
+[node name="Supernova" type="Node2D" parent="."]
+position = Vector2( 2903.73, -1179.08 )
+script = ExtResource( 20 )
+__meta__ = {
+"_edit_group_": true
+}
+RADIUS = 400
+FORCE = 35
+
+[node name="Shockwave" type="Node2D" parent="Supernova"]
+scale = Vector2( 1.25, 1.25 )
+
+[node name="Particles2D" type="Particles2D" parent="Supernova/Shockwave"]
+scale = Vector2( 4.5, 4.5 )
+amount = 70
+speed_scale = 2.0
+process_material = SubResource( 7 )
+
+[node name="Sprite" type="Sprite" parent="Supernova"]
+texture = ExtResource( 18 )
+
+[node name="Aura" type="Area2D" parent="Supernova"]
+
+[node name="attraction" type="CollisionShape2D" parent="Supernova/Aura"]
+shape = SubResource( 1 )
+
+[node name="Centre" type="Area2D" parent="Supernova"]
+
+[node name="mort" type="CollisionShape2D" parent="Supernova/Centre"]
+shape = SubResource( 2 )
+
+[node name="Sprite" type="Sprite" parent="Supernova"]
+material = SubResource( 3 )
+texture = ExtResource( 18 )
+
+[node name="wave_animation" type="AnimationPlayer" parent="Supernova"]
+anims/wave = SubResource( 4 )
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
-[connection signal="body_entered" from="PlanetYellow/Gravity" to="PlanetYellow" method="_on_Gravity_body_entered"]
-[connection signal="body_entered" from="PlanetRedCheckpoint/Gravity" to="PlanetRedCheckpoint" method="_on_Gravity_body_entered"]
 [connection signal="body_entered" from="Trou noir/Aura" to="Trou noir" method="_on_Aura_body_entered"]
 [connection signal="body_exited" from="Trou noir/Aura" to="Trou noir" method="_on_Aura_body_exited"]
 [connection signal="body_entered" from="Trou noir/Centre" to="Trou noir" method="_on_Centre_body_entered"]
-[connection signal="body_entered" from="PlanetYellow2/Gravity" to="PlanetYellow2" method="_on_Gravity_body_entered"]
+[connection signal="area_entered" from="PlanetYellow/Gravity" to="PlanetYellow" method="_on_Gravity_area_entered"]
+[connection signal="area_entered" from="PlanetRedCheckpoint/Gravity" to="PlanetRedCheckpoint" method="_on_Gravity_area_entered"]
+[connection signal="area_entered" from="PlanetYellow2/Gravity" to="PlanetYellow2" method="_on_Gravity_area_entered"]
+[connection signal="area_entered" from="PlanetBlue/Gravity" to="PlanetBlue" method="_on_Gravity_area_entered"]
 [connection signal="body_entered" from="Supernova/Aura" to="Supernova" method="_on_Aura_body_entered"]
 [connection signal="body_exited" from="Supernova/Aura" to="Supernova" method="_on_Aura_body_exited"]
-[connection signal="timeout" from="Supernova/Timer" to="Supernova" method="_on_Timer_timeout"]
-[connection signal="body_entered" from="PlanetBlue/Gravity" to="PlanetBlue" method="_on_Gravity_body_entered"]
+[connection signal="body_entered" from="Supernova/Centre" to="Supernova" method="_on_Centre_body_entered"]
