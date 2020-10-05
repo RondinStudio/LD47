@@ -2,6 +2,7 @@ extends KinematicBody2D
 
 var orbited = false
 var positionToFollow
+var lastPositionToFollow
 const MOVE_SPEED = 500
 var velocity = Vector2()
 var applied_forces = Vector2()
@@ -60,6 +61,7 @@ func physics_process_in_orbit(delta):
 	
 	if Input.is_action_just_pressed("space"):
 		orbited = false
+		lastPositionToFollow = positionToFollow
 		positionToFollow = null
 		movement = ((tangent.normalized() * MOVE_SPEED/2)+ applied_forces) * delta 
 		var collision = move_and_collide(movement)
@@ -75,7 +77,6 @@ func physics_process_in_orbit(delta):
 func death():
 	orbited = false
 	Events.emit_signal("player_death")
-	# Lancer l'animation et arrêter le vaisseau pour éviter les collisions bizarres
 
 func orbit(planete_param, toFollow , direction):
 	stop_thrusters()

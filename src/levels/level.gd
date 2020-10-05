@@ -12,6 +12,7 @@ var limitLevelLeft
 var rng = RandomNumberGenerator.new()
 
 func _ready():
+	Events.connect("fin_niveau", self, "on_end_of_level_reached")
 	Events.connect("reset",self, "on_reset")
 # warning-ignore:return_value_discarded
 	Events.connect("player_death",self, "on_player_death")
@@ -54,8 +55,11 @@ func on_new_checkpoint(new_spawn_pos):
 	get_parent().get_node("Camera2D").current = true
 
 func on_player_death():
-	player.position = $spawn_position.position
 	player.set_physics_process(true)
+	player.positionToFollow = player.lastPositionToFollow
+	$spawn_position.position = player.positionToFollow.position
+	Events.emit_signal("reset")
+	player.orbited = true
 
 func on_end_of_level_reached():
 	Globals.current_level += 1

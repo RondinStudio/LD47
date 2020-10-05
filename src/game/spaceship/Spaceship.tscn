@@ -11,6 +11,7 @@ extents = Vector2( 50.222, 26.669 )
 
 [sub_resource type="Animation" id=2]
 resource_name = "Death"
+length = 1.1
 tracks/0/type = "value"
 tracks/0/path = NodePath("Explode/explosion:emitting")
 tracks/0/interp = 1
@@ -42,7 +43,7 @@ tracks/2/loop_wrap = true
 tracks/2/imported = false
 tracks/2/enabled = true
 tracks/2/keys = {
-"times": PoolRealArray( 0.8 ),
+"times": PoolRealArray( 1 ),
 "transitions": PoolRealArray( 1 ),
 "values": [ {
 "args": [  ],

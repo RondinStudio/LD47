@@ -7,8 +7,7 @@
 [ext_resource path="res://src/game/basic_planet/ring.tscn" type="PackedScene" id=5]
 [ext_resource path="res://assets/graphisme/Drapeau arrivee.png" type="Texture" id=6]
 
-
-[sub_resource type="CircleShape2D" id=1]
+[sub_resource type="CircleShape2D" id=8]
 radius = 180.128
 
 [node name="PlanetYellow" type="Node2D"]
@@ -38,7 +37,7 @@ texture = ExtResource( 6 )
 collision_layer = 2
 
 [node name="attraction" type="CollisionShape2D" parent="Gravity"]
-shape = SubResource( 1 )
+shape = SubResource( 8 )
 
 [node name="Pivot" type="Node2D" parent="."]
 rotation = 1.3631
@@ -48,10 +47,5 @@ position = Vector2( -139.895, 109.774 )
 
 [node name="PivotLune" type="Node2D" parent="."]
 
-[node name="pivot" type="Node2D" parent="."]
-script = ExtResource( 5 )
-
-[node name="Position2D" type="Position2D" parent="pivot"]
-
-[node name="SpawnPos" type="Node2D" parent="pivot/Position2D"]
+[node name="pivot" parent="." instance=ExtResource( 5 )]
 [connection signal="area_entered" from="Gravity" to="." method="_on_Gravity_area_entered"]
