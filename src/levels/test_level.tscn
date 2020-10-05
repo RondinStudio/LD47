@@ -18,9 +18,6 @@ nb_etoile = 10
 position = Vector2( 1138.97, 372.937 )
 rotation = 4.46638e-06
 
-[node name="Spaceship" parent="." instance=ExtResource( 3 )]
-position = Vector2( 192.089, 650.737 )
-
 [node name="Asteroids2" parent="." instance=ExtResource( 6 )]
 position = Vector2( 1184.33, 448.532 )
 
@@ -35,6 +32,10 @@ autostart = true
 position = Vector2( 630.27, 229.873 )
 
 [node name="PlanetYellow" parent="." instance=ExtResource( 2 )]
-position = Vector2( 701.208, 683.228 )
-is_checkpoint = true
+position = Vector2( 622.263, 756.806 )
+
+[node name="Spaceship" parent="." instance=ExtResource( 3 )]
+position = Vector2( 192.089, 650.737 )
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
+
+[editable path="PlanetYellow"]

@@ -16,6 +16,7 @@ func _ready():
 	set_process(true)
 	if is_checkpoint == true:
 		$Sprite/SpriteBaseDrapeau.show()
+	$pivot.init($Gravity/attraction.shape.radius)
 	
 func _physics_process(delta):
 	if gaucheDroite == true:
