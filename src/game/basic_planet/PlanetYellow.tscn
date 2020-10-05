@@ -4,7 +4,7 @@
 [ext_resource path="res://src/game/basic_planet/Planet.gd" type="Script" id=2]
 [ext_resource path="res://assets/graphisme/Drapeau.png" type="Texture" id=3]
 [ext_resource path="res://assets/graphisme/Base drapeau.png" type="Texture" id=4]
-[ext_resource path="res://src/game/basic_planet/ring.tscn" type="PackedScene" id=5]
+[ext_resource path="res://src/game/basic_planet/ring.gd" type="Script" id=5]
 
 [sub_resource type="CircleShape2D" id=1]
 radius = 180.128
@@ -41,5 +41,10 @@ position = Vector2( -139.895, 109.774 )
 
 [node name="PivotLune" type="Node2D" parent="."]
 
-[node name="pivot" parent="." instance=ExtResource( 5 )]
+[node name="pivot" type="Node2D" parent="."]
+script = ExtResource( 5 )
+
+[node name="Position2D" type="Position2D" parent="pivot"]
+
+[node name="SpawnPos" type="Node2D" parent="pivot/Position2D"]
 [connection signal="area_entered" from="Gravity" to="." method="_on_Gravity_area_entered"]

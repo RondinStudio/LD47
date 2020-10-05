@@ -43,10 +43,6 @@ window/size/height=1080
 window/stretch/mode="viewport"
 window/stretch/aspect="keep"
 
-[editor_plugins]
-
-enabled=PoolStringArray( "sound_manager" )
-
 [input]
 
 space={

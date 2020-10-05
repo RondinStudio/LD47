@@ -1,4 +1,4 @@
-[gd_scene load_steps=38 format=2]
+[gd_scene load_steps=50 format=2]
 
 [ext_resource path="res://src/game/spaceship/Spaceship.tscn" type="PackedScene" id=1]
 [ext_resource path="res://assets/Star.tscn" type="PackedScene" id=2]
@@ -21,6 +21,8 @@
 [ext_resource path="res://src/game/asteroids/Asteroid.tscn" type="PackedScene" id=19]
 [ext_resource path="res://src/game/asteroids/AsteroidsArea.tscn" type="PackedScene" id=20]
 [ext_resource path="res://src/game/Enemy_spaceship/enemy_spaceship.tscn" type="PackedScene" id=21]
+[ext_resource path="res://assets/graphisme/Comete.png" type="Texture" id=22]
+[ext_resource path="res://src/game/Comete/Comet.gd" type="Script" id=23]
 
 [sub_resource type="Gradient" id=1]
 offsets = PoolRealArray( 0, 0.659259, 1 )
@@ -161,7 +163,61 @@ _data = {
 "points": PoolVector2Array( -32.7579, 64.256, 32.7579, -64.256, 1701.41, -334.531, 34.0179, -62.9961, -34.0179, 62.9961, 1611.23, -333.555, 32.7579, -59.2163, -32.7579, 59.2163, 1581.03, 119.504, -37.7976, 62.9961, 37.7976, -62.9961, 1629.57, 163.842, 0, 0, 0, 0, 1674.4, -301.859, 0, 0, 0, 0, 1701.41, -334.531 )
 }
 
-[node name="Test_lvl_6" type="Node2D"]
+[sub_resource type="Curve2D" id=17]
+_data = {
+"points": PoolVector2Array( 0, 0, 0, 0, -209.771, 1241.63, 0, 0, 0, 0, 1303.14, 2610.45 )
+}
+
+[sub_resource type="Curve" id=18]
+min_value = -360.0
+max_value = 360.0
+_data = [ Vector2( 0.00574712, 19.6364 ), 0.0, 55.1085, 0, 0, Vector2( 1, 6.54547 ), 0.0, 0.0, 0, 0 ]
+
+[sub_resource type="Curve" id=19]
+min_value = -200.0
+max_value = 200.0
+_data = [ Vector2( 0.00574712, -3.63635 ), 0.0, 300.545, 0, 0, Vector2( 1, 1 ), 0.0, 0.0, 0, 0 ]
+
+[sub_resource type="Curve" id=20]
+max_value = 100.0
+_data = [ Vector2( 0, 0 ), 0.0, 5.57692, 0, 0, Vector2( 1, 102.273 ), 249.513, 0.0, 0, 0 ]
+
+[sub_resource type="Gradient" id=21]
+offsets = PoolRealArray( 0, 0.701987, 1 )
+colors = PoolColorArray( 0.896973, 0.644833, 0.087595, 1, 0.752441, 0.648974, 0.420309, 1, 0.794922, 0.76216, 0.568245, 1 )
+
+[sub_resource type="Curve" id=22]
+min_value = -200.0
+max_value = 200.0
+_data = [ Vector2( 0, 1 ), 0.0, 0.0, 0, 0, Vector2( 1, 200 ), 274.182, 0.0, 0, 0 ]
+
+[sub_resource type="Gradient" id=23]
+offsets = PoolRealArray( 0, 0.333333, 0.437086 )
+colors = PoolColorArray( 0.917969, 0.411837, 0.190048, 1, 0.847656, 0.560724, 0.225159, 1, 0.878906, 0.674361, 0.240326, 1 )
+
+[sub_resource type="CircleShape2D" id=24]
+radius = 124.49
+
+[sub_resource type="CircleShape2D" id=25]
+radius = 41.2091
+
+[sub_resource type="Animation" id=26]
+length = 9.6
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:rotation_degrees")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 4.8, 9.6 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ 0.0, 180.0, 360.0 ]
+}
+
+[node name="Lvl 4" type="Node2D"]
 script = ExtResource( 3 )
 etoile = ExtResource( 2 )
 nb_etoile = 40
@@ -414,6 +470,83 @@ rotation = -1.12091
 
 [node name="Enemy_vaisseau" parent="vaisseau_ennemy2/PathFollow2D" instance=ExtResource( 21 )]
 position = Vector2( -0.123535, -0.34061 )
+
+[node name="Comet_path" type="Path2D" parent="."]
+curve = SubResource( 17 )
+
+[node name="PathFollow2D" type="PathFollow2D" parent="Comet_path"]
+position = Vector2( -209.771, 1241.63 )
+rotation = 0.735435
+
+[node name="Comete" type="Node2D" parent="Comet_path/PathFollow2D"]
+position = Vector2( 0.944946, -0.629959 )
+script = ExtResource( 23 )
+__meta__ = {
+"_edit_group_": true
+}
+RADIUS = 250
+FORCE = 40
+
+[node name="particules" type="CPUParticles2D" parent="Comet_path/PathFollow2D/Comete"]
+amount = 150
+lifetime = 2.25
+speed_scale = 1.25
+randomness = 1.0
+emission_shape = 1
+emission_sphere_radius = 22.0
+gravity = Vector2( -98, 0 )
+angular_velocity_curve = SubResource( 18 )
+linear_accel_curve = SubResource( 19 )
+radial_accel = 10.0
+damping = 5.0
+damping_curve = SubResource( 20 )
+scale_amount = 1.5
+color_ramp = SubResource( 21 )
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="Comet_path/PathFollow2D/Comete"]
+scale = Vector2( 2, 2 )
+amount = 20
+emission_shape = 1
+emission_sphere_radius = 60.0
+gravity = Vector2( 0, 0 )
+linear_accel_curve = SubResource( 22 )
+radial_accel = -50.0
+damping = 20.0
+scale_amount = 2.0
+scale_amount_random = 0.4
+color_ramp = SubResource( 23 )
+
+[node name="Sprite" type="Sprite" parent="Comet_path/PathFollow2D/Comete"]
+position = Vector2( 0.373213, 0.943871 )
+texture = ExtResource( 22 )
+
+[node name="Aura" type="Area2D" parent="Comet_path/PathFollow2D/Comete"]
+
+[node name="attraction" type="CollisionShape2D" parent="Comet_path/PathFollow2D/Comete/Aura"]
+shape = SubResource( 24 )
+
+[node name="Centre" type="Area2D" parent="Comet_path/PathFollow2D/Comete"]
+
+[node name="mort" type="CollisionShape2D" parent="Comet_path/PathFollow2D/Comete/Centre"]
+shape = SubResource( 25 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Comet_path/PathFollow2D/Comete"]
+anims/Rotate = SubResource( 26 )
+
+[node name="particles" type="Node2D" parent="Comet_path/PathFollow2D/Comete"]
+
+[node name="LevelLimits" type="Node2D" parent="."]
+
+[node name="Position2DTop" type="Position2D" parent="LevelLimits"]
+position = Vector2( 1502.65, -604.08 )
+
+[node name="Position2DRight" type="Position2D" parent="LevelLimits"]
+position = Vector2( 2786.32, 792.854 )
+
+[node name="Position2DBottom" type="Position2D" parent="LevelLimits"]
+position = Vector2( 1261.02, 2189.79 )
+
+[node name="Position2DLeft" type="Position2D" parent="LevelLimits"]
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
 [connection signal="body_entered" from="Supernova/Aura" to="Supernova" method="_on_Aura_body_entered"]
 [connection signal="body_exited" from="Supernova/Aura" to="Supernova" method="_on_Aura_body_exited"]
@@ -423,3 +556,6 @@ position = Vector2( -0.123535, -0.34061 )
 [connection signal="body_entered" from="Trou noir/Aura" to="Trou noir" method="_on_Aura_body_entered"]
 [connection signal="body_exited" from="Trou noir/Aura" to="Trou noir" method="_on_Aura_body_exited"]
 [connection signal="body_entered" from="Trou noir/Centre" to="Trou noir" method="_on_Centre_body_entered"]
+[connection signal="body_entered" from="Comet_path/PathFollow2D/Comete/Aura" to="Comet_path/PathFollow2D/Comete" method="_on_Aura_body_entered"]
+[connection signal="body_exited" from="Comet_path/PathFollow2D/Comete/Aura" to="Comet_path/PathFollow2D/Comete" method="_on_Aura_body_exited"]
+[connection signal="body_entered" from="Comet_path/PathFollow2D/Comete/Centre" to="Comet_path/PathFollow2D/Comete" method="_on_Centre_body_entered"]
