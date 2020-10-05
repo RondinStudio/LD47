@@ -44,6 +44,8 @@ func physics_process_in_movement(delta):
 		set_physics_process(false)
 		$AnimationPlayer.play("Death")
 	applied_forces = Vector2(0,0)
+	if Input.is_action_just_pressed("R"):
+		Events.emit_signal("reset")
 	
 func physics_process_in_orbit(delta):
 	$AnimationPlayer.play("Idle")
@@ -67,6 +69,9 @@ func physics_process_in_orbit(delta):
 			$AnimationPlayer.play("Death")
 		speed = 0.5
 		Events.emit_signal("player_leave_orbit")
+	
+	if Input.is_action_just_pressed("R"):
+		Events.emit_signal("reset")
 
 func death():
 	orbited = false
