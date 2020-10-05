@@ -35,3 +35,5 @@ signal player_leave_orbit()
 signal reset()
 
 signal next_level()
+
+signal camera_reached_target()

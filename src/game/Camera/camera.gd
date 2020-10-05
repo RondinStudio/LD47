@@ -14,11 +14,14 @@ var MAX_SPEED = 490
 
 var DIRECTION_TRESHOLD = 10
 
+var camera_stoped:bool = false
+
 func _ready():
 # warning-ignore:return_value_discarded
 	Events.connect("player_enter_orbit", self, "on_player_enter_orbit")
 # warning-ignore:return_value_discarded
 	Events.connect("player_leave_orbit", self, "on_player_leave_orbit")
+	self.zoom = Vector2(1.3, 1.3)
 
 func _physics_process(delta):
 	if is_orbit == false:
@@ -31,6 +34,10 @@ func _physics_process(delta):
 		velocity = direction_to_move_to * speed
 		movement = velocity * MAX_SPEED * delta
 		self.global_position += movement
+		camera_stoped = false
+	elif camera_stoped == false:
+		Events.emit_signal("camera_reached_target")
+		camera_stoped = true
 #
 	elif is_orbit == true:
 		speed = 0
@@ -45,8 +52,8 @@ func _input(event):
 				self.zoom *= 0.9
 			if event.button_index == BUTTON_WHEEL_DOWN:
 				self.zoom *= 1.1
-			self.zoom.x = clamp(self.zoom.x, 0.5, 2)
-			self.zoom.y = clamp(self.zoom.y, 0.5, 2)
+			self.zoom.x = clamp(self.zoom.x, 0.5, 3)
+			self.zoom.y = clamp(self.zoom.y, 0.5, 3)
 	
 func init(player_param, levelLimits):
 	player = player_param
