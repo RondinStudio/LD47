@@ -61,6 +61,11 @@ func _on_Timer_timeout():
 		$Timer.stop()
 
 func on_reset():
+<<<<<<< Updated upstream
+=======
+	if player.positionToFollow != null:
+		$spawn_position.position = player.positionToFollow.position
+>>>>>>> Stashed changes
 	player.position = $spawn_position.position
 
 func on_new_checkpoint(new_spawn_pos):

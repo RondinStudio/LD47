@@ -48,6 +48,11 @@ radius = 180.128
 [sub_resource type="CircleShape2D" id=8]
 radius = 217.648
 
+[sub_resource type="Curve2D" id=7]
+_data = {
+"points": PoolVector2Array( -1.33484, 68.0768, 1.33484, -68.0768, 166.703, -60.8079, 2.00226, -67.4094, -2.00226, 67.4094, 97.2126, -61.6988, 1.33484, -74.751, -1.33484, 74.751, 96.3218, 387.314, 0.66742, 63.4049, -0.66742, -63.4049, 168.485, 389.096, 0, 0, 0, 0, 166.703, -60.8079 )
+}
+
 [node name="lvl2" type="Node2D"]
 script = ExtResource( 6 )
 nb_etoile = 80
@@ -270,6 +275,7 @@ position = Vector2( 354.696, -0.00146484 )
 position = Vector2( 4314.13, 481.849 )
 is_checkpoint = true
 
+<<<<<<< Updated upstream
 [node name="vaisseau_ennemy2" type="Path2D" parent="."]
 position = Vector2( 1169.75, -26.8625 )
 scale = Vector2( 0.582433, 0.90475 )
@@ -307,6 +313,8 @@ rotation = -1.49144
 [node name="Enemy_vaisseau" parent="vaisseau_ennemy3/PathFollow2D" instance=ExtResource( 13 )]
 position = Vector2( -0.123535, -0.34061 )
 
+=======
+>>>>>>> Stashed changes
 [node name="PlanetBlue" type="Node2D" parent="."]
 position = Vector2( 4314.13, 1981.44 )
 script = ExtResource( 1 )
@@ -563,7 +571,45 @@ position = Vector2( 0, -316.2 )
 [node name="pivot" parent="PlanetRed3" instance=ExtResource( 10 )]
 
 [node name="Spaceship" parent="." instance=ExtResource( 16 )]
+<<<<<<< Updated upstream
 position = Vector2( 70.6436, 287.433 )
+=======
+position = Vector2( 84.1131, 286.311 )
+
+[node name="vaisseau_ennemy" type="Path2D" parent="."]
+position = Vector2( 2811.16, 310.744 )
+curve = SubResource( 7 )
+
+[node name="PathFollow2D" type="PathFollow2D" parent="vaisseau_ennemy"]
+position = Vector2( 166.703, -60.8079 )
+rotation = -1.57228
+
+[node name="Enemy_vaisseau" parent="vaisseau_ennemy/PathFollow2D" instance=ExtResource( 13 )]
+position = Vector2( -0.123535, -0.34061 )
+
+[node name="vaisseau_ennemy2" type="Path2D" parent="."]
+position = Vector2( 3690.68, 310.744 )
+curve = SubResource( 7 )
+
+[node name="PathFollow2D" type="PathFollow2D" parent="vaisseau_ennemy2"]
+position = Vector2( 166.703, -60.8079 )
+rotation = -1.57228
+
+[node name="Enemy_vaisseau" parent="vaisseau_ennemy2/PathFollow2D" instance=ExtResource( 13 )]
+position = Vector2( -0.123535, -0.34061 )
+
+[node name="vaisseau_ennemy3" type="Path2D" parent="."]
+position = Vector2( 3505.68, 614.672 )
+rotation = 3.14159
+curve = SubResource( 7 )
+
+[node name="PathFollow2D" type="PathFollow2D" parent="vaisseau_ennemy3"]
+position = Vector2( 166.703, -60.8079 )
+rotation = -1.57228
+
+[node name="Enemy_vaisseau" parent="vaisseau_ennemy3/PathFollow2D" instance=ExtResource( 13 )]
+position = Vector2( -0.123535, -0.34061 )
+>>>>>>> Stashed changes
 [connection signal="area_entered" from="PlanetGreen/Gravity" to="PlanetGreen" method="_on_Gravity_area_entered"]
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
 [connection signal="area_entered" from="PlanetBlue/Gravity" to="PlanetBlue" method="_on_Gravity_area_entered"]
