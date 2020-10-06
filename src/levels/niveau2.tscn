@@ -374,6 +374,7 @@ position = Vector2( 4881.87, 797.616 )
 position = Vector2( 2585.18, 3309.26 )
 
 [node name="Position2DLeft" type="Position2D" parent="LevelLimits"]
+position = Vector2( 1.41422, -2.82841 )
 
 [node name="PlanetBlue2" type="Node2D" parent="."]
 position = Vector2( 440.737, 923.852 )
@@ -506,7 +507,7 @@ position = Vector2( 0, -316.2 )
 [node name="pivot" parent="PlanetRed3" instance=ExtResource( 10 )]
 
 [node name="Spaceship" parent="." instance=ExtResource( 16 )]
-position = Vector2( 70.6436, 287.433 )
+position = Vector2( 77.7147, 304.404 )
 
 [node name="vaisseau_ennemy" type="Path2D" parent="."]
 position = Vector2( 2811.16, 310.744 )
