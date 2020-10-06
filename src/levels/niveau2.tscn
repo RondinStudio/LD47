@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=2]
+[gd_scene load_steps=25 format=2]
 
 [ext_resource path="res://src/game/basic_planet/Planet.gd" type="Script" id=1]
 [ext_resource path="res://assets/graphisme/Base drapeau.png" type="Texture" id=2]
@@ -14,6 +14,7 @@
 [ext_resource path="res://src/game/asteroids/AsteroidsArea.tscn" type="PackedScene" id=12]
 [ext_resource path="res://src/game/Enemy_spaceship/enemy_spaceship.tscn" type="PackedScene" id=13]
 [ext_resource path="res://src/game/asteroids/Asteroid.tscn" type="PackedScene" id=14]
+[ext_resource path="res://assets/graphisme/Drapeau arrivee.png" type="Texture" id=15]
 [ext_resource path="res://src/game/spaceship/Spaceship.tscn" type="PackedScene" id=16]
 
 [sub_resource type="CircleShape2D" id=1]
@@ -37,21 +38,16 @@ _data = {
 radius = 243.944
 
 [sub_resource type="CircleShape2D" id=5]
-radius = 179.837
-
-[sub_resource type="CircleShape2D" id=6]
 radius = 207.78
 
-[sub_resource type="CircleShape2D" id=7]
+[sub_resource type="CircleShape2D" id=6]
 radius = 180.128
 
-[sub_resource type="CircleShape2D" id=8]
+[sub_resource type="CircleShape2D" id=7]
 radius = 217.648
 
-[sub_resource type="Curve2D" id=7]
-_data = {
-"points": PoolVector2Array( -1.33484, 68.0768, 1.33484, -68.0768, 166.703, -60.8079, 2.00226, -67.4094, -2.00226, 67.4094, 97.2126, -61.6988, 1.33484, -74.751, -1.33484, 74.751, 96.3218, 387.314, 0.66742, 63.4049, -0.66742, -63.4049, 168.485, 389.096, 0, 0, 0, 0, 166.703, -60.8079 )
-}
+[sub_resource type="CircleShape2D" id=8]
+radius = 180.128
 
 [node name="lvl2" type="Node2D"]
 script = ExtResource( 6 )
@@ -275,7 +271,6 @@ position = Vector2( 354.696, -0.00146484 )
 position = Vector2( 4314.13, 481.849 )
 is_checkpoint = true
 
-<<<<<<< Updated upstream
 [node name="vaisseau_ennemy2" type="Path2D" parent="."]
 position = Vector2( 1169.75, -26.8625 )
 scale = Vector2( 0.582433, 0.90475 )
@@ -287,6 +282,13 @@ rotation = -1.49144
 
 [node name="Enemy_vaisseau" parent="vaisseau_ennemy2/PathFollow2D" instance=ExtResource( 13 )]
 position = Vector2( -0.123535, -0.34061 )
+
+[node name="Enemy_vaisseau" parent="vaisseau_ennemy2/PathFollow2D" instance=ExtResource( 13 )]
+position = Vector2( -0.123535, -0.34061 )
+
+[node name="PathFollow2D" type="PathFollow2D" parent="vaisseau_ennemy2"]
+position = Vector2( 3058.64, 283.463 )
+rotation = -1.49144
 
 [node name="vaisseau_ennemy4" type="Path2D" parent="."]
 position = Vector2( 5265.13, 906.646 )
@@ -313,8 +315,13 @@ rotation = -1.49144
 [node name="Enemy_vaisseau" parent="vaisseau_ennemy3/PathFollow2D" instance=ExtResource( 13 )]
 position = Vector2( -0.123535, -0.34061 )
 
-=======
->>>>>>> Stashed changes
+[node name="Enemy_vaisseau" parent="vaisseau_ennemy3/PathFollow2D" instance=ExtResource( 13 )]
+position = Vector2( -0.123535, -0.34061 )
+
+[node name="PathFollow2D" type="PathFollow2D" parent="vaisseau_ennemy3"]
+position = Vector2( 3058.64, 283.463 )
+rotation = -1.49144
+
 [node name="PlanetBlue" type="Node2D" parent="."]
 position = Vector2( 4314.13, 1981.44 )
 script = ExtResource( 1 )
@@ -355,78 +362,6 @@ position = Vector2( 350, 0 )
 
 [node name="pivot" parent="PlanetBlue" instance=ExtResource( 10 )]
 
-[node name="PlanetYellow" type="Node2D" parent="."]
-position = Vector2( 3504.76, 2868.36 )
-script = ExtResource( 1 )
-speed = 1.0
-lune_speed = 0.5
-is_checkpoint = true
-
-[node name="Sprite" type="Sprite" parent="PlanetYellow"]
-texture = ExtResource( 9 )
-
-[node name="SpriteDrapeau" type="Sprite" parent="PlanetYellow/Sprite"]
-visible = false
-position = Vector2( -2.6727, -116.708 )
-texture = ExtResource( 5 )
-
-[node name="SpriteBaseDrapeau" type="Sprite" parent="PlanetYellow/Sprite"]
-visible = false
-position = Vector2( -2.6727, -108.244 )
-texture = ExtResource( 2 )
-
-[node name="Gravity" type="Area2D" parent="PlanetYellow"]
-collision_layer = 2
-
-[node name="attraction" type="CollisionShape2D" parent="PlanetYellow/Gravity"]
-shape = SubResource( 5 )
-
-[node name="Pivot" type="Node2D" parent="PlanetYellow"]
-rotation = 1.3631
-
-[node name="OrbitPosition" type="Position2D" parent="PlanetYellow/Pivot"]
-position = Vector2( -139.895, 109.774 )
-
-[node name="PivotLune" type="Node2D" parent="PlanetYellow"]
-
-[node name="Lune" parent="PlanetYellow/PivotLune" instance=ExtResource( 8 )]
-position = Vector2( 253.963, 119.115 )
-
-[node name="Lune2" parent="PlanetYellow/PivotLune" instance=ExtResource( 8 )]
-position = Vector2( 210.512, 186.539 )
-
-[node name="Lune3" parent="PlanetYellow/PivotLune" instance=ExtResource( 8 )]
-position = Vector2( 154.325, 238.231 )
-
-[node name="Lune4" parent="PlanetYellow/PivotLune" instance=ExtResource( 8 )]
-position = Vector2( 82.2368, 269.638 )
-
-[node name="Lune5" parent="PlanetYellow/PivotLune" instance=ExtResource( 8 )]
-position = Vector2( 0, 283.233 )
-
-[node name="Lune6" parent="PlanetYellow/PivotLune" instance=ExtResource( 8 )]
-position = Vector2( 0, -283.233 )
-
-[node name="Lune7" parent="PlanetYellow/PivotLune" instance=ExtResource( 8 )]
-position = Vector2( 82.1167, -269.075 )
-
-[node name="Lune8" parent="PlanetYellow/PivotLune" instance=ExtResource( 8 )]
-position = Vector2( 158.571, -237.927 )
-
-[node name="Lune9" parent="PlanetYellow/PivotLune" instance=ExtResource( 8 )]
-position = Vector2( 217.091, -187.902 )
-
-[node name="Lune10" parent="PlanetYellow/PivotLune" instance=ExtResource( 8 )]
-position = Vector2( 256.733, -125.606 )
-
-[node name="Lune11" parent="PlanetYellow/PivotLune" instance=ExtResource( 8 )]
-position = Vector2( 288.825, -51.0399 )
-
-[node name="Lune12" parent="PlanetYellow/PivotLune" instance=ExtResource( 8 )]
-position = Vector2( 285.05, 39.5721 )
-
-[node name="pivot" parent="PlanetYellow" instance=ExtResource( 10 )]
-
 [node name="LevelLimits" type="Node2D" parent="."]
 
 [node name="Position2DTop" type="Position2D" parent="LevelLimits"]
@@ -465,7 +400,7 @@ collision_layer = 2
 
 [node name="attraction" type="CollisionShape2D" parent="PlanetBlue2/Gravity"]
 position = Vector2( -0.140308, -2.24493 )
-shape = SubResource( 6 )
+shape = SubResource( 5 )
 
 [node name="Pivot" type="Node2D" parent="PlanetBlue2"]
 rotation = 1.3631
@@ -507,7 +442,7 @@ texture = ExtResource( 2 )
 collision_layer = 2
 
 [node name="attraction" type="CollisionShape2D" parent="PlanetYellow2/Gravity"]
-shape = SubResource( 7 )
+shape = SubResource( 6 )
 
 [node name="Pivot" type="Node2D" parent="PlanetYellow2"]
 rotation = 1.3631
@@ -549,7 +484,7 @@ texture = ExtResource( 2 )
 collision_layer = 2
 
 [node name="attraction" type="CollisionShape2D" parent="PlanetRed3/Gravity"]
-shape = SubResource( 8 )
+shape = SubResource( 7 )
 
 [node name="Pivot" type="Node2D" parent="PlanetRed3"]
 rotation = 1.3631
@@ -571,14 +506,11 @@ position = Vector2( 0, -316.2 )
 [node name="pivot" parent="PlanetRed3" instance=ExtResource( 10 )]
 
 [node name="Spaceship" parent="." instance=ExtResource( 16 )]
-<<<<<<< Updated upstream
 position = Vector2( 70.6436, 287.433 )
-=======
-position = Vector2( 84.1131, 286.311 )
 
 [node name="vaisseau_ennemy" type="Path2D" parent="."]
 position = Vector2( 2811.16, 310.744 )
-curve = SubResource( 7 )
+curve = null
 
 [node name="PathFollow2D" type="PathFollow2D" parent="vaisseau_ennemy"]
 position = Vector2( 166.703, -60.8079 )
@@ -589,31 +521,93 @@ position = Vector2( -0.123535, -0.34061 )
 
 [node name="vaisseau_ennemy2" type="Path2D" parent="."]
 position = Vector2( 3690.68, 310.744 )
-curve = SubResource( 7 )
-
-[node name="PathFollow2D" type="PathFollow2D" parent="vaisseau_ennemy2"]
-position = Vector2( 166.703, -60.8079 )
-rotation = -1.57228
-
-[node name="Enemy_vaisseau" parent="vaisseau_ennemy2/PathFollow2D" instance=ExtResource( 13 )]
-position = Vector2( -0.123535, -0.34061 )
+curve = null
 
 [node name="vaisseau_ennemy3" type="Path2D" parent="."]
 position = Vector2( 3505.68, 614.672 )
 rotation = 3.14159
-curve = SubResource( 7 )
+curve = null
 
-[node name="PathFollow2D" type="PathFollow2D" parent="vaisseau_ennemy3"]
-position = Vector2( 166.703, -60.8079 )
-rotation = -1.57228
+[node name="PlanetYellow3" type="Node2D" parent="."]
+position = Vector2( 3505.38, 2866.21 )
+script = ExtResource( 1 )
+speed = 1.0
+lune_speed = 1.0
+is_final_planet = true
 
-[node name="Enemy_vaisseau" parent="vaisseau_ennemy3/PathFollow2D" instance=ExtResource( 13 )]
-position = Vector2( -0.123535, -0.34061 )
->>>>>>> Stashed changes
+[node name="Sprite" type="Sprite" parent="PlanetYellow3"]
+texture = ExtResource( 9 )
+
+[node name="SpriteDrapeau" type="Sprite" parent="PlanetYellow3/Sprite"]
+visible = false
+position = Vector2( -2.6727, -116.708 )
+texture = ExtResource( 5 )
+
+[node name="SpriteBaseDrapeau" type="Sprite" parent="PlanetYellow3/Sprite"]
+visible = false
+position = Vector2( -2.6727, -108.244 )
+texture = ExtResource( 2 )
+
+[node name="SpriteFinNiveau" type="Sprite" parent="PlanetYellow3/Sprite"]
+visible = false
+position = Vector2( 0.707092, -128.694 )
+texture = ExtResource( 15 )
+
+[node name="Gravity" type="Area2D" parent="PlanetYellow3"]
+collision_layer = 2
+
+[node name="attraction" type="CollisionShape2D" parent="PlanetYellow3/Gravity"]
+shape = SubResource( 8 )
+
+[node name="Pivot" type="Node2D" parent="PlanetYellow3"]
+rotation = 1.3631
+
+[node name="OrbitPosition" type="Position2D" parent="PlanetYellow3/Pivot"]
+position = Vector2( -139.895, 109.774 )
+
+[node name="PivotLune" type="Node2D" parent="PlanetYellow3"]
+
+[node name="Lune" parent="PlanetYellow3/PivotLune" instance=ExtResource( 8 )]
+position = Vector2( 253.339, 121.266 )
+
+[node name="Lune2" parent="PlanetYellow3/PivotLune" instance=ExtResource( 8 )]
+position = Vector2( 209.888, 188.69 )
+
+[node name="Lune3" parent="PlanetYellow3/PivotLune" instance=ExtResource( 8 )]
+position = Vector2( 153.701, 240.382 )
+
+[node name="Lune4" parent="PlanetYellow3/PivotLune" instance=ExtResource( 8 )]
+position = Vector2( 81.6128, 271.789 )
+
+[node name="Lune5" parent="PlanetYellow3/PivotLune" instance=ExtResource( 8 )]
+position = Vector2( -0.624023, 285.384 )
+
+[node name="Lune6" parent="PlanetYellow3/PivotLune" instance=ExtResource( 8 )]
+position = Vector2( -0.624023, -281.082 )
+
+[node name="Lune7" parent="PlanetYellow3/PivotLune" instance=ExtResource( 8 )]
+position = Vector2( 81.4927, -266.924 )
+
+[node name="Lune8" parent="PlanetYellow3/PivotLune" instance=ExtResource( 8 )]
+position = Vector2( 157.947, -235.776 )
+
+[node name="Lune9" parent="PlanetYellow3/PivotLune" instance=ExtResource( 8 )]
+position = Vector2( 216.467, -185.751 )
+
+[node name="Lune10" parent="PlanetYellow3/PivotLune" instance=ExtResource( 8 )]
+position = Vector2( 256.109, -123.455 )
+
+[node name="Lune11" parent="PlanetYellow3/PivotLune" instance=ExtResource( 8 )]
+position = Vector2( 288.201, -48.8887 )
+
+[node name="Lune12" parent="PlanetYellow3/PivotLune" instance=ExtResource( 8 )]
+position = Vector2( 284.426, 41.7231 )
+
+[node name="pivot" parent="PlanetYellow3" instance=ExtResource( 10 )]
 [connection signal="area_entered" from="PlanetGreen/Gravity" to="PlanetGreen" method="_on_Gravity_area_entered"]
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
 [connection signal="area_entered" from="PlanetBlue/Gravity" to="PlanetBlue" method="_on_Gravity_area_entered"]
-[connection signal="area_entered" from="PlanetYellow/Gravity" to="PlanetYellow" method="_on_Gravity_area_entered"]
 [connection signal="area_entered" from="PlanetBlue2/Gravity" to="PlanetBlue2" method="_on_Gravity_area_entered"]
 [connection signal="area_entered" from="PlanetYellow2/Gravity" to="PlanetYellow2" method="_on_Gravity_area_entered"]
 [connection signal="area_entered" from="PlanetRed3/Gravity" to="PlanetRed3" method="_on_Gravity_area_entered"]
+[connection signal="area_entered" from="PlanetYellow3/Gravity" to="PlanetYellow3" method="_on_Gravity_area_entered"]

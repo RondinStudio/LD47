@@ -170,21 +170,21 @@ radius = 217.648
 [sub_resource type="CircleShape2D" id=18]
 radius = 351.833
 
-[sub_resource type="CircleShape2D" id=20]
+[sub_resource type="CircleShape2D" id=19]
 radius = 207.78
 
-[sub_resource type="CircleShape2D" id=21]
+[sub_resource type="CircleShape2D" id=20]
 radius = 296.848
 
-[sub_resource type="CircleShape2D" id=22]
+[sub_resource type="CircleShape2D" id=21]
 radius = 241.654
 
-[sub_resource type="Curve2D" id=23]
+[sub_resource type="Curve2D" id=22]
 _data = {
 "points": PoolVector2Array( -35.3733, -38.7104, 35.3733, 38.7104, 464.601, 284.602, 28.0316, 33.371, -28.0316, -33.371, 505.873, 251.266, 34.7058, 38.0429, -34.7058, -38.0429, 101.086, -197.968, -34.7058, -36.7081, 34.7058, 36.7081, 58.2261, -156.696, 0, 0, 0, 0, 464.601, 284.602 )
 }
 
-[sub_resource type="CircleShape2D" id=24]
+[sub_resource type="CircleShape2D" id=23]
 radius = 500.0
 
 [node name="lvl5" type="Node2D"]
@@ -514,7 +514,7 @@ collision_layer = 2
 
 [node name="attraction" type="CollisionShape2D" parent="PlanetBlue/Gravity"]
 position = Vector2( -0.140308, -2.24493 )
-shape = SubResource( 20 )
+shape = SubResource( 19 )
 
 [node name="Pivot" type="Node2D" parent="PlanetBlue"]
 rotation = 1.3631
@@ -556,7 +556,7 @@ texture = ExtResource( 2 )
 collision_layer = 2
 
 [node name="attraction" type="CollisionShape2D" parent="PlanetRed3/Gravity"]
-shape = SubResource( 21 )
+shape = SubResource( 20 )
 
 [node name="Pivot" type="Node2D" parent="PlanetRed3"]
 rotation = 1.3631
@@ -592,7 +592,7 @@ texture = ExtResource( 2 )
 collision_layer = 2
 
 [node name="attraction" type="CollisionShape2D" parent="PlanetYellow3/Gravity"]
-shape = SubResource( 22 )
+shape = SubResource( 21 )
 
 [node name="Pivot" type="Node2D" parent="PlanetYellow3"]
 rotation = 1.3631
@@ -653,7 +653,7 @@ position = Vector2( 2745.86, -1996.13 )
 
 [node name="vaisseau_ennemy2" type="Path2D" parent="."]
 position = Vector2( 4455.16, -380.688 )
-curve = SubResource( 23 )
+curve = SubResource( 22 )
 
 [node name="PathFollow2D" type="PathFollow2D" parent="vaisseau_ennemy2"]
 position = Vector2( 464.601, 284.602 )
@@ -695,7 +695,7 @@ collision_layer = 2
 
 [node name="attraction" type="CollisionShape2D" parent="PlanetBlue3/Gravity"]
 position = Vector2( -0.140308, -2.24493 )
-shape = SubResource( 24 )
+shape = SubResource( 23 )
 
 [node name="Pivot" type="Node2D" parent="PlanetBlue3"]
 rotation = 1.3631

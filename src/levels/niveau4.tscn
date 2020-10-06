@@ -90,20 +90,20 @@ tracks/1/keys = {
 [sub_resource type="CircleShape2D" id=8]
 radius = 331.637
 
-[sub_resource type="ShaderMaterial" id=10]
+[sub_resource type="ShaderMaterial" id=9]
 shader = ExtResource( 22 )
 shader_param/center = Vector2( 0.5, 0.5 )
 shader_param/force = 91.451
 shader_param/size = 0.740329
 shader_param/thickness = 0.383
 
-[sub_resource type="CircleShape2D" id=11]
+[sub_resource type="CircleShape2D" id=10]
 radius = 263.634
 
-[sub_resource type="CircleShape2D" id=12]
+[sub_resource type="CircleShape2D" id=11]
 radius = 30.0
 
-[sub_resource type="Animation" id=13]
+[sub_resource type="Animation" id=12]
 length = 9.6
 loop = true
 tracks/0/type = "value"
@@ -131,7 +131,7 @@ tracks/1/keys = {
 "values": [ 0.0, -180.0, -360.0 ]
 }
 
-[sub_resource type="Animation" id=14]
+[sub_resource type="Animation" id=13]
 resource_name = "shockwave"
 loop = true
 tracks/0/type = "bezier"
@@ -145,7 +145,7 @@ tracks/0/keys = {
 "times": PoolRealArray( 0, 1 )
 }
 
-[sub_resource type="GDScript" id=15]
+[sub_resource type="GDScript" id=14]
 script/source = "extends Node2D
 
 # Classe servant à avoir 5 astéroïdes dans une scène ( classe pratique )
@@ -154,12 +154,12 @@ func _ready():
 	pass
 "
 
-[sub_resource type="Curve2D" id=16]
+[sub_resource type="Curve2D" id=15]
 _data = {
 "points": PoolVector2Array( -32.7579, 64.256, 32.7579, -64.256, 1701.41, -334.531, 34.0179, -62.9961, -34.0179, 62.9961, 1611.23, -333.555, 32.7579, -59.2163, -32.7579, 59.2163, 1581.03, 119.504, -37.7976, 62.9961, 37.7976, -62.9961, 1629.57, 163.842, 0, 0, 0, 0, 1674.4, -301.859, 0, 0, 0, 0, 1701.41, -334.531 )
 }
 
-[sub_resource type="CircleShape2D" id=17]
+[sub_resource type="CircleShape2D" id=16]
 radius = 320.0
 
 [node name="lvl4" type="Node2D"]
@@ -284,25 +284,25 @@ FORCE = 20
 texture = ExtResource( 6 )
 
 [node name="Sprite2" type="Sprite" parent="Trou noir"]
-material = SubResource( 10 )
+material = SubResource( 9 )
 position = Vector2( 0, 3 )
 texture = ExtResource( 4 )
 
 [node name="Aura" type="Area2D" parent="Trou noir"]
 
 [node name="attraction" type="CollisionShape2D" parent="Trou noir/Aura"]
-shape = SubResource( 11 )
+shape = SubResource( 10 )
 
 [node name="Centre" type="Area2D" parent="Trou noir"]
 
 [node name="mort" type="CollisionShape2D" parent="Trou noir/Centre"]
-shape = SubResource( 12 )
+shape = SubResource( 11 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Trou noir"]
-anims/Rotate = SubResource( 13 )
+anims/Rotate = SubResource( 12 )
 
 [node name="ShockwaveAnimationPlayer" type="AnimationPlayer" parent="Trou noir"]
-anims/shockwave = SubResource( 14 )
+anims/shockwave = SubResource( 13 )
 
 [node name="Blackhole_particles" parent="Trou noir" instance=ExtResource( 11 )]
 scale = Vector2( 1.3, 1.3 )
@@ -319,7 +319,7 @@ position = Vector2( 53.9391, 554.374 )
 
 [node name="Asteroids Area3" type="Node2D" parent="Asteroids Area"]
 position = Vector2( 704.204, 44.9492 )
-script = SubResource( 15 )
+script = SubResource( 14 )
 
 [node name="Asteroids" parent="Asteroids Area/Asteroids Area3" instance=ExtResource( 16 )]
 position = Vector2( 33.9028, 25.4271 )
@@ -368,7 +368,7 @@ position = Vector2( 134.848, -203.77 )
 
 [node name="vaisseau_ennemy" type="Path2D" parent="."]
 position = Vector2( -90.0844, -49.1369 )
-curve = SubResource( 16 )
+curve = SubResource( 15 )
 
 [node name="PathFollow2D" type="PathFollow2D" parent="vaisseau_ennemy"]
 position = Vector2( 1701.41, -334.531 )
@@ -423,7 +423,7 @@ texture = ExtResource( 5 )
 collision_layer = 2
 
 [node name="attraction" type="CollisionShape2D" parent="PlanetGreen2/Gravity"]
-shape = SubResource( 17 )
+shape = SubResource( 16 )
 
 [node name="Pivot" type="Node2D" parent="PlanetGreen2"]
 rotation = 1.3631
