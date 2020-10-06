@@ -20,7 +20,7 @@ var first_popup_text = ["Press space to get moving.\nKeep space pressed to accel
 var second_popup_text = ["Once you're in orbit, you can propulse yourself forward by pressing space.\nTry aiming for the next planet ! (PS : You can de/zoom the camera by scrolling down/up)"]
 var third_popup_text = ["Be careful of obstacles on your trajectory, the slightest contact with anything and you're back to the last checkpoint"]
 var fourth_popup_text = ["Gas is expensive, so you'd better make use of the attractive field of blackholes to influence your trajectory !"]
-var fifth_popup_text = ["Congratulations ! You got the gist of navigating around is space ! But be careful, there is a lot of other dangers awaiting ... I heard there's some mean spaceships patrolling the area and exploding supernovas in the vicinity ! Good luck !"]
+var fifth_popup_text = ["Congratulations ! You got the gist of navigating around in space ! But be careful, there is a lot of other dangers awaiting ... I heard there's some mean spaceships lurking in the area and exploding supernovas in the vicinity ! For now, try to reach the last planet to complete your delivery, good luck !"]
 
 func _ready():
 	Events.connect("fin_niveau", self, "on_end_of_level_reached")

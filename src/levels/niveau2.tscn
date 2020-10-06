@@ -365,16 +365,16 @@ position = Vector2( 350, 0 )
 [node name="LevelLimits" type="Node2D" parent="."]
 
 [node name="Position2DTop" type="Position2D" parent="LevelLimits"]
-position = Vector2( 2302.34, -56.5686 )
+position = Vector2( 2644.45, -583.981 )
 
 [node name="Position2DRight" type="Position2D" parent="LevelLimits"]
-position = Vector2( 4881.87, 797.616 )
+position = Vector2( 5395.03, 1524.59 )
 
 [node name="Position2DBottom" type="Position2D" parent="LevelLimits"]
-position = Vector2( 2585.18, 3309.26 )
+position = Vector2( 2727.72, 3637.11 )
 
 [node name="Position2DLeft" type="Position2D" parent="LevelLimits"]
-position = Vector2( 1.41422, -2.82841 )
+position = Vector2( -910.866, 1080.5 )
 
 [node name="PlanetBlue2" type="Node2D" parent="."]
 position = Vector2( 440.737, 923.852 )

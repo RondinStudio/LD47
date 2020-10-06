@@ -36,7 +36,6 @@ func _ready():
 	SoundManager.play_bgm("res://assets/son/Musics/vaisseau-_loop_.ogg", 0.0, -81, -1, SoundManager.get_playing_sounds()[0]) # Play spaceship music
 
 func on_next_level():
-	print("JE SUIS PASSE DANS LE NEXT LEVEL DE LA FIN DU PREMIER NIVEAU")
 	get_tree().change_scene("res://src/UI/Debut2eNiveau.tscn")
 
 func on_change_background(name):

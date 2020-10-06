@@ -380,15 +380,16 @@ position = Vector2( -0.123535, -0.34061 )
 [node name="LevelLimits" type="Node2D" parent="."]
 
 [node name="Position2DTop" type="Position2D" parent="LevelLimits"]
-position = Vector2( 1558.64, -832.62 )
+position = Vector2( 1445.5, -1172.03 )
 
 [node name="Position2DRight" type="Position2D" parent="LevelLimits"]
-position = Vector2( 2786.32, 792.854 )
+position = Vector2( 3815.87, 792.854 )
 
 [node name="Position2DBottom" type="Position2D" parent="LevelLimits"]
-position = Vector2( 1261.02, 2189.79 )
+position = Vector2( 1408.1, 2766.79 )
 
 [node name="Position2DLeft" type="Position2D" parent="LevelLimits"]
+position = Vector2( -1040.86, 893.783 )
 
 [node name="Spaceship" parent="." instance=ExtResource( 12 )]
 position = Vector2( 196.623, 324.498 )

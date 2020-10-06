@@ -12,6 +12,7 @@ var speed = 0
 var movement = Vector2(0, 0)
 var direction_tangent = 1
 var thrusters_playing = false
+var just_reseted:bool = false
 
 func _physics_process(delta):
 	if orbited == false:
@@ -45,6 +46,7 @@ func physics_process_in_movement(delta):
 		$AnimationPlayer.play("Death")
 	applied_forces = Vector2(0,0)
 	if Input.is_action_just_pressed("R"):
+		just_reseted = true
 		Events.emit_signal("camera_turbo_mode")
 		Events.emit_signal("reset")
 	
@@ -73,22 +75,26 @@ func physics_process_in_orbit(delta):
 		Events.emit_signal("player_leave_orbit")
 	
 	if Input.is_action_just_pressed("R"):
+		just_reseted = true
 		Events.emit_signal("camera_turbo_mode")
 		Events.emit_signal("reset")
 
 func death():
+	just_reseted = true
 	applied_forces = Vector2(0, 0)
 	orbited = false
 	Events.emit_signal("player_death")
 
 func orbit(planete_param, toFollow , direction):
-	stop_thrusters()
-	planete = planete_param
-	lastPositionToFollow = positionToFollow
-	positionToFollow = toFollow
-	direction_tangent = direction
-	orbited = true
-	Events.emit_signal("player_enter_orbit", planete_param.global_position)
+	if planete_param != planete or just_reseted == true:
+		just_reseted = false
+		stop_thrusters()
+		planete = planete_param
+		lastPositionToFollow = positionToFollow
+		positionToFollow = toFollow
+		direction_tangent = direction
+		orbited = true
+		Events.emit_signal("player_enter_orbit", planete_param.global_position)
 
 func _on_VisibilityNotifier2D_screen_exited():
 	if $AnimationPlayer.current_animation != "Death" and (position.x < get_parent().get_node("LevelLimits/Position2DLeft").position.x or position.x > get_parent().get_node("LevelLimits/Position2DRight").position.x or position.y < get_parent().get_node("LevelLimits/Position2DTop").position.y or position.y > get_parent().get_node("LevelLimits/Position2DBottom").position.y):

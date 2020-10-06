@@ -607,16 +607,16 @@ position = Vector2( -149.696, 185.378 )
 [node name="LevelLimits" type="Node2D" parent="."]
 
 [node name="Position2DTop" type="Position2D" parent="LevelLimits"]
-position = Vector2( 3158.68, -3200.27 )
+position = Vector2( 3068.07, -3441.9 )
 
 [node name="Position2DRight" type="Position2D" parent="LevelLimits"]
-position = Vector2( 6263.55, -1364.59 )
+position = Vector2( 7124.36, -745.408 )
 
 [node name="Position2DBottom" type="Position2D" parent="LevelLimits"]
-position = Vector2( 3076.68, 1237.45 )
+position = Vector2( 3061.58, 1720.71 )
 
 [node name="Position2DLeft" type="Position2D" parent="LevelLimits"]
-position = Vector2( -193.075, -5.33936 )
+position = Vector2( -1068.99, -594.317 )
 
 [node name="Asteroids Area" parent="." instance=ExtResource( 13 )]
 position = Vector2( 4799.8, -1571.43 )

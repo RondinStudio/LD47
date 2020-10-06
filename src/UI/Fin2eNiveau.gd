@@ -32,8 +32,8 @@ var ordrePhrase = ["Wow, that was a little bit more stressful than I thought. Wa
 "Flynn sighs.", \
 "Pfff... Like the good old days... Once again, I need a job..."]
 var ordreSprite = ["gaston", "pitchoune_bourre_content", "Narrator", "pitchoune_bourre_content", "gaston", "pitchoune_depite", "gaston", "pitchoune", \
-"gaston", "pitchoune", "pitchoune_sunglasses", "Narrator", "pitchoune_bourre_pas_content", "Narrator", \
-"pitchoune_enerve", "Narrator", "pitchoune_depite", "Narrator", "pitchoune_triste"]
+"gaston", "pitchoune", "pitchoune_sunglasses", "Narrator", "pitchoune_bourre_pas_content", "frog", \
+"pitchoune_enerve", "frog", "pitchoune_depite", "Narrator", "pitchoune_triste"]
 
 func _ready():
 	Events.connect("change_background_fin_premier", self, "on_change_background")

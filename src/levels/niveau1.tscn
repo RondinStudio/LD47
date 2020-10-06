@@ -146,16 +146,16 @@ tracks/0/keys = {
 radius = 207.78
 
 [sub_resource type="CircleShape2D" id=14]
-radius = 232.259
+radius = 200.376
 
 [sub_resource type="CircleShape2D" id=15]
-radius = 190.021
+radius = 163.899
 
 [sub_resource type="CircleShape2D" id=16]
-radius = 212.436
+radius = 183.912
 
 [sub_resource type="CircleShape2D" id=17]
-radius = 230.132
+radius = 195.821
 
 [node name="niveau1" type="Node2D"]
 script = ExtResource( 3 )
@@ -218,7 +218,7 @@ position = Vector2( 804.262, 464.002 )
 is_checkpoint = true
 
 [node name="PlanetYellow4" type="Node2D" parent="."]
-position = Vector2( 8002.13, -159.294 )
+position = Vector2( 7648.18, -251.406 )
 script = ExtResource( 4 )
 speed = 1.0
 lune_speed = 1.0
@@ -310,12 +310,12 @@ position = Vector2( 7211.65, 934.196 )
 is_checkpoint = true
 
 [node name="Trou noir" type="Node2D" parent="."]
-position = Vector2( 2137.21, 760.004 )
+position = Vector2( 2101.8, 677.342 )
 script = ExtResource( 13 )
 __meta__ = {
 "_edit_group_": true
 }
-RADIUS = 350
+RADIUS = 400
 
 [node name="Sprite" type="Sprite" parent="Trou noir"]
 texture = ExtResource( 14 )
@@ -353,13 +353,12 @@ process_material = SubResource( 10 )
 [node name="pivot" parent="Trou noir" instance=ExtResource( 11 )]
 
 [node name="Trou noir2" type="Node2D" parent="."]
-position = Vector2( 7445.61, 254.507 )
+position = Vector2( 7502.55, 272.487 )
 script = ExtResource( 13 )
 __meta__ = {
 "_edit_group_": true
 }
 RADIUS = 350
-FORCE = 20
 
 [node name="Sprite" type="Sprite" parent="Trou noir2"]
 texture = ExtResource( 14 )
