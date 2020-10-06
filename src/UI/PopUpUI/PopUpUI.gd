@@ -42,28 +42,19 @@ func _on_ButtonNext_pressed():
 		emit_signal("end_reached")
 
 func _on_input_enter(s):
-	print("Input Enter ",s)
-	
-#	tie.add_newline()
-#	tie.buff_text("Oooh, so your name is " + s + "? What a beautiful name!", 0.01)
 	pass
 
 func _on_buff_end():
-	print("Buff End")
 	pass
 
 func _on_state_change(i):
-	print("New state: ", i)
 	pass
 
 func _on_enter_break():
-	print("Enter Break")
 	pass
 
 func _on_resume_break():
-	print("Resume Break")
 	pass
 
 func _on_tag_buff(s):
-	print("Tag Buff ",s)
 	pass

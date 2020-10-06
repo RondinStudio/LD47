@@ -33,7 +33,6 @@ func _ready():
 	Events.connect("end_of_level_reached", self, "on_end_of_level_reached")
 # warning-ignore:return_value_discarded
 	Events.connect("camera_reached_target", self, "on_camera_reached_target")
-	Events.connect("end_of_level_reached", self, "on_end_of_level_reached")
 	$CanvasLayer/PopUpUI.connect("end_reached", self, "on_end_reached")
 	
 	randomize()
@@ -70,10 +69,12 @@ func on_new_checkpoint(new_spawn_pos):
 	get_parent().get_node("Camera2D").current = true
 
 func on_player_death():
+	var planete_pos = player.planete.position
+	var deplacement_correctif = $spawn_position.position.direction_to(planete_pos) * 5
 	player.set_physics_process(true)
 	player.positionToFollow = player.lastPositionToFollow
-	player.position = $spawn_position.position
-	player.orbited = true
+	player.position = $spawn_position.position + deplacement_correctif
+	Events.emit_signal("camera_turbo_mode")
 
 
 func on_end_of_level_reached():
