@@ -10,6 +10,8 @@ var niveau5 = load("res://src/levels/niveau5.tscn")
 
 func _ready():
 	if (Globals.current_level == 1):
+		SoundManager.preload_resource_from_string("res://assets/son/Musics/son-niveau-1-loop.ogg")
+		SoundManager.play_bgm("res://assets/son/Musics/son-niveau-1-loop.ogg", 0.0, -81, -1, SoundManager.get_playing_sounds()[0])
 		var new_level = niveau1.instance()
 		self.add_child(new_level)
 	if (Globals.current_level == 2):
@@ -24,6 +26,9 @@ func _ready():
 	if (Globals.current_level == 5):
 		var new_level = niveau5.instance()
 		self.add_child(new_level)
+	if (Globals.current_level > 1) :
+		SoundManager.preload_resource(load("res://assets/son/Musics/son-niveau-2-loop.ogg"))
+		SoundManager.play_bgm("res://assets/son/Musics/son-niveau-2-loop.ogg", 0.0, -81, -1, SoundManager.get_playing_sounds()[0])
 	$Camera2D.init(get_child(2).get_node("Spaceship"), get_child(2).get_node("LevelLimits"))
 
 func _process(delta):

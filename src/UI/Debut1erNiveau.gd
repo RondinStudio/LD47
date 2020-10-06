@@ -15,6 +15,8 @@ var ordreSprite = ["Narrator", "Narrator", "pitchoune_tel", "sancheese", "pitcho
 "Narrator", "pitchoune"]
 
 func _ready():
+	#SoundManager.preload_resource(load("res://assets/son/Musics/vaisseau-_loop_.ogg"))
+	SoundManager.play_bgm("res://assets/son/Musics/vaisseau-_loop_.ogg", 0.0, -81, -1, SoundManager.get_playing_sounds()[0])
 	$ZoneDialog.init(ordrePhrase, ordrePersos, ordreSprite)
 	Events.connect("next_level", self, "on_next_level") 
 

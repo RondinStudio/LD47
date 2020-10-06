@@ -48,12 +48,18 @@ func on_change_background(name):
 	actual_background = name
 	print(name)
 	if name == "nightclub":
+		SoundManager.preload_resource(load("res://assets/son/Musics/Sons_LD47_club.ogg"))
+		SoundManager.play_bgm("res://assets/son/Musics/Sons_LD47_club.ogg", 0.0, -81, -1, SoundManager.get_playing_sounds()[0]) # Play nightclub music
 		$changementFond.start()
 		actual_nightclub = 1
 		$fond.texture = nightclub1
 	if name == "dark_alley":
+		SoundManager.preload_resource(load("res://assets/son/Musics/Ruelle.ogg"))
+		SoundManager.play_bgm("res://assets/son/Musics/Ruelle.ogg", 0.0, -81, -1, SoundManager.get_playing_sounds()[0]) # Play dark alley music
 		$fond.texture = dark_alley
 	if name == "spaceship":
+		SoundManager.preload_resource(load("res://assets/son/Musics/vaisseau_loop.ogg"))
+		SoundManager.play_bgm("res://assets/son/Musics/vaisseau_loop.ogg", 0.0, -81, -1, SoundManager.get_playing_sounds()[0]) # Play spaceship music
 		$fond.texture = spaceship
 
 func _on_changementFond_timeout():

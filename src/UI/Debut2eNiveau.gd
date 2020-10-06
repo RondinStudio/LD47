@@ -17,6 +17,8 @@ var ordreSprite = ["Narrator", "pitchoune_tel", "gaston", "pitchoune_bourre_cont
 func _ready():
 	$ZoneDialog.init(ordrePhrase, ordrePersos, ordreSprite)
 	Events.connect("next_level", self, "on_next_level") 
+	SoundManager.preload_resource(load("res://assets/son/Musics/vaisseau-_loop_.ogg"))
+	SoundManager.play_bgm("res://assets/son/Musics/vaisseau-_loop_.ogg", 0.0, -81, -1, SoundManager.get_playing_sounds()[0])
 
 func on_next_level():
 	get_tree().change_scene("res://src/levels/level_container.tscn")
