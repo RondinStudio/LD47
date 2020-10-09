@@ -1,13 +1,13 @@
 extends Control
 
-var ordrePersos = ["Narrator", "Flynn", "Gaston Le Kraken", "Flynn", "Gaston Le Kraken", "Flynn", "Gaston Le Kraken", "Flynn", "Gaston Le Kraken", "Narrator"]
+var ordrePersos = ["Narrator", "Flynn", "Gaston The Kraken", "Flynn", "Gaston The Kraken", "Flynn", "Gaston The Kraken", "Flynn", "Gaston The Kraken", "Narrator"]
 var ordrePhrase = ["The phone starts ringing", \
-"Hello, X-Treme Epic Truck Delivery Service Flynn, how can I help you?", \
-"Hey Flynn! It's Gaston The Kraken ! How you doin' ? Still EXTREME?!", \
-"Gaston! It’s been a while!", \
-"Yeah... Since that stupid delivery mission in the lost jungle of Hak-Hak-Hak. Remember? That's when I lost my fifth tentacle !", \
+"Hello, X-Treme Epic Truck Delivery Service Flynn, how could I help you ?", \
+"Hey Flynn it's Gaston The Kraken ! How are you ? Still EXTREME ?!", \
+"Gaston ! It’s been a while !", \
+"Yeah... Since that stupide delivery mission in the lost jungle of Hak-Hak-Hak. Remember ? I've lost my fifth tentacule here !", \
 "That was the good old days...", \
-"My spaceship is broken and I need to deliver a space four-wheeler to the prince Karim, you wish to join in ? Fifty/fifty, like the good old days.", \
+"I've broken my spaceship, I need to deliver a space four-wheeler to the prince Karim, do you want to participate ? Fifty/fifty, like the good old days.", \
 "Deal. Just teleport into my ship and let's go !", \
 "Here I come !", \
 "Gaston teleports himself in Flynn's spaceship."]
@@ -17,6 +17,8 @@ var ordreSprite = ["Narrator", "pitchoune_tel", "gaston", "pitchoune_bourre_cont
 func _ready():
 	$ZoneDialog.init(ordrePhrase, ordrePersos, ordreSprite)
 	Events.connect("next_level", self, "on_next_level") 
+	SoundManager.preload_resource(load("res://assets/son/Musics/vaisseau-_loop_.ogg"))
+	SoundManager.play_bgm("res://assets/son/Musics/vaisseau-_loop_.ogg", 0.0, -81, -1, SoundManager.get_playing_sounds()[0])
 
 func on_next_level():
 	get_tree().change_scene("res://src/levels/level_container.tscn")

@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/vaisseau-_loop_.ogg-cc32e7c2a22890ab83ce509a8e86127e.oggstr"
+
+[deps]
+
+source_file="res://assets/son/Musics/vaisseau-_loop_.ogg"
+dest_files=[ "res://.import/vaisseau-_loop_.ogg-cc32e7c2a22890ab83ce509a8e86127e.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

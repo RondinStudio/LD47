@@ -20,7 +20,7 @@ var ordrePhrase = ["Somewhere around Salmon-4 \nFlynn's phone rings.",\
 "Even pizzaiolo are talking like start-uppers nowadays...", \
 "Something teleports into your ship.", \
 "DAMN, THAT STINKS, where's my gas mask...", \
-"Well, gotta go fast!"]
+"Well, let's get going"]
 
 var ordreSprite = ["Narrator", "pitchoune_tel", "sancheese", "pitchoune_tel", "sancheese", "pitchoune_bourre_content", "sancheese",\
 "pitchoune_depite", "sancheese", "pitchoune_sunglasses", "sancheese", "pitchoune_triste", "sancheese", "Narrator", "pitchoune_depite", \
@@ -29,6 +29,8 @@ var ordreSprite = ["Narrator", "pitchoune_tel", "sancheese", "pitchoune_tel", "s
 func _ready():
 	$ZoneDialog.init(ordrePhrase, ordrePersos, ordreSprite)
 	Events.connect("next_level", self, "on_next_level") 
+	SoundManager.preload_resource(load("res://assets/son/Musics/vaisseau-_loop_.ogg"))
+	SoundManager.play_bgm("res://assets/son/Musics/vaisseau-_loop_.ogg", 0.0, -81, -1, SoundManager.get_playing_sounds()[0])
 
 func on_next_level():
 	get_tree().change_scene("res://src/levels/level_container.tscn")

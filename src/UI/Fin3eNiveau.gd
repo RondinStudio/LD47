@@ -20,22 +20,22 @@ var ordrePersos = [
 ]
 
 var ordrePhrase = [
-	"Here we are. K2-1000. It wasn’t easy, but I did it !", \
+	"Here we are. K2-1000. Wasn’t easy, but I did it !", \
 	"Something teleports into your ship", \
 	"Let’s call this MMA-0-TRA-K.", \
 	"Phone ringing...", \
 	"Phone ringing...", \
 	"Phone ringing...", \
-	"This stupid piece of scrap won’t answer. Smells fishy...", \
+	"This stupid piece of scrap won’t answer. Seems fishy...", \
 	"Phone ringing...", \
-	"Hello. I’m MMA-0-TRA-K, a diplomatic robot. How can I help you ?", \
+	"Hello. I’m MMA-0-TRA-K, a diplomatic robot. How could I help you ?", \
 	"Finally ! I delivered your package ! Now I want my \"many rewards\" !", \
 	"Who are you ?", \
-	"It's Flynn ! You hired me !", \
+	"I’m Flynn ! You hired me !", \
 	"I don’t have your name in my database, sorry. Have a nice day.", \
 	"The robot hangs up", \
 	"Fuck robots.", \
-	"I think I'll have to sleep in my spaceship again. Could be a comfy house to live in if I had a bed."
+	"I think I have to sleep in my spaceship again. Could be a comfy house to live in if I had a bed."
 ]
 
 var ordreSprite = [
@@ -60,6 +60,8 @@ var ordreSprite = [
 func _ready():
 	$ZoneDialog.init(ordrePhrase, ordrePersos, ordreSprite)
 	Events.connect("next_level", self, "on_next_level") 
+	SoundManager.preload_resource(load("res://assets/son/Musics/vaisseau-_loop_.ogg"))
+	SoundManager.play_bgm("res://assets/son/Musics/vaisseau-_loop_.ogg", 0.0, -81, -1, SoundManager.get_playing_sounds()[0])
 
 func on_next_level():
 	get_tree().change_scene("res://src/UI/Debut4eNiveau.tscn")

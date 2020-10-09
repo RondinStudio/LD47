@@ -1,19 +1,20 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://src/UI/pause_popup.gd" type="Script" id=1]
-[ext_resource path="res://demo/Cave-Story.ttf" type="DynamicFontData" id=3]
+[ext_resource path="res://assets/graphisme/menu principal/Exit.png" type="Texture" id=2]
+[ext_resource path="res://assets/graphisme/menu principal/Exit Pressed.png" type="Texture" id=3]
+[ext_resource path="res://assets/graphisme/menu principal/Restart Hover.png" type="Texture" id=4]
+[ext_resource path="res://assets/graphisme/menu principal/Resume Pressed.png" type="Texture" id=5]
+[ext_resource path="res://assets/graphisme/menu principal/Resume Hover.png" type="Texture" id=6]
+[ext_resource path="res://assets/graphisme/menu principal/Resume.png" type="Texture" id=7]
+[ext_resource path="res://assets/graphisme/menu principal/Restart.png" type="Texture" id=8]
+[ext_resource path="res://assets/graphisme/menu principal/Exit Over.png" type="Texture" id=9]
+[ext_resource path="res://assets/graphisme/menu principal/Restart Pressed.png" type="Texture" id=10]
+[ext_resource path="res://assets/fonts/Azonix.otf" type="DynamicFontData" id=11]
 
 [sub_resource type="DynamicFont" id=1]
 size = 300
-font_data = ExtResource( 3 )
-
-[sub_resource type="DynamicFont" id=2]
-size = 130
-font_data = ExtResource( 3 )
-
-[sub_resource type="DynamicFont" id=3]
-size = 130
-font_data = ExtResource( 3 )
+font_data = ExtResource( 11 )
 
 [node name="pause_popup" type="ColorRect"]
 pause_mode = 2
@@ -41,23 +42,32 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Exit" type="Button" parent="."]
+[node name="Exit" type="TextureButton" parent="."]
 margin_left = 700.0
-margin_top = 800.0
-margin_right = 1220.0
-margin_bottom = 920.0
-custom_fonts/font = SubResource( 2 )
-text = "EXIT"
+margin_top = 849.0
+margin_right = 1228.0
+margin_bottom = 1021.0
+texture_normal = ExtResource( 2 )
+texture_pressed = ExtResource( 3 )
+texture_hover = ExtResource( 9 )
 
-[node name="Resume" type="Button" parent="."]
+[node name="Retry" type="TextureButton" parent="."]
 margin_left = 700.0
-margin_top = 500.0
-margin_right = 1220.0
-margin_bottom = 620.0
-custom_fonts/font = SubResource( 3 )
-text = "RESUME"
-__meta__ = {
-"_edit_use_anchors_": false
-}
+margin_top = 623.0
+margin_right = 1228.0
+margin_bottom = 795.0
+texture_normal = ExtResource( 8 )
+texture_pressed = ExtResource( 10 )
+texture_hover = ExtResource( 4 )
+
+[node name="Resume" type="TextureButton" parent="."]
+margin_left = 700.0
+margin_top = 392.0
+margin_right = 1228.0
+margin_bottom = 564.0
+texture_normal = ExtResource( 7 )
+texture_pressed = ExtResource( 5 )
+texture_hover = ExtResource( 6 )
 [connection signal="pressed" from="Exit" to="." method="_on_Exit_pressed"]
+[connection signal="pressed" from="Retry" to="." method="_on_Retry_pressed"]
 [connection signal="pressed" from="Resume" to="." method="_on_Resume_pressed"]

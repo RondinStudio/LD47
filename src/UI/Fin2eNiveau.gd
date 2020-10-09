@@ -10,24 +10,24 @@ var actual_nightclub = 1
 var dark_alley = preload("res://assets/graphisme/histoire/Fond vaisseau.png")
 var spaceship = preload("res://assets/graphisme/histoire/Fond vaisseau.png")
 
-var ordrePersos = ["Gaston Le Kraken", "Flynn", "nightclub", "Flynn", "Gaston Le Kraken", "Flynn", "Gaston Le Kraken", "Flynn", "Gaston Le Kraken", \
+var ordrePersos = ["Gaston The Kraken", "Flynn", "nightclub", "Flynn", "Gaston The Kraken", "Flynn", "Gaston The Kraken", "Flynn", "Gaston The Kraken", \
 "Flynn", "Flynn", "spaceship", "Flynn", "Frog", "Flynn", "Frog", "Flynn", "Narrator", "Flynn"]
-var ordrePhrase = ["Wow, that was a bit more stressful than I expected. Wanna relax at The Groovy Groove like we used to do ?", \
+var ordrePhrase = ["Wow, that was a little bit more stressful than I thought. Wanna relax at The Groovy Groove like we used to do ?", \
 "There's no better nightclub than The Groovy Groove in the universe. LET'S GO !", \
-"They head towards the Groovy Groove and they start drinking... a LOT", \
+"They head toward the Groovy Groove and they start drinking a LOT", \
 "Heeeeey ! Gaston ! THIS PARTY IS INSANE !", \
-"Yeah ! Guess what ? I found my lost tentacle !", \
-"What? How?", \
-"And look at what I found with it! DRY JELLYFISH POWDER !", \
-"I don’t touch that anymore, you know ?", \
+"Yeah ! Guess what ? I’ve found my lost tentacule !", \
+"What ?", \
+"And look at what there was with it ! DRY JELLYFISH POWDER !", \
+"I don’t take those anymore, you know ?", \
 "Just one, in memory of the good old days !", \
 "...", \
-"Just one, in memory of the good old days...", \
+"Just one, in memory of the good old days.", \
 "Flynn wakes up several hours later, laying in his spaceship", \
 "Outch... My head... Where I am ? And... Where are my pants ?", \
 "Ribbit.", \
 "What the hell are you doing here ?", \
-"Ribbit.", \
+"Ribbit", \
 "Shit. Where is Gaston ? And where is my money ? I don’t remember anything...", \
 "Flynn sighs.", \
 "Pfff... Like the good old days... Once again, I need a job..."]
@@ -48,12 +48,18 @@ func on_change_background(name):
 	actual_background = name
 	print(name)
 	if name == "nightclub":
+		SoundManager.preload_resource(load("res://assets/son/Musics/Sons_LD47_club.ogg"))
+		SoundManager.play_bgm("res://assets/son/Musics/Sons_LD47_club.ogg", 0.0, -81, -1, SoundManager.get_playing_sounds()[0]) # Play nightclub music
 		$changementFond.start()
 		actual_nightclub = 1
 		$fond.texture = nightclub1
 	if name == "dark_alley":
+		SoundManager.preload_resource(load("res://assets/son/Musics/Ruelle.ogg"))
+		SoundManager.play_bgm("res://assets/son/Musics/Ruelle.ogg", 0.0, -81, -1, SoundManager.get_playing_sounds()[0]) # Play dark alley music
 		$fond.texture = dark_alley
 	if name == "spaceship":
+		SoundManager.preload_resource(load("res://assets/son/Musics/vaisseau_loop.ogg"))
+		SoundManager.play_bgm("res://assets/son/Musics/vaisseau_loop.ogg", 0.0, -81, -1, SoundManager.get_playing_sounds()[0]) # Play spaceship music
 		$fond.texture = spaceship
 
 func _on_changementFond_timeout():

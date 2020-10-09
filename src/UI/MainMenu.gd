@@ -5,7 +5,8 @@ export (int) var nb_etoile
 var nb_actuel = 0
 
 func _ready():
-	pass # Replace with function body.
+	#SoundManager.preload_resource_from_string("res://assets/son/Musics/vaisseau-_intro_.ogg")
+	SoundManager.play_bgm("res://assets/son/Musics/vaisseau-_loop_.ogg", 0.0, -81, -1) # Play spaceship music
 
 func _on_Exit_pressed():
 	get_tree().quit()

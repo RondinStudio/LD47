@@ -1,12 +1,13 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://assets/graphisme/Planete bleue.png" type="Texture" id=1]
 [ext_resource path="res://src/game/basic_planet/Planet.gd" type="Script" id=2]
 [ext_resource path="res://assets/graphisme/Drapeau.png" type="Texture" id=3]
 [ext_resource path="res://assets/graphisme/Base drapeau.png" type="Texture" id=4]
 [ext_resource path="res://src/game/basic_planet/ring.tscn" type="PackedScene" id=5]
+[ext_resource path="res://assets/graphisme/Drapeau arrivee.png" type="Texture" id=6]
 
-[sub_resource type="CircleShape2D" id=31]
+[sub_resource type="CircleShape2D" id=1]
 radius = 207.78
 
 [node name="PlanetBlue" type="Node2D"]
@@ -27,12 +28,17 @@ visible = false
 position = Vector2( -0.75, -76.25 )
 texture = ExtResource( 4 )
 
+[node name="SpriteFinNiveau" type="Sprite" parent="Sprite"]
+visible = false
+position = Vector2( -0.561218, -97.6542 )
+texture = ExtResource( 6 )
+
 [node name="Gravity" type="Area2D" parent="."]
 collision_layer = 2
 
 [node name="attraction" type="CollisionShape2D" parent="Gravity"]
 position = Vector2( -0.140308, -2.24493 )
-shape = SubResource( 31 )
+shape = SubResource( 1 )
 
 [node name="Pivot" type="Node2D" parent="."]
 rotation = 1.3631

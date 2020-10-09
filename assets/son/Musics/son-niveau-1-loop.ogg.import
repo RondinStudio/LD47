@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/son-niveau-1-loop.ogg-a8dd7cb87ba174f32527083fcfea903a.oggstr"
+
+[deps]
+
+source_file="res://assets/son/Musics/son-niveau-1-loop.ogg"
+dest_files=[ "res://.import/son-niveau-1-loop.ogg-a8dd7cb87ba174f32527083fcfea903a.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

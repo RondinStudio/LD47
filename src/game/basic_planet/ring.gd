@@ -11,7 +11,6 @@ func init(radius_param):
 	circumference = 2 * radius * PI
 	nb_points = circumference / 60
 	$Position2D/SpawnPos.position = Vector2(0, radius)
-	print("nb_points = ", nb_points)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta):
@@ -22,5 +21,4 @@ func _physics_process(delta):
 		rect.rect_global_position = $Position2D/SpawnPos.global_position - get_parent().position - RECT_SIZE/2
 		rect.rect_size = RECT_SIZE
 		self.add_child(rect)
-		print("rect.rect_position = ", rect.rect_position)
 		current_nb_points += 1
